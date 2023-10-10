@@ -3,22 +3,35 @@
 
 */
 
-import { useState, useEffect } from 'react'
+//style imports
 import './App.css'
+
+//hook imports
+import { useState, useEffect } from 'react'
+import useSound from 'use-sound'
 
 //image imports
 import burgerpic from "./assets/images/burger.jpeg"
 import workerpic from "./assets/images/worker.jpeg"
 
+//sfx imports
+import borgir from "./assets/sfx/borgir.mp3"
+
+//music imports
+
 //component imports
 import Burger from './components/Burger'
 
 
-function App() {
-  const [burgerCount, setBurgerCount] = useState(0)
-  const [burgersPerClick, setBurgersPerClick] = useState(1);
 
-  const [workers, setWorkers] = useState(0)
+function App() {
+  const [burgerCount, setBurgerCount] = useState(0);
+  const [burgersPerClick, setBurgersPerClick] = useState(1);
+  const [burgersPerSecond, setBurgersPerSecond] = useState(0);
+
+  const [workers, setWorkers] = useState(0);
+
+
 
 
   return (
@@ -30,9 +43,9 @@ function App() {
             setBurgerCount={setBurgerCount}
             burgersPerClick={burgersPerClick}
             setBurgersPerClick={setBurgersPerClick}
-
+            burgersPerSecond={burgersPerSecond}
+            setBurgersPerSecond={setBurgersPerSecond}
             burgerpic={burgerpic}
-
 
           />
         </div>

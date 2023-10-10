@@ -11,6 +11,9 @@ export default function burger(props) {
         <div>
             <section>Burgers: {props.burgerCount}</section>
             <section>
+                Burgers Per Second: {props.burgersPerSecond}
+            </section>
+            <section>
                 <img src={props.burgerpic} onClick={clickBurger}></img>
             </section>
 
