@@ -44,6 +44,8 @@ function App() {
     setDisplayedBurgerCount(Math.floor(burgerCount))
   }, [burgerCount])
 
+  const [playBorgirSound] = useSound(borgir)
+
   return (
     <>
       <div className='parent'>
@@ -118,6 +120,11 @@ function App() {
             buttontext="+1000000000 burger per click"
             functionarg={prev => prev + 1000000000}
             buttonfunc={setBurgersPerClick}
+          />
+          <TestConsoleButton
+            buttontext="borgir :)"
+            functionarg={""}
+            buttonfunc={playBorgirSound}
           />
         </div>
 
