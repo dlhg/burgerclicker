@@ -1,6 +1,6 @@
 /*
-- when you hover the burger img, it should animate:
-  - slightly increase size, with increase following
+to add:
+
 
 */
 
@@ -70,11 +70,18 @@ function App() {
         </div>
         <div className='div4'>
           <p>div4 - Store</p>
+          <section className="section">
+            classname section
+
+          </section>
+          <section className="section1">
+            classname section1
+          </section>
+          <section className="section2">
+            classname section2
+          </section>
         </div>
         <div className='div5'>
-          <p>div5</p>
-        </div>
-        <div className='div6'>
           <p>test console</p>
           <TestConsoleButton
             buttontext="set burgers/second to 0"
@@ -97,7 +104,7 @@ function App() {
             buttonfunc={setBurgersPerSecond}
           />
           <TestConsoleButton
-            buttontext="+10000000 burger/second"
+            buttontext="+10 million burger/second"
             functionarg={prev => prev + 10000000}
             buttonfunc={setBurgersPerSecond}
           />
@@ -117,7 +124,7 @@ function App() {
             buttonfunc={setBurgersPerClick}
           />
           <TestConsoleButton
-            buttontext="+1000000000 burger per click"
+            buttontext="+1 billion burger per click"
             functionarg={prev => prev + 1000000000}
             buttonfunc={setBurgersPerClick}
           />
