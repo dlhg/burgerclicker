@@ -1,0 +1,24 @@
+#root {
+  border: solid black 1px;
+}
+
+
+.parent {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-template-rows: repeat(5, 1fr);
+  grid-column-gap: 0px;
+  grid-row-gap: 0px;
+  }
+
+  .parent > * {
+    border: solid darkgray 1px;
+  }
+  
+  .div1 { 
+    grid-area: 1 / 1 / 6 / 2;
+   }
+  .div2 { grid-area: 1 / 2 / 2 / 5; }
+  .div3 { grid-area: 2 / 2 / 6 / 5; }
+  .div4 { grid-area: 1 / 5 / 3 / 6; }
+  .div5 { grid-area: 3 / 5 / 6 / 6; }
