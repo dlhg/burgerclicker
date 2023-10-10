@@ -32,6 +32,15 @@ function App() {
 
   const [workers, setWorkers] = useState(0);
 
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setBurgerCount(prevBurgerCount => prevBurgerCount + burgersPerSecond);
+    }, 1000);
+
+    return () => clearInterval(interval); // Cleanup the interval on component unmount
+
+  }, [burgersPerSecond]);
+
 
 
 
@@ -66,8 +75,18 @@ function App() {
           <p>test console</p>
           <TestConsoleButton
             buttontext='+1 burger/second'
-            buttonfunction={setBurgersPerSecond}
-
+            functionarg={prev => prev + 1}
+            buttonfunc={setBurgersPerSecond}
+          />
+          <TestConsoleButton
+            buttontext="set burgers/second to 0"
+            functionarg={0}
+            buttonfunc={setBurgersPerSecond}
+          />
+          <TestConsoleButton
+            buttontext="+10000000 burger/second"
+            functionarg={prev => prev + 10000000}
+            buttonfunc={setBurgersPerSecond}
           />
         </div>
 
