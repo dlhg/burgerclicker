@@ -10,17 +10,18 @@ import './App.css'
 import { useState, useEffect } from 'react'
 import useSound from 'use-sound'
 
-//image imports
-import burgerpic from "./assets/images/burger.jpeg"
-import workerpic from "./assets/images/worker.jpeg"
+//image import
+import burgerpic from './assets/images/burger.jpeg'
+import workerpic from './assets/images/worker.jpeg'
 
 //sfx imports
-import borgir from "./assets/sfx/borgir.mp3"
+import borgir from './assets/sfx/borgir.mp3'
 
 //music imports
 
 //component imports
 import Burger from './components/Burger'
+import TestConsoleButton from './components/TestConsoleButton'
 
 
 
@@ -36,8 +37,8 @@ function App() {
 
   return (
     <>
-      <div className="parent">
-        <div className="div1" id="burger">
+      <div className='parent'>
+        <div className='div1' id='burger'>
           <Burger
             burgerCount={burgerCount}
             setBurgerCount={setBurgerCount}
@@ -49,17 +50,25 @@ function App() {
 
           />
         </div>
-        <div className="div2">
+        <div className='div2'>
           <p>div2</p>
         </div>
-        <div className="div3">
+        <div className='div3'>
           <p>div3</p>
         </div>
-        <div className="div4">
+        <div className='div4'>
           <p>div4</p>
         </div>
-        <div className="div5">
+        <div className='div5'>
           <p>div5</p>
+        </div>
+        <div className='div6'>
+          <p>test console</p>
+          <TestConsoleButton
+            buttontext='+1 burger/second'
+            buttonfunction={setBurgersPerSecond}
+
+          />
         </div>
 
       </div>
