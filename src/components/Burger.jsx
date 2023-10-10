@@ -1,6 +1,7 @@
 import React from "react";
 
-
+// burgers section should update every 100ms
+//
 
 export default function burger(props) {
     function clickBurger() {
@@ -9,7 +10,7 @@ export default function burger(props) {
 
     return (
         <div>
-            <section>Burgers: {props.burgerCount}</section>
+            <section>Burgers: {props.displayedBurgerCount}</section>
             <section>
                 Burgers Per Second: {props.burgersPerSecond}
             </section>

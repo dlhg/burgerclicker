@@ -27,6 +27,7 @@ import TestConsoleButton from './components/TestConsoleButton'
 
 function App() {
   const [burgerCount, setBurgerCount] = useState(0);
+  const [displayedBurgerCount, setDisplayedBurgerCount] = useState(0);
   const [burgersPerClick, setBurgersPerClick] = useState(1);
   const [burgersPerSecond, setBurgersPerSecond] = useState(0);
 
@@ -34,12 +35,16 @@ function App() {
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setBurgerCount(prevBurgerCount => prevBurgerCount + burgersPerSecond);
-    }, 1000);
+      setBurgerCount(prevBurgerCount => prevBurgerCount + (burgersPerSecond / 10));
+    }, 100);
 
     return () => clearInterval(interval); // Cleanup the interval on component unmount
 
   }, [burgersPerSecond]);
+
+  useEffect(() => {
+    setDisplayedBurgerCount(Math.floor(burgerCount))
+  }, [burgerCount])
 
 
 
@@ -50,6 +55,7 @@ function App() {
         <div className='div1' id='burger'>
           <Burger
             burgerCount={burgerCount}
+            displayedBurgerCount={displayedBurgerCount}
             setBurgerCount={setBurgerCount}
             burgersPerClick={burgersPerClick}
             setBurgersPerClick={setBurgersPerClick}
