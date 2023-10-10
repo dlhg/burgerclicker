@@ -15,14 +15,22 @@
     border: solid darkgray 1px;
   }
   
-  .div1 { 
+  .div1 > * { 
     grid-area: 1 / 1 / 6 / 2;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  
+
    }
 
   .div1 img {
     width: 50%;
     height: 50%;
     transition: transform 0.2s ease;
+    display: inline-block;
   } 
   .div1 img:hover {
     transform: scale(1.2);
