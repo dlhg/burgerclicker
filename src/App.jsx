@@ -80,6 +80,16 @@ function App() {
             buttonfunc={setBurgersPerSecond}
           />
           <TestConsoleButton
+            buttontext='+100 burger/second'
+            functionarg={prev => prev + 100}
+            buttonfunc={setBurgersPerSecond}
+          />
+          <TestConsoleButton
+            buttontext='+1000 burger/second'
+            functionarg={prev => prev + 1000}
+            buttonfunc={setBurgersPerSecond}
+          />
+          <TestConsoleButton
             buttontext="set burgers/second to 0"
             functionarg={0}
             buttonfunc={setBurgersPerSecond}
@@ -88,6 +98,11 @@ function App() {
             buttontext="+10000000 burger/second"
             functionarg={prev => prev + 10000000}
             buttonfunc={setBurgersPerSecond}
+          />
+          <TestConsoleButton
+            buttontext="+1 burger per click"
+            functionarg={prev => prev + 1}
+            buttonfunc={setBurgersPerClick}
           />
         </div>
 
