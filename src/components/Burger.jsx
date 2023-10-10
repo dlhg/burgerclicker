@@ -1,28 +1,48 @@
-import React from "react";
+import React, { useEffect } from "react";
 
-// burgers section should update every 100ms
-//
+export default function Burger(props) {
+    useEffect(() => {
+        const interval = setInterval(() => {
+            props.setBurgerCount(prevCount => prevCount + props.burgersPerSecond / 10);
+        }, 100);
 
-export default function burger(props) {
+        return () => clearInterval(interval);
+    }, [props.burgersPerSecond, props.setBurgerCount]);
+
+    function formatNumber(number) {
+        if (number >= 1e12) {
+            return (number / 1e12).toFixed(3) + " trillion";
+        } else if (number >= 1e9) {
+            return (number / 1e9).toFixed(3) + " billion";
+        } else if (number >= 1e6) {
+            return (number / 1e6).toFixed(3) + " million";
+        } else {
+            return number.toFixed(0);
+        }
+    }
+
     function clickBurger() {
-        props.setBurgerCount(prevCount => prevCount + props.burgersPerClick)
+        props.setBurgerCount(prevCount => prevCount + props.burgersPerClick);
     }
 
     return (
         <div>
-            <section>Burgers: {props.displayedBurgerCount}</section>
             <section>
-                Burgers Per Second: {props.burgersPerSecond}
-            </section>
-            <br></br>
-            <br></br>
-            <section>
-                <img src={props.burgerpic} onClick={clickBurger}></img>
-                <br></br>
-                <br></br>
-
+                Burgers: {formatNumber(props.displayedBurgerCount)}
             </section>
 
+            <section>
+                Burgers Per Second: {formatNumber(props.burgersPerSecond)}
+            </section>
+
+            <br />
+            <br />
+
+            <section>
+                <img src={props.burgerpic} onClick={clickBurger} alt="Burger" />
+                <br />
+                <br />
+            </section>
         </div>
-    )
+    );
 }
