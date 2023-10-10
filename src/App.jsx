@@ -75,6 +75,11 @@ function App() {
         <div className='div6'>
           <p>test console</p>
           <TestConsoleButton
+            buttontext="set burgers/second to 0"
+            functionarg={0}
+            buttonfunc={setBurgersPerSecond}
+          />
+          <TestConsoleButton
             buttontext='+1 burger/second'
             functionarg={prev => prev + 1}
             buttonfunc={setBurgersPerSecond}
@@ -90,11 +95,6 @@ function App() {
             buttonfunc={setBurgersPerSecond}
           />
           <TestConsoleButton
-            buttontext="set burgers/second to 0"
-            functionarg={0}
-            buttonfunc={setBurgersPerSecond}
-          />
-          <TestConsoleButton
             buttontext="+10000000 burger/second"
             functionarg={prev => prev + 10000000}
             buttonfunc={setBurgersPerSecond}
@@ -102,6 +102,21 @@ function App() {
           <TestConsoleButton
             buttontext="+1 burger per click"
             functionarg={prev => prev + 1}
+            buttonfunc={setBurgersPerClick}
+          />
+          <TestConsoleButton
+            buttontext="+1000 burger per click"
+            functionarg={prev => prev + 1000}
+            buttonfunc={setBurgersPerClick}
+          />
+          <TestConsoleButton
+            buttontext="+10000 burger per click"
+            functionarg={prev => prev + 10000}
+            buttonfunc={setBurgersPerClick}
+          />
+          <TestConsoleButton
+            buttontext="+1000000000 burger per click"
+            functionarg={prev => prev + 1000000000}
             buttonfunc={setBurgersPerClick}
           />
         </div>

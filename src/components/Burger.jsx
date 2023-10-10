@@ -10,9 +10,7 @@ export default function Burger(props) {
     }, [props.burgersPerSecond, props.setBurgerCount]);
 
     function formatNumber(number) {
-        if (number >= 1e12) {
-            return (number / 1e12).toFixed(3) + " trillion";
-        } else if (number >= 1e9) {
+        if (number >= 1e9) {
             return (number / 1e9).toFixed(3) + " billion";
         } else if (number >= 1e6) {
             return (number / 1e6).toFixed(3) + " million";
@@ -35,7 +33,7 @@ export default function Burger(props) {
                 Burgers Per Second: {formatNumber(props.burgersPerSecond)}
             </section>
             <section>
-                Burgers Per Click: {props.burgersPerClick}
+                Burgers Per Click: {formatNumber(props.burgersPerClick)}
             </section>
 
             <br />
