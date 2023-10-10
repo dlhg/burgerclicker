@@ -43,6 +43,8 @@ export default function Burger(props) {
                 <img src={props.burgerpic} onClick={clickBurger} alt="Burger" />
                 <br />
                 <br />
+                <br />
+                <br />
             </section>
         </div>
     );
