@@ -61,8 +61,10 @@
     
   } 
   .div1 img:hover {
-    
     animation: wobble 0.7s ease-in-out;
+  }
+  .div1 img:active {
+    animation: bounce 0.1s ease-in
   }
   .div2 { grid-area: 1 / 2 / 2 / 5; }
   .div3 { grid-area: 2 / 2 / 6 / 5; }
