@@ -1,5 +1,6 @@
 /*
-
+- when you hover the burger img, it should animate:
+  - slightly increase size, with increase following
 
 */
 
@@ -23,8 +24,6 @@ import borgir from './assets/sfx/borgir.mp3'
 import Burger from './components/Burger'
 import TestConsoleButton from './components/TestConsoleButton'
 
-
-
 function App() {
   const [burgerCount, setBurgerCount] = useState(0);
   const [displayedBurgerCount, setDisplayedBurgerCount] = useState(0);
@@ -41,13 +40,9 @@ function App() {
     return () => clearInterval(interval); // Cleanup the interval on component unmount
 
   }, [burgersPerSecond]);
-
   useEffect(() => {
     setDisplayedBurgerCount(Math.floor(burgerCount))
   }, [burgerCount])
-
-
-
 
   return (
     <>
@@ -72,7 +67,7 @@ function App() {
           <p>div3</p>
         </div>
         <div className='div4'>
-          <p>div4</p>
+          <p>div4 - Store</p>
         </div>
         <div className='div5'>
           <p>div5</p>

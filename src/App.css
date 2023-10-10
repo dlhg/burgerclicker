@@ -22,7 +22,11 @@
   .div1 img {
     width: 50%;
     height: 50%;
+    transition: transform 0.2s ease;
   } 
+  .div1 img:hover {
+    transform: scale(1.2);
+  }
   .div2 { grid-area: 1 / 2 / 2 / 5; }
   .div3 { grid-area: 2 / 2 / 6 / 5; }
   .div4 { grid-area: 1 / 5 / 3 / 6; }
