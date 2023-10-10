@@ -16,7 +16,10 @@ import Burger from './components/Burger'
 
 function App() {
   const [burgerCount, setBurgerCount] = useState(0)
+  const [burgersPerClick, setBurgersPerClick] = useState(1);
+
   const [workers, setWorkers] = useState(0)
+
 
   return (
     <>
@@ -24,6 +27,12 @@ function App() {
         <div className="div1" id="burger">
           <Burger
             burgerCount={burgerCount}
+            setBurgerCount={setBurgerCount}
+            burgersPerClick={burgersPerClick}
+            setBurgersPerClick={setBurgersPerClick}
+
+            burgerpic={burgerpic}
+
 
           />
         </div>
