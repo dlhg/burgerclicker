@@ -97,6 +97,9 @@
 }
 
 .section1:hover + .section2 {
+    /*
     transform: translateY(15%);
+    dont think i need this
+    */
 }
   .div5 { grid-area: 3 / 5 / 6 / 6; }

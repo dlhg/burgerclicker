@@ -69,9 +69,9 @@ function App() {
           <p>div3</p>
         </div>
         <div className='div4'>
-          <p>div4 - Store</p>
+
           <section className="section">
-            classname section
+            store
 
           </section>
           <section className="section1">
