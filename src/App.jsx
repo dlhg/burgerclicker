@@ -24,6 +24,7 @@ import borgir from './assets/sfx/borgir.mp3'
 import Burger from './components/Burger'
 import TestConsoleButton from './components/TestConsoleButton'
 import StoreItem from './components/StoreItem'
+import Navbar from './components/Navbar'
 
 function App() {
   const [burgerCount, setBurgerCount] = useState(0);
@@ -64,7 +65,8 @@ function App() {
           />
         </div>
         <div className='div2'>
-          <p>div2</p>
+          <p>div2 - navbar</p>
+          <Navbar />
         </div>
         <div className='div3'>
           <p>div3</p>
