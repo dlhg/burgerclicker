@@ -29,6 +29,8 @@ import Navbar from './components/Navbar'
 function App() {
   const [burgerCount, setBurgerCount] = useState(0);
   const [displayedBurgerCount, setDisplayedBurgerCount] = useState(0);
+  const [burgersMadeFromClicking, setBurgersMadeFromClicking] = useState(0);
+  const [burgersMadeFromAutomation, setBurgersMadeFromAutomation] = useState(0);
   const [burgersPerClick, setBurgersPerClick] = useState(1);
   const [burgersPerSecond, setBurgersPerSecond] = useState(0);
 
@@ -60,6 +62,9 @@ function App() {
             setBurgersPerClick={setBurgersPerClick}
             burgersPerSecond={burgersPerSecond}
             setBurgersPerSecond={setBurgersPerSecond}
+            burgersMadeFromClicking={burgersMadeFromClicking}
+            setBurgersMadeFromClicking={setBurgersMadeFromClicking}
+            setBurgersMadeFromAutomation={setBurgersMadeFromAutomation}
             burgerpic={burgerpic}
 
           />

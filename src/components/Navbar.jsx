@@ -1,11 +1,12 @@
 import React from "react";
+import Quips from "./Quips";
 
 export default function Navbar(props) {
     return (
         <>
             <button>options</button>
             <button>stats</button>
-            <section>quips based on gamestate</section>
+            <Quips />
             <button>info</button>
             <button>legacy</button>
         </>
