@@ -4,11 +4,15 @@ export default function Burger(props) {
     useEffect(() => {
         const interval = setInterval(() => {
             props.setBurgerCount(prevCount => prevCount + props.burgersPerSecond / 10);
+            props.setBurgersMadeFromAutomation(prevCount => prevCount + props.burgersPerSecond / 10); // Update automation count
+            console.log('some burgers added via automation');
         }, 100);
 
         return () => clearInterval(interval);
-    }, [props.burgersPerSecond, props.setBurgerCount]);
+    }, [props.burgersPerSecond, props.setBurgerCount, props.setBurgersMadeFromAutomation]);
 
+
+    //should eventually extend this function to deal with higher burger numbers
     function formatNumber(number) {
         if (number >= 1e9) {
             return (number / 1e9).toFixed(3) + " billion";
@@ -19,7 +23,7 @@ export default function Burger(props) {
         }
     }
 
-    function clickBurger() {
+    function handleBurgerClick() {
         props.setBurgerCount(prevCount => prevCount + props.burgersPerClick);
         props.setBurgersMadeFromClicking(prevCount => prevCount + props.burgersPerClick);
     }
@@ -40,14 +44,15 @@ export default function Burger(props) {
                 Burgers Made From Clicking: {formatNumber(props.burgersMadeFromClicking)}
             </section>
             <section>
-                Burgers Made From Automation: {formatNumber(props.burgersMadeFromAutomation)}
+                {/*why do i need to multiply this by two to have it be accurate? */}
+                Burgers Made From Automation: {formatNumber(props.burgersMadeFromAutomation * 2)}
             </section>
 
             <br />
             <br />
 
             <section>
-                <img src={props.burgerpic} onClick={clickBurger} alt="Burger" />
+                <img src={props.burgerpic} onClick={handleBurgerClick} alt="Burger" />
                 <br />
                 <br />
                 <br />
