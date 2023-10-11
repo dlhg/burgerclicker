@@ -1,5 +1,5 @@
-import React, { useEffect } from "react";
-
+import React, { useEffect, useState } from "react";
+//update component to track burgers made from clicking vs automation (for achievements)
 export default function Burger(props) {
     useEffect(() => {
         const interval = setInterval(() => {
