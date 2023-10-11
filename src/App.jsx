@@ -64,6 +64,7 @@ function App() {
             setBurgersPerSecond={setBurgersPerSecond}
             burgersMadeFromClicking={burgersMadeFromClicking}
             setBurgersMadeFromClicking={setBurgersMadeFromClicking}
+            burgersMadeFromAutomation={burgersMadeFromAutomation}
             setBurgersMadeFromAutomation={setBurgersMadeFromAutomation}
             burgerpic={burgerpic}
 
