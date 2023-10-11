@@ -27,6 +27,7 @@ import StoreItem from './components/StoreItem'
 import Navbar from './components/Navbar'
 
 function App() {
+  //state
   const [burgerCount, setBurgerCount] = useState(0);
   const [displayedBurgerCount, setDisplayedBurgerCount] = useState(0);
   const [burgersMadeFromClicking, setBurgersMadeFromClicking] = useState(0);
@@ -36,6 +37,7 @@ function App() {
 
   const [workers, setWorkers] = useState(0);
 
+  //useEffect
   useEffect(() => {
     const interval = setInterval(() => {
       setBurgerCount(prevBurgerCount => prevBurgerCount + (burgersPerSecond / 10));
