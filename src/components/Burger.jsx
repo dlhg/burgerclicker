@@ -9,7 +9,7 @@ export default function Burger(props) {
         }, 100);
 
         return () => clearInterval(interval);
-    }, [props.burgersPerSecond, props.setBurgerCount, props.setBurgersMadeFromAutomation]);
+    }, [props.burgersPerSecond]);
 
 
     //should eventually extend this function to deal with higher burger numbers
@@ -33,6 +33,9 @@ export default function Burger(props) {
             <section>
                 Burgers: {formatNumber(props.displayedBurgerCount)}
             </section>
+            <section>
+                Total Burgers Produced: {props.totalBurgersProduced}
+            </section>
 
             <section>
                 Burgers Per Second: {formatNumber(props.burgersPerSecond)}
@@ -41,11 +44,11 @@ export default function Burger(props) {
                 Burgers Per Click: {formatNumber(props.burgersPerClick)}
             </section>
             <section>
-                Burgers Made From Clicking: {formatNumber(props.burgersMadeFromClicking)}
+                Burgers Made By Clicking: {formatNumber(props.burgersMadeFromClicking)}
             </section>
             <section>
                 {/*why do i need to multiply this by two to have it be accurate? */}
-                Burgers Made From Automation: {formatNumber(props.burgersMadeFromAutomation * 2)}
+                Burgers Made By Automation: {formatNumber(props.burgersMadeFromAutomation * 2)}
             </section>
 
             <br />

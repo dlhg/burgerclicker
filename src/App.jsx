@@ -26,16 +26,32 @@ import TestConsoleButton from './components/TestConsoleButton'
 import StoreItem from './components/StoreItem'
 import Navbar from './components/Navbar'
 
+
 function App() {
   //state
+  //reflects player's current amount of burgers
   const [burgerCount, setBurgerCount] = useState(0);
+  //displayed count is burger count rounded down to the nearest int
   const [displayedBurgerCount, setDisplayedBurgerCount] = useState(0);
+  //
+  const [totalBurgersProduced, setTotalBurgersProduced] = useState(0);
   const [burgersMadeFromClicking, setBurgersMadeFromClicking] = useState(0);
   const [burgersMadeFromAutomation, setBurgersMadeFromAutomation] = useState(0);
   const [burgersPerClick, setBurgersPerClick] = useState(1);
   const [burgersPerSecond, setBurgersPerSecond] = useState(0);
 
   const [workers, setWorkers] = useState(0);
+
+  //helper functions 
+  function formatNumber(number) {
+    if (number >= 1e9) {
+      return (number / 1e9).toFixed(3) + " billion";
+    } else if (number >= 1e6) {
+      return (number / 1e6).toFixed(3) + " million";
+    } else {
+      return number.toFixed(0);
+    }
+  }
 
   //useEffect
   useEffect(() => {
@@ -50,6 +66,12 @@ function App() {
     setDisplayedBurgerCount(Math.floor(burgerCount))
   }, [burgerCount])
 
+  useEffect(() => {
+    //why does this need to be multiplied by 2?
+    setTotalBurgersProduced(formatNumber((burgersMadeFromClicking + burgersMadeFromAutomation) * 2))
+    console.log('setTotalBurgersProduced fired')
+  }, [burgersMadeFromClicking, burgersMadeFromAutomation])
+
   const [playBorgirSound] = useSound(borgir)
 
   return (
@@ -57,6 +79,7 @@ function App() {
       <div className='parent'>
         <div className='div1' id='burger'>
           <Burger
+            totalBurgersProduced={totalBurgersProduced}
             burgerCount={burgerCount}
             displayedBurgerCount={displayedBurgerCount}
             setBurgerCount={setBurgerCount}

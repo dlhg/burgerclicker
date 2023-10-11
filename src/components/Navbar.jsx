@@ -6,7 +6,9 @@ export default function Navbar(props) {
         <>
             <button>options</button>
             <button>stats</button>
-            <Quips />
+            <Quips
+
+            />
             <button>info</button>
             <button>legacy</button>
         </>

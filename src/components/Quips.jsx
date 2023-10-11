@@ -322,27 +322,28 @@ const level7quips = [
     "Our restaurant is the official sponsor of the World Burger Olympics, a spectacular event that showcases the talents of burger chefs from every nation.",
 ];
 
+const quipLevelThresholds = [
+    { threshold: 100, quips: level1quips },
+    { threshold: 500, quips: level2quips },
+    { threshold: 1000, quips: level3quips },
+    { threshold: 5000, quips: level4quips },
+    { threshold: 10000, quips: level5quips },
+    { threshold: 50000, quips: level6quips },
+    { threshold: 100000, quips: level7quips },
+];
 
 
 
 export default function Quips(props) {
-    /* should check the player's current cookies/second
+    /* should check the player's current cookies made by auto + cookies made by click
     // depending on that, choose a quip level
     // pick a random quip at that level and display it
-    // then every 6s, check if player is still at that level
-    //      - if they are, pick another random quip of same level and display
-    //      - if they are not, change quip level and continue
-    //  but what if player powers up manual clicking and not auto production? they will get low progress messages despite progressing through the game
-        if both auto production and manual clicking can be upgraded and are not mutually inclusive, whats a good proxy for progress?
-        maybe create a burger count that is not affected by in-game decrementing (like spending burgers on staff/buildings)
-        so basically the amount of total burgers produced from beginning to now = what determines which quip lvl player is at
-        would this be computationally expensive or tricky though since there the number could get really big quickly?
-        1.7976931348623157e+308 is the biggest number in JS
-        could just keep track of spent burgers and sum that with current burgers
-
-
-
     */
+
+    function determineQuipLevel() {
+
+    }
+
     return (
         <>
         </>
