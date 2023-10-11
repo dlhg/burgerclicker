@@ -69,10 +69,9 @@ function App() {
   useEffect(() => {
     //why does this need to be multiplied by 2?
     setTotalBurgersProduced(formatNumber((burgersMadeFromClicking + burgersMadeFromAutomation) * 2))
-    console.log('setTotalBurgersProduced fired')
   }, [burgersMadeFromClicking, burgersMadeFromAutomation])
 
-  const [playBorgirSound] = useSound(borgir)
+  const [playBorgirSound] = useSound(borgir);
 
   return (
     <>
