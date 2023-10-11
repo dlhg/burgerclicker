@@ -80,6 +80,15 @@ function App() {
             <StoreItem
 
             />
+            <StoreItem
+
+            />
+            <StoreItem
+
+            />
+            <StoreItem
+
+            />
           </section>
           <section className="section2">
             classname section2
