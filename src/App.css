@@ -41,6 +41,7 @@
   }
   
   .div1 > * { 
+    {/* burgers, bps, bpc, and burger pic*/}
     grid-area: 1 / 1 / 6 / 2;
     display: flex;
     flex-direction: column;
@@ -73,27 +74,38 @@
     grid-area: 1 / 5 / 3 / 6;
     height: 100%;
     overflow: hidden;
-    
+
                                     
   }
 
   .section {
+    
     width: 100%;
-    transition: all 0.3s ease;
+    transition: height 0.3s ease;
 }
 
 .section1 {
+  /* top part of store */
     height: 15%;
     border: solid red 1px;
+    grid-template-columns: repeat(5, 0.5fr);
+    grid-template-rows: repeat(5, 1fr);
+    grid-column-gap: 0px;
+    grid-row-gap: 0px;
+    overflow: hidden;
 }
 
 .section2 {
+  /* bottom part of store */
     height: 85%;
     border: solid blue 1px;
 }
 
 .section1:hover {
     height: 30%;
+    /* in cookie clicker, the amount that the store expands is
+    dependent on the number of rows of available store items, maybe add
+    that later instead of expanding a fixed length */
 }
 
 .section1:hover + .section2 {

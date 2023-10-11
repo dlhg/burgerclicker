@@ -75,7 +75,16 @@ function App() {
 
           </section>
           <section className="section1">
-            classname section1
+            {/*
+            classname section1 - create currentstoreitems array and state
+
+  */}
+            <div>1</div>
+            <div>2</div>
+            <div>1</div>
+            <div>2</div>
+            <div>1</div>
+            <div>2</div>
           </section>
           <section className="section2">
             classname section2
