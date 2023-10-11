@@ -1,17 +1,13 @@
 import React, { useEffect, useState } from "react";
 //update component to track burgers made from clicking vs automation (for achievements)
 export default function Burger(props) {
+    useEffect(() => {
+        const interval = setInterval(() => {
+            props.setBurgerCount(prevCount => prevCount + props.burgersPerSecond / 10);
+        }, 100);
 
-    function
-
-        useEffect(() => {
-            const interval = setInterval(() => {
-                props.setBurgerCount(prevCount => prevCount + props.burgersPerSecond / 10);
-                //props.setBurgersMadeFromAutomation(prevCount => prevCount + props.burgersPerSecond / 10)
-            }, 100);
-
-            return () => clearInterval(interval);
-        }, [props.burgersPerSecond, props.setBurgerCount]);
+        return () => clearInterval(interval);
+    }, [props.burgersPerSecond, props.setBurgerCount]);
 
     function formatNumber(number) {
         if (number >= 1e9) {
