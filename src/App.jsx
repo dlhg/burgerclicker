@@ -23,6 +23,7 @@ import borgir from './assets/sfx/borgir.mp3'
 //component imports
 import Burger from './components/Burger'
 import TestConsoleButton from './components/TestConsoleButton'
+import StoreItem from './components/StoreItem'
 
 function App() {
   const [burgerCount, setBurgerCount] = useState(0);
@@ -75,16 +76,10 @@ function App() {
 
           </section>
           <section className="section1">
-            {/*
-            classname section1 - create currentstoreitems array and state
+            {/*classname section1 - create and map currentstoreitems array and state*/}
+            <StoreItem
 
-  */}
-            <div>1</div>
-            <div>2</div>
-            <div>1</div>
-            <div>2</div>
-            <div>1</div>
-            <div>2</div>
+            />
           </section>
           <section className="section2">
             classname section2
