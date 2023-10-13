@@ -7,8 +7,19 @@ import click4 from '../assets/sfx/click4.wav'
 const clicksounds = [click1, click2, click3, click4]
 
 
+function getRandomNumber(length) {
+    const randomDecimal = Math.random();
+    const randomNumber = Math.floor(randomDecimal * (length + 1));
+    return randomNumber;
+}
+
+function getRandomIndex(array) {
+    const length = array.length;
+    return getRandomNumber(length);
+}
 
 export default function Burger(props) {
+    const [play] = useSound(clicksounds[getRandomIndex(clicksounds)]);
 
     useEffect(() => {
         const interval = setInterval(() => {
@@ -34,7 +45,7 @@ export default function Burger(props) {
     function handleBurgerClick() {
         props.setBurgerCount(prevCount => prevCount + props.burgersPerClick);
         props.setBurgersMadeFromClicking(prevCount => prevCount + props.burgersPerClick);
-
+        play()
     }
 
 
