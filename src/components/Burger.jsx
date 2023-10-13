@@ -1,4 +1,12 @@
 import React, { useEffect, useState } from "react";
+import useSound from "use-sound";
+import click1 from '../assets/sfx/click1.wav'
+import click2 from '../assets/sfx/click2.wav'
+import click3 from '../assets/sfx/click3.wav'
+import click4 from '../assets/sfx/click4.wav'
+const clicksounds = [click1, click2, click3, click4]
+
+
 
 export default function Burger(props) {
 
@@ -26,7 +34,10 @@ export default function Burger(props) {
     function handleBurgerClick() {
         props.setBurgerCount(prevCount => prevCount + props.burgersPerClick);
         props.setBurgersMadeFromClicking(prevCount => prevCount + props.burgersPerClick);
+
     }
+
+
 
     return (
         <div>
