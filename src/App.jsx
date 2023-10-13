@@ -67,8 +67,9 @@ function App() {
   }, [burgerCount])
 
   useEffect(() => {
-    //why does this need to be multiplied by 2?
-    setTotalBurgersProduced(formatNumber((burgersMadeFromClicking + burgersMadeFromAutomation) * 2))
+    //why does burgers from automation need to be multiplied by 2?
+    console.log('checking')
+    setTotalBurgersProduced(formatNumber(((burgersMadeFromClicking) + (burgersMadeFromAutomation * 2))))
   }, [burgersMadeFromClicking, burgersMadeFromAutomation])
 
   const [playBorgirSound] = useSound(borgir);
