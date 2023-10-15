@@ -4,19 +4,12 @@ import click1 from '../assets/sfx/click1.wav'
 import click2 from '../assets/sfx/click2.wav'
 import click3 from '../assets/sfx/click3.wav'
 import click4 from '../assets/sfx/click4.wav'
+import { getRandomIndex } from "../Utils"
+import { getRandomNumber } from "../Utils"
 const clicksounds = [click1, click2, click3, click4]
 
 
-function getRandomNumber(length) {
-    const randomDecimal = Math.random();
-    const randomNumber = Math.floor(randomDecimal * (length + 1));
-    return randomNumber;
-}
 
-function getRandomIndex(array) {
-    const length = array.length;
-    return getRandomNumber(length);
-}
 
 export default function Burger(props) {
     const [play] = useSound(clicksounds[getRandomIndex(clicksounds)]);

@@ -118,6 +118,10 @@ function App() {
           </section>
           <section className="section1">
             {/*classname section1 - create and map currentstoreitems array and state*/}
+
+
+          </section>
+          <section className="section2">
             <StoreItem
               storeItemImage={pointer}
               storeItemName="pointer"
@@ -129,10 +133,6 @@ function App() {
               setPointerCount={setPointerCount}
               bpsIncrease={1}
             />
-
-          </section>
-          <section className="section2">
-            classname section2
           </section>
         </div>
         <div className='div5'>
