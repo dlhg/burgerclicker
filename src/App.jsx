@@ -44,7 +44,8 @@ function App() {
   const [burgersPerClick, setBurgersPerClick] = useState(1);
   const [burgersPerSecond, setBurgersPerSecond] = useState(0);
 
-  const [workers, setWorkers] = useState(0);
+
+  const [pointerCount, setPointerCount] = useState(0);
 
   //helper functions 
   function formatNumber(number) {
@@ -72,7 +73,6 @@ function App() {
 
   useEffect(() => {
     //why does burgers from automation need to be multiplied by 2?
-    console.log('checking')
     setTotalBurgersProduced(formatNumber(((burgersMadeFromClicking) + (burgersMadeFromAutomation * 2))))
   }, [burgersMadeFromClicking, burgersMadeFromAutomation])
 
@@ -120,12 +120,13 @@ function App() {
             {/*classname section1 - create and map currentstoreitems array and state*/}
             <StoreItem
               storeItemImage={pointer}
-              storeItemName="cursor"
+              storeItemName="pointer"
               storeItemPrice={15}
-              storeItemQuantityOwned={0}
               burgerCount={burgerCount}
               setBurgerCount={setBurgerCount}
               setBurgersPerSecond={setBurgersPerSecond}
+              pointerCount={pointerCount}
+              setPointerCount={setPointerCount}
               bpsIncrease={1}
             />
 

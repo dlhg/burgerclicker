@@ -9,6 +9,7 @@ export default function StoreItem(props) {
         }
         props.setBurgerCount(prev => prev - props.storeItemPrice)
         props.setBurgersPerSecond(prev => prev + props.bpsIncrease)
+        props.setPointerCount(prev => prev + 1)
     }
 
 
@@ -18,7 +19,7 @@ export default function StoreItem(props) {
                 <div><img src={props.storeItemImage} alt="image of store item"></img></div>
                 <div>{props.storeItemName}</div>
                 <div>item price:{props.storeItemPrice}</div>
-                <div>quantity owned:{props.storeItemQuantityOwned}</div>
+                <div>quantity owned:{props.pointerCount}</div>
             </div>
         </>
     )
