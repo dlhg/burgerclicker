@@ -14,6 +14,8 @@ import useSound from 'use-sound'
 //image import
 import burgerpic from './assets/images/burger.jpeg'
 import workerpic from './assets/images/worker.jpeg'
+import pointer from './assets/images/pointer.png'
+
 
 //sfx imports
 import borgir from './assets/sfx/borgir.mp3'
@@ -103,6 +105,10 @@ function App() {
         </div>
         <div className='div3'>
           <p>div3</p>
+          {/*
+          - will display rows of upgrades/buildings
+          - 
+          */}
         </div>
         <div className='div4'>
 
@@ -113,17 +119,16 @@ function App() {
           <section className="section1">
             {/*classname section1 - create and map currentstoreitems array and state*/}
             <StoreItem
-
+              storeItemImage={pointer}
+              storeItemName="cursor"
+              storeItemPrice={15}
+              storeItemQuantityOwned={0}
+              burgerCount={burgerCount}
+              setBurgerCount={setBurgerCount}
+              setBurgersPerSecond={setBurgersPerSecond}
+              bpsIncrease={1}
             />
-            <StoreItem
 
-            />
-            <StoreItem
-
-            />
-            <StoreItem
-
-            />
           </section>
           <section className="section2">
             classname section2
