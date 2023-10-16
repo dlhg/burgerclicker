@@ -29,6 +29,7 @@ import Burger from './components/Burger'
 import TestConsoleButton from './components/TestConsoleButton'
 import StoreItem from './components/StoreItem'
 import Navbar from './components/Navbar'
+import APIfetcher from './components/APIfetcher'
 
 
 function App() {
@@ -118,6 +119,7 @@ function App() {
           </section>
           <section className="section1">
             {/*classname section1 - create and map currentstoreitems array and state*/}
+            <APIfetcher />
 
 
           </section>

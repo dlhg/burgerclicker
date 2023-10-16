@@ -115,3 +115,7 @@
     */
 }
   .div5 { grid-area: 3 / 5 / 6 / 6; }
+
+  .store--item {
+    border: solid blue 1px
+  }
