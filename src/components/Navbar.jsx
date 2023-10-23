@@ -4,13 +4,13 @@ import Quips from "./Quips";
 export default function Navbar(props) {
     return (
         <>
-            <button>options</button>
-            <button>stats</button>
+            <button onClick={() => props.setMainArea("options")}>options</button>
+            <button onClick={() => props.setMainArea("stats")}>stats</button>
             <Quips
 
             />
-            <button>info</button>
-            <button>legacy</button>
+            <button onClick={() => props.setMainArea("info")}>info</button>
+            <button onClick={() => props.setMainArea("legacy")}>legacy</button>
         </>
     )
 }

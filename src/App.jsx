@@ -1,7 +1,12 @@
 /*
 to add:
-
-
+  - clicking buttons in navbar should control a state variable (default = buildings)
+    - this state variable should conditionally render in div 3:
+      - options screen
+      - stats screen
+      - info screen
+      - legacy screen
+  - pressing X on any of these screens should revert value back to game screen
 */
 
 //style imports
@@ -22,8 +27,6 @@ import questionmarkpic from './assets/images/questionmark_small.jpeg'
 //sfx imports
 import borgir from './assets/sfx/borgir.mp3'
 
-
-
 //music imports
 
 //component imports
@@ -32,10 +35,21 @@ import TestConsoleButton from './components/TestConsoleButton'
 import StoreItem from './components/StoreItem'
 import Navbar from './components/Navbar'
 import APIfetcher from './components/APIfetcher'
+import Buildings from './components/Buildings'
+import Options from './components/Options'
+import Stats from './components/Stats'
+import Info from './components/Info'
+import Legacy from './components/Legacy'
+
 
 
 function App() {
   //state
+
+  //state for main area (game, options, stats, info, legacy)
+  const [mainArea, setMainArea] = useState("buildings");
+
+
   //reflects player's current amount of burgers (burgers in bank)
   const [burgerCount, setBurgerCount] = useState(0);
   //displayed count is burger count rounded down to the nearest int
@@ -104,16 +118,28 @@ function App() {
 
           />
         </div>
-        <div className='div2'>
-          <p>div2 - navbar</p>
-          <Navbar />
+        <div className='div2' id='navbar'>
+          <Navbar
+            setMainArea={setMainArea}
+          />
         </div>
-        <div className='div3'>
-          <p>div3</p>
-          {/*
-          - will display rows of upgrades/buildings
-          - 
-          */}
+        <div className='div3' id='gamearea'>
+          {mainArea === "buildings" &&
+            <Buildings />
+          }
+          {mainArea === "options" &&
+            <Options />
+          }
+          {mainArea === "stats" &&
+            <Stats />
+          }
+          {mainArea === "info" &&
+            <Info />
+          }
+          {mainArea === "legacy" &&
+            <Legacy />
+          }
+
         </div>
         <div className='div4'>
 
