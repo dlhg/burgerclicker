@@ -16,6 +16,7 @@ import burgerpic from './assets/images/burger.jpeg'
 import workerpic from './assets/images/worker_small.jpeg'
 import pointerpic from './assets/images/pointer.png'
 import grillpic from './assets/images/grill_small.jpeg'
+import questionmarkpic from './assets/images/questionmark_small.jpeg'
 
 
 //sfx imports
@@ -127,6 +128,21 @@ function App() {
 
           </section>
           <section className="section2">
+            {/*
+          store item logic to implement:
+          - store items can have three states:
+            - S1)totally hidden (not visible at all to player)
+            - S2)showing, but name="???" and picture of item is just silhouette(for now use question mark as placeholder)
+            - S3)showing normally 
+          - at the start of the game, pointer and worker are in state 2
+            - everything else is in state 1
+          - once totalburgersproduced > pointer cost, it changes to s3 permanently
+            - then the next item shows up in S2
+            - this pattern repeats as the player's TBP increases
+            
+        */}
+
+
             <StoreItem
               storeItemImage={pointerpic}
               storeItemName="pointer"
