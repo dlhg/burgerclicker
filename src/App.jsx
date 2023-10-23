@@ -133,7 +133,7 @@ function App() {
           - store items can have three states:
             - S1)totally hidden (not visible at all to player)
             - S2)showing, but name="???" and picture of item is just silhouette(for now use question mark as placeholder)
-            - S3)showing normally 
+            - S3)showing normally and possible to buy
           - at the start of the game, pointer and worker are in state 2
             - everything else is in state 1
           - once totalburgersproduced > pointer cost, it changes to s3 permanently
@@ -144,8 +144,8 @@ function App() {
 
 
             <StoreItem
-              storeItemImage={pointerpic}
-              storeItemName="pointer"
+              storeItemImage={totalBurgersProduced >= 15 ? pointerpic : questionmarkpic}
+              storeItemName={totalBurgersProduced >= 15 ? "pointer" : "???"}
               storeItemPrice={15 + (pointerCount * pointerCount)}
               burgerCount={burgerCount}
               setBurgerCount={setBurgerCount}
@@ -155,8 +155,8 @@ function App() {
               bpsIncrease={1}
             />
             <StoreItem
-              storeItemImage={workerpic}
-              storeItemName="worker"
+              storeItemImage={totalBurgersProduced >= 30 ? workerpic : questionmarkpic}
+              storeItemName={totalBurgersProduced >= 30 ? "worker" : "???"}
               storeItemPrice={30 + (workerCount * workerCount)}
               burgerCount={burgerCount}
               setBurgerCount={setBurgerCount}
@@ -166,8 +166,8 @@ function App() {
               bpsIncrease={2}
             />
             <StoreItem
-              storeItemImage={grillpic}
-              storeItemName="grill"
+              storeItemImage={totalBurgersProduced >= 45 ? grillpic : questionmarkpic}
+              storeItemName={totalBurgersProduced >= 30 ? "grill" : "???"}
               storeItemPrice={45 + (grillCount * grillCount)}
               burgerCount={burgerCount}
               setBurgerCount={setBurgerCount}
@@ -176,28 +176,7 @@ function App() {
               itemSetter={setGrillCount}
               bpsIncrease={3}
             />
-            <StoreItem
-              storeItemImage={grillpic}
-              storeItemName="grill"
-              storeItemPrice={45 + (grillCount * grillCount)}
-              burgerCount={burgerCount}
-              setBurgerCount={setBurgerCount}
-              setBurgersPerSecond={setBurgersPerSecond}
-              itemCount={grillCount}
-              itemSetter={setGrillCount}
-              bpsIncrease={3}
-            />
-            <StoreItem
-              storeItemImage={grillpic}
-              storeItemName="grill"
-              storeItemPrice={45 + (grillCount * grillCount)}
-              burgerCount={burgerCount}
-              setBurgerCount={setBurgerCount}
-              setBurgersPerSecond={setBurgersPerSecond}
-              itemCount={grillCount}
-              itemSetter={setGrillCount}
-              bpsIncrease={3}
-            />
+
           </section>
         </div>
         <div className='div5'>
