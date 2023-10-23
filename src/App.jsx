@@ -127,7 +127,7 @@ function App() {
             <StoreItem
               storeItemImage={pointer}
               storeItemName="pointer"
-              storeItemPrice={15}
+              storeItemPrice={15 + (pointerCount * pointerCount)}
               burgerCount={burgerCount}
               setBurgerCount={setBurgerCount}
               setBurgersPerSecond={setBurgersPerSecond}
