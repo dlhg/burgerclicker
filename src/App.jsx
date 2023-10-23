@@ -131,7 +131,11 @@ function App() {
             <Options />
           }
           {mainArea === "stats" &&
-            <Stats />
+            <Stats
+              totalBurgersProduced={totalBurgersProduced}
+              burgersMadeFromClicking={burgersMadeFromClicking}
+              burgersMadeFromAutomation={Math.floor(burgersMadeFromAutomation)}
+            />
           }
           {mainArea === "info" &&
             <Info />
