@@ -63,8 +63,11 @@ function App() {
 
   //state for store items
   const [pointerCount, setPointerCount] = useState(0);
+  const [pointerBPS, setPointerBPS] = useState(1);
   const [workerCount, setWorkerCount] = useState(0);
+  const [workerBPS, setWorkerBPS] = useState(2);
   const [grillCount, setGrillCount] = useState(0);
+  const [grillBPS, setGrillBPS] = useState(3)
 
   //helper functions 
   function formatNumber(number) {
@@ -171,7 +174,7 @@ function App() {
               setBurgersPerSecond={setBurgersPerSecond}
               itemCount={pointerCount}
               itemSetter={setPointerCount}
-              bpsIncrease={1}
+              bpsIncrease={pointerBPS}
             />
             <StoreItem
               storeItemImage={totalBurgersProduced >= 30 ? workerpic : questionmarkpic}
@@ -182,7 +185,7 @@ function App() {
               setBurgersPerSecond={setBurgersPerSecond}
               itemCount={workerCount}
               itemSetter={setWorkerCount}
-              bpsIncrease={2}
+              bpsIncrease={workerBPS}
             />
             {totalBurgersProduced >= 30 && <StoreItem
               storeItemImage={totalBurgersProduced >= 45 ? grillpic : questionmarkpic}
@@ -193,7 +196,7 @@ function App() {
               setBurgersPerSecond={setBurgersPerSecond}
               itemCount={grillCount}
               itemSetter={setGrillCount}
-              bpsIncrease={3}
+              bpsIncrease={grillBPS}
             />}
 
           </section>
