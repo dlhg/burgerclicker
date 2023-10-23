@@ -160,6 +160,28 @@ function App() {
               itemSetter={setGrillCount}
               bpsIncrease={3}
             />
+            <StoreItem
+              storeItemImage={grillpic}
+              storeItemName="grill"
+              storeItemPrice={45 + (grillCount * grillCount)}
+              burgerCount={burgerCount}
+              setBurgerCount={setBurgerCount}
+              setBurgersPerSecond={setBurgersPerSecond}
+              itemCount={grillCount}
+              itemSetter={setGrillCount}
+              bpsIncrease={3}
+            />
+            <StoreItem
+              storeItemImage={grillpic}
+              storeItemName="grill"
+              storeItemPrice={45 + (grillCount * grillCount)}
+              burgerCount={burgerCount}
+              setBurgerCount={setBurgerCount}
+              setBurgersPerSecond={setBurgersPerSecond}
+              itemCount={grillCount}
+              itemSetter={setGrillCount}
+              bpsIncrease={3}
+            />
           </section>
         </div>
         <div className='div5'>
