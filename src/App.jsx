@@ -13,8 +13,8 @@ import useSound from 'use-sound'
 
 //image import
 import burgerpic from './assets/images/burger.jpeg'
-import workerpic from './assets/images/worker.jpeg'
-import pointer from './assets/images/pointer.png'
+import workerpic from './assets/images/worker_small.jpeg'
+import pointerpic from './assets/images/pointer.png'
 
 
 //sfx imports
@@ -34,7 +34,7 @@ import APIfetcher from './components/APIfetcher'
 
 function App() {
   //state
-  //reflects player's current amount of burgers
+  //reflects player's current amount of burgers (burgers in bank)
   const [burgerCount, setBurgerCount] = useState(0);
   //displayed count is burger count rounded down to the nearest int
   const [displayedBurgerCount, setDisplayedBurgerCount] = useState(0);
@@ -45,8 +45,9 @@ function App() {
   const [burgersPerClick, setBurgersPerClick] = useState(1);
   const [burgersPerSecond, setBurgersPerSecond] = useState(0);
 
-
+  //state for store items
   const [pointerCount, setPointerCount] = useState(0);
+  const [workerCount, setWorkerCount] = useState(0);
 
   //helper functions 
   function formatNumber(number) {
@@ -125,14 +126,25 @@ function App() {
           </section>
           <section className="section2">
             <StoreItem
-              storeItemImage={pointer}
+              storeItemImage={pointerpic}
               storeItemName="pointer"
               storeItemPrice={15 + (pointerCount * pointerCount)}
               burgerCount={burgerCount}
               setBurgerCount={setBurgerCount}
               setBurgersPerSecond={setBurgersPerSecond}
-              pointerCount={pointerCount}
-              setPointerCount={setPointerCount}
+              itemCount={pointerCount}
+              itemSetter={setPointerCount}
+              bpsIncrease={1}
+            />
+            <StoreItem
+              storeItemImage={workerpic}
+              storeItemName="worker"
+              storeItemPrice={30 + (workerCount * workerCount)}
+              burgerCount={burgerCount}
+              setBurgerCount={setBurgerCount}
+              setBurgersPerSecond={setBurgersPerSecond}
+              itemCount={workerCount}
+              itemSetter={setWorkerCount}
               bpsIncrease={1}
             />
           </section>
