@@ -22,6 +22,7 @@ import workerpic from './assets/images/worker_small.jpeg'
 import pointerpic from './assets/images/pointer.png'
 import grillpic from './assets/images/grill_small.jpeg'
 import questionmarkpic from './assets/images/questionmark_small.jpeg'
+import bankpic from './assets/images/bank_small.jpeg'
 
 
 //sfx imports
@@ -68,6 +69,8 @@ function App() {
   const [workerBPS, setWorkerBPS] = useState(2);
   const [grillCount, setGrillCount] = useState(0);
   const [grillBPS, setGrillBPS] = useState(3)
+  const [bankCount, setBankCount] = useState(0);
+  const [bankBPS, setBankBPS] = useState(4);
 
   //helper functions 
   function formatNumber(number) {
@@ -197,6 +200,17 @@ function App() {
               itemCount={grillCount}
               itemSetter={setGrillCount}
               bpsIncrease={grillBPS}
+            />}
+            {totalBurgersProduced >= 45 && <StoreItem
+              storeItemImage={totalBurgersProduced >= 45 ? bankpic : questionmarkpic}
+              storeItemName={totalBurgersProduced >= 45 ? "bank" : "???"}
+              storeItemPrice={45 + (bankCount * bankCount)}
+              burgerCount={burgerCount}
+              setBurgerCount={setBurgerCount}
+              setBurgersPerSecond={setBurgersPerSecond}
+              itemCount={bankCount}
+              itemSetter={setBankCount}
+              bpsIncrease={bankBPS}
             />}
 
           </section>
