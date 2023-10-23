@@ -128,19 +128,7 @@ function App() {
 
           </section>
           <section className="section2">
-            {/*
-          store item logic to implement:
-          - store items can have three states:
-            - S1)totally hidden (not visible at all to player)
-            - S2)showing, but name="???" and picture of item is just silhouette(for now use question mark as placeholder)
-            - S3)showing normally and possible to buy
-          - at the start of the game, pointer and worker are in state 2
-            - everything else is in state 1
-          - once totalburgersproduced > pointer cost, it changes to s3 permanently
-            - then the next item shows up in S2
-            - this pattern repeats as the player's TBP increases
-            
-        */}
+
 
 
             <StoreItem
@@ -165,9 +153,9 @@ function App() {
               itemSetter={setWorkerCount}
               bpsIncrease={2}
             />
-            <StoreItem
+            {totalBurgersProduced >= 30 && <StoreItem
               storeItemImage={totalBurgersProduced >= 45 ? grillpic : questionmarkpic}
-              storeItemName={totalBurgersProduced >= 30 ? "grill" : "???"}
+              storeItemName={totalBurgersProduced >= 45 ? "grill" : "???"}
               storeItemPrice={45 + (grillCount * grillCount)}
               burgerCount={burgerCount}
               setBurgerCount={setBurgerCount}
@@ -175,7 +163,7 @@ function App() {
               itemCount={grillCount}
               itemSetter={setGrillCount}
               bpsIncrease={3}
-            />
+            />}
 
           </section>
         </div>
