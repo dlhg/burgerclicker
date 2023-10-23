@@ -28,8 +28,9 @@ export default function StoreItem(props) {
             <div className="store--item" onClick={() => buyItem()}>
                 <div><img src={props.storeItemImage} alt="image of store item"></img></div>
                 <div>{props.storeItemName}</div>
-                <div>item price:{props.storeItemPrice}</div>
+                <div>cost:{props.storeItemPrice}</div>
                 <div>quantity owned:{props.itemCount}</div>
+                <div>burgers/second:{props.bpsIncrease}</div>
             </div>
         </>
     )

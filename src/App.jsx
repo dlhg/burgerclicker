@@ -15,6 +15,7 @@ import useSound from 'use-sound'
 import burgerpic from './assets/images/burger.jpeg'
 import workerpic from './assets/images/worker_small.jpeg'
 import pointerpic from './assets/images/pointer.png'
+import grillpic from './assets/images/grill_small.jpeg'
 
 
 //sfx imports
@@ -48,6 +49,7 @@ function App() {
   //state for store items
   const [pointerCount, setPointerCount] = useState(0);
   const [workerCount, setWorkerCount] = useState(0);
+  const [grillCount, setGrillCount] = useState(0);
 
   //helper functions 
   function formatNumber(number) {
@@ -145,7 +147,18 @@ function App() {
               setBurgersPerSecond={setBurgersPerSecond}
               itemCount={workerCount}
               itemSetter={setWorkerCount}
-              bpsIncrease={1}
+              bpsIncrease={2}
+            />
+            <StoreItem
+              storeItemImage={grillpic}
+              storeItemName="grill"
+              storeItemPrice={45 + (grillCount * grillCount)}
+              burgerCount={burgerCount}
+              setBurgerCount={setBurgerCount}
+              setBurgersPerSecond={setBurgersPerSecond}
+              itemCount={grillCount}
+              itemSetter={setGrillCount}
+              bpsIncrease={3}
             />
           </section>
         </div>
