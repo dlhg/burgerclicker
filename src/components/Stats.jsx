@@ -17,6 +17,9 @@ export default function Stats(props) {
             <div>
                 Burgers from automation: {props.burgersMadeFromAutomation}
             </div>
+            <div>
+                Burgers per click: {props.burgersPerClick}
+            </div>
         </>
     )
 }

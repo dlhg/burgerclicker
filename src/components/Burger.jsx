@@ -48,22 +48,9 @@ export default function Burger(props) {
             <section>
                 Burgers: {formatNumber(props.displayedBurgerCount)}
             </section>
-            <section>
-                Total Burgers Produced: {props.totalBurgersProduced}
-            </section>
 
             <section>
                 Burgers Per Second: {formatNumber(props.burgersPerSecond)}
-            </section>
-            <section>
-                Burgers Per Click: {formatNumber(props.burgersPerClick)}
-            </section>
-            <section>
-                Burgers Made By Clicking: {formatNumber(props.burgersMadeFromClicking)}
-            </section>
-            <section>
-                {/*why do i need to multiply this by two to have it be accurate? */}
-                Burgers Made By Automation: {formatNumber(props.burgersMadeFromAutomation * 2)}
             </section>
 
             <br />
