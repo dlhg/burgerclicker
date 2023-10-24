@@ -171,19 +171,18 @@
 }
 
 .store--item {
-  border: solid blue 1px;
+  border: solid black 1px;
   display: flex;
   flex-direction: row;
   justify-content: space-between; /* Aligns children to each end of the container */
 }
 
 .store--item--nameandprice {
-  display: flex;
-  flex-direction: column;
-  border: solid green 5px;
-  margin: auto; /* Centers the content vertically */
 }
 
 .store--item--quantityandbps {
-  align-self: flex-end; /* Aligns this specific item to the flex container's end */
+}
+.store--item--name {
+  color: blue;
+  font-size: xx-large;
 }
