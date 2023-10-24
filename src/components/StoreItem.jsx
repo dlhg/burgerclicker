@@ -33,11 +33,11 @@ export default function StoreItem(props) {
         <div id="store--item--nameandprice">
           <div id="store--item--name">{props.storeItemName}</div>
           <br />
-          <div id="store--item--cost">cost:{props.storeItemPrice}</div>
+          <div id="store--item--cost">{props.storeItemPrice}🍔</div>
         </div>
         <div id="store--item--quantityandbps">
-          <div id="store--item--quantity">quantity:{props.itemCount}</div>
-          <div id="store--item--bps">production:{props.bpsIncrease}b/s</div>
+          <div id="store--item--quantity">{props.itemCount}</div>
+          <div id="store--item--bps">{props.bpsIncrease}b/s</div>
         </div>
       </div>
     </>

@@ -177,12 +177,21 @@
   justify-content: space-between; /* Aligns children to each end of the container */
 }
 
-.store--item--nameandprice {
+#store--item--nameandprice {
+  text-align: center;
 }
 
 .store--item--quantityandbps {
 }
-.store--item--name {
-  color: blue;
+#store--item--name {
+  font-weight: 900;
   font-size: xx-large;
+  text-shadow: 0 0 3px #7c7c7c, 0 0 5px #cacaca;
+}
+
+#store--item--quantity {
+  font-weight: 900;
+  font-size: xx-large;
+  text-shadow: 2px 2px #5a5a5a;
+  text-align: end;
 }
