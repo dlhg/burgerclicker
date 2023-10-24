@@ -29,8 +29,8 @@ export default function StoreItem(props) {
                 <div><img src={props.storeItemImage} alt="image of store item"></img></div>
                 <div>{props.storeItemName}</div>
                 <div>cost:{props.storeItemPrice}</div>
-                <div>quantity owned:{props.itemCount}</div>
-                <div>burgers/second:{props.bpsIncrease}</div>
+                <div>quantity:{props.itemCount}</div>
+                <div>production:{props.bpsIncrease}b/s</div>
             </div>
         </>
     )
