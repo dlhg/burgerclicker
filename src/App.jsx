@@ -18,6 +18,7 @@ import useSound from "use-sound";
 
 //image import
 import burgerpic from "./assets/images/burger.jpeg";
+import galaxyburgerpic from "./assets/images/galaxyburger.jpeg";
 //store item images - buildings
 import workerpic from "./assets/images/worker_small.jpeg";
 import pointerpic from "./assets/images/pointer.png";
@@ -72,18 +73,17 @@ function App() {
   const [pointerCount, setPointerCount] = useState(0);
   const [pointerBPS, setPointerBPS] = useState(1);
   const [workerCount, setWorkerCount] = useState(0);
-  const [workerBPS, setWorkerBPS] = useState(2);
+  const [workerBPS, setWorkerBPS] = useState(5);
   const [grillCount, setGrillCount] = useState(0);
-  const [grillBPS, setGrillBPS] = useState(3);
-
+  const [grillBPS, setGrillBPS] = useState(10);
   const [truckCount, setTruckCount] = useState(0);
-  const [truckBPS, setTruckBPS] = useState(4);
+  const [truckBPS, setTruckBPS] = useState(25);
   const [bankCount, setBankCount] = useState(0);
-  const [bankBPS, setBankBPS] = useState(4);
+  const [bankBPS, setBankBPS] = useState(50);
   const [templeCount, setTempleCount] = useState(0);
-  const [templeBPS, setTempleBPS] = useState(10);
+  const [templeBPS, setTempleBPS] = useState(100);
   const [labCount, setLabCount] = useState(0);
-  const [labBPS, setLabBPS] = useState(100);
+  const [labBPS, setLabBPS] = useState(500);
 
   //helper functions
   function formatNumber(number) {
@@ -275,14 +275,14 @@ function App() {
             />
             <StoreItem
               storeItemImage={
-                totalBurgersProducedUnformatted >= 30
+                totalBurgersProducedUnformatted >= 75
                   ? workerpic
                   : questionmarkpic
               }
               storeItemName={
-                totalBurgersProducedUnformatted >= 30 ? "worker" : "???"
+                totalBurgersProducedUnformatted >= 75 ? "worker" : "???"
               }
-              storeItemPrice={30 + workerCount * workerCount}
+              storeItemPrice={75 + workerCount * workerCount}
               burgerCount={burgerCount}
               setBurgerCount={setBurgerCount}
               setBurgersPerSecond={setBurgersPerSecond}
@@ -290,17 +290,17 @@ function App() {
               itemSetter={setWorkerCount}
               bpsIncrease={workerBPS}
             />
-            {totalBurgersProducedUnformatted >= 30 && (
+            {totalBurgersProducedUnformatted >= 75 && (
               <StoreItem
                 storeItemImage={
-                  totalBurgersProducedUnformatted >= 45
+                  totalBurgersProducedUnformatted >= 150
                     ? grillpic
                     : questionmarkpic
                 }
                 storeItemName={
-                  totalBurgersProducedUnformatted >= 45 ? "grill" : "???"
+                  totalBurgersProducedUnformatted >= 75 ? "grill" : "???"
                 }
-                storeItemPrice={45 + grillCount * grillCount}
+                storeItemPrice={150 + grillCount * grillCount}
                 burgerCount={burgerCount}
                 setBurgerCount={setBurgerCount}
                 setBurgersPerSecond={setBurgersPerSecond}
@@ -309,17 +309,17 @@ function App() {
                 bpsIncrease={grillBPS}
               />
             )}
-            {totalBurgersProducedUnformatted >= 45 && (
+            {totalBurgersProducedUnformatted >= 150 && (
               <StoreItem
                 storeItemImage={
-                  totalBurgersProducedUnformatted >= 60
+                  totalBurgersProducedUnformatted >= 225
                     ? truckpic
                     : questionmarkpic
                 }
                 storeItemName={
-                  totalBurgersProducedUnformatted >= 60 ? "truck" : "???"
+                  totalBurgersProducedUnformatted >= 225 ? "truck" : "???"
                 }
-                storeItemPrice={60 + truckCount * truckCount}
+                storeItemPrice={225 + truckCount * truckCount}
                 burgerCount={burgerCount}
                 setBurgerCount={setBurgerCount}
                 setBurgersPerSecond={setBurgersPerSecond}
@@ -328,17 +328,17 @@ function App() {
                 bpsIncrease={truckBPS}
               />
             )}
-            {totalBurgersProducedUnformatted >= 45 && (
+            {totalBurgersProducedUnformatted >= 225 && (
               <StoreItem
                 storeItemImage={
-                  totalBurgersProducedUnformatted >= 60
+                  totalBurgersProducedUnformatted >= 450
                     ? bankpic
                     : questionmarkpic
                 }
                 storeItemName={
-                  totalBurgersProducedUnformatted >= 60 ? "bank" : "???"
+                  totalBurgersProducedUnformatted >= 450 ? "bank" : "???"
                 }
-                storeItemPrice={60 + bankCount * bankCount}
+                storeItemPrice={450 + bankCount * bankCount}
                 burgerCount={burgerCount}
                 setBurgerCount={setBurgerCount}
                 setBurgersPerSecond={setBurgersPerSecond}
@@ -347,17 +347,17 @@ function App() {
                 bpsIncrease={bankBPS}
               />
             )}
-            {totalBurgersProducedUnformatted >= 45 && (
+            {totalBurgersProducedUnformatted >= 450 && (
               <StoreItem
                 storeItemImage={
-                  totalBurgersProducedUnformatted >= 60
+                  totalBurgersProducedUnformatted >= 900
                     ? templepic
                     : questionmarkpic
                 }
                 storeItemName={
-                  totalBurgersProducedUnformatted >= 60 ? "temple" : "???"
+                  totalBurgersProducedUnformatted >= 900 ? "temple" : "???"
                 }
-                storeItemPrice={60 + templeCount * templeCount}
+                storeItemPrice={900 + templeCount * templeCount}
                 burgerCount={burgerCount}
                 setBurgerCount={setBurgerCount}
                 setBurgersPerSecond={setBurgersPerSecond}
@@ -366,17 +366,17 @@ function App() {
                 bpsIncrease={templeBPS}
               />
             )}
-            {totalBurgersProducedUnformatted >= 45 && (
+            {totalBurgersProducedUnformatted >= 900 && (
               <StoreItem
                 storeItemImage={
-                  totalBurgersProducedUnformatted >= 60
+                  totalBurgersProducedUnformatted >= 4500
                     ? labpic
                     : questionmarkpic
                 }
                 storeItemName={
-                  totalBurgersProducedUnformatted >= 60 ? "lab" : "???"
+                  totalBurgersProducedUnformatted >= 4500 ? "lab" : "???"
                 }
-                storeItemPrice={60 + labCount * labCount}
+                storeItemPrice={4500 + labCount * labCount}
                 burgerCount={burgerCount}
                 setBurgerCount={setBurgerCount}
                 setBurgersPerSecond={setBurgersPerSecond}
