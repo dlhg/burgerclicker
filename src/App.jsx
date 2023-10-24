@@ -10,43 +10,42 @@ to add:
 */
 
 //style imports
-import './App.css'
+import "./App.css";
 
 //hook imports
-import { useState, useEffect } from 'react'
-import useSound from 'use-sound'
+import { useState, useEffect } from "react";
+import useSound from "use-sound";
 
 //image import
-import burgerpic from './assets/images/burger.jpeg'
+import burgerpic from "./assets/images/burger.jpeg";
 //store item images - buildings
-import workerpic from './assets/images/worker_small.jpeg'
-import pointerpic from './assets/images/pointer.png'
-import grillpic from './assets/images/grill_small.jpeg'
-import questionmarkpic from './assets/images/questionmark_small.jpeg'
-import bankpic from './assets/images/bank_small.jpeg'
+import workerpic from "./assets/images/worker_small.jpeg";
+import pointerpic from "./assets/images/pointer.png";
+import grillpic from "./assets/images/grill_small.jpeg";
+import questionmarkpic from "./assets/images/questionmark_small.jpeg";
+import bankpic from "./assets/images/bank_small.jpeg";
+import templepic from "./assets/images/temple_small.jpg";
+import truckpic from "./assets/images/truck_small.jpg";
 //store item images - upgrades
-import cat from './assets/images/cat_small.jpeg'
-
+import cat from "./assets/images/cat_small.jpeg";
 
 //sfx imports
-import borgir from './assets/sfx/borgir.mp3'
+import borgir from "./assets/sfx/borgir.mp3";
 
 //music imports
 
 //component imports
-import Burger from './components/Burger'
-import TestConsoleButton from './components/TestConsoleButton'
-import StoreItem from './components/StoreItem'
-import Navbar from './components/Navbar'
-import APIfetcher from './components/APIfetcher'
-import Buildings from './components/Buildings'
-import Options from './components/Options'
-import Stats from './components/Stats'
-import Info from './components/Info'
-import Legacy from './components/Legacy'
-import UpgradeItem from './components/UpgradeItem'
-
-
+import Burger from "./components/Burger";
+import TestConsoleButton from "./components/TestConsoleButton";
+import StoreItem from "./components/StoreItem";
+import Navbar from "./components/Navbar";
+import APIfetcher from "./components/APIfetcher";
+import Buildings from "./components/Buildings";
+import Options from "./components/Options";
+import Stats from "./components/Stats";
+import Info from "./components/Info";
+import Legacy from "./components/Legacy";
+import UpgradeItem from "./components/UpgradeItem";
 
 function App() {
   //state
@@ -54,14 +53,14 @@ function App() {
   //state for main area (game, options, stats, info, legacy)
   const [mainArea, setMainArea] = useState("buildings");
 
-
   //reflects player's current amount of burgers (burgers in bank)
   const [burgerCount, setBurgerCount] = useState(0);
   //displayed count is burger count rounded down to the nearest int
   const [displayedBurgerCount, setDisplayedBurgerCount] = useState(0);
   //
   const [totalBurgersProduced, setTotalBurgersProduced] = useState(0);
-  const [totalBurgersProducedUnformatted, setTotalBurgersProducedUnformatted] = useState(0);
+  const [totalBurgersProducedUnformatted, setTotalBurgersProducedUnformatted] =
+    useState(0);
   const [burgersMadeFromClicking, setBurgersMadeFromClicking] = useState(0);
   const [burgersMadeFromAutomation, setBurgersMadeFromAutomation] = useState(0);
   const [burgersPerClick, setBurgersPerClick] = useState(1);
@@ -74,11 +73,16 @@ function App() {
   const [workerCount, setWorkerCount] = useState(0);
   const [workerBPS, setWorkerBPS] = useState(2);
   const [grillCount, setGrillCount] = useState(0);
-  const [grillBPS, setGrillBPS] = useState(3)
+  const [grillBPS, setGrillBPS] = useState(3);
+
+  const [truckCount, setTruckCount] = useState(0);
+  const [truckBPS, setTruckBPS] = useState(4);
   const [bankCount, setBankCount] = useState(0);
   const [bankBPS, setBankBPS] = useState(4);
+  const [templeCount, setTempleCount] = useState(0);
+  const [templeBPS, setTempleBPS] = useState(10);
 
-  //helper functions 
+  //helper functions
   function formatNumber(number) {
     if (number >= 1e9) {
       return (number / 1e9).toFixed(3) + " billion";
@@ -92,28 +96,33 @@ function App() {
   //useEffect
   useEffect(() => {
     const interval = setInterval(() => {
-      setBurgerCount(prevBurgerCount => prevBurgerCount + (burgersPerSecond / 10));
+      setBurgerCount(
+        (prevBurgerCount) => prevBurgerCount + burgersPerSecond / 10
+      );
     }, 100);
 
     return () => clearInterval(interval); // Cleanup the interval on component unmount
-
   }, [burgersPerSecond]);
   useEffect(() => {
-    setDisplayedBurgerCount(Math.floor(burgerCount))
-  }, [burgerCount])
+    setDisplayedBurgerCount(Math.floor(burgerCount));
+  }, [burgerCount]);
 
   useEffect(() => {
     //why does burgers from automation need to be multiplied by 2?
-    setTotalBurgersProduced(formatNumber(((burgersMadeFromClicking) + (burgersMadeFromAutomation * 2))))
-    setTotalBurgersProducedUnformatted((burgersMadeFromClicking) + (burgersMadeFromAutomation * 2))
-  }, [burgersMadeFromClicking, burgersMadeFromAutomation])
+    setTotalBurgersProduced(
+      formatNumber(burgersMadeFromClicking + burgersMadeFromAutomation * 2)
+    );
+    setTotalBurgersProducedUnformatted(
+      burgersMadeFromClicking + burgersMadeFromAutomation * 2
+    );
+  }, [burgersMadeFromClicking, burgersMadeFromAutomation]);
 
   const [playBorgirSound] = useSound(borgir);
 
   return (
     <>
-      <div className='parent'>
-        <div className='div1' id='burger'>
+      <div className="parent">
+        <div className="div1" id="burger">
           <Burger
             totalBurgersProduced={totalBurgersProduced}
             burgerCount={burgerCount}
@@ -128,50 +137,49 @@ function App() {
             burgersMadeFromAutomation={burgersMadeFromAutomation}
             setBurgersMadeFromAutomation={setBurgersMadeFromAutomation}
             burgerpic={burgerpic}
-
           />
         </div>
-        <div className='div2' id='navbar'>
-          <Navbar
-            setMainArea={setMainArea}
-          />
+        <div className="div2" id="navbar">
+          <Navbar setMainArea={setMainArea} />
         </div>
-        <div className='div3' id='gamearea'>
-          {mainArea === "buildings" &&
+        <div className="div3" id="gamearea">
+          {mainArea === "buildings" && (
             <Buildings
               pointerpic={pointerpic}
               workerpic={workerpic}
               grillpic={grillpic}
               bankpic={bankpic}
+              truckpic={truckpic}
+              templepic={templepic}
               pointerCount={pointerCount}
               workerCount={workerCount}
               grillCount={grillCount}
               bankCount={bankCount}
+              truckCount={truckCount}
+              templeCount={templeCount}
             />
-          }
-          {mainArea === "options" &&
-            <Options />
-          }
-          {mainArea === "stats" &&
+          )}
+          {mainArea === "options" && <Options />}
+          {mainArea === "stats" && (
             <Stats
               totalBurgersProduced={totalBurgersProduced}
               burgersMadeFromClicking={burgersMadeFromClicking}
-              burgersMadeFromAutomation={Math.floor(burgersMadeFromAutomation * 2)}
+              burgersMadeFromAutomation={Math.floor(
+                burgersMadeFromAutomation * 2
+              )}
               burgersPerClick={burgersPerClick}
             />
-          }
-          {mainArea === "info" &&
-            <Info />
-          }
-          {mainArea === "legacy" &&
-            <Legacy />
-          }
-          {mainArea === "testconsole" &&
+          )}
+          {mainArea === "info" && <Info />}
+          {mainArea === "legacy" && <Legacy />}
+          {mainArea === "testconsole" && (
             <>
               <Stats
                 totalBurgersProduced={totalBurgersProduced}
                 burgersMadeFromClicking={burgersMadeFromClicking}
-                burgersMadeFromAutomation={Math.floor(burgersMadeFromAutomation * 2)}
+                burgersMadeFromAutomation={Math.floor(
+                  burgersMadeFromAutomation * 2
+                )}
                 burgersPerClick={burgersPerClick}
               />
               <div>
@@ -182,43 +190,43 @@ function App() {
                   buttonfunc={setBurgersPerSecond}
                 />
                 <TestConsoleButton
-                  buttontext='+1 burger/second'
-                  functionarg={prev => prev + 1}
+                  buttontext="+1 burger/second"
+                  functionarg={(prev) => prev + 1}
                   buttonfunc={setBurgersPerSecond}
                 />
                 <TestConsoleButton
-                  buttontext='+100 burger/second'
-                  functionarg={prev => prev + 100}
+                  buttontext="+100 burger/second"
+                  functionarg={(prev) => prev + 100}
                   buttonfunc={setBurgersPerSecond}
                 />
                 <TestConsoleButton
-                  buttontext='+1000 burger/second'
-                  functionarg={prev => prev + 1000}
+                  buttontext="+1000 burger/second"
+                  functionarg={(prev) => prev + 1000}
                   buttonfunc={setBurgersPerSecond}
                 />
                 <TestConsoleButton
                   buttontext="+10 million burger/second"
-                  functionarg={prev => prev + 10000000}
+                  functionarg={(prev) => prev + 10000000}
                   buttonfunc={setBurgersPerSecond}
                 />
                 <TestConsoleButton
                   buttontext="+1 burger per click"
-                  functionarg={prev => prev + 1}
+                  functionarg={(prev) => prev + 1}
                   buttonfunc={setBurgersPerClick}
                 />
                 <TestConsoleButton
                   buttontext="+1000 burger per click"
-                  functionarg={prev => prev + 1000}
+                  functionarg={(prev) => prev + 1000}
                   buttonfunc={setBurgersPerClick}
                 />
                 <TestConsoleButton
                   buttontext="+10000 burger per click"
-                  functionarg={prev => prev + 10000}
+                  functionarg={(prev) => prev + 10000}
                   buttonfunc={setBurgersPerClick}
                 />
                 <TestConsoleButton
                   buttontext="+1 billion burger per click"
-                  functionarg={prev => prev + 1000000000}
+                  functionarg={(prev) => prev + 1000000000}
                   buttonfunc={setBurgersPerClick}
                 />
                 <TestConsoleButton
@@ -228,42 +236,31 @@ function App() {
                 />
               </div>
             </>
-          }
-
+          )}
         </div>
-        <div className='div4'>
+        <div className="div4">
           <section className="section1" id="upgrades">
             {/*classname section1 - create and map currentstoreitems array and state*/}
             <APIfetcher />
-            <UpgradeItem
-              upgradeItemImage={cat}
-            />
-            <UpgradeItem
-              upgradeItemImage={cat}
-            />
-            <UpgradeItem
-              upgradeItemImage={cat}
-            />
-            <UpgradeItem
-              upgradeItemImage={cat}
-            />
-            <UpgradeItem
-              upgradeItemImage={cat}
-            />
-            <UpgradeItem
-              upgradeItemImage={cat}
-            />
-            <UpgradeItem
-              upgradeItemImage={cat}
-            />
-
-
+            <UpgradeItem upgradeItemImage={cat} />
+            <UpgradeItem upgradeItemImage={cat} />
+            <UpgradeItem upgradeItemImage={cat} />
+            <UpgradeItem upgradeItemImage={cat} />
+            <UpgradeItem upgradeItemImage={cat} />
+            <UpgradeItem upgradeItemImage={cat} />
+            <UpgradeItem upgradeItemImage={cat} />
           </section>
           <section className="section2" id="buildings">
             <StoreItem
-              storeItemImage={totalBurgersProducedUnformatted >= 15 ? pointerpic : questionmarkpic}
-              storeItemName={totalBurgersProducedUnformatted >= 15 ? "pointer" : "???"}
-              storeItemPrice={15 + (pointerCount * pointerCount)}
+              storeItemImage={
+                totalBurgersProducedUnformatted >= 15
+                  ? pointerpic
+                  : questionmarkpic
+              }
+              storeItemName={
+                totalBurgersProducedUnformatted >= 15 ? "pointer" : "???"
+              }
+              storeItemPrice={15 + pointerCount * pointerCount}
               burgerCount={burgerCount}
               setBurgerCount={setBurgerCount}
               setBurgersPerSecond={setBurgersPerSecond}
@@ -272,9 +269,15 @@ function App() {
               bpsIncrease={pointerBPS}
             />
             <StoreItem
-              storeItemImage={totalBurgersProducedUnformatted >= 30 ? workerpic : questionmarkpic}
-              storeItemName={totalBurgersProducedUnformatted >= 30 ? "worker" : "???"}
-              storeItemPrice={30 + (workerCount * workerCount)}
+              storeItemImage={
+                totalBurgersProducedUnformatted >= 30
+                  ? workerpic
+                  : questionmarkpic
+              }
+              storeItemName={
+                totalBurgersProducedUnformatted >= 30 ? "worker" : "???"
+              }
+              storeItemPrice={30 + workerCount * workerCount}
               burgerCount={burgerCount}
               setBurgerCount={setBurgerCount}
               setBurgersPerSecond={setBurgersPerSecond}
@@ -282,38 +285,88 @@ function App() {
               itemSetter={setWorkerCount}
               bpsIncrease={workerBPS}
             />
-            {totalBurgersProducedUnformatted >= 30 && <StoreItem
-              storeItemImage={totalBurgersProducedUnformatted >= 45 ? grillpic : questionmarkpic}
-              storeItemName={totalBurgersProducedUnformatted >= 45 ? "grill" : "???"}
-              storeItemPrice={45 + (grillCount * grillCount)}
-              burgerCount={burgerCount}
-              setBurgerCount={setBurgerCount}
-              setBurgersPerSecond={setBurgersPerSecond}
-              itemCount={grillCount}
-              itemSetter={setGrillCount}
-              bpsIncrease={grillBPS}
-            />}
-            {totalBurgersProducedUnformatted >= 45 && <StoreItem
-              storeItemImage={totalBurgersProducedUnformatted >= 60 ? bankpic : questionmarkpic}
-              storeItemName={totalBurgersProducedUnformatted >= 60 ? "bank" : "???"}
-              storeItemPrice={60 + (bankCount * bankCount)}
-              burgerCount={burgerCount}
-              setBurgerCount={setBurgerCount}
-              setBurgersPerSecond={setBurgersPerSecond}
-              itemCount={bankCount}
-              itemSetter={setBankCount}
-              bpsIncrease={bankBPS}
-            />}
-
+            {totalBurgersProducedUnformatted >= 30 && (
+              <StoreItem
+                storeItemImage={
+                  totalBurgersProducedUnformatted >= 45
+                    ? grillpic
+                    : questionmarkpic
+                }
+                storeItemName={
+                  totalBurgersProducedUnformatted >= 45 ? "grill" : "???"
+                }
+                storeItemPrice={45 + grillCount * grillCount}
+                burgerCount={burgerCount}
+                setBurgerCount={setBurgerCount}
+                setBurgersPerSecond={setBurgersPerSecond}
+                itemCount={grillCount}
+                itemSetter={setGrillCount}
+                bpsIncrease={grillBPS}
+              />
+            )}
+            {totalBurgersProducedUnformatted >= 45 && (
+              <StoreItem
+                storeItemImage={
+                  totalBurgersProducedUnformatted >= 60
+                    ? truckpic
+                    : questionmarkpic
+                }
+                storeItemName={
+                  totalBurgersProducedUnformatted >= 60 ? "truck" : "???"
+                }
+                storeItemPrice={60 + truckCount * truckCount}
+                burgerCount={burgerCount}
+                setBurgerCount={setBurgerCount}
+                setBurgersPerSecond={setBurgersPerSecond}
+                itemCount={truckCount}
+                itemSetter={setTruckCount}
+                bpsIncrease={truckBPS}
+              />
+            )}
+            {totalBurgersProducedUnformatted >= 45 && (
+              <StoreItem
+                storeItemImage={
+                  totalBurgersProducedUnformatted >= 60
+                    ? bankpic
+                    : questionmarkpic
+                }
+                storeItemName={
+                  totalBurgersProducedUnformatted >= 60 ? "bank" : "???"
+                }
+                storeItemPrice={60 + bankCount * bankCount}
+                burgerCount={burgerCount}
+                setBurgerCount={setBurgerCount}
+                setBurgersPerSecond={setBurgersPerSecond}
+                itemCount={bankCount}
+                itemSetter={setBankCount}
+                bpsIncrease={bankBPS}
+              />
+            )}
+            {totalBurgersProducedUnformatted >= 45 && (
+              <StoreItem
+                storeItemImage={
+                  totalBurgersProducedUnformatted >= 60
+                    ? templepic
+                    : questionmarkpic
+                }
+                storeItemName={
+                  totalBurgersProducedUnformatted >= 60 ? "temple" : "???"
+                }
+                storeItemPrice={60 + templeCount * templeCount}
+                burgerCount={burgerCount}
+                setBurgerCount={setBurgerCount}
+                setBurgersPerSecond={setBurgersPerSecond}
+                itemCount={templeCount}
+                itemSetter={setTempleCount}
+                bpsIncrease={templeBPS}
+              />
+            )}
           </section>
         </div>
-        <div className='div5'>
-
-        </div>
-
+        <div className="div5"></div>
       </div>
     </>
-  )
+  );
 }
 
-export default App
+export default App;

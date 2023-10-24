@@ -1,5 +1,13 @@
+@font-face {
+  font-family: pixelfont;
+  src: url(./assets/font/calibration-gothic-nbp-latin-font/CalibrationGothicNbpLatin-rYmy.ttf);
+}
+
 #root {
+  font-family: pixelfont;
   border: solid black 1px;
+  user-select: none;
+  /* user-select none makes all text unselectable */
 }
 
 @keyframes bounce {
