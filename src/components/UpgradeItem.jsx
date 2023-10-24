@@ -5,7 +5,7 @@ import React from "react";
 export default function UpgradeItem(props) {
     return (
         <>
-            <img src={ }></img>
+            <img src={props.upgradeItemImage}></img>
         </>
     )
 }

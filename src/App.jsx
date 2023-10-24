@@ -18,11 +18,14 @@ import useSound from 'use-sound'
 
 //image import
 import burgerpic from './assets/images/burger.jpeg'
+//store item images - buildings
 import workerpic from './assets/images/worker_small.jpeg'
 import pointerpic from './assets/images/pointer.png'
 import grillpic from './assets/images/grill_small.jpeg'
 import questionmarkpic from './assets/images/questionmark_small.jpeg'
 import bankpic from './assets/images/bank_small.jpeg'
+//store item images - upgrades
+import cat from './assets/images/cat_small.jpeg'
 
 
 //sfx imports
@@ -41,6 +44,7 @@ import Options from './components/Options'
 import Stats from './components/Stats'
 import Info from './components/Info'
 import Legacy from './components/Legacy'
+import UpgradeItem from './components/UpgradeItem'
 
 
 
@@ -57,6 +61,7 @@ function App() {
   const [displayedBurgerCount, setDisplayedBurgerCount] = useState(0);
   //
   const [totalBurgersProduced, setTotalBurgersProduced] = useState(0);
+  const [totalBurgersProducedUnformatted, setTotalBurgersProducedUnformatted] = useState(0);
   const [burgersMadeFromClicking, setBurgersMadeFromClicking] = useState(0);
   const [burgersMadeFromAutomation, setBurgersMadeFromAutomation] = useState(0);
   const [burgersPerClick, setBurgersPerClick] = useState(1);
@@ -100,6 +105,7 @@ function App() {
   useEffect(() => {
     //why does burgers from automation need to be multiplied by 2?
     setTotalBurgersProduced(formatNumber(((burgersMadeFromClicking) + (burgersMadeFromAutomation * 2))))
+    setTotalBurgersProducedUnformatted((burgersMadeFromClicking) + (burgersMadeFromAutomation * 2))
   }, [burgersMadeFromClicking, burgersMadeFromAutomation])
 
   const [playBorgirSound] = useSound(borgir);
@@ -225,13 +231,34 @@ function App() {
           <section className="section1" id="upgrades">
             {/*classname section1 - create and map currentstoreitems array and state*/}
             <APIfetcher />
+            <UpgradeItem
+              upgradeItemImage={cat}
+            />
+            <UpgradeItem
+              upgradeItemImage={cat}
+            />
+            <UpgradeItem
+              upgradeItemImage={cat}
+            />
+            <UpgradeItem
+              upgradeItemImage={cat}
+            />
+            <UpgradeItem
+              upgradeItemImage={cat}
+            />
+            <UpgradeItem
+              upgradeItemImage={cat}
+            />
+            <UpgradeItem
+              upgradeItemImage={cat}
+            />
 
 
           </section>
           <section className="section2" id="buildings">
             <StoreItem
-              storeItemImage={totalBurgersProduced >= 15 ? pointerpic : questionmarkpic}
-              storeItemName={totalBurgersProduced >= 15 ? "pointer" : "???"}
+              storeItemImage={totalBurgersProducedUnformatted >= 15 ? pointerpic : questionmarkpic}
+              storeItemName={totalBurgersProducedUnformatted >= 15 ? "pointer" : "???"}
               storeItemPrice={15 + (pointerCount * pointerCount)}
               burgerCount={burgerCount}
               setBurgerCount={setBurgerCount}
@@ -241,8 +268,8 @@ function App() {
               bpsIncrease={pointerBPS}
             />
             <StoreItem
-              storeItemImage={totalBurgersProduced >= 30 ? workerpic : questionmarkpic}
-              storeItemName={totalBurgersProduced >= 30 ? "worker" : "???"}
+              storeItemImage={totalBurgersProducedUnformatted >= 30 ? workerpic : questionmarkpic}
+              storeItemName={totalBurgersProducedUnformatted >= 30 ? "worker" : "???"}
               storeItemPrice={30 + (workerCount * workerCount)}
               burgerCount={burgerCount}
               setBurgerCount={setBurgerCount}
@@ -251,9 +278,9 @@ function App() {
               itemSetter={setWorkerCount}
               bpsIncrease={workerBPS}
             />
-            {totalBurgersProduced >= 30 && <StoreItem
-              storeItemImage={totalBurgersProduced >= 45 ? grillpic : questionmarkpic}
-              storeItemName={totalBurgersProduced >= 45 ? "grill" : "???"}
+            {totalBurgersProducedUnformatted >= 30 && <StoreItem
+              storeItemImage={totalBurgersProducedUnformatted >= 45 ? grillpic : questionmarkpic}
+              storeItemName={totalBurgersProducedUnformatted >= 45 ? "grill" : "???"}
               storeItemPrice={45 + (grillCount * grillCount)}
               burgerCount={burgerCount}
               setBurgerCount={setBurgerCount}
@@ -262,9 +289,9 @@ function App() {
               itemSetter={setGrillCount}
               bpsIncrease={grillBPS}
             />}
-            {totalBurgersProduced >= 45 && <StoreItem
-              storeItemImage={totalBurgersProduced >= 60 ? bankpic : questionmarkpic}
-              storeItemName={totalBurgersProduced >= 60 ? "bank" : "???"}
+            {totalBurgersProducedUnformatted >= 45 && <StoreItem
+              storeItemImage={totalBurgersProducedUnformatted >= 60 ? bankpic : questionmarkpic}
+              storeItemName={totalBurgersProducedUnformatted >= 60 ? "bank" : "???"}
               storeItemPrice={60 + (bankCount * bankCount)}
               burgerCount={burgerCount}
               setBurgerCount={setBurgerCount}
