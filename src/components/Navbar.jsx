@@ -13,6 +13,7 @@ export default function Navbar(props) {
             <button onClick={() => props.setMainArea("info")}>info</button>
             <button onClick={() => props.setMainArea("legacy")}>legacy</button>
             <button onClick={() => props.setMainArea("buildings")}>buildings</button>
+            <button onClick={() => props.setMainArea("testconsole")}>test console</button>
         </>
     )
 }

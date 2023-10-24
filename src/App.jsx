@@ -63,6 +63,7 @@ function App() {
   const [burgersPerSecond, setBurgersPerSecond] = useState(0);
 
   //state for store items
+  // BPS = burgers per second
   const [pointerCount, setPointerCount] = useState(0);
   const [pointerBPS, setPointerBPS] = useState(1);
   const [workerCount, setWorkerCount] = useState(0);
@@ -150,6 +151,61 @@ function App() {
           {mainArea === "legacy" &&
             <Legacy />
           }
+          {mainArea === "testconsole" &&
+            <div>
+              <p>test console</p>
+              <TestConsoleButton
+                buttontext="set burgers/second to 0"
+                functionarg={0}
+                buttonfunc={setBurgersPerSecond}
+              />
+              <TestConsoleButton
+                buttontext='+1 burger/second'
+                functionarg={prev => prev + 1}
+                buttonfunc={setBurgersPerSecond}
+              />
+              <TestConsoleButton
+                buttontext='+100 burger/second'
+                functionarg={prev => prev + 100}
+                buttonfunc={setBurgersPerSecond}
+              />
+              <TestConsoleButton
+                buttontext='+1000 burger/second'
+                functionarg={prev => prev + 1000}
+                buttonfunc={setBurgersPerSecond}
+              />
+              <TestConsoleButton
+                buttontext="+10 million burger/second"
+                functionarg={prev => prev + 10000000}
+                buttonfunc={setBurgersPerSecond}
+              />
+              <TestConsoleButton
+                buttontext="+1 burger per click"
+                functionarg={prev => prev + 1}
+                buttonfunc={setBurgersPerClick}
+              />
+              <TestConsoleButton
+                buttontext="+1000 burger per click"
+                functionarg={prev => prev + 1000}
+                buttonfunc={setBurgersPerClick}
+              />
+              <TestConsoleButton
+                buttontext="+10000 burger per click"
+                functionarg={prev => prev + 10000}
+                buttonfunc={setBurgersPerClick}
+              />
+              <TestConsoleButton
+                buttontext="+1 billion burger per click"
+                functionarg={prev => prev + 1000000000}
+                buttonfunc={setBurgersPerClick}
+              />
+              <TestConsoleButton
+                buttontext="borgir :)"
+                functionarg={""}
+                buttonfunc={playBorgirSound}
+              />
+            </div>
+          }
 
         </div>
         <div className='div4'>
@@ -158,16 +214,13 @@ function App() {
             store
 
           </section>
-          <section className="section1">
+          <section className="section1" id="upgrades">
             {/*classname section1 - create and map currentstoreitems array and state*/}
             <APIfetcher />
 
 
           </section>
-          <section className="section2">
-
-
-
+          <section className="section2" id="buildings">
             <StoreItem
               storeItemImage={totalBurgersProduced >= 15 ? pointerpic : questionmarkpic}
               storeItemName={totalBurgersProduced >= 15 ? "pointer" : "???"}
@@ -202,9 +255,9 @@ function App() {
               bpsIncrease={grillBPS}
             />}
             {totalBurgersProduced >= 45 && <StoreItem
-              storeItemImage={totalBurgersProduced >= 45 ? bankpic : questionmarkpic}
-              storeItemName={totalBurgersProduced >= 45 ? "bank" : "???"}
-              storeItemPrice={45 + (bankCount * bankCount)}
+              storeItemImage={totalBurgersProduced >= 60 ? bankpic : questionmarkpic}
+              storeItemName={totalBurgersProduced >= 60 ? "bank" : "???"}
+              storeItemPrice={60 + (bankCount * bankCount)}
               burgerCount={burgerCount}
               setBurgerCount={setBurgerCount}
               setBurgersPerSecond={setBurgersPerSecond}
@@ -216,57 +269,7 @@ function App() {
           </section>
         </div>
         <div className='div5'>
-          <p>test console</p>
-          <TestConsoleButton
-            buttontext="set burgers/second to 0"
-            functionarg={0}
-            buttonfunc={setBurgersPerSecond}
-          />
-          <TestConsoleButton
-            buttontext='+1 burger/second'
-            functionarg={prev => prev + 1}
-            buttonfunc={setBurgersPerSecond}
-          />
-          <TestConsoleButton
-            buttontext='+100 burger/second'
-            functionarg={prev => prev + 100}
-            buttonfunc={setBurgersPerSecond}
-          />
-          <TestConsoleButton
-            buttontext='+1000 burger/second'
-            functionarg={prev => prev + 1000}
-            buttonfunc={setBurgersPerSecond}
-          />
-          <TestConsoleButton
-            buttontext="+10 million burger/second"
-            functionarg={prev => prev + 10000000}
-            buttonfunc={setBurgersPerSecond}
-          />
-          <TestConsoleButton
-            buttontext="+1 burger per click"
-            functionarg={prev => prev + 1}
-            buttonfunc={setBurgersPerClick}
-          />
-          <TestConsoleButton
-            buttontext="+1000 burger per click"
-            functionarg={prev => prev + 1000}
-            buttonfunc={setBurgersPerClick}
-          />
-          <TestConsoleButton
-            buttontext="+10000 burger per click"
-            functionarg={prev => prev + 10000}
-            buttonfunc={setBurgersPerClick}
-          />
-          <TestConsoleButton
-            buttontext="+1 billion burger per click"
-            functionarg={prev => prev + 1000000000}
-            buttonfunc={setBurgersPerClick}
-          />
-          <TestConsoleButton
-            buttontext="borgir :)"
-            functionarg={""}
-            buttonfunc={playBorgirSound}
-          />
+
         </div>
 
       </div>
