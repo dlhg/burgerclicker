@@ -223,11 +223,6 @@ function App() {
 
         </div>
         <div className='div4'>
-
-          <section className="section">
-            store
-
-          </section>
           <section className="section1" id="upgrades">
             {/*classname section1 - create and map currentstoreitems array and state*/}
             <APIfetcher />
