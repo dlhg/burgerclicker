@@ -1,32 +1,73 @@
 #root {
   border: solid black 1px;
-
 }
 
-@keyframes bounce
-{
-	0% 		{transform-origin:50% 100%;transform:scale(1,1);}
-	10% 	{transform-origin:50% 100%;transform:scale(0.9,1.2);}
-	20% 	{transform-origin:50% 100%;transform:scale(1.5,0.5);}
-	25% 	{transform-origin:50% 100%;transform:scale(0.75,1.5) translate(0px,-10px);}
-	30% 	{transform-origin:50% 100%;transform:scale(0.8,1.2) translate(0px,-20px);}
-	60% 	{transform-origin:50% 100%;transform:scale(1,1) translate(0px,-25px);}
-	70% 	{transform-origin:50% 100%;transform:scale(2,0.5);}
-	80% 	{transform-origin:50% 100%;transform:scale(0.8,1.2);}
-	90% 	{transform-origin:50% 100%;transform:scale(1,1);}
-	100% 	{transform-origin:50% 100%;transform:scale(1,1);}
+@keyframes bounce {
+  0% {
+    transform-origin: 50% 100%;
+    transform: scale(1, 1);
+  }
+  10% {
+    transform-origin: 50% 100%;
+    transform: scale(0.9, 1.2);
+  }
+  20% {
+    transform-origin: 50% 100%;
+    transform: scale(1.5, 0.5);
+  }
+  25% {
+    transform-origin: 50% 100%;
+    transform: scale(0.75, 1.5) translate(0px, -10px);
+  }
+  30% {
+    transform-origin: 50% 100%;
+    transform: scale(0.8, 1.2) translate(0px, -20px);
+  }
+  60% {
+    transform-origin: 50% 100%;
+    transform: scale(1, 1) translate(0px, -25px);
+  }
+  70% {
+    transform-origin: 50% 100%;
+    transform: scale(2, 0.5);
+  }
+  80% {
+    transform-origin: 50% 100%;
+    transform: scale(0.8, 1.2);
+  }
+  90% {
+    transform-origin: 50% 100%;
+    transform: scale(1, 1);
+  }
+  100% {
+    transform-origin: 50% 100%;
+    transform: scale(1, 1);
+  }
 }
 
 @keyframes wobble {
-  0% {transform: scale(0.9, 0.9);}
-  20% {transform: scale(1, 0.9);}
-  30% {transform: scale(0.9, 1.1);}
-  50% {transform: scale(1.1, 0.95);}
-  70% {transform: scale(0.95, 1.05);}
-  90% {transform: scale(1, 0.95);}
-  100% {transform: scale(1.0, 1.0);}
+  0% {
+    transform: scale(0.9, 0.9);
+  }
+  20% {
+    transform: scale(1, 0.9);
+  }
+  30% {
+    transform: scale(0.9, 1.1);
+  }
+  50% {
+    transform: scale(1.1, 0.95);
+  }
+  70% {
+    transform: scale(0.95, 1.05);
+  }
+  90% {
+    transform: scale(1, 0.95);
+  }
+  100% {
+    transform: scale(1, 1);
+  }
 }
-
 
 .parent {
   display: grid;
@@ -34,105 +75,115 @@
   grid-template-rows: repeat(5, 1fr);
   grid-column-gap: 0px;
   grid-row-gap: 0px;
-  }
+}
 
-  .parent > * {
-    border: solid darkgray 1px;
-  }
-  
-  .div1 > * { 
-    {/* burgers, bps, bpc, and burger pic*/}
-    grid-area: 1 / 1 / 6 / 2;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-  
+.parent > * {
+  border: solid darkgray 1px;
+}
 
-   }
+.div1 > * {
+   {
+    /* burgers, bps, bpc, and burger pic*/
+  }
+  grid-area: 1 / 1 / 6 / 2;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
 
-  .div1 img {
-    width: 50%;
-    height: 50%;
-    transition: transform 0.2s ease;
-    transition-delay: 1.5s;
-    display: inline-block;
-    cursor: pointer;
-    transform: scale(1);
-    
-  } 
-  .div1 img:hover {
-    animation: wobble 0.7s ease-in-out;
-  }
-  .div1 img:active {
-  
-  }
-  .div2 { 
-    grid-area: 1 / 2 / 2 / 5; 
-  }
-  .div3 { 
-    /* main game area with buildings etc */
-    grid-area: 2 / 2 / 6 / 5;
-   }
-   #Buildings--container {
-    display:flex;
-    flex-direction: column;
-    color:brown:
-   }
-   #Buildings--container > * {
-    border: solid pink 1px;
-    display:flex;
-    flex-direction: row;
-    overflow: hidden;
-   }
-  .div4 { 
-    grid-area: 1 / 5 / 3 / 6;
-    height: 100%;
-    overflow: hidden;
+.div1 img {
+  width: 50%;
+  height: 50%;
+  transition: transform 0.2s ease;
+  transition-delay: 1.5s;
+  display: inline-block;
+  cursor: pointer;
+  transform: scale(1);
+}
+.div1 img:hover {
+  animation: wobble 0.7s ease-in-out;
+}
+.div1 img:active {
+}
+.div2 {
+  grid-area: 1 / 2 / 2 / 5;
+}
+.div3 {
+  /* main game area with buildings etc */
+  grid-area: 2 / 2 / 6 / 5;
+}
+#Buildings--container {
+  display: flex;
+  flex-direction: column;
+}
+#Buildings--container > * {
+  border: solid pink 1px;
+  display: flex;
+  flex-direction: row;
+  overflow: hidden;
+}
+.div4 {
+  grid-area: 1 / 5 / 3 / 6;
+  height: 100%;
+  overflow: hidden;
+}
 
-                                    
-  }
-
-  .section {
-    
-    width: 100%;
-    transition: height 0.3s ease;
+.section {
+  width: 100%;
+  transition: height 0.3s ease;
 }
 
 .section1 {
   /* top part of store */
-    height: 15%;
-    border: solid red 1px;
-    grid-template-columns: repeat(5, 0.5fr);
-    grid-template-rows: repeat(5, 1fr);
-    grid-column-gap: 0px;
-    grid-row-gap: 0px;
-    overflow: hidden;
+  height: 15%;
+  border: solid red 1px;
+  grid-template-columns: repeat(5, 0.5fr);
+  grid-template-rows: repeat(5, 1fr);
+  grid-column-gap: 0px;
+  grid-row-gap: 0px;
+  overflow: hidden;
 }
 
 .section2 {
   /* bottom part of store */
-    overflow: auto;
-    height: 85%;
-    border: solid blue 1px;
+  overflow: auto;
+  height: 85%;
+  border: solid blue 1px;
 }
 
 .section1:hover {
-    height: 30%;
-    /* in cookie clicker, the amount that the store expands is
+  height: 30%;
+  /* in cookie clicker, the amount that the store expands is
     dependent on the number of rows of available store items, maybe add
     that later instead of expanding a fixed length */
 }
 
 .section1:hover + .section2 {
-    /*
+  /*
     transform: translateY(15%);
     dont think i need this
     */
 }
-  .div5 { grid-area: 3 / 5 / 6 / 6; }
+.div5 {
+  grid-area: 3 / 5 / 6 / 6;
+}
 
-  .store--item {
-    border: solid blue 1px
-  }
+.store--item {
+  border: solid blue 1px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between; /* Aligns children to each end of the container */
+}
+
+.store--item--nameandprice {
+  display: flex;
+  flex-direction: column;
+  border: solid green 5px;
+  margin: auto; /* Centers the content vertically */
+}
+
+.store--item--quantityandbps {
+  align-self: flex-end; /* Aligns this specific item to the flex container's end */
+}
