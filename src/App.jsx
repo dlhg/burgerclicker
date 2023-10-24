@@ -26,6 +26,7 @@ import questionmarkpic from "./assets/images/questionmark_small.jpeg";
 import bankpic from "./assets/images/bank_small.jpeg";
 import templepic from "./assets/images/temple_small.jpg";
 import truckpic from "./assets/images/truck_small.jpg";
+import labpic from "./assets/images/lab_small.jpg";
 //store item images - upgrades
 import cat from "./assets/images/cat_small.jpeg";
 
@@ -81,6 +82,8 @@ function App() {
   const [bankBPS, setBankBPS] = useState(4);
   const [templeCount, setTempleCount] = useState(0);
   const [templeBPS, setTempleBPS] = useState(10);
+  const [labCount, setLabCount] = useState(0);
+  const [labBPS, setLabBPS] = useState(100);
 
   //helper functions
   function formatNumber(number) {
@@ -151,12 +154,14 @@ function App() {
               bankpic={bankpic}
               truckpic={truckpic}
               templepic={templepic}
+              labpic={labpic}
               pointerCount={pointerCount}
               workerCount={workerCount}
               grillCount={grillCount}
               bankCount={bankCount}
               truckCount={truckCount}
               templeCount={templeCount}
+              labCount={labCount}
             />
           )}
           {mainArea === "options" && <Options />}
@@ -359,6 +364,25 @@ function App() {
                 itemCount={templeCount}
                 itemSetter={setTempleCount}
                 bpsIncrease={templeBPS}
+              />
+            )}
+            {totalBurgersProducedUnformatted >= 45 && (
+              <StoreItem
+                storeItemImage={
+                  totalBurgersProducedUnformatted >= 60
+                    ? labpic
+                    : questionmarkpic
+                }
+                storeItemName={
+                  totalBurgersProducedUnformatted >= 60 ? "lab" : "???"
+                }
+                storeItemPrice={60 + labCount * labCount}
+                burgerCount={burgerCount}
+                setBurgerCount={setBurgerCount}
+                setBurgersPerSecond={setBurgersPerSecond}
+                itemCount={labCount}
+                itemSetter={setLabCount}
+                bpsIncrease={labBPS}
               />
             )}
           </section>

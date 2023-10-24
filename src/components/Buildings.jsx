@@ -46,6 +46,13 @@ export default function Buildings(props) {
             </div>
           ))}
         </div>
+        <div id="Building7">
+          {Array.from({ length: props.labCount }, (_, index) => (
+            <div key={index} className="lab--image">
+              <img src={props.labpic} alt={`Lab ${index + 1}`} />
+            </div>
+          ))}
+        </div>
       </div>
     </>
   );
