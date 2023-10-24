@@ -138,7 +138,16 @@ function App() {
         </div>
         <div className='div3' id='gamearea'>
           {mainArea === "buildings" &&
-            <Buildings />
+            <Buildings
+              pointerpic={pointerpic}
+              workerpic={workerpic}
+              grillpic={grillpic}
+              bankpic={bankpic}
+              pointerCount={pointerCount}
+              workerCount={workerCount}
+              grillCount={grillCount}
+              bankCount={bankCount}
+            />
           }
           {mainArea === "options" &&
             <Options />

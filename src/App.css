@@ -68,8 +68,24 @@
   .div1 img:active {
   
   }
-  .div2 { grid-area: 1 / 2 / 2 / 5; }
-  .div3 { grid-area: 2 / 2 / 6 / 5; }
+  .div2 { 
+    grid-area: 1 / 2 / 2 / 5; 
+  }
+  .div3 { 
+    /* main game area with buildings etc */
+    grid-area: 2 / 2 / 6 / 5;
+   }
+   #Buildings--container {
+    display:flex;
+    flex-direction: column;
+    color:brown:
+   }
+   #Buildings--container > * {
+    border: solid pink 1px;
+    display:flex;
+    flex-direction: row;
+    overflow: hidden;
+   }
   .div4 { 
     grid-area: 1 / 5 / 3 / 6;
     height: 100%;
