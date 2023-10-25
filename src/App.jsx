@@ -102,35 +102,43 @@ function App() {
       console.log(`changing currentQuipLevel to 1`);
     } else if (
       totalBurgersProducedUnformatted >= 1000 &&
-      totalBurgersProducedUnformatted <= 10000
+      totalBurgersProducedUnformatted <= 10000 &&
+      currentQuipLevel !== 2
     ) {
       setCurrentQuipLevel(2);
       console.log(`changing currentQuipLevel to 2`);
     } else if (
       totalBurgersProducedUnformatted >= 10000 &&
-      totalBurgersProducedUnformatted <= 100000
+      totalBurgersProducedUnformatted <= 100000 &&
+      currentQuipLevel !== 3
     ) {
       setCurrentQuipLevel(3);
       console.log(`changing currentQuipLevel to 3`);
     } else if (
       totalBurgersProducedUnformatted >= 100000 &&
-      totalBurgersProducedUnformatted <= 1000000
+      totalBurgersProducedUnformatted <= 1000000 &&
+      currentQuipLevel !== 4
     ) {
       setCurrentQuipLevel(4);
       console.log(`changing currentQuipLevel to 4`);
     } else if (
       totalBurgersProducedUnformatted >= 1000000 &&
-      totalBurgersProducedUnformatted <= 10000000
+      totalBurgersProducedUnformatted <= 10000000 &&
+      currentQuipLevel !== 5
     ) {
       setCurrentQuipLevel(5);
       console.log(`changing currentQuipLevel to 5`);
     } else if (
       totalBurgersProducedUnformatted >= 10000000 &&
-      totalBurgersProducedUnformatted <= 100000000
+      totalBurgersProducedUnformatted <= 100000000 &&
+      currentQuipLevel !== 6
     ) {
       setCurrentQuipLevel(6);
       console.log(`changing currentQuipLevel to 6`);
-    } else if (totalBurgersProducedUnformatted >= 100000000) {
+    } else if (
+      totalBurgersProducedUnformatted >= 100000000 &&
+      currentQuipLevel !== 7
+    ) {
       setCurrentQuipLevel(7);
       console.log(`changing currentQuipLevel to 7`);
     }
