@@ -117,6 +117,8 @@ button {
   animation: wobble 0.7s ease-in-out;
 }
 .div1 img:active {
+  height: 49%;
+  width: 49%;
 }
 .div2 {
   /* navbar */
