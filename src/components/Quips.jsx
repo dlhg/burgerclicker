@@ -44,18 +44,20 @@ const level7quips = [
 
 const quipLevelThresholds = [
   { threshold: 100, quips: level1quips },
-  { threshold: 500, quips: level2quips },
-  { threshold: 1000, quips: level3quips },
-  { threshold: 5000, quips: level4quips },
-  { threshold: 10000, quips: level5quips },
-  { threshold: 50000, quips: level6quips },
-  { threshold: 100000, quips: level7quips },
+  { threshold: 1000, quips: level2quips },
+  { threshold: 10000, quips: level3quips },
+  { threshold: 100000, quips: level4quips },
+  { threshold: 1000000, quips: level5quips },
+  { threshold: 10000000, quips: level6quips },
+  { threshold: 100000000, quips: level7quips },
 ];
 
 export default function Quips(props) {
   return (
     <>
-      <div>quips will go here</div>
+      <div>flavor text quips will go here</div>
+      <br />
+      <div></div>
     </>
   );
 }

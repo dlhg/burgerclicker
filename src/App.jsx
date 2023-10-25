@@ -39,6 +39,7 @@ import Info from "./components/Info";
 import Legacy from "./components/Legacy";
 import UpgradeItem from "./components/UpgradeItem";
 import FallingImages from "./components/FallingImages";
+import Quips from "./components/Quips";
 
 function App() {
   //state
@@ -141,7 +142,9 @@ function App() {
               <button onClick={() => setMainArea("stats")}>stats</button>
               <button onClick={() => setMainArea("info")}>info</button>
             </div>
-            <div className="navbar--center">flavor text quips will go here</div>
+            <div className="navbar--center">
+              <Quips />
+            </div>
             <div className="navbar--right">
               <button onClick={() => setMainArea("legacy")}>legacy</button>
               <button onClick={() => setMainArea("buildings")}>
