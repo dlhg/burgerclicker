@@ -143,11 +143,11 @@ button {
 /* Optional: Add some margin between the items */
 .navbar--left button,
 .navbar--center * {
-  margin-bottom: 8px;
+  margin-bottom: 2px;
 }
 
 .navbar--right button {
-  margin-bottom: 8px;
+  margin-bottom: 2px;
 }
 .div3 {
   /* main game area with buildings etc */
