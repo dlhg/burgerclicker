@@ -177,9 +177,6 @@ button {
     dont think i need this
     */
 }
-.div5 {
-  grid-area: 3 / 5 / 6 / 6;
-}
 
 .store--item {
   border: solid black 1px;

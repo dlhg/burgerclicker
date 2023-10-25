@@ -410,7 +410,6 @@ function App() {
             )}
           </section>
         </div>
-        <div className="div5"></div>
       </div>
     </>
   );
