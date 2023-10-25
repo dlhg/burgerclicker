@@ -136,7 +136,23 @@ function App() {
           />
         </div>
         <div className="div2" id="navbar">
-          <Navbar setMainArea={setMainArea} />
+          <div className="navbar">
+            <div className="navbar--left">
+              <button onClick={() => setMainArea("options")}>options</button>
+              <button onClick={() => setMainArea("stats")}>stats</button>
+              <button onClick={() => setMainArea("info")}>info</button>
+            </div>
+            <div className="navbar--center">flavor text quips will go here</div>
+            <div className="navbar--right">
+              <button onClick={() => setMainArea("legacy")}>legacy</button>
+              <button onClick={() => setMainArea("buildings")}>
+                buildings
+              </button>
+              <button onClick={() => setMainArea("testconsole")}>
+                console
+              </button>
+            </div>
+          </div>
         </div>
         <div className="div3" id="gamearea">
           {mainArea === "buildings" && (
