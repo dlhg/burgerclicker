@@ -94,8 +94,7 @@ function App() {
 
   //useEffect
 
-  /* this effect performs redundant quip level updates, ex will update to same val if count is 1000 or 1001
-    if this causes performance issues in the future, refactor it */
+  /* this effect is kind of brute force-y, there is probably a more elegant way to do this that doesn't involve running the effect every single time burg count is changed*/
   useEffect(() => {
     if (totalBurgersProducedUnformatted === 1) {
       setCurrentQuipLevel(1);
