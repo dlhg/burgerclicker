@@ -1,14 +1,3 @@
-/*
-to add:
-  - clicking buttons in navbar should control a state variable (default = buildings)
-    - this state variable should conditionally render in div 3:
-      - options screen
-      - stats screen
-      - info screen
-      - legacy screen
-  - pressing X on any of these screens should revert value back to game screen
-*/
-
 //style imports
 import "./App.css";
 
@@ -114,12 +103,11 @@ function App() {
   }, [burgerCount]);
 
   useEffect(() => {
-    //why does burgers from automation need to be multiplied by 2?
     setTotalBurgersProduced(
-      formatNumber(burgersMadeFromClicking + burgersMadeFromAutomation * 2)
+      formatNumber(burgersMadeFromClicking + burgersMadeFromAutomation)
     );
     setTotalBurgersProducedUnformatted(
-      burgersMadeFromClicking + burgersMadeFromAutomation * 2
+      burgersMadeFromClicking + burgersMadeFromAutomation
     );
   }, [burgersMadeFromClicking, burgersMadeFromAutomation]);
 

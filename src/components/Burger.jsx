@@ -13,9 +13,6 @@ export default function Burger(props) {
 
   useEffect(() => {
     const interval = setInterval(() => {
-      props.setBurgerCount(
-        (prevCount) => prevCount + props.burgersPerSecond / 10
-      );
       props.setBurgersMadeFromAutomation(
         (prevCount) => prevCount + props.burgersPerSecond / 10
       );
