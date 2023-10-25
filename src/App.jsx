@@ -44,6 +44,7 @@ import Quips from "./components/Quips";
 function App() {
   //state
 
+  //state for things related to player progress (quips etc)
   const [currentQuipLevel, setCurrentQuipLevel] = useState(0);
   //state for main area (game, options, stats, info, legacy)
   const [mainArea, setMainArea] = useState("buildings");
@@ -144,7 +145,7 @@ function App() {
               <button onClick={() => setMainArea("info")}>info</button>
             </div>
             <div className="navbar--center">
-              <Quips />
+              <Quips currentQuipLevel={currentQuipLevel} />
             </div>
             <div className="navbar--right">
               <button onClick={() => setMainArea("legacy")}>legacy</button>
