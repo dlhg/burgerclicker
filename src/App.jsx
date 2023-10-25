@@ -246,6 +246,10 @@ function App() {
         <div className="div4">
           <section className="section1" id="upgrades">
             {/*classname section1 - create and map currentstoreitems array and state*/}
+            <div>
+              clicking these catburgers doesn't do anything yet, eventually this
+              will be an upgrade store
+            </div>
             <APIfetcher />
             <UpgradeItem upgradeItemImage={cat} />
             <UpgradeItem upgradeItemImage={cat} />
