@@ -21,7 +21,7 @@ export default function StoreItem(props) {
     props.setBurgerCount((prev) => prev - props.storeItemPrice);
     props.setBurgersPerSecond((prev) => prev + props.bpsIncrease);
     props.itemSetter((prev) => prev + 1);
-    play();
+    //play();
   }
   const textColor = props.burgerCount >= props.storeItemPrice ? "green" : "red";
   return (

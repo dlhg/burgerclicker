@@ -308,7 +308,7 @@ function App() {
                 <TestConsoleButton
                   buttontext="borgir :)"
                   functionarg={""}
-                  buttonfunc={playBorgirSound}
+                  //buttonfunc={playBorgirSound}
                 />
               </div>
             </>
