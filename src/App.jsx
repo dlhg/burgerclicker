@@ -44,6 +44,7 @@ import Quips from "./components/Quips";
 function App() {
   //state
 
+  const [currentQuipLevel, setCurrentQuipLevel] = useState(0);
   //state for main area (game, options, stats, info, legacy)
   const [mainArea, setMainArea] = useState("buildings");
 

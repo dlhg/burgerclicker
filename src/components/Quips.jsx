@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from "react";
 
+const level0quips = ["Click the burger to start your journey"];
+
 const level1quips = [
   "Five customers enjoyed our burgers today.",
   "The chef is experimenting with new toppings.",
@@ -43,6 +45,7 @@ const level7quips = [
 ];
 
 const quipLevelThresholds = [
+  { threshold: 0, quips: level0quips },
   { threshold: 1, quips: level1quips },
   { threshold: 1000, quips: level2quips },
   { threshold: 10000, quips: level3quips },
