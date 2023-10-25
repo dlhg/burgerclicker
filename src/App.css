@@ -104,7 +104,11 @@ button {
   height: 100vh;
 }
 
-.div1 img {
+.big--burger--container {
+  height: 25%;
+}
+
+.big--burger {
   width: 50%;
   height: 50%;
   transition: transform 0.2s ease;
@@ -113,10 +117,10 @@ button {
   cursor: pointer;
   transform: scale(1);
 }
-.div1 img:hover {
+.big--burger:hover {
   animation: wobble 0.7s ease-in-out;
 }
-.div1 img:active {
+.big--burger:active {
   height: 49%;
   width: 49%;
 }

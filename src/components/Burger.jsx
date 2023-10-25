@@ -52,7 +52,12 @@ export default function Burger(props) {
       <br />
 
       <section>
-        <img src={props.burgerpic} onClick={handleBurgerClick} alt="Burger" />
+        <img
+          src={props.burgerpic}
+          onClick={handleBurgerClick}
+          alt="Burger"
+          className="big--burger"
+        />
         <br />
         <br />
         <br />

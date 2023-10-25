@@ -171,21 +171,25 @@ function App() {
     <>
       <div className="parent">
         <div className="div1" id="burger">
-          <Burger
-            totalBurgersProduced={totalBurgersProduced}
-            burgerCount={burgerCount}
-            displayedBurgerCount={displayedBurgerCount}
-            setBurgerCount={setBurgerCount}
-            burgersPerClick={burgersPerClick}
-            setBurgersPerClick={setBurgersPerClick}
-            burgersPerSecond={burgersPerSecond}
-            setBurgersPerSecond={setBurgersPerSecond}
-            burgersMadeFromClicking={burgersMadeFromClicking}
-            setBurgersMadeFromClicking={setBurgersMadeFromClicking}
-            burgersMadeFromAutomation={burgersMadeFromAutomation}
-            setBurgersMadeFromAutomation={setBurgersMadeFromAutomation}
-            burgerpic={burgerpic}
-          />
+          <div className="big--burger--container">
+            <Burger
+              totalBurgersProduced={totalBurgersProduced}
+              burgerCount={burgerCount}
+              displayedBurgerCount={displayedBurgerCount}
+              setBurgerCount={setBurgerCount}
+              burgersPerClick={burgersPerClick}
+              setBurgersPerClick={setBurgersPerClick}
+              burgersPerSecond={burgersPerSecond}
+              setBurgersPerSecond={setBurgersPerSecond}
+              burgersMadeFromClicking={burgersMadeFromClicking}
+              setBurgersMadeFromClicking={setBurgersMadeFromClicking}
+              burgersMadeFromAutomation={burgersMadeFromAutomation}
+              setBurgersMadeFromAutomation={setBurgersMadeFromAutomation}
+              burgerpic={burgerpic}
+            />
+          </div>
+          <div></div>
+          <FallingImages img={transparentburger_smallpic} />
         </div>
         <div className="div2">
           <div className="navbar">
@@ -229,7 +233,6 @@ function App() {
                 labCount={labCount}
                 spacecraftCount={spacecraftCount}
               />
-              <FallingImages img={transparentburger_smallpic} />
             </>
           )}
           {mainArea === "options" && <Options />}
