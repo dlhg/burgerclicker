@@ -28,6 +28,7 @@ import bankpic from "./assets/images/bank_small.jpeg";
 import templepic from "./assets/images/temple_small.jpg";
 import truckpic from "./assets/images/truck_small.jpg";
 import labpic from "./assets/images/lab_small.jpg";
+import spacecraftpic from "./assets/images/spacecraft_small.jpg";
 //store item images - upgrades
 import cat from "./assets/images/cat_small.jpeg";
 
@@ -84,6 +85,8 @@ function App() {
   const [templeBPS, setTempleBPS] = useState(100);
   const [labCount, setLabCount] = useState(0);
   const [labBPS, setLabBPS] = useState(500);
+  const [spacecraftCount, setSpacecraftCount] = useState(0);
+  const [spacecraftBPS, setSpaceCraftBPS] = useState(5000);
 
   //helper functions
   function formatNumber(number) {
@@ -155,6 +158,7 @@ function App() {
               truckpic={truckpic}
               templepic={templepic}
               labpic={labpic}
+              spacecraftpic={spacecraftpic}
               pointerCount={pointerCount}
               workerCount={workerCount}
               grillCount={grillCount}
@@ -162,6 +166,7 @@ function App() {
               truckCount={truckCount}
               templeCount={templeCount}
               labCount={labCount}
+              spacecraftCount={spacecraftCount}
             />
           )}
           {mainArea === "options" && <Options />}
@@ -387,6 +392,27 @@ function App() {
                 itemCount={labCount}
                 itemSetter={setLabCount}
                 bpsIncrease={labBPS}
+              />
+            )}
+            {totalBurgersProducedUnformatted >= 4500 && (
+              <StoreItem
+                storeItemImage={
+                  totalBurgersProducedUnformatted >= 45000
+                    ? spacecraftpic
+                    : questionmarkpic
+                }
+                storeItemName={
+                  totalBurgersProducedUnformatted >= 45000
+                    ? "spacecraft"
+                    : "???"
+                }
+                storeItemPrice={45000 + spacecraftCount * spacecraftCount}
+                burgerCount={burgerCount}
+                setBurgerCount={setBurgerCount}
+                setBurgersPerSecond={setBurgersPerSecond}
+                itemCount={spacecraftCount}
+                itemSetter={setSpacecraftCount}
+                bpsIncrease={spacecraftBPS}
               />
             )}
           </section>

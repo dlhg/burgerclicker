@@ -53,6 +53,13 @@ export default function Buildings(props) {
             </div>
           ))}
         </div>
+        <div id="Building7">
+          {Array.from({ length: props.spacecraftCount }, (_, index) => (
+            <div key={index} className="spacecraft--image">
+              <img src={props.spacecraftpic} alt={`Spacecraft ${index + 1}`} />
+            </div>
+          ))}
+        </div>
       </div>
     </>
   );
