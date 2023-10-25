@@ -160,10 +160,7 @@ button {
   grid-area: 2 / 2 / 6 / 5;
   overflow: hidden;
 }
-#Buildings--container {
-  display: flex;
-  flex-direction: column;
-}
+
 #Buildings--container > * {
   display: flex;
   flex-direction: row;
