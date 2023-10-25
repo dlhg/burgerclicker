@@ -146,6 +146,14 @@ button {
   align-items: flex-start; /* Align items to the start of the column */
 }
 
+.navbar--center {
+  font-size: x-large;
+  text-align: center;
+}
+
+.quip--text {
+}
+
 /* Optional: Add some margin between the items */
 .navbar--left button,
 .navbar--center * {

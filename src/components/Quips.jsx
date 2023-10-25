@@ -360,7 +360,7 @@ export default function Quips(props) {
 
   return (
     <>
-      <div>{currentQuip}</div>
+      <div className="quip--text">{currentQuip}</div>
       <br />
     </>
   );
