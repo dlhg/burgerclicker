@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import useSound from "use-sound";
+//import useSound from "use-sound";
 import click1 from "../assets/sfx/click1.wav";
 import click2 from "../assets/sfx/click2.wav";
 import click3 from "../assets/sfx/click3.wav";
@@ -9,7 +9,7 @@ import { getRandomNumber } from "../Utils";
 const clicksounds = [click1, click2, click3, click4];
 
 export default function Burger(props) {
-  const [play] = useSound(clicksounds[getRandomIndex(clicksounds)]);
+  //const [play] = useSound(clicksounds[getRandomIndex(clicksounds)]);
 
   useEffect(() => {
     const interval = setInterval(() => {

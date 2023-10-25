@@ -3,7 +3,7 @@ import "./App.css";
 
 //hook imports
 import { useState, useEffect } from "react";
-import useSound from "use-sound";
+//import useSound from "use-sound";
 
 //image import
 import burgerpic from "./assets/images/burger.jpeg";
@@ -23,7 +23,7 @@ import spacecraftpic from "./assets/images/spacecraft_small.jpg";
 import cat from "./assets/images/cat_small.jpeg";
 
 //sfx imports
-import borgir from "./assets/sfx/borgir.mp3";
+//import borgir from "./assets/sfx/borgir.mp3";
 
 //music imports
 
@@ -165,7 +165,7 @@ function App() {
     );
   }, [burgersMadeFromClicking, burgersMadeFromAutomation]);
 
-  const [playBorgirSound] = useSound(borgir);
+  //const [playBorgirSound] = useSound(borgir);
 
   return (
     <>

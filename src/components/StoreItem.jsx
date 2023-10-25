@@ -1,15 +1,15 @@
 import React from "react";
-import useSound from "use-sound";
-import { getRandomIndex } from "../Utils";
-import { getRandomNumber } from "../Utils";
-import click1 from "../assets/sfx/click1.wav";
-import click2 from "../assets/sfx/click2.wav";
-import click3 from "../assets/sfx/click3.wav";
-import click4 from "../assets/sfx/click4.wav";
-const clicksounds = [click1, click2, click3, click4];
+//import useSound from "use-sound";
+//import { getRandomIndex } from "../Utils";
+//import { getRandomNumber } from "../Utils";
+//import click1 from "../assets/sfx/click1.wav";
+//import click2 from "../assets/sfx/click2.wav";
+//import click3 from "../assets/sfx/click3.wav";
+//import click4 from "../assets/sfx/click4.wav";
+//const clicksounds = [click1, click2, click3, click4];
 
 export default function StoreItem(props) {
-  const [play] = useSound(clicksounds[getRandomIndex(clicksounds)]);
+  //const [play] = useSound(clicksounds[getRandomIndex(clicksounds)]);
 
   function buyItem() {
     if (props.storeItemPrice > props.burgerCount) {
