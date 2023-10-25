@@ -298,7 +298,7 @@ function App() {
                     : questionmarkpic
                 }
                 storeItemName={
-                  totalBurgersProducedUnformatted >= 75 ? "grill" : "???"
+                  totalBurgersProducedUnformatted >= 150 ? "grill" : "???"
                 }
                 storeItemPrice={150 + grillCount * grillCount}
                 burgerCount={burgerCount}
