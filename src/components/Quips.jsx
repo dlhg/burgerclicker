@@ -43,7 +43,7 @@ const level7quips = [
 ];
 
 const quipLevelThresholds = [
-  { threshold: 100, quips: level1quips },
+  { threshold: 1, quips: level1quips },
   { threshold: 1000, quips: level2quips },
   { threshold: 10000, quips: level3quips },
   { threshold: 100000, quips: level4quips },
