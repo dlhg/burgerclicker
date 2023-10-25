@@ -197,6 +197,11 @@ button {
 
 .store--item--quantityandbps {
 }
+
+#store--item--img {
+  display: flex;
+  align-items: center; /* Center vertically */
+}
 #store--item--name {
   font-weight: 900;
   font-size: xx-large;
