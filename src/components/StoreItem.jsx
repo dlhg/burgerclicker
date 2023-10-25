@@ -23,7 +23,7 @@ export default function StoreItem(props) {
     props.itemSetter((prev) => prev + 1);
     play();
   }
-
+  const textColor = props.burgerCount >= props.storeItemPrice ? "green" : "red";
   return (
     <>
       <div className="store--item" onClick={() => buyItem()}>
@@ -33,7 +33,9 @@ export default function StoreItem(props) {
         <div id="store--item--nameandprice">
           <div id="store--item--name">{props.storeItemName}</div>
           <br />
-          <div id="store--item--cost">{props.storeItemPrice}🍔</div>
+          <div id="store--item--cost" style={{ color: textColor }}>
+            {props.storeItemPrice}🍔
+          </div>
         </div>
         <div id="store--item--quantityandbps">
           <div id="store--item--quantity">{props.itemCount}</div>
