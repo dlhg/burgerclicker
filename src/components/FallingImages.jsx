@@ -4,8 +4,6 @@ const FallingImage = (props) => {
   const [fallingImages, setFallingImages] = useState([]);
   const animationDuration = 3000; // Assuming the animation duration is 3 seconds
   useEffect(() => {
-    const animationDuration = 3000; // Assuming the animation duration is 3 seconds
-
     // Initialize falling images at 1-second intervals
     const intervalId = setInterval(() => {
       const newImage = {
@@ -25,7 +23,7 @@ const FallingImage = (props) => {
       if (fallingImages.length >= 200) {
         clearInterval(intervalId);
       }
-    }, 1000);
+    }, 100);
 
     return () => {
       // Cleanup: Remove interval
