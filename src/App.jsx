@@ -31,7 +31,6 @@ import borgir from "./assets/sfx/borgir.mp3";
 import Burger from "./components/Burger";
 import TestConsoleButton from "./components/TestConsoleButton";
 import StoreItem from "./components/StoreItem";
-import Navbar from "./components/Navbar";
 import APIfetcher from "./components/APIfetcher";
 import Buildings from "./components/Buildings";
 import Options from "./components/Options";
