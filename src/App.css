@@ -10,6 +10,11 @@
   /* user-select none makes all text unselectable */
 }
 
+button {
+  font-family: pixelfont;
+  font-size: larger;
+}
+
 @keyframes bounce {
   0% {
     transform-origin: 50% 100%;
