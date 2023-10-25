@@ -93,6 +93,49 @@ function App() {
   }
 
   //useEffect
+
+  /* this effect performs redundant quip level updates, ex will update to same val if count is 1000 or 1001
+    if this causes performance issues in the future, refactor it */
+  useEffect(() => {
+    if (totalBurgersProducedUnformatted === 1) {
+      setCurrentQuipLevel(1);
+      console.log(`changing currentQuipLevel to 1`);
+    } else if (
+      totalBurgersProducedUnformatted >= 1000 &&
+      totalBurgersProducedUnformatted <= 10000
+    ) {
+      setCurrentQuipLevel(2);
+      console.log(`changing currentQuipLevel to 2`);
+    } else if (
+      totalBurgersProducedUnformatted >= 10000 &&
+      totalBurgersProducedUnformatted <= 100000
+    ) {
+      setCurrentQuipLevel(3);
+      console.log(`changing currentQuipLevel to 3`);
+    } else if (
+      totalBurgersProducedUnformatted >= 100000 &&
+      totalBurgersProducedUnformatted <= 1000000
+    ) {
+      setCurrentQuipLevel(4);
+      console.log(`changing currentQuipLevel to 4`);
+    } else if (
+      totalBurgersProducedUnformatted >= 1000000 &&
+      totalBurgersProducedUnformatted <= 10000000
+    ) {
+      setCurrentQuipLevel(5);
+      console.log(`changing currentQuipLevel to 5`);
+    } else if (
+      totalBurgersProducedUnformatted >= 10000000 &&
+      totalBurgersProducedUnformatted <= 100000000
+    ) {
+      setCurrentQuipLevel(6);
+      console.log(`changing currentQuipLevel to 6`);
+    } else if (totalBurgersProducedUnformatted >= 100000000) {
+      setCurrentQuipLevel(7);
+      console.log(`changing currentQuipLevel to 7`);
+    }
+  }, [totalBurgersProducedUnformatted]);
+
   useEffect(() => {
     const interval = setInterval(() => {
       setBurgerCount(
