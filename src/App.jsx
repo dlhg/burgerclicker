@@ -135,7 +135,7 @@ function App() {
             burgerpic={burgerpic}
           />
         </div>
-        <div className="div2" id="navbar">
+        <div className="div2">
           <div className="navbar">
             <div className="navbar--left">
               <button onClick={() => setMainArea("options")}>options</button>
