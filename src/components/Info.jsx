@@ -5,7 +5,7 @@ export default function Info(props) {
     <>
       <div>
         Burger Clicker is a project developed by Drew Gragg using React JS,
-        Howler, Vite.
+        Vite, and Howler.
       </div>
       <br />
       <ul style={{ fontSize: "x-large" }}>
@@ -17,6 +17,9 @@ export default function Info(props) {
         <li>
           To unlock new store items, your total burgers produced must equal the
           initial cost of the item
+        </li>
+        <li>
+          An item's price is red if you can't afford it and green if you can
         </li>
       </ul>
     </>
