@@ -137,28 +137,30 @@ function App() {
         </div>
         <div className="div2" id="navbar">
           <Navbar setMainArea={setMainArea} />
-          <FallingImages img={transparentburger_smallpic} />
         </div>
         <div className="div3" id="gamearea">
           {mainArea === "buildings" && (
-            <Buildings
-              pointerpic={pointerpic}
-              workerpic={workerpic}
-              grillpic={grillpic}
-              bankpic={bankpic}
-              truckpic={truckpic}
-              templepic={templepic}
-              labpic={labpic}
-              spacecraftpic={spacecraftpic}
-              pointerCount={pointerCount}
-              workerCount={workerCount}
-              grillCount={grillCount}
-              bankCount={bankCount}
-              truckCount={truckCount}
-              templeCount={templeCount}
-              labCount={labCount}
-              spacecraftCount={spacecraftCount}
-            />
+            <>
+              <Buildings
+                pointerpic={pointerpic}
+                workerpic={workerpic}
+                grillpic={grillpic}
+                bankpic={bankpic}
+                truckpic={truckpic}
+                templepic={templepic}
+                labpic={labpic}
+                spacecraftpic={spacecraftpic}
+                pointerCount={pointerCount}
+                workerCount={workerCount}
+                grillCount={grillCount}
+                bankCount={bankCount}
+                truckCount={truckCount}
+                templeCount={templeCount}
+                labCount={labCount}
+                spacecraftCount={spacecraftCount}
+              />
+              <FallingImages img={transparentburger_smallpic} />
+            </>
           )}
           {mainArea === "options" && <Options />}
           {mainArea === "stats" && (
