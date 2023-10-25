@@ -1,49 +1,42 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect } from "react";
 
 const FallingImage = (props) => {
   const [fallingImages, setFallingImages] = useState([]);
-  const imageRefs = useRef([]);
 
   useEffect(() => {
-    const addFallingImage = () => {
-      const id = Date.now();
-      setFallingImages((prevImages) => [
-        ...prevImages,
-        { id, top: 0, left: Math.random() * 100 },
-      ]);
-
-      // Create a ref for the new image
-      const newImageRef = React.createRef();
-      imageRefs.current.push({ id, ref: newImageRef });
-
-      // Remove the image from state after the animation ends
-      const removeImage = () => {
-        setFallingImages((prevImages) =>
-          prevImages.filter((image) => image.id !== id)
-        );
+    // Initialize falling images at 1-second intervals
+    const intervalId = setInterval(() => {
+      const newImage = {
+        id: fallingImages.length,
+        top: 0,
+        left: Math.random() * 100,
       };
 
-      // Attach the animationend event listener to the new image using the ref
-      if (newImageRef.current) {
-        newImageRef.current.addEventListener("animationend", removeImage, {
-          once: true,
-        });
+      setFallingImages((prevImages) => [...prevImages, newImage]);
+
+      // Set a timeout to remove the oldest image after its animation ends
+      setTimeout(() => {
+        setFallingImages((prevImages) => prevImages.slice(1));
+      }, 3000); // Assuming the animation duration is 3 seconds
+
+      // Clear the interval when enough images have been added
+      if (fallingImages.length >= 20) {
+        clearInterval(intervalId);
       }
+    }, 1000);
+
+    return () => {
+      // Cleanup: Remove interval
+      clearInterval(intervalId);
     };
-
-    const intervalId = setInterval(addFallingImage, 500);
-
-    return () => clearInterval(intervalId);
-  }, []);
+  }, [fallingImages]); // Re-run effect when fallingImages changes
 
   return (
     <div className="container">
       {fallingImages.map((image) => (
         <img
           key={image.id}
-          ref={
-            imageRefs.current.find((item) => item.id === image.id)?.ref || null
-          }
+          id={`falling-image-${image.id}`}
           className="falling-image"
           src={props.img}
           alt="Falling Image"
