@@ -13,7 +13,6 @@ export default function Navbar(props) {
         </div>
         <div className="navbar--center">
           <Quips />
-          <p>quips here</p>
         </div>
         <div className="navbar--right">
           <button onClick={() => props.setMainArea("legacy")}>legacy</button>
