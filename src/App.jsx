@@ -8,6 +8,7 @@ import useSound from "use-sound";
 //image import
 import burgerpic from "./assets/images/burger.jpeg";
 import galaxyburgerpic from "./assets/images/galaxyburger.jpeg";
+import transparentburger_smallpic from "./assets/images/transparentburger_small.png";
 //store item images - buildings
 import workerpic from "./assets/images/worker_small.jpeg";
 import pointerpic from "./assets/images/pointer.png";
@@ -38,6 +39,7 @@ import Stats from "./components/Stats";
 import Info from "./components/Info";
 import Legacy from "./components/Legacy";
 import UpgradeItem from "./components/UpgradeItem";
+import FallingImages from "./components/FallingImages";
 
 function App() {
   //state
@@ -135,6 +137,7 @@ function App() {
         </div>
         <div className="div2" id="navbar">
           <Navbar setMainArea={setMainArea} />
+          <FallingImages img={transparentburger_smallpic} />
         </div>
         <div className="div3" id="gamearea">
           {mainArea === "buildings" && (

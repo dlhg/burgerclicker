@@ -219,3 +219,22 @@ button {
   text-shadow: 2px 2px #5a5a5a;
   text-align: end;
 }
+
+.container {
+  position: relative;
+  height: 400px; /* Adjust the height as needed */
+  overflow: hidden;
+}
+
+.falling-image {
+  position: absolute;
+  left: 50%; /* Initial left position, adjust as needed */
+  transform: translateX(-50%); /* Center the image horizontally */
+  animation: fallAnimation 3s forwards;
+}
+
+@keyframes fallAnimation {
+  to {
+    top: 100%;
+  }
+}
