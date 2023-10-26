@@ -7,7 +7,7 @@ const FallingImage = (props) => {
     // Initialize falling images at 1-second intervals
     const intervalId = setInterval(() => {
       const newImage = {
-        id: Math.random() * 10000,
+        id: Math.random() * 100000,
         top: 0,
         left: Math.random() * 100,
       };
@@ -23,7 +23,7 @@ const FallingImage = (props) => {
       if (fallingImages.length >= 200) {
         clearInterval(intervalId);
       }
-    }, 100);
+    }, 200);
 
     return () => {
       // Cleanup: Remove interval

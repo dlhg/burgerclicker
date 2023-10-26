@@ -262,6 +262,7 @@ button {
 
 .container {
   position: relative;
+  margin-top: 25%;
   height: 100%; /* Adjust the height as needed */
   overflow: hidden;
 }
