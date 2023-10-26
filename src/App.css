@@ -202,6 +202,10 @@ button {
   overflow: hidden;
 }
 
+.section1 img {
+  border: ridge gray 5px;
+}
+
 .section1 img:hover {
   animation: wobble 0.5s;
 }
@@ -220,7 +224,7 @@ button {
 }
 
 .store--item {
-  border: solid black 1px;
+  border: solid gray 1px;
   display: flex;
   flex-direction: row;
   justify-content: space-between; /* Aligns children to each end of the container */

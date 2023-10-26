@@ -1,11 +1,17 @@
 //items earned by getting certain amount of burgs, buildings etc
 
-import React from "react";
+import React, { useState } from "react";
 
 export default function UpgradeItem(props) {
+  const [unpurchased, setUnpurchased] = useState(true);
   return (
     <>
-      <img src={props.upgradeItemImage}></img>
+      {unpurchased && (
+        <img
+          src={props.upgradeItemImage}
+          onClick={() => setUnpurchased(false)}
+        ></img>
+      )}
     </>
   );
 }

@@ -318,11 +318,19 @@ function App() {
           <section className="section1">
             {/*classname section1 - create and map currentstoreitems array and state*/}
             <div>
-              clicking these catburgers doesn't do anything yet, eventually this
-              will be an upgrade store
+              clicking these upgrades doesn't do anything yet other than hide
+              them
             </div>
             <APIfetcher />
             <UpgradeItem upgradeItemImage={cat} />
+            <UpgradeItem upgradeItemImage={spacecraftpic} />
+            <UpgradeItem upgradeItemImage={truckpic} />
+            <UpgradeItem upgradeItemImage={cat} />
+            <UpgradeItem upgradeItemImage={spacecraftpic} />
+            <UpgradeItem upgradeItemImage={truckpic} />
+            <UpgradeItem upgradeItemImage={cat} />
+            <UpgradeItem upgradeItemImage={spacecraftpic} />
+            <UpgradeItem upgradeItemImage={truckpic} />
           </section>
           <section className="section2" id="buildings">
             <StoreItem
