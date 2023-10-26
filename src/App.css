@@ -231,7 +231,7 @@ button {
 }
 
 .section1 img:hover {
-  animation: slightwobble 0.6s;
+  border: ridge lightgray 5px;
 }
 
 .section2 {

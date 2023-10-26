@@ -6,6 +6,7 @@ to add:
     - if yes:
         - set unPurchased to false
         - use other setter functions passed in as props to update things like BPS for buildings, or burgers per click
+        - add upgrade to owned upgrades list and display that list to the player somewhere, maybe info section like CC
 
 - tooltip that shows on hover to show item price, name, and description
 - setter functions for state variables like burgers per click and BPS for individual buildings should be passed in so that upgrades can modify these states
