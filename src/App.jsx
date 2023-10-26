@@ -41,6 +41,8 @@ import UpgradeItem from "./components/UpgradeItem";
 import FallingImages from "./components/FallingImages";
 import Quips from "./components/Quips";
 
+import { scaleItemPrice } from "./utils/index";
+
 function App() {
   //state
 
@@ -342,7 +344,7 @@ function App() {
               storeItemName={
                 totalBurgersProducedUnformatted >= 15 ? "pointer" : "???"
               }
-              storeItemPrice={15 + pointerCount * pointerCount}
+              storeItemPrice={scaleItemPrice(10, pointerCount)}
               burgerCount={burgerCount}
               setBurgerCount={setBurgerCount}
               setBurgersPerSecond={setBurgersPerSecond}
@@ -359,7 +361,7 @@ function App() {
               storeItemName={
                 totalBurgersProducedUnformatted >= 75 ? "worker" : "???"
               }
-              storeItemPrice={75 + workerCount * workerCount}
+              storeItemPrice={scaleItemPrice(50, workerCount)}
               burgerCount={burgerCount}
               setBurgerCount={setBurgerCount}
               setBurgersPerSecond={setBurgersPerSecond}
@@ -377,7 +379,7 @@ function App() {
                 storeItemName={
                   totalBurgersProducedUnformatted >= 150 ? "grill" : "???"
                 }
-                storeItemPrice={150 + grillCount * grillCount}
+                storeItemPrice={scaleItemPrice(150, grillCount)}
                 burgerCount={burgerCount}
                 setBurgerCount={setBurgerCount}
                 setBurgersPerSecond={setBurgersPerSecond}
@@ -396,7 +398,7 @@ function App() {
                 storeItemName={
                   totalBurgersProducedUnformatted >= 225 ? "truck" : "???"
                 }
-                storeItemPrice={225 + truckCount * truckCount}
+                storeItemPrice={scaleItemPrice(225, truckCount)}
                 burgerCount={burgerCount}
                 setBurgerCount={setBurgerCount}
                 setBurgersPerSecond={setBurgersPerSecond}
@@ -415,7 +417,7 @@ function App() {
                 storeItemName={
                   totalBurgersProducedUnformatted >= 450 ? "bank" : "???"
                 }
-                storeItemPrice={450 + bankCount * bankCount}
+                storeItemPrice={scaleItemPrice(450, bankCount)}
                 burgerCount={burgerCount}
                 setBurgerCount={setBurgerCount}
                 setBurgersPerSecond={setBurgersPerSecond}
@@ -434,7 +436,7 @@ function App() {
                 storeItemName={
                   totalBurgersProducedUnformatted >= 900 ? "temple" : "???"
                 }
-                storeItemPrice={900 + templeCount * templeCount}
+                storeItemPrice={scaleItemPrice(900, templeCount)}
                 burgerCount={burgerCount}
                 setBurgerCount={setBurgerCount}
                 setBurgersPerSecond={setBurgersPerSecond}
@@ -453,7 +455,7 @@ function App() {
                 storeItemName={
                   totalBurgersProducedUnformatted >= 4500 ? "lab" : "???"
                 }
-                storeItemPrice={4500 + labCount * labCount}
+                storeItemPrice={scaleItemPrice(4500, labCount)}
                 burgerCount={burgerCount}
                 setBurgerCount={setBurgerCount}
                 setBurgersPerSecond={setBurgersPerSecond}
