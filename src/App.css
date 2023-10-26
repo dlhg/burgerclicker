@@ -202,6 +202,10 @@ button {
   overflow: hidden;
 }
 
+.section1 img:hover {
+  animation: wobble 0.5s;
+}
+
 .section2 {
   /* bottom part of store */
   overflow: auto;
