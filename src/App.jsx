@@ -476,7 +476,7 @@ function App() {
                     ? "spacecraft"
                     : "???"
                 }
-                storeItemPrice={scaleItemPrice(45000, spacecraftCountCount)}
+                storeItemPrice={scaleItemPrice(45000, spacecraftCount)}
                 burgerCount={burgerCount}
                 setBurgerCount={setBurgerCount}
                 setBurgersPerSecond={setBurgersPerSecond}
