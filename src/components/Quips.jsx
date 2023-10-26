@@ -65,7 +65,7 @@ const level1quips = [
   "The restaurant playlist is a mix of classics and indie hits.",
   "A kid left with a balloon, a smile, and a full belly.",
   "The chef is perfecting a secret sauce recipe.",
-  "The first online order just came in!",
+  "An online order just came in!",
   "Our neon 'Burger Haven' sign is drawing attention.",
   "A regular customer convinced a friend to join the burger club.",
   "The chef's special got a standing ovation (from the staff).",
