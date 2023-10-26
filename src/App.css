@@ -82,6 +82,30 @@ button {
   }
 }
 
+@keyframes slightwobble {
+  0% {
+    transform: scale(0.97, 0.97);
+  }
+  20% {
+    transform: scale(1, 0.97);
+  }
+  30% {
+    transform: scale(0.97, 1.03);
+  }
+  50% {
+    transform: scale(1.03, 0.99);
+  }
+  70% {
+    transform: scale(0.99, 1.01);
+  }
+  90% {
+    transform: scale(1, 0.99);
+  }
+  100% {
+    transform: scale(1, 1);
+  }
+}
+
 .parent {
   display: grid;
   grid-template-columns: repeat(5, 1fr);
@@ -118,7 +142,7 @@ button {
   transform: scale(1);
 }
 .big--burger:hover {
-  animation: wobble 0.7s ease-in-out;
+  animation: slightwobble 0.7s ease-in-out;
 }
 .big--burger:active {
   height: 49%;
@@ -207,7 +231,7 @@ button {
 }
 
 .section1 img:hover {
-  animation: wobble 0.5s;
+  animation: slightwobble 0.6s;
 }
 
 .section2 {

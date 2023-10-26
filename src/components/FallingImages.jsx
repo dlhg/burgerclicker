@@ -1,3 +1,6 @@
+// should update this so that the amount of burgers can be scaled up as BPS scales up
+// maybe animation speed can also be sped up if player gets some kind of temp production boost (gold burger?)
+
 import React, { useState, useEffect } from "react";
 
 const FallingImage = (props) => {
