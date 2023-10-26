@@ -192,7 +192,7 @@ button {
 }
 
 .section1 {
-  /* top part of store */
+  /* top part of store with upgrades */
   height: 15%;
 
   grid-template-columns: repeat(5, 0.5fr);
@@ -213,13 +213,6 @@ button {
   /* in cookie clicker, the amount that the store expands is
     dependent on the number of rows of available store items, maybe add
     that later instead of expanding a fixed length */
-}
-
-.section1:hover + .section2 {
-  /*
-    transform: translateY(15%);
-    dont think i need this
-    */
 }
 
 .store--item {

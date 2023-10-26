@@ -3,9 +3,9 @@
 import React from "react";
 
 export default function UpgradeItem(props) {
-    return (
-        <>
-            <img src={props.upgradeItemImage}></img>
-        </>
-    )
+  return (
+    <>
+      <img src={props.upgradeItemImage}></img>
+    </>
+  );
 }
