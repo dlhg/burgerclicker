@@ -19,16 +19,16 @@ const level0quips = [
   "In a world of uncertainty, the big burger is your constant",
   "Wisdom whispers, 'click the big burger'",
   "The big burger is calling, will you heed its call?",
-  "Click the big burger, for it knows the secrets of the code",
+
   "Unlock the achievement of curiosity, click the big burger",
   "The big burger is not just a symbol, it's a revelation",
   "The big burger is your guide in the maze of possibilities, follow it",
   "Click the big burger, and enter the realm of virtual wonders",
   "The big burger is the compass in the vast sea of pixels, follow it",
   "Click the big burger, and transcend the boundaries of the screen",
-  "In the symphony of code, the big burger is your cue to play",
+
   "The big burger is the muse of your digital odyssey, click it",
-  "Click the big burger, and code your own narrative",
+
   "The big burger is not just a button, it's a declaration",
   "The big burger is the philosopher's stone of the digital realm",
   "In the matrix of possibilities, the big burger is your chosen path",
