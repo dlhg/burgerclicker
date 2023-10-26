@@ -263,13 +263,13 @@ button {
 .container {
   position: relative;
   margin-top: 40%;
-  height: 100%; /* Adjust the height as needed */
+  height: 60%; /* Adjust the height as needed */
   overflow: hidden;
 }
 
 .falling-image {
   position: absolute;
-  left: 50%; /* Initial left position, adjust as needed */
+  left: 50%; /* Initial left position*/
   transform: translateX(-50%); /* Center the image horizontally */
   animation: fallAnimation 3s forwards;
 }

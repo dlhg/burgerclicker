@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 
 const FallingImage = (props) => {
   const [fallingImages, setFallingImages] = useState([]);
-  const animationDuration = 3000; // Assuming the animation duration is 3 seconds
+  const animationDuration = 3000;
   useEffect(() => {
     // Initialize falling images at 1-second intervals
     const intervalId = setInterval(() => {
