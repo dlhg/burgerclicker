@@ -254,7 +254,7 @@ function App() {
                 totalBurgersProduced={totalBurgersProduced}
                 burgersMadeFromClicking={burgersMadeFromClicking}
                 burgersMadeFromAutomation={Math.floor(
-                  burgersMadeFromAutomation * 2
+                  burgersMadeFromAutomation
                 )}
                 burgersPerClick={burgersPerClick}
               />
