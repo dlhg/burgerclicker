@@ -19,6 +19,7 @@ import templepic from "./assets/images/temple_small.jpg";
 import truckpic from "./assets/images/truck_small.jpg";
 import labpic from "./assets/images/lab_small.jpg";
 import spacecraftpic from "./assets/images/spacecraft_small.jpg";
+import portalpic from "./assets/images/portal_small.jpg";
 //store item images - upgrades
 import cat from "./assets/images/cat_small.jpeg";
 
@@ -82,6 +83,8 @@ function App() {
   const [labBPS, setLabBPS] = useState(500);
   const [spacecraftCount, setSpacecraftCount] = useState(0);
   const [spacecraftBPS, setSpaceCraftBPS] = useState(5000);
+  const [portalCount, setPortalCount] = useState(0);
+  const [portalBPS, setPortalBPS] = useState(50000);
 
   //helper functions
   function formatNumber(number) {
@@ -483,6 +486,25 @@ function App() {
                 itemCount={spacecraftCount}
                 itemSetter={setSpacecraftCount}
                 bpsIncrease={spacecraftBPS}
+              />
+            )}
+            {totalBurgersProducedUnformatted >= 90000 && (
+              <StoreItem
+                storeItemImage={
+                  totalBurgersProducedUnformatted >= 900000
+                    ? portalpic
+                    : questionmarkpic
+                }
+                storeItemName={
+                  totalBurgersProducedUnformatted >= 900000 ? "portal" : "???"
+                }
+                storeItemPrice={scaleItemPrice(450000, portalCount)}
+                burgerCount={burgerCount}
+                setBurgerCount={setBurgerCount}
+                setBurgersPerSecond={setBurgersPerSecond}
+                itemCount={portalCount}
+                itemSetter={setPortalCount}
+                bpsIncrease={portalBPS}
               />
             )}
           </section>
