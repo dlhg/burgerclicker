@@ -1,6 +1,8 @@
 import React from "react";
 import { formatNumber } from "../utils";
 
+import questionmarkpic from "../assets/images/questionmark_small.jpg";
+
 // own X number of X building
 // totalBurgersProduced exceeds X threshold
 // burgersPerSecond exceeds X threshold
@@ -49,94 +51,253 @@ export default function Stats(props) {
         <div className="upgrade--grid">
           {/*this should be mapping over a list of owned upgrades*/}
           {/*if the player doesn't own the upgrade yet, represent it with a question mark pic*/}
-          <div>test</div>
-          <div>test</div>
-          <div>test</div>
-          <div>test</div>
-          <div>test</div>
-          <div>test</div>
-          <div>test</div>
-          <div>test</div>
-          <div>test</div>
-          <div>test</div>
-          <div>test</div>
-          <div>test</div>
-          <div>test</div>
-          <div>test</div>
-          <div>test</div>
-          <div>test</div>
-          <div>test</div>
-          <div>test</div>
-          <div>test</div>
-          <div>test</div>
-          <div>test</div>
-          <div>test</div>
-          <div>test</div>
-          <div>test</div>
-          <div>test</div>
-          <div>test</div>
-          <div>test</div>
-          <div>test</div>
-          <div>test</div>
-          <div>test</div>
-          <div>test</div>
-          <div>test</div>
-          <div>test</div>
-          <div>test</div>
-          <div>test</div>
-          <div>test</div>
-          <div>test</div>
-          <div>test</div>
-          <div>test</div>
-          <div>test</div>
+          <div>
+            <img src={questionmarkpic}></img>
+          </div>
+          <div>
+            <img src={questionmarkpic}></img>
+          </div>
+          <div>
+            <img src={questionmarkpic}></img>
+          </div>
+          <div>
+            <img src={questionmarkpic}></img>
+          </div>
+          <div>
+            <img src={questionmarkpic}></img>
+          </div>
+          <div>
+            <img src={questionmarkpic}></img>
+          </div>
+          <div>
+            <img src={questionmarkpic}></img>
+          </div>
+          <div>
+            <img src={questionmarkpic}></img>
+          </div>
+          <div>
+            <img src={questionmarkpic}></img>
+          </div>
+          <div>
+            <img src={questionmarkpic}></img>
+          </div>
+          <div>
+            <img src={questionmarkpic}></img>
+          </div>
+          <div>
+            <img src={questionmarkpic}></img>
+          </div>
+          <div>
+            <img src={questionmarkpic}></img>
+          </div>
+          <div>
+            <img src={questionmarkpic}></img>
+          </div>
+          <div>
+            <img src={questionmarkpic}></img>
+          </div>
+          <div>
+            <img src={questionmarkpic}></img>
+          </div>
+          <div>
+            <img src={questionmarkpic}></img>
+          </div>
+          <div>
+            <img src={questionmarkpic}></img>
+          </div>
+          <div>
+            <img src={questionmarkpic}></img>
+          </div>
+          <div>
+            <img src={questionmarkpic}></img>
+          </div>
+          <div>
+            <img src={questionmarkpic}></img>
+          </div>
+          <div>
+            <img src={questionmarkpic}></img>
+          </div>
+          <div>
+            <img src={questionmarkpic}></img>
+          </div>
+          <div>
+            <img src={questionmarkpic}></img>
+          </div>
+          <div>
+            <img src={questionmarkpic}></img>
+          </div>
+          <div>
+            <img src={questionmarkpic}></img>
+          </div>
+          <div>
+            <img src={questionmarkpic}></img>
+          </div>
+          <div>
+            <img src={questionmarkpic}></img>
+          </div>
+          <div>
+            <img src={questionmarkpic}></img>
+          </div>
+          <div>
+            <img src={questionmarkpic}></img>
+          </div>
+          <div>
+            <img src={questionmarkpic}></img>
+          </div>
+          <div>
+            <img src={questionmarkpic}></img>
+          </div>
+          <div>
+            <img src={questionmarkpic}></img>
+          </div>
+          <div>
+            <img src={questionmarkpic}></img>
+          </div>
+          <div>
+            <img src={questionmarkpic}></img>
+          </div>
+          <div>
+            <img src={questionmarkpic}></img>
+          </div>
+          <div>
+            <img src={questionmarkpic}></img>
+          </div>
+          <div>
+            <img src={questionmarkpic}></img>
+          </div>
+          <div>
+            <img src={questionmarkpic}></img>
+          </div>
+          <div>
+            <img src={questionmarkpic}></img>
+          </div>
         </div>
       </section>
-      <br />
       <section>
         <div> Achievements unlocked:</div>
         <div className="achievement--grid">
           {/*this should be mapping over a list of achievements*/}
           {/*if the player have the achievement yet, represent it with a question mark pic*/}
-          <div>test</div>
-          <div>test</div>
-          <div>test</div>
-          <div>test</div>
-          <div>test</div>
-          <div>test</div>
-          <div>test</div>
-          <div>test</div>
-          <div>test</div>
-          <div>test</div>
-          <div>test</div>
-          <div>test</div>
-          <div>test</div>
-          <div>test</div>
-          <div>test</div>
-          <div>test</div>
-          <div>test</div>
-          <div>test</div>
-          <div>test</div>
-          <div>test</div>
-          <div>test</div>
-          <div>test</div>
-          <div>test</div>
-          <div>test</div>
-          <div>test</div>
-          <div>test</div>
-          <div>test</div>
-          <div>test</div>
-          <div>test</div>
-          <div>test</div>
-          <div>test</div>
-          <div>test</div>
-          <div>test</div>
-          <div>test</div>
-          <div>test</div>
-          <div>test</div>
-          <div>test</div>
-          <div>test</div>
-          <div>test</div>
-          <div>test</div>
+          <div>
+            <img src={questionmarkpic}></img>
+          </div>
+          <div>
+            <img src={questionmarkpic}></img>
+          </div>
+          <div>
+            <img src={questionmarkpic}></img>
+          </div>
+          <div>
+            <img src={questionmarkpic}></img>
+          </div>
+          <div>
+            <img src={questionmarkpic}></img>
+          </div>
+          <div>
+            <img src={questionmarkpic}></img>
+          </div>
+          <div>
+            <img src={questionmarkpic}></img>
+          </div>
+          <div>
+            <img src={questionmarkpic}></img>
+          </div>
+          <div>
+            <img src={questionmarkpic}></img>
+          </div>
+          <div>
+            <img src={questionmarkpic}></img>
+          </div>
+          <div>
+            <img src={questionmarkpic}></img>
+          </div>
+          <div>
+            <img src={questionmarkpic}></img>
+          </div>
+          <div>
+            <img src={questionmarkpic}></img>
+          </div>
+          <div>
+            <img src={questionmarkpic}></img>
+          </div>
+          <div>
+            <img src={questionmarkpic}></img>
+          </div>
+          <div>
+            <img src={questionmarkpic}></img>
+          </div>
+          <div>
+            <img src={questionmarkpic}></img>
+          </div>
+          <div>
+            <img src={questionmarkpic}></img>
+          </div>
+          <div>
+            <img src={questionmarkpic}></img>
+          </div>
+          <div>
+            <img src={questionmarkpic}></img>
+          </div>
+          <div>
+            <img src={questionmarkpic}></img>
+          </div>
+          <div>
+            <img src={questionmarkpic}></img>
+          </div>
+          <div>
+            <img src={questionmarkpic}></img>
+          </div>
+          <div>
+            <img src={questionmarkpic}></img>
+          </div>
+          <div>
+            <img src={questionmarkpic}></img>
+          </div>
+          <div>
+            <img src={questionmarkpic}></img>
+          </div>
+          <div>
+            <img src={questionmarkpic}></img>
+          </div>
+          <div>
+            <img src={questionmarkpic}></img>
+          </div>
+          <div>
+            <img src={questionmarkpic}></img>
+          </div>
+          <div>
+            <img src={questionmarkpic}></img>
+          </div>
+          <div>
+            <img src={questionmarkpic}></img>
+          </div>
+          <div>
+            <img src={questionmarkpic}></img>
+          </div>
+          <div>
+            <img src={questionmarkpic}></img>
+          </div>
+          <div>
+            <img src={questionmarkpic}></img>
+          </div>
+          <div>
+            <img src={questionmarkpic}></img>
+          </div>
+          <div>
+            <img src={questionmarkpic}></img>
+          </div>
+          <div>
+            <img src={questionmarkpic}></img>
+          </div>
+          <div>
+            <img src={questionmarkpic}></img>
+          </div>
+          <div>
+            <img src={questionmarkpic}></img>
+          </div>
+          <div>
+            <img src={questionmarkpic}></img>
+          </div>
         </div>
       </section>
     </>
