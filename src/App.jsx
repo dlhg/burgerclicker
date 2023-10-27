@@ -318,7 +318,7 @@ function App() {
               upgrade shop in progress (top box), building shop working (bottom
               box)
             </div>
-            <APIfetcher />
+
             <UpgradeItem
               itemName={"name of item goes here"}
               itemDescription={"description goes here"}
