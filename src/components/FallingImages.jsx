@@ -1,4 +1,4 @@
-// should update this so that the amount of burgers can be scaled up as BPS scales up
+// should update this so that the amount of burgers can be scaled up as BPS scales up (maybe use quipLevel as a proxy for player progress as it updates less often - less re-renders)
 // maybe animation speed can also be sped up if player gets some kind of temp production boost (gold burger?)
 
 import React, { useState, useEffect } from "react";
