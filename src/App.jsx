@@ -186,7 +186,10 @@ function App() {
             />
           </div>
           <div></div>
-          <FallingImages img={transparentburger_smallpic} />
+          <FallingImages
+            currentQuipLevel={currentQuipLevel}
+            img={transparentburger_smallpic}
+          />
         </div>
         <div className="div2">
           <div className="navbar">

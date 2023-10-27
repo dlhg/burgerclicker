@@ -6,8 +6,40 @@ import React, { useState, useEffect } from "react";
 const FallingImage = (props) => {
   const [fallingImages, setFallingImages] = useState([]);
   const animationDuration = 3000;
+
   useEffect(() => {
-    // Initialize falling images at 1-second intervals
+    // Determine the interval duration based on props.currentQuipLevel
+    let intervalDuration;
+    switch (props.currentQuipLevel) {
+      case 0:
+        intervalDuration = 2000; // 2 seconds
+        break;
+      case 1:
+        intervalDuration = 1000; // 1 seconds
+        break;
+      case 2:
+        intervalDuration = 500; // 0.5 seconds
+        break;
+      case 3:
+        intervalDuration = 250; // 0.25 seconds
+        break;
+      case 4:
+        intervalDuration = 125;
+        break;
+      case 5:
+        intervalDuration = 62.5;
+        break;
+      case 6:
+        intervalDuration = 31.25;
+        break;
+      case 7:
+        intervalDuration = 15;
+        break;
+      default:
+        intervalDuration = 200;
+    }
+
+    // Initialize falling images at the determined interval
     const intervalId = setInterval(() => {
       const newImage = {
         id: Math.random() * 100000,
@@ -26,13 +58,13 @@ const FallingImage = (props) => {
       if (fallingImages.length >= 200) {
         clearInterval(intervalId);
       }
-    }, 200);
+    }, intervalDuration);
 
     return () => {
       // Cleanup: Remove interval
       clearInterval(intervalId);
     };
-  }, [fallingImages]); // Re-run effect when fallingImages changes
+  }, [fallingImages, props.currentQuipLevel]); // Re-run effect when fallingImages or props.currentQuipLevel changes
 
   return (
     <div className="container">
