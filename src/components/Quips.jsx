@@ -390,10 +390,15 @@ export default function Quips(props) {
         return ""; // Handle unknown levels
     }
   }
-
+  function handleClick() {
+    const newQuip = getQuipBasedOnLevel(props.currentQuipLevel);
+    setCurrentQuip(newQuip);
+  }
   return (
     <>
-      <div className="quip--text">{currentQuip}</div>
+      <div className="quip--text" onClick={() => handleClick()}>
+        {currentQuip}
+      </div>
       <br />
     </>
   );
