@@ -12,7 +12,7 @@ const FallingImage = (props) => {
     let intervalDuration;
     switch (props.currentQuipLevel) {
       case 0:
-        intervalDuration = 2000; // 2 seconds
+        intervalDuration = 2000000; // a long time (goofy solution to not have burg animation show before player starts playing)
         break;
       case 1:
         intervalDuration = 1000; // 1 seconds
