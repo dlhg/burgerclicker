@@ -12,7 +12,7 @@
 
 button {
   font-family: pixelfont;
-  font-size: larger;
+  font-size: medium;
 }
 
 @keyframes bounce {
@@ -109,7 +109,7 @@ button {
 .parent {
   display: grid;
   grid-template-columns: repeat(5, 1fr);
-  grid-template-rows: repeat(5, 1fr);
+  grid-template-rows: repeat(10, 10%);
   grid-column-gap: 0px;
   grid-row-gap: 0px;
 }
@@ -189,7 +189,7 @@ button {
 }
 .div3 {
   /* main game area with buildings etc */
-  grid-area: 2 / 2 / 6 / 5;
+  grid-area: 2 / 2 / 11 / 5;
   overflow: hidden;
 }
 #Buildings--container {
@@ -204,8 +204,10 @@ button {
 
 #Buildings--container img {
 }
+
+/*store div*/
 .div4 {
-  grid-area: 1 / 5 / 6 / 6;
+  grid-area: 1 / 5 / 11 / 6;
   height: 100%;
   overflow: scroll;
 }
