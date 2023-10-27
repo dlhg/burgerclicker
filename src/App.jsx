@@ -42,7 +42,10 @@ import UpgradeItem from "./components/UpgradeItem";
 import FallingImages from "./components/FallingImages";
 import Quips from "./components/Quips";
 
+//helper function imports
+
 import { scaleItemPrice } from "./utils/index";
+import { formatNumber } from "./utils/index";
 
 function App() {
   //state
@@ -85,17 +88,6 @@ function App() {
   const [spacecraftBPS, setSpaceCraftBPS] = useState(5000);
   const [portalCount, setPortalCount] = useState(0);
   const [portalBPS, setPortalBPS] = useState(50000);
-
-  //helper functions
-  function formatNumber(number) {
-    if (number >= 1e9) {
-      return (number / 1e9).toFixed(3) + " billion";
-    } else if (number >= 1e6) {
-      return (number / 1e6).toFixed(3) + " million";
-    } else {
-      return number.toFixed(0);
-    }
-  }
 
   //useEffect
 
