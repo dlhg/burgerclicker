@@ -39,7 +39,7 @@ export default function UpgradeItem(props) {
   return (
     <>
       {unpurchased && (
-        <img src={props.ItemImage} onClick={() => buyUpgrade()}></img>
+        <img src={props.itemImage} onClick={() => buyUpgrade()}></img>
       )}
     </>
   );

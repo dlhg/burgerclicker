@@ -332,56 +332,56 @@ function App() {
             />
 
             <UpgradeItem
-              upgradeItemImage={spacecraftpic}
+              itemImage={spacecraftpic}
               burgerCount={burgerCount}
               setBurgerCount={setBurgerCount}
               itemPrice={2}
             />
 
             <UpgradeItem
-              upgradeItemImage={truckpic}
+              itemImage={truckpic}
               burgerCount={burgerCount}
               setBurgerCount={setBurgerCount}
               itemPrice={4}
             />
 
             <UpgradeItem
-              upgradeItemImage={cat}
+              itemImage={cat}
               burgerCount={burgerCount}
               setBurgerCount={setBurgerCount}
               itemPrice={8}
             />
 
             <UpgradeItem
-              upgradeItemImage={spacecraftpic}
+              itemImage={spacecraftpic}
               burgerCount={burgerCount}
               setBurgerCount={setBurgerCount}
               itemPrice={16}
             />
 
             <UpgradeItem
-              upgradeItemImage={truckpic}
+              itemImage={truckpic}
               burgerCount={burgerCount}
               setBurgerCount={setBurgerCount}
               itemPrice={32}
             />
 
             <UpgradeItem
-              upgradeItemImage={cat}
+              itemImage={cat}
               burgerCount={burgerCount}
               setBurgerCount={setBurgerCount}
               itemPrice={64}
             />
 
             <UpgradeItem
-              upgradeItemImage={spacecraftpic}
+              itemImage={spacecraftpic}
               burgerCount={burgerCount}
               setBurgerCount={setBurgerCount}
               itemPrice={128}
             />
 
             <UpgradeItem
-              upgradeItemImage={truckpic}
+              itemImage={truckpic}
               burgerCount={burgerCount}
               setBurgerCount={setBurgerCount}
               itemPrice={256}
