@@ -66,10 +66,10 @@ const level1quips = [
   "A kid left with a balloon, a smile, and a full belly.",
   "The chef is perfecting a secret sauce recipe.",
   "An online order just came in!",
-  "Our neon 'Burger Haven' sign is drawing attention.",
+
   "A regular customer convinced a friend to join the burger club.",
   "The chef's special got a standing ovation (from the staff).",
-  "A customer accidentally called us 'the best in town.'",
+
   "We're considering expanding the menu based on customer suggestions.",
   "A customer suggested a burger-naming contest.",
   "The cashier memorized a joke for the next order.",
