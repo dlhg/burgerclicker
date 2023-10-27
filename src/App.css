@@ -118,8 +118,8 @@ button {
   border: solid darkgray 1px;
 }
 
+/* burgers, bps, bpc, and burger pic*/
 .div1 {
-  /* burgers, bps, bpc, and burger pic*/
   grid-area: 1 / 1 / 6 / 2;
   flex-direction: column;
   text-align: center;
@@ -203,6 +203,32 @@ button {
 }
 
 #Buildings--container img {
+}
+
+/*stats screen*/
+
+.upgrade--grid {
+  display: grid;
+  grid-template-columns: repeat(10, 1fr);
+  grid-template-rows: repeat(5, 1fr);
+  grid-column-gap: 0px;
+  grid-row-gap: 0px;
+}
+
+.upgrade--grid > * {
+  border: ridge lightgray 5px;
+}
+
+.achievement--grid {
+  display: grid;
+  grid-template-columns: repeat(10, 1fr);
+  grid-template-rows: repeat(5, 1fr);
+  grid-column-gap: 0px;
+  grid-row-gap: 0px;
+}
+
+.achievement--grid > * {
+  border: ridge lightgray 5px;
 }
 
 /*store div*/

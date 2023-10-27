@@ -12,12 +12,95 @@ export default function Stats(props) {
       <br />
       <section>
         <div>Upgrades unlocked:</div>
-        <div>Upgrade grid goes here</div>
+        <div className="upgrade--grid">
+          {/*this should be mapping over a list of player upgrades*/}
+          <div>test upgrade</div>
+          <div>test upgrade</div>
+          <div>test upgrade</div>
+          <div>test upgrade</div>
+          <div>test upgrade</div>
+          <div>test upgrade</div>
+          <div>test upgrade</div>
+          <div>test upgrade</div>
+          <div>test upgrade</div>
+          <div>test upgrade</div>
+          <div>test upgrade</div>
+          <div>test upgrade</div>
+          <div>test upgrade</div>
+          <div>test upgrade</div>
+          <div>test upgrade</div>
+          <div>test upgrade</div>
+          <div>test upgrade</div>
+          <div>test upgrade</div>
+          <div>test upgrade</div>
+          <div>test upgrade</div>
+          <div>test upgrade</div>
+          <div>test upgrade</div>
+          <div>test upgrade</div>
+          <div>test upgrade</div>
+          <div>test upgrade</div>
+          <div>test upgrade</div>
+          <div>test upgrade</div>
+          <div>test upgrade</div>
+          <div>test upgrade</div>
+          <div>test upgrade</div>
+          <div>test upgrade</div>
+          <div>test upgrade</div>
+          <div>test upgrade</div>
+          <div>test upgrade</div>
+          <div>test upgrade</div>
+          <div>test upgrade</div>
+          <div>test upgrade</div>
+          <div>test upgrade</div>
+          <div>test upgrade</div>
+          <div>test upgrade</div>
+        </div>
       </section>
       <br />
       <section>
         <div> Achievements unlocked:</div>
-        <div> Achievement grid goes here</div>
+        <div className="achievement--grid">
+          <div>test achievement</div>
+          <div>test achievement</div>
+          <div>test achievement</div>
+          <div>test achievement</div>
+          <div>test achievement</div>
+          <div>test achievement</div>
+          <div>test achievement</div>
+          <div>test achievement</div>
+          <div>test achievement</div>
+          <div>test achievement</div>
+          <div>test achievement</div>
+          <div>test achievement</div>
+          <div>test achievement</div>
+          <div>test achievement</div>
+          <div>test achievement</div>
+          <div>test achievement</div>
+          <div>test achievement</div>
+          <div>test achievement</div>
+          <div>test achievement</div>
+          <div>test achievement</div>
+          <div>test achievement</div>
+          <div>test achievement</div>
+          <div>test achievement</div>
+          <div>test achievement</div>
+          <div>test achievement</div>
+          <div>test achievement</div>
+          <div>test achievement</div>
+          <div>test achievement</div>
+          <div>test achievement</div>
+          <div>test achievement</div>
+          <div>test achievement</div>
+          <div>test achievement</div>
+          <div>test achievement</div>
+          <div>test achievement</div>
+          <div>test achievement</div>
+          <div>test achievement</div>
+          <div>test achievement</div>
+          <div>test achievement</div>
+          <div>test achievement</div>
+          <div>test achievement</div>
+        </div>
       </section>
     </>
   );
