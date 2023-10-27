@@ -11,7 +11,7 @@ const FallingImage = (props) => {
     let intervalDuration;
     switch (props.currentQuipLevel) {
       case 0:
-        intervalDuration = 2000000; // a long time (goofy solution to not have burg animation show before player starts playing)
+        intervalDuration = 2000000000; // 555.5 hours (goofy solution to not have burg animation show before player starts playing)
         break;
       case 1:
         intervalDuration = 1000; // 1 seconds
@@ -35,6 +35,9 @@ const FallingImage = (props) => {
         intervalDuration = 15;
         break;
       default:
+        console.log(
+          "useEffect to determine falling burger animation was passed an invalid quip level"
+        );
         intervalDuration = 200;
     }
 
