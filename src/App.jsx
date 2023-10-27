@@ -315,15 +315,20 @@ function App() {
           <section className="section1">
             {/*classname section1 - create and map currentstoreitems array and state*/}
             <div>
-              clicking these upgrades doesn't do anything yet other than hide
-              them
+              upgrade shop in progress (top box), building shop working (bottom
+              box)
             </div>
             <APIfetcher />
             <UpgradeItem
-              upgradeItemImage={cat}
+              itemName={"name of item goes here"}
+              itemDescription={"description goes here"}
+              itemID={"unique ID of item goes here"}
+              itemImage={cat}
               burgerCount={burgerCount}
               setBurgerCount={setBurgerCount}
               itemPrice={1}
+              benefitSetter={"add setter function related to upgrade's benefit"}
+              benefitAmount={"add benefit amount"}
             />
 
             <UpgradeItem

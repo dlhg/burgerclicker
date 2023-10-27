@@ -30,12 +30,16 @@ export default function UpgradeItem(props) {
     }
     setUnpurchased(false);
     props.setBurgerCount((prevCount) => prevCount - props.itemPrice);
+    /* should update list of current owned upgrades
+    // should provide some benefit to the player:
+    // each component instance should have a benefitSetter and benefitAmount prop
+    */
   }
 
   return (
     <>
       {unpurchased && (
-        <img src={props.upgradeItemImage} onClick={() => buyUpgrade()}></img>
+        <img src={props.ItemImage} onClick={() => buyUpgrade()}></img>
       )}
     </>
   );
