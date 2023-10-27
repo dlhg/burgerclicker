@@ -1,4 +1,5 @@
 import React from "react";
+import { formatNumber } from "../utils";
 
 export default function StoreItem(props) {
   //const [play] = useSound(clicksounds[getRandomIndex(clicksounds)]);
@@ -26,7 +27,7 @@ export default function StoreItem(props) {
           <div id="store--item--name">{props.storeItemName}</div>
           <br />
           <div id="store--item--cost" style={{ color: textColor }}>
-            {props.storeItemPrice}🍔
+            {formatNumber(props.storeItemPrice)}🍔
           </div>
         </div>
         <div id="store--item--quantityandbps">
