@@ -23,13 +23,19 @@ import React, { useState } from "react";
 
 export default function UpgradeItem(props) {
   const [unpurchased, setUnpurchased] = useState(true);
+
+  function buyUpgrade() {
+    if (props.burgerCount < props.itemPrice) {
+      return;
+    }
+    setUnpurchased(false);
+    props.setBurgerCount((prevCount) => prevCount - props.itemPrice);
+  }
+
   return (
     <>
       {unpurchased && (
-        <img
-          src={props.upgradeItemImage}
-          onClick={() => setUnpurchased(false)}
-        ></img>
+        <img src={props.upgradeItemImage} onClick={() => buyUpgrade()}></img>
       )}
     </>
   );

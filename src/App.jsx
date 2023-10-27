@@ -319,15 +319,68 @@ function App() {
               them
             </div>
             <APIfetcher />
-            <UpgradeItem upgradeItemImage={cat} />
-            <UpgradeItem upgradeItemImage={spacecraftpic} />
-            <UpgradeItem upgradeItemImage={truckpic} />
-            <UpgradeItem upgradeItemImage={cat} />
-            <UpgradeItem upgradeItemImage={spacecraftpic} />
-            <UpgradeItem upgradeItemImage={truckpic} />
-            <UpgradeItem upgradeItemImage={cat} />
-            <UpgradeItem upgradeItemImage={spacecraftpic} />
-            <UpgradeItem upgradeItemImage={truckpic} />
+            <UpgradeItem
+              upgradeItemImage={cat}
+              burgerCount={burgerCount}
+              setBurgerCount={setBurgerCount}
+              itemPrice={1}
+            />
+
+            <UpgradeItem
+              upgradeItemImage={spacecraftpic}
+              burgerCount={burgerCount}
+              setBurgerCount={setBurgerCount}
+              itemPrice={2}
+            />
+
+            <UpgradeItem
+              upgradeItemImage={truckpic}
+              burgerCount={burgerCount}
+              setBurgerCount={setBurgerCount}
+              itemPrice={4}
+            />
+
+            <UpgradeItem
+              upgradeItemImage={cat}
+              burgerCount={burgerCount}
+              setBurgerCount={setBurgerCount}
+              itemPrice={8}
+            />
+
+            <UpgradeItem
+              upgradeItemImage={spacecraftpic}
+              burgerCount={burgerCount}
+              setBurgerCount={setBurgerCount}
+              itemPrice={16}
+            />
+
+            <UpgradeItem
+              upgradeItemImage={truckpic}
+              burgerCount={burgerCount}
+              setBurgerCount={setBurgerCount}
+              itemPrice={32}
+            />
+
+            <UpgradeItem
+              upgradeItemImage={cat}
+              burgerCount={burgerCount}
+              setBurgerCount={setBurgerCount}
+              itemPrice={64}
+            />
+
+            <UpgradeItem
+              upgradeItemImage={spacecraftpic}
+              burgerCount={burgerCount}
+              setBurgerCount={setBurgerCount}
+              itemPrice={128}
+            />
+
+            <UpgradeItem
+              upgradeItemImage={truckpic}
+              burgerCount={burgerCount}
+              setBurgerCount={setBurgerCount}
+              itemPrice={256}
+            />
           </section>
           <section className="section2" id="buildings">
             <StoreItem
