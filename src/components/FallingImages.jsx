@@ -7,7 +7,7 @@ const FallingImage = (props) => {
   const animationDuration = 3000;
 
   useEffect(() => {
-    // Determine the interval duration based on props.currentQuipLevel
+    // Determine the interval duration based on props.currentQuipLevel (acting as a proxy for player progress)
     let intervalDuration;
     switch (props.currentQuipLevel) {
       case 0:
