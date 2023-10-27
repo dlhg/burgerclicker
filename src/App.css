@@ -227,11 +227,11 @@ button {
 }
 
 .section1 img {
-  border: ridge gray 5px;
+  border: ridge lightgray 5px;
 }
 
 .section1 img:hover {
-  border: ridge lightgray 5px;
+  border: ridge darkgray 5px;
 }
 
 .section2 {
