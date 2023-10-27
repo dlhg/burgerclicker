@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { formatNumber } from "../utils";
 //import useSound from "use-sound";
 //import click1 from "../assets/sfx/click1.wav";
 //import click2 from "../assets/sfx/click2.wav";
@@ -20,17 +21,6 @@ export default function Burger(props) {
 
     return () => clearInterval(interval);
   }, [props.burgersPerSecond]);
-
-  //should eventually extend this function to deal with higher burger numbers
-  function formatNumber(number) {
-    if (number >= 1e9) {
-      return (number / 1e9).toFixed(3) + " billion";
-    } else if (number >= 1e6) {
-      return (number / 1e6).toFixed(3) + " million";
-    } else {
-      return number.toFixed(0);
-    }
-  }
 
   function handleBurgerClick() {
     props.setBurgerCount((prevCount) => prevCount + props.burgersPerClick);
