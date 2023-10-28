@@ -21,6 +21,7 @@ button {
 }
 button:hover {
   border: solid lightgreen 1px;
+  cursor: url(./assets/images/pointer_transparent.png), pointer;
 }
 
 @keyframes bounce {
@@ -146,7 +147,7 @@ button:hover {
   transition: transform 0.2s ease;
   transition-delay: 1.5s;
   display: inline-block;
-  cursor: url(./assets/images/glove_pointer_transparent_small.png), pointer;
+  cursor: url(./assets/images/pointer_transparent.png), pointer;
   transform: scale(1);
 }
 .big--burger:hover {
@@ -268,6 +269,7 @@ button:hover {
 
 .section1 img:hover {
   border: ridge darkgray 5px;
+  cursor: url(./assets/images/pointer_transparent.png), pointer;
 }
 
 .section2 {
@@ -291,6 +293,7 @@ button:hover {
 }
 .store--item:hover {
   color: white;
+  cursor: url(./assets/images/pointer_transparent.png), pointer;
 }
 #store--item--nameandprice {
   text-align: center;
