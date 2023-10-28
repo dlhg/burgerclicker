@@ -197,7 +197,7 @@ export default function TestConsole({
             <button onClick={handleExecute}>Execute</button>
             <br />
             <button onClick={() => setShowInfo((prev) => !prev)}>
-              {showInfo ? "hide info" : "show info"}
+              {showInfo ? "Hide Info" : "Show Info"}
             </button>
           </div>
           <br />

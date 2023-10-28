@@ -5,7 +5,7 @@
 
 #root {
   font-family: pixelfont;
-  border: solid black 1px;
+
   user-select: none;
   /* user-select none makes all text unselectable */
   background-color: black;
@@ -130,7 +130,7 @@ button:hover {
 }
 
 .parent > * {
-  border: solid darkgray 1px;
+  /* border: solid darkgray 1px; */
 }
 
 /* burgers, bps, bpc, and burger pic*/
@@ -166,6 +166,7 @@ button:hover {
 .div2 {
   /* navbar */
   grid-area: 1 / 2 / 2 / 5;
+  border: solid gray 1px;
 }
 
 .navbar {
@@ -206,6 +207,7 @@ button:hover {
 .div3 {
   /* main game area with buildings etc */
   grid-area: 2 / 2 / 11 / 5;
+  border: solid gray 1px;
   overflow: hidden;
 }
 #Buildings--container {
@@ -232,7 +234,7 @@ button:hover {
 }
 
 .upgrade--grid > * {
-  border: ridge lightgray 5px;
+  border: solid lightgray 1px;
 }
 
 .achievement--grid {
@@ -244,14 +246,14 @@ button:hover {
 }
 
 .achievement--grid > * {
-  border: ridge lightgray 5px;
+  border: solid lightgray 1px;
 }
 
 /*store div*/
 .div4 {
   grid-area: 1 / 5 / 11 / 6;
   height: 100%;
-  overflow: scroll;
+  overflow: hidden;
 }
 
 .section {
@@ -271,17 +273,17 @@ button:hover {
 }
 
 .section1 img {
-  border: ridge lightgray 5px;
+  /* border: solid lightgray 1px; */
 }
 
 .section1 img:hover {
-  border: ridge darkgray 5px;
+  border: solid darkgray 1px;
   cursor: url(./assets/images/pointer_transparent.png), pointer;
 }
 
 .section2 {
   /* bottom part of store */
-  overflow: auto;
+
   height: 85%;
 }
 
@@ -293,12 +295,13 @@ button:hover {
 }
 
 .store--item {
-  border: solid gray 1px;
+  border: solid black 1px;
   display: flex;
   flex-direction: row;
   justify-content: space-between; /* Aligns children to each end of the container */
 }
 .store--item:hover {
+  border: solid gray 1px;
   color: white;
   cursor: url(./assets/images/pointer_transparent.png), pointer;
 }
