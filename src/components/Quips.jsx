@@ -62,7 +62,7 @@ const level1quips = [
   "A local artist wants to display their work on our walls.",
   "A customer suggested a 'build your own burger' night.",
   "We're debating the best burger-to-fry ratio.",
-  "The restaurant playlist is a mix of classics and indie hits.",
+
   "A kid left with a balloon, a smile, and a full belly.",
   "The chef is perfecting a secret sauce recipe.",
   "An online order just came in!",
