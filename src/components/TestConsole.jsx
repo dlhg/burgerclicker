@@ -38,6 +38,7 @@ export default function TestConsole({
 }) {
   const [selectedFunction, setSelectedFunction] = useState("");
   const [argument, setArgument] = useState("");
+  const [showInfo, setShowInfo] = useState(false);
 
   const handleFunctionChange = (event) => {
     setSelectedFunction(event.target.value);
@@ -194,22 +195,28 @@ export default function TestConsole({
             </label>
             <br />
             <button onClick={handleExecute}>Execute</button>
+            <br />
+            <button onClick={() => setShowInfo((prev) => !prev)}>
+              {showInfo ? "hide info" : "show info"}
+            </button>
           </div>
           <br />
-          <section className="TC-setter-info">
-            <ul>
-              <li>BPS = burgers per second</li>
-              <li>
-                when using setQuipLevel, Quip Level ranges from 0-7 (as the
-                player progresses, higher quip levels give new quips)
-              </li>
-              <li>
-                Quip Level is used as a proxy for game progress in the
-                FallingImages component, generating more falling burgers as
-                player progresses
-              </li>
-            </ul>
-          </section>
+          {showInfo && (
+            <section className="TC-setter-info">
+              <ul>
+                <li>BPS = burgers per second</li>
+                <li>
+                  when using setQuipLevel, Quip Level ranges from 0-7 (as the
+                  player progresses, higher quip levels give new quips)
+                </li>
+                <li>
+                  Quip Level is used as a proxy for game progress in the
+                  FallingImages component, generating more falling burgers as
+                  player progresses
+                </li>
+              </ul>
+            </section>
+          )}
         </div>
         <div className="TC--right">
           <img src={loopedvectorpic}></img>
