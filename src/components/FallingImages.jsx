@@ -1,4 +1,5 @@
 // could later update this so that rather than scaling up based on quipLevel, it scales up based on BPS
+// could also change animation speed - for example increase speed if player's production is temporarily boosted
 
 import React, { useState, useEffect } from "react";
 
