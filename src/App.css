@@ -344,3 +344,30 @@ button:hover {
   transform: translateX(-50%); /* Center the image horizontally */
   animation: fallAnimation 3s forwards;
 }
+
+.test--console {
+  display: flex;
+}
+
+.TC--left {
+  flex: 1;
+}
+.TC--left img {
+  transform: scaleX(-1);
+}
+
+.TC--center {
+  flex: 2;
+
+  /* Add any additional styling for the center column */
+}
+.TC--func {
+  text-align: center;
+}
+.TC--setter-info {
+  text-align: left;
+}
+
+.TC--right {
+  flex: 1;
+}

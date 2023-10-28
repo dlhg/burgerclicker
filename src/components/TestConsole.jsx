@@ -7,6 +7,7 @@ add test console component
 
 import React, { useState } from "react";
 import TestConsoleButton from "./TestConsoleButton";
+import loopedvectorpic from "../assets/images/backgrounds/loopedvector.gif";
 
 export default function TestConsole({
   setBurgersPerClick,
@@ -136,68 +137,83 @@ export default function TestConsole({
   return (
     <>
       <div className="test--console">
-        <h1>Test Console</h1>
-        <label>
-          Setter:
-          <select value={selectedFunction} onChange={handleFunctionChange}>
-            <option value="">Select...</option>
-            <option value="setBurgersPerClick">setBurgersPerClick</option>
-            <option value="setBurgersPerSecond">setBurgersPerSecond</option>
-            <option value="setCurrentQuipLevel">setCurrentQuipLevel</option>
+        <div className="TC--left">
+          {" "}
+          <img src={loopedvectorpic}></img>
+        </div>
 
-            <option value="setBurgerCount">setBurgerCount</option>
-            <option value="setTotalBurgersProducedUnformatted">
-              setTotalBurgersProducedUnformatted
-            </option>
-            <option value="setBurgersMadeFromClicking">
-              setBurgersMadeFromClicking
-            </option>
-            <option value="setBurgersMadeFromAutomation">
-              setBurgersMadeFromAutomation
-            </option>
-            <option value="setPointerCount">setPointerCount</option>
-            <option value="setPointerBPS">setPointerBPS</option>
-            <option value="setWorkerCount">setWorkerCount</option>
-            <option value="setWorkerBPS">setWorkerBPS</option>
-            <option value="setGrillCount">setGrillCount</option>
-            <option value="setGrillBPS">setGrillBPS</option>
-            <option value="setTruckCount">setTruckCount</option>
-            <option value="setTruckBPS">setTruckBPS</option>
-            <option value="setBankCount">setBankCount</option>
-            <option value="setBankBPS">setBankBPS</option>
-            <option value="setTempleCount">setTempleCount</option>
-            <option value="setTempleBPS">setTempleBPS</option>
-            <option value="setLabCount">setLabCount</option>
-            <option value="setLabBPS">setLabBPS</option>
-            <option value="setSpacecraftCount">setSpacecraftCount</option>
-            <option value="setSpaceCraftBPS">setSpaceCraftBPS</option>
-            <option value="setPortalCount">setPortalCount</option>
-            <option value="setPortalBPS">setPortalBPS</option>
-          </select>
-        </label>
-        <br />
-        <label>
-          Argument:
-          <input type="text" value={argument} onChange={handleArgumentChange} />
-        </label>
-        <br />
-        <button onClick={handleExecute}>Execute</button>
-        <br />
-        <section>
-          <h2>setter info:</h2>
-          <ul>
-            <li>BPS = burgers per second</li>
-            <li>
-              when using setQuipLevel, Quip Level ranges from 0-7 (as the player
-              progresses, higher quip levels give new quips)
-            </li>
-            <li>
-              Quip Level is used as a proxy for game progress in the
-              FallingImages component, generating more falling burgers as player
-              progresses
-            </li>
-          </ul>
-        </section>
+        <div className="TC--center">
+          <div className="TC--func">
+            <h1>Test Console</h1>
+            <label>
+              Setter:
+              <select value={selectedFunction} onChange={handleFunctionChange}>
+                <option value="">Select...</option>
+                <option value="setBurgersPerClick">setBurgersPerClick</option>
+                <option value="setBurgersPerSecond">setBurgersPerSecond</option>
+                <option value="setCurrentQuipLevel">setCurrentQuipLevel</option>
+
+                <option value="setBurgerCount">setBurgerCount</option>
+                <option value="setTotalBurgersProducedUnformatted">
+                  setTotalBurgersProducedUnformatted
+                </option>
+                <option value="setBurgersMadeFromClicking">
+                  setBurgersMadeFromClicking
+                </option>
+                <option value="setBurgersMadeFromAutomation">
+                  setBurgersMadeFromAutomation
+                </option>
+                <option value="setPointerCount">setPointerCount</option>
+                <option value="setPointerBPS">setPointerBPS</option>
+                <option value="setWorkerCount">setWorkerCount</option>
+                <option value="setWorkerBPS">setWorkerBPS</option>
+                <option value="setGrillCount">setGrillCount</option>
+                <option value="setGrillBPS">setGrillBPS</option>
+                <option value="setTruckCount">setTruckCount</option>
+                <option value="setTruckBPS">setTruckBPS</option>
+                <option value="setBankCount">setBankCount</option>
+                <option value="setBankBPS">setBankBPS</option>
+                <option value="setTempleCount">setTempleCount</option>
+                <option value="setTempleBPS">setTempleBPS</option>
+                <option value="setLabCount">setLabCount</option>
+                <option value="setLabBPS">setLabBPS</option>
+                <option value="setSpacecraftCount">setSpacecraftCount</option>
+                <option value="setSpaceCraftBPS">setSpaceCraftBPS</option>
+                <option value="setPortalCount">setPortalCount</option>
+                <option value="setPortalBPS">setPortalBPS</option>
+              </select>
+            </label>
+            <br />
+            <label>
+              Argument:
+              <input
+                type="text"
+                value={argument}
+                onChange={handleArgumentChange}
+              />
+            </label>
+            <br />
+            <button onClick={handleExecute}>Execute</button>
+          </div>
+          <br />
+          <section className="TC-setter-info">
+            <ul>
+              <li>BPS = burgers per second</li>
+              <li>
+                when using setQuipLevel, Quip Level ranges from 0-7 (as the
+                player progresses, higher quip levels give new quips)
+              </li>
+              <li>
+                Quip Level is used as a proxy for game progress in the
+                FallingImages component, generating more falling burgers as
+                player progresses
+              </li>
+            </ul>
+          </section>
+        </div>
+        <div className="TC--right">
+          <img src={loopedvectorpic}></img>
+        </div>
       </div>
     </>
   );

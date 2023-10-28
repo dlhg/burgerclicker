@@ -9,6 +9,7 @@ export default function Options(props) {
           <li>Volume slider</li>
           <li>Export/Import Save</li>
           <li>Language settings</li>
+          <li>Visual settings (light/dark mode, custom themes etc)</li>
         </ul>
       </div>
     </>
