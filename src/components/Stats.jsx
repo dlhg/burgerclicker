@@ -1,7 +1,7 @@
 import React from "react";
 import { formatNumber } from "../utils";
 
-import questionmarkpic from "../assets/images/questionmark_small.jpg";
+import questionmarkpic from "../assets/images/questionbox_small.jpeg";
 
 // own X number of X building
 // totalBurgersProduced exceeds X threshold

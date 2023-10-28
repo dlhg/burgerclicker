@@ -5,23 +5,23 @@ import "./App.css";
 import { useState, useEffect } from "react";
 //import useSound from "use-sound";
 
-//image import
-import burgerpic from "./assets/images/burger.jpeg";
+//image import - removve bg tool @ https://www.remove.bg/
+import burgerpic from "./assets/images/transparentburger.png";
 import galaxyburgerpic from "./assets/images/galaxyburger.jpeg";
 import transparentburger_smallpic from "./assets/images/transparentburger_small.png";
 //store item images - buildings
-import workerpic from "./assets/images/worker_small.jpeg";
+import workerpic from "./assets/images/worker_small_transparent.png";
 import pointerpic from "./assets/images/pointer.png";
-import grillpic from "./assets/images/grill_small.jpeg";
-import questionmarkpic from "./assets/images/questionmark_small.jpeg";
-import bankpic from "./assets/images/bank_small.jpeg";
-import templepic from "./assets/images/temple_small.jpg";
-import truckpic from "./assets/images/truck_small.jpg";
-import labpic from "./assets/images/lab_small.jpg";
-import spacecraftpic from "./assets/images/spacecraft_small.jpg";
-import portalpic from "./assets/images/portal_small.jpg";
+import grillpic from "./assets/images/grill_small_transparent.png";
+import questionmarkpic from "./assets/images/questionmark_small_transparent.png";
+import bankpic from "./assets/images/bank_small_transparent.png";
+import templepic from "./assets/images/temple_small_transparent.png";
+import truckpic from "./assets/images/truck_small_transparent.png";
+import labpic from "./assets/images/lab_small_transparent.png";
+import spacecraftpic from "./assets/images/spacecraft_small_transparent.png";
+import portalpic from "./assets/images/portal_small_transparent.png";
 //store item images - upgrades
-import cat from "./assets/images/cat_small.jpeg";
+import cat from "./assets/images/cat_small_transparent.png";
 
 //sfx imports
 //import borgir from "./assets/sfx/borgir.mp3";

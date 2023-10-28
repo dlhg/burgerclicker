@@ -8,11 +8,19 @@
   border: solid black 1px;
   user-select: none;
   /* user-select none makes all text unselectable */
+  background-color: black;
+  color: lightgreen;
 }
 
 button {
   font-family: pixelfont;
   font-size: medium;
+  background-color: rgb(34, 34, 34);
+  color: lightgreen;
+  border: solid black 1px;
+}
+button:hover {
+  border: solid lightgreen 1px;
 }
 
 @keyframes bounce {
@@ -138,7 +146,7 @@ button {
   transition: transform 0.2s ease;
   transition-delay: 1.5s;
   display: inline-block;
-  cursor: pointer;
+  cursor: url(./assets/images/bank_small.jpeg), pointer;
   transform: scale(1);
 }
 .big--burger:hover {
@@ -282,7 +290,7 @@ button {
   justify-content: space-between; /* Aligns children to each end of the container */
 }
 .store--item:hover {
-  color: rgb(70, 70, 70);
+  color: white;
 }
 #store--item--nameandprice {
   text-align: center;
