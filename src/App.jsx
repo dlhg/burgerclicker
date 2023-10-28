@@ -255,6 +255,31 @@ function App() {
             <TestConsole
               setBurgersPerSecond={setBurgersPerSecond}
               setBurgersPerClick={setBurgersPerClick}
+              setCurrentQuipLevel={setCurrentQuipLevel}
+              setMainArea={setMainArea}
+              setBurgerCount={setBurgerCount}
+              setTotalBurgersProducedUnformatted={
+                setTotalBurgersProducedUnformatted
+              }
+              setBurgersMadeFromClicking={setBurgersMadeFromClicking}
+              setBurgersMadeFromAutomation={setBurgersMadeFromAutomation}
+              setPointerCount={setPointerCount}
+              setPointerBPS={setPointerBPS}
+              setWorkerCount={setWorkerBPS}
+              setGrillCount={setGrillCount}
+              setGrillBPS={setGrillBPS}
+              setTruckCount={setTruckCount}
+              setTruckBPS={setTruckBPS}
+              setBankCount={setBankCount}
+              setBankBPS={setBankBPS}
+              setTempleCount={setTempleCount}
+              setTempleBPS={setTempleBPS}
+              setLabCount={setLabCount}
+              setLabBPS={setLabBPS}
+              setSpacecraftCount={setSpacecraftCount}
+              setSpaceCraftBPS={setSpaceCraftBPS}
+              setPortalCount={setPortalCount}
+              setPortalBPS={setPortalBPS}
             />
           )}
         </div>
