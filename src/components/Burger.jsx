@@ -32,11 +32,9 @@ export default function Burger(props) {
 
   return (
     <div>
-      <section>Burgers: {formatNumber(props.displayedBurgerCount)}</section>
+      <section>Burgers : {formatNumber(props.displayedBurgerCount)}</section>
 
-      <section>
-        Burgers Per Second: {formatNumber(props.burgersPerSecond)}
-      </section>
+      <section>Per Second : {formatNumber(props.burgersPerSecond)}</section>
 
       <br />
       <br />

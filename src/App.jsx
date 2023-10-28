@@ -252,14 +252,6 @@ function App() {
           {mainArea === "legacy" && <Legacy />}
           {mainArea === "testconsole" && (
             <>
-              <Stats
-                totalBurgersProduced={totalBurgersProduced}
-                burgersMadeFromClicking={burgersMadeFromClicking}
-                burgersMadeFromAutomation={Math.floor(
-                  burgersMadeFromAutomation
-                )}
-                burgersPerClick={burgersPerClick}
-              />
               <div>
                 <p>test console</p>
                 <TestConsoleButton
