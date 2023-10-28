@@ -12,10 +12,60 @@ export default function TestConsole({
   setBurgersPerClick,
   setBurgersPerSecond,
 }) {
+  const [selectedFunction, setSelectedFunction] = useState(null);
+  const [argument, setArgument] = useState("");
+
+  const handleFunctionChange = (event) => {
+    setSelectedFunction(event.target.value);
+  };
+
+  const handleArgumentChange = (event) => {
+    setArgument(event.target.value);
+  };
+
+  const handleExecute = () => {
+    // Check if a function is selected
+    if (selectedFunction) {
+      // Dynamically call the selected function with the provided argument
+      switch (selectedFunction) {
+        case "setBurgersPerClick":
+          setBurgersPerClick(Number(argument));
+          break;
+        case "setBurgersPerSecond":
+          setBurgersPerSecond(Number(argument));
+          break;
+        // Add more cases for other setter functions if needed
+        default:
+          console.error("Invalid function selected");
+      }
+    }
+  };
+
   return (
     <>
-      <h1>test console</h1>
-      <TestConsoleButton
+      <h1>Test Console</h1>
+      <label>
+        Select Setter Function:
+        <select value={selectedFunction} onChange={handleFunctionChange}>
+          <option value="">Select...</option>
+          <option value="setBurgersPerClick">setBurgersPerClick</option>
+          <option value="setBurgersPerSecond">setBurgersPerSecond</option>
+          {/* Add more options for other setter functions if needed */}
+        </select>
+      </label>
+      <br />
+      <label>
+        Argument:
+        <input type="text" value={argument} onChange={handleArgumentChange} />
+      </label>
+      <br />
+      <button onClick={handleExecute}>Execute</button>
+    </>
+  );
+}
+
+{
+  /* <TestConsoleButton
         buttontext="set burgers/second to 0"
         functionarg={0}
         buttonfunc={setBurgersPerSecond}
@@ -64,7 +114,5 @@ export default function TestConsole({
         buttontext="borgir :)"
         functionarg={""}
         //buttonfunc={playBorgirSound}
-      />
-    </>
-  );
+      /> */
 }
