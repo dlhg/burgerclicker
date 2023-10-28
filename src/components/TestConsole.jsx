@@ -12,7 +12,6 @@ export default function TestConsole({
   setBurgersPerClick,
   setBurgersPerSecond,
   setCurrentQuipLevel,
-  setMainArea,
   setBurgerCount,
   setTotalBurgersProducedUnformatted,
   setBurgersMadeFromClicking,
@@ -139,13 +138,13 @@ export default function TestConsole({
       <div className="test--console">
         <h1>Test Console</h1>
         <label>
-          Select Setter Function:
+          Setter:
           <select value={selectedFunction} onChange={handleFunctionChange}>
             <option value="">Select...</option>
             <option value="setBurgersPerClick">setBurgersPerClick</option>
             <option value="setBurgersPerSecond">setBurgersPerSecond</option>
             <option value="setCurrentQuipLevel">setCurrentQuipLevel</option>
-            <option value="setMainArea">setMainArea</option>
+
             <option value="setBurgerCount">setBurgerCount</option>
             <option value="setTotalBurgersProducedUnformatted">
               setTotalBurgersProducedUnformatted
@@ -183,6 +182,22 @@ export default function TestConsole({
         </label>
         <br />
         <button onClick={handleExecute}>Execute</button>
+        <br />
+        <section>
+          <h2>setter info:</h2>
+          <ul>
+            <li>BPS = burgers per second</li>
+            <li>
+              when using setQuipLevel, Quip Level ranges from 0-7 (as the player
+              progresses, higher quip levels give new quips)
+            </li>
+            <li>
+              Quip Level is used as a proxy for game progress in the
+              FallingImages component, generating more falling burgers as player
+              progresses
+            </li>
+          </ul>
+        </section>
       </div>
     </>
   );

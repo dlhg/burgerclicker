@@ -256,7 +256,6 @@ function App() {
               setBurgersPerSecond={setBurgersPerSecond}
               setBurgersPerClick={setBurgersPerClick}
               setCurrentQuipLevel={setCurrentQuipLevel}
-              setMainArea={setMainArea}
               setBurgerCount={setBurgerCount}
               setTotalBurgersProducedUnformatted={
                 setTotalBurgersProducedUnformatted
