@@ -353,9 +353,10 @@ button:hover {
   flex: 1;
 }
 .TC--left img {
-  transform: scaleX(-1);
+  transform: scaleX(-1) scaleY(-1);
   /* makes it so user cant click and drag */
   pointer-events: none;
+  object-position: 100px;
 }
 
 .TC--center {
@@ -375,4 +376,6 @@ button:hover {
 .TC--right img {
   /* makes it so user cant click and drag */
   pointer-events: none;
+  transform: scaleY(-1);
+  object-position: 100px;
 }
