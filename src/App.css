@@ -191,6 +191,7 @@ button:hover {
 }
 
 .quip--text {
+  cursor: url(./assets/images/pointer_transparent.png), pointer;
 }
 
 /* Optional: Add some margin between the items */
