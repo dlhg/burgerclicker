@@ -389,6 +389,7 @@ button:hover {
   color: lightgreen;
   font-family: pixelfont;
   font-size: x-large;
+  cursor: url(./assets/images/pointer_transparent.png), pointer;
 }
 
 .TC--func input[type="text"] {
@@ -396,4 +397,5 @@ button:hover {
   color: lightgreen;
   font-family: pixelfont;
   font-size: x-large;
+  cursor: url(./assets/images/pointer_transparent.png), pointer;
 }
