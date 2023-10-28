@@ -350,6 +350,7 @@ button:hover {
 
 .test--console {
   display: flex;
+  font-size: x-large;
 }
 
 .TC--left {
@@ -381,4 +382,18 @@ button:hover {
   pointer-events: none;
   transform: scaleY(-1);
   object-position: 100px;
+}
+
+.TC--func select {
+  background-color: black;
+  color: lightgreen;
+  font-family: pixelfont;
+  font-size: x-large;
+}
+
+.TC--func input[type="text"] {
+  background-color: black;
+  color: lightgreen;
+  font-family: pixelfont;
+  font-size: x-large;
 }
