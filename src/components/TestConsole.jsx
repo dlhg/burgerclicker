@@ -136,52 +136,54 @@ export default function TestConsole({
 
   return (
     <>
-      <h1>Test Console</h1>
-      <label>
-        Select Setter Function:
-        <select value={selectedFunction} onChange={handleFunctionChange}>
-          <option value="">Select...</option>
-          <option value="setBurgersPerClick">setBurgersPerClick</option>
-          <option value="setBurgersPerSecond">setBurgersPerSecond</option>
-          <option value="setCurrentQuipLevel">setCurrentQuipLevel</option>
-          <option value="setMainArea">setMainArea</option>
-          <option value="setBurgerCount">setBurgerCount</option>
-          <option value="setTotalBurgersProducedUnformatted">
-            setTotalBurgersProducedUnformatted
-          </option>
-          <option value="setBurgersMadeFromClicking">
-            setBurgersMadeFromClicking
-          </option>
-          <option value="setBurgersMadeFromAutomation">
-            setBurgersMadeFromAutomation
-          </option>
-          <option value="setPointerCount">setPointerCount</option>
-          <option value="setPointerBPS">setPointerBPS</option>
-          <option value="setWorkerCount">setWorkerCount</option>
-          <option value="setWorkerBPS">setWorkerBPS</option>
-          <option value="setGrillCount">setGrillCount</option>
-          <option value="setGrillBPS">setGrillBPS</option>
-          <option value="setTruckCount">setTruckCount</option>
-          <option value="setTruckBPS">setTruckBPS</option>
-          <option value="setBankCount">setBankCount</option>
-          <option value="setBankBPS">setBankBPS</option>
-          <option value="setTempleCount">setTempleCount</option>
-          <option value="setTempleBPS">setTempleBPS</option>
-          <option value="setLabCount">setLabCount</option>
-          <option value="setLabBPS">setLabBPS</option>
-          <option value="setSpacecraftCount">setSpacecraftCount</option>
-          <option value="setSpaceCraftBPS">setSpaceCraftBPS</option>
-          <option value="setPortalCount">setPortalCount</option>
-          <option value="setPortalBPS">setPortalBPS</option>
-        </select>
-      </label>
-      <br />
-      <label>
-        Argument:
-        <input type="text" value={argument} onChange={handleArgumentChange} />
-      </label>
-      <br />
-      <button onClick={handleExecute}>Execute</button>
+      <div className="test--console">
+        <h1>Test Console</h1>
+        <label>
+          Select Setter Function:
+          <select value={selectedFunction} onChange={handleFunctionChange}>
+            <option value="">Select...</option>
+            <option value="setBurgersPerClick">setBurgersPerClick</option>
+            <option value="setBurgersPerSecond">setBurgersPerSecond</option>
+            <option value="setCurrentQuipLevel">setCurrentQuipLevel</option>
+            <option value="setMainArea">setMainArea</option>
+            <option value="setBurgerCount">setBurgerCount</option>
+            <option value="setTotalBurgersProducedUnformatted">
+              setTotalBurgersProducedUnformatted
+            </option>
+            <option value="setBurgersMadeFromClicking">
+              setBurgersMadeFromClicking
+            </option>
+            <option value="setBurgersMadeFromAutomation">
+              setBurgersMadeFromAutomation
+            </option>
+            <option value="setPointerCount">setPointerCount</option>
+            <option value="setPointerBPS">setPointerBPS</option>
+            <option value="setWorkerCount">setWorkerCount</option>
+            <option value="setWorkerBPS">setWorkerBPS</option>
+            <option value="setGrillCount">setGrillCount</option>
+            <option value="setGrillBPS">setGrillBPS</option>
+            <option value="setTruckCount">setTruckCount</option>
+            <option value="setTruckBPS">setTruckBPS</option>
+            <option value="setBankCount">setBankCount</option>
+            <option value="setBankBPS">setBankBPS</option>
+            <option value="setTempleCount">setTempleCount</option>
+            <option value="setTempleBPS">setTempleBPS</option>
+            <option value="setLabCount">setLabCount</option>
+            <option value="setLabBPS">setLabBPS</option>
+            <option value="setSpacecraftCount">setSpacecraftCount</option>
+            <option value="setSpaceCraftBPS">setSpaceCraftBPS</option>
+            <option value="setPortalCount">setPortalCount</option>
+            <option value="setPortalBPS">setPortalBPS</option>
+          </select>
+        </label>
+        <br />
+        <label>
+          Argument:
+          <input type="text" value={argument} onChange={handleArgumentChange} />
+        </label>
+        <br />
+        <button onClick={handleExecute}>Execute</button>
+      </div>
     </>
   );
 }

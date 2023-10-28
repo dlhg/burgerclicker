@@ -115,6 +115,12 @@ button:hover {
   }
 }
 
+@keyframes fallAnimation {
+  to {
+    top: 100%;
+  }
+}
+
 .parent {
   display: grid;
   grid-template-columns: repeat(5, 1fr);
@@ -336,10 +342,4 @@ button:hover {
   left: 50%; /* Initial left position*/
   transform: translateX(-50%); /* Center the image horizontally */
   animation: fallAnimation 3s forwards;
-}
-
-@keyframes fallAnimation {
-  to {
-    top: 100%;
-  }
 }
