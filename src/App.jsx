@@ -224,6 +224,7 @@ function App() {
                 templepic={templepic}
                 labpic={labpic}
                 spacecraftpic={spacecraftpic}
+                portalpic={portalpic}
                 pointerCount={pointerCount}
                 workerCount={workerCount}
                 grillCount={grillCount}
@@ -232,6 +233,7 @@ function App() {
                 templeCount={templeCount}
                 labCount={labCount}
                 spacecraftCount={spacecraftCount}
+                portalCount={portalCount}
               />
             </>
           )}
