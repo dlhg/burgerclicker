@@ -354,12 +354,12 @@ button:hover {
 }
 .TC--left img {
   transform: scaleX(-1);
+  /* makes it so user cant click and drag */
+  pointer-events: none;
 }
 
 .TC--center {
   flex: 2;
-
-  /* Add any additional styling for the center column */
 }
 .TC--func {
   text-align: center;
@@ -370,4 +370,9 @@ button:hover {
 
 .TC--right {
   flex: 1;
+}
+
+.TC--right img {
+  /* makes it so user cant click and drag */
+  pointer-events: none;
 }
