@@ -146,7 +146,7 @@ button:hover {
   transition: transform 0.2s ease;
   transition-delay: 1.5s;
   display: inline-block;
-  cursor: url(./assets/images/bank_small.jpeg), pointer;
+  cursor: url(./assets/images/glove_pointer_transparent_small.png), pointer;
   transform: scale(1);
 }
 .big--burger:hover {
