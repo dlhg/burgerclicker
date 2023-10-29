@@ -258,9 +258,7 @@ function App() {
             <Stats
               totalBurgersProduced={totalBurgersProduced}
               burgersMadeFromClicking={burgersMadeFromClicking}
-              burgersMadeFromAutomation={Math.floor(
-                burgersMadeFromAutomation * 2
-              )}
+              burgersMadeFromAutomation={burgersMadeFromAutomation}
               burgersPerClick={burgersPerClick}
             />
           )}
