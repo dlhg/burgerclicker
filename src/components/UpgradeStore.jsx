@@ -19,7 +19,7 @@ export default function UpgradeStore(props) {
         <div className="upstore--left">
           <UpgradeItem
             itemID={1}
-            itemPrice={1}
+            itemPrice={10}
             itemImage={catpic}
             itemName={"lucky burger cat"}
             itemDescription={"+1 Burger Per Click"}
@@ -67,6 +67,7 @@ export default function UpgradeStore(props) {
             toolItemDescription={toolItemDescription}
             toolItemFlavorText={toolItemFlavorText}
             isAnUpgradeHovered={isAnUpgradeHovered}
+            burgerCount={props.burgerCount}
           />
         </div>
       </div>
