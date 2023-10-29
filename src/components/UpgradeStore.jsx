@@ -42,11 +42,13 @@ export default function UpgradeStore(props) {
           />
           <UpgradeItem
             itemID={2}
-            itemPrice={100}
+            itemPrice={500}
             itemImage={occultpic}
-            itemName={"occult ritual"}
+            itemName={"occult clicking ritual"}
             itemDescription={"+10 Burger Per Click"}
-            itemFlavorText={"You've got a bad feeling about this"}
+            itemFlavorText={
+              "You've got a bad feeling about this, but more burgers per click couldn't hurt"
+            }
             benefitSetter={props.setBurgersPerClick}
             benefitAmount={(prev) => prev + 10}
             unlockedCondition={props.totalBurgersProducedUnformatted >= 100}
