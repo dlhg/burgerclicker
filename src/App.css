@@ -193,6 +193,7 @@ button:hover {
 }
 
 .quip--text {
+  margin-top: 0.5rem;
   cursor: url(./assets/images/pointer_transparent.png), pointer;
 }
 
