@@ -147,9 +147,6 @@ export default function TestConsole({
           <br />
 
           <div className="TC--func">
-            <h6>Console</h6>
-            <br />
-            <br />
             <label>
               Setter:
               <select value={selectedFunction} onChange={handleFunctionChange}>
@@ -197,6 +194,7 @@ export default function TestConsole({
                 onChange={handleArgumentChange}
               />
             </label>
+            <br />
             <br />
             <button onClick={handleExecute}>Execute</button>
             <br />

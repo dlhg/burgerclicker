@@ -15,7 +15,7 @@
 button {
   font-family: pixelfont;
   font-size: medium;
-  background-color: rgb(34, 34, 34);
+  background-color: black;
   color: lightgreen;
   border: solid black 1px;
 }
@@ -141,6 +141,7 @@ button:hover {
   font-size: x-large;
   font-weight: bold;
   height: 100vh;
+  background-color: rgb(0, 0, 0);
 }
 
 .big--burger--container {
@@ -209,6 +210,7 @@ button:hover {
   grid-area: 2 / 2 / 11 / 5;
   border: solid gray 1px;
   overflow: hidden;
+  background-color: rgb(0, 0, 0);
 }
 #Buildings--container {
   display: flex;
@@ -254,6 +256,7 @@ button:hover {
   grid-area: 1 / 5 / 11 / 6;
   height: 100%;
   overflow: hidden;
+  background-color: rgb(0, 0, 0);
 }
 
 .section {
@@ -351,24 +354,33 @@ button:hover {
 .test--console {
   display: flex;
   font-size: x-large;
-  background-image: url(./assets/images/backgrounds/loopedvector2.gif);
-  background-repeat: no-repeat;
-  background-position: top;
-  background-size: 15%;
+  background-color: black;
+  height: 100%;
 }
 
 .TC--left {
   flex: 1;
+  justify-content: flex-start;
 }
 .TC--left img {
   transform: scaleX(-1) scaleY(-1);
   /* makes it so user cant click and drag */
   pointer-events: none;
-  object-position: 100px;
+  max-width: 75%;
+  height: 25%;
 }
 
 .TC--center {
   flex: 2;
+}
+.TC--center button {
+  font-size: 120%;
+}
+.TC--center button:hover {
+  background: url(./assets/images/backgrounds/loopedvector2.gif) no-repeat;
+  background-size: 100%;
+  background-position: center;
+  border: solid black 1px;
 }
 .TC--func {
   text-align: center;
@@ -379,14 +391,16 @@ button:hover {
 
 .TC--right {
   flex: 1;
+  display: flex;
+  justify-content: flex-end; /* Align content to the end (right side) */
 }
 
 .TC--right img {
   /* makes it so user cant click and drag */
   pointer-events: none;
   transform: scaleY(-1);
-  object-position: 100px;
-  align-self: ;
+  max-width: 75%;
+  max-height: 25%;
 }
 
 .TC--func select {
