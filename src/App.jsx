@@ -42,11 +42,13 @@ import Legacy from "./components/Legacy";
 import UpgradeItem from "./components/UpgradeItem";
 import FallingImages from "./components/FallingImages";
 import Quips from "./components/Quips";
+import UpgradeStore from "./components/UpgradeStore";
 
 //helper function imports
 
 import { scaleItemPrice } from "./utils/index";
 import { formatNumber } from "./utils/index";
+import ToopTip from "./components/ToolTip";
 
 function App() {
   //state
@@ -216,6 +218,11 @@ function App() {
         <div className="div3" id="gamearea">
           {mainArea === "buildings" && (
             <>
+              <UpgradeStore
+                burgerCount={burgerCount}
+                setBurgerCount={setBurgerCount}
+                setBurgersPerClick={setBurgersPerClick}
+              />
               <Buildings
                 pointerpic={pointerpic}
                 workerpic={workerpic}
@@ -283,81 +290,6 @@ function App() {
           )}
         </div>
         <div className="div4">
-          <section className="section1">
-            {/*classname section1 - create and map currentstoreitems array and state*/}
-            <div>
-              upgrade shop in progress (top box), building shop working (bottom
-              box)
-            </div>
-
-            <UpgradeItem
-              itemName={"name of item goes here"}
-              itemDescription={"description goes here"}
-              itemID={"unique ID of item goes here"}
-              itemImage={cat}
-              burgerCount={burgerCount}
-              setBurgerCount={setBurgerCount}
-              itemPrice={1}
-              benefitSetter={"add setter function related to upgrade's benefit"}
-              benefitAmount={"add benefit amount"}
-            />
-
-            <UpgradeItem
-              itemImage={spacecraftpic}
-              burgerCount={burgerCount}
-              setBurgerCount={setBurgerCount}
-              itemPrice={2}
-            />
-
-            <UpgradeItem
-              itemImage={truckpic}
-              burgerCount={burgerCount}
-              setBurgerCount={setBurgerCount}
-              itemPrice={4}
-            />
-
-            <UpgradeItem
-              itemImage={cat}
-              burgerCount={burgerCount}
-              setBurgerCount={setBurgerCount}
-              itemPrice={8}
-            />
-
-            <UpgradeItem
-              itemImage={spacecraftpic}
-              burgerCount={burgerCount}
-              setBurgerCount={setBurgerCount}
-              itemPrice={16}
-            />
-
-            <UpgradeItem
-              itemImage={truckpic}
-              burgerCount={burgerCount}
-              setBurgerCount={setBurgerCount}
-              itemPrice={32}
-            />
-
-            <UpgradeItem
-              itemImage={cat}
-              burgerCount={burgerCount}
-              setBurgerCount={setBurgerCount}
-              itemPrice={64}
-            />
-
-            <UpgradeItem
-              itemImage={spacecraftpic}
-              burgerCount={burgerCount}
-              setBurgerCount={setBurgerCount}
-              itemPrice={128}
-            />
-
-            <UpgradeItem
-              itemImage={truckpic}
-              burgerCount={burgerCount}
-              setBurgerCount={setBurgerCount}
-              itemPrice={256}
-            />
-          </section>
           <section className="section2" id="buildings">
             <StoreItem
               storeItemImage={
