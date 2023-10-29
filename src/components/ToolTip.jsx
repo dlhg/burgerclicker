@@ -11,7 +11,7 @@ props:
 */
 
 export default function ToopTip(props) {
-  const canAfford = props.burgerCount > props.toolItemCost;
+  const canAfford = props.burgerCount >= props.toolItemCost;
   return (
     <>
       {props.isAnUpgradeHovered && (
