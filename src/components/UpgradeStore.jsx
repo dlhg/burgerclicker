@@ -24,7 +24,7 @@ export default function UpgradeStore(props) {
             itemName={"lucky burger cat"}
             itemDescription={"+1 Burger Per Click"}
             itemFlavorText={
-              "A stray cat shows up at your door. Adopt him as your mascot?"
+              "A stray cat shows up at your door and crawls inside a burger for warmth. Adopt him as your mascot?"
             }
             benefitAmount={(prev) => prev + 1}
             unlockedCondition={props.totalBurgersProducedUnformatted >= 10}
