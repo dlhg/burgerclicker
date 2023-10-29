@@ -20,8 +20,6 @@ export default function UpgradeStore(props) {
         <div className="upstore--left">
           <UpgradeItem
             itemID={1}
-            purchasedUpgradeIDs={props.purchasedUpgradeIDs}
-            setPurchasedUpgradeIDs={props.setPurchasedUpgradeIDs}
             itemPrice={10}
             itemImage={catpic}
             itemName={"lucky burger cat"}
@@ -40,11 +38,11 @@ export default function UpgradeStore(props) {
             setToolItemCost={setToolItemCost}
             setToolItemDescription={setToolItemDescription}
             setToolItemFlavorText={setToolItemFlavorText}
+            purchasedUpgradeIDs={props.purchasedUpgradeIDs}
+            setPurchasedUpgradeIDs={props.setPurchasedUpgradeIDs}
           />
           <UpgradeItem
             itemID={2}
-            purchasedUpgradeIDs={props.purchasedUpgradeIDs}
-            setPurchasedUpgradeIDs={props.setPurchasedUpgradeIDs}
             itemPrice={100}
             itemImage={occultpic}
             itemName={"occult ritual"}
@@ -61,6 +59,31 @@ export default function UpgradeStore(props) {
             setToolItemCost={setToolItemCost}
             setToolItemDescription={setToolItemDescription}
             setToolItemFlavorText={setToolItemFlavorText}
+            purchasedUpgradeIDs={props.purchasedUpgradeIDs}
+            setPurchasedUpgradeIDs={props.setPurchasedUpgradeIDs}
+          />
+          <UpgradeItem
+            itemID={3}
+            itemPrice={0}
+            itemImage={gamblerpic}
+            itemName={"gambler's hand"}
+            itemDescription={"50/50 chance to double or halve your burgers"}
+            itemFlavorText={"Take a chance?"}
+            benefitSetter={props.setBurgerCount}
+            benefitAmount={(prev) =>
+              Math.random() > 0.5 ? prev * 2 : prev / 2
+            }
+            unlockedCondition={props.totalBurgersProducedUnformatted >= 150}
+            burgerCount={props.burgerCount}
+            setBurgerCount={props.setBurgerCount}
+            setIsAnUpgradeHovered={setIsAnUpgradeHovered}
+            setToolItemImage={setToolItemImage}
+            setToolItemName={setToolItemName}
+            setToolItemCost={setToolItemCost}
+            setToolItemDescription={setToolItemDescription}
+            setToolItemFlavorText={setToolItemFlavorText}
+            purchasedUpgradeIDs={props.purchasedUpgradeIDs}
+            setPurchasedUpgradeIDs={props.setPurchasedUpgradeIDs}
           />
         </div>
 
