@@ -31,6 +31,7 @@ export default function UpgradeItem(props) {
     setUnpurchased(false);
     props.setBurgerCount((prevCount) => prevCount - props.itemPrice);
     props.benefitSetter(props.benefitAmount);
+    props.setIsAnUpgradeHovered(false);
     // should also update a list of currently owned upgrades, to be displayed in stats screen
   }
 

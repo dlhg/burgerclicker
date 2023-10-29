@@ -216,13 +216,18 @@ button:hover {
 .upstore--container {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
+  min-height: 7rem;
 }
 .upstore--left {
-  border: solid gray 5px;
+  border-left: 1px solid gray;
+  border-right: 1px solid gray;
+  border-bottom: 1px solid gray;
 }
 
 .upstore--right {
-  border: solid gray 5px;
+  border-left: 1px solid gray;
+  border-right: 1px solid gray;
+  border-bottom: 1px solid gray;
 }
 #Buildings--container {
   display: flex;
