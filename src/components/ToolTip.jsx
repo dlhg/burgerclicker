@@ -16,10 +16,10 @@ export default function ToopTip(props) {
       {props.isAnUpgradeHovered && (
         <div>
           <section>image : {}</section>
-          <section>name : {}</section>
-          <section>cost : {}</section>
-          <section>description : {}</section>
-          <section>flavor text : {}</section>
+          <section>name : {props.toolItemName}</section>
+          <section>cost : {props.toolItemCost}</section>
+          <section>description : {props.toolItemDescription}</section>
+          <section>flavor text : {props.toolItemFlavorText}</section>
         </div>
       )}
     </>

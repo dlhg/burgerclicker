@@ -12,6 +12,11 @@ import catpic from "../assets/images/cat_small_transparent.png";
 
 export default function UpgradeStore(props) {
   const [isAnUpgradeHovered, setIsAnUpgradeHovered] = useState(false);
+  const [toolItemImage, setToolItemImage] = useState("");
+  const [toolItemName, setToolItemName] = useState("");
+  const [toolItemCost, setToolItemCost] = useState("");
+  const [toolItemDescription, setToolItemDescription] = useState("");
+  const [toolItemFlavorText, setToolItemFlavorText] = useState("");
 
   return (
     <>
@@ -32,11 +37,11 @@ export default function UpgradeStore(props) {
 
         <div className="upstore--right">
           <ToopTip
-            toolItemImage=""
-            toolItemName=""
-            toolItemCost=""
-            toolItemDescription=""
-            toolItemFlavorText=""
+            toolItemImage={toolItemFlavorText}
+            toolItemName={toolItemName}
+            toolItemCost={toolItemCost}
+            toolItemDescription={toolItemDescription}
+            toolItemFlavorText={toolItemFlavorText}
             isAnUpgradeHovered={isAnUpgradeHovered}
           />
         </div>
