@@ -220,6 +220,9 @@ function App() {
             <>
               <UpgradeStore
                 burgerCount={burgerCount}
+                totalBurgersProducedUnformatted={
+                  totalBurgersProducedUnformatted
+                }
                 setBurgerCount={setBurgerCount}
                 setBurgersPerClick={setBurgersPerClick}
               />

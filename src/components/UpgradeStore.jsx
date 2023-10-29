@@ -3,12 +3,7 @@ import UpgradeItem from "./UpgradeItem";
 import ToopTip from "./ToolTip";
 
 import catpic from "../assets/images/cat_small_transparent.png";
-
-/*
-- state variable called currentlyHoveredItem
-- when you hover over an UpgradeItem, it should update this stare
-
-*/
+import occultpic from "../assets/images/occult_small_transparent.png";
 
 export default function UpgradeStore(props) {
   const [isAnUpgradeHovered, setIsAnUpgradeHovered] = useState(false);
@@ -28,12 +23,33 @@ export default function UpgradeStore(props) {
             itemImage={catpic}
             itemName={"lucky burger cat"}
             itemDescription={"+1 Burger Per Click"}
-            itemFlavorText={"This is one cool cat"}
+            itemFlavorText={
+              "A stray cat shows up at your door. Adopt him as your mascot?"
+            }
+            benefitAmount={(prev) => prev + 1}
+            unlockedCondition={props.totalBurgersProducedUnformatted >= 10}
             burgerCount={props.burgerCount}
             setBurgerCount={props.setBurgerCount}
             benefitSetter={props.setBurgersPerClick}
-            benefitAmount={(prev) => prev + 1}
-            unlockedCondition={props.burgerCount >= 10}
+            setIsAnUpgradeHovered={setIsAnUpgradeHovered}
+            setToolItemImage={setToolItemImage}
+            setToolItemName={setToolItemName}
+            setToolItemCost={setToolItemCost}
+            setToolItemDescription={setToolItemDescription}
+            setToolItemFlavorText={setToolItemFlavorText}
+          />
+          <UpgradeItem
+            itemID={2}
+            itemPrice={100}
+            itemImage={occultpic}
+            itemName={"occult ritual"}
+            itemDescription={"+10 Burger Per Click"}
+            itemFlavorText={"You've got a bad feeling about this"}
+            benefitSetter={props.setBurgersPerClick}
+            benefitAmount={(prev) => prev + 10}
+            unlockedCondition={props.totalBurgersProducedUnformatted >= 100}
+            burgerCount={props.burgerCount}
+            setBurgerCount={props.setBurgerCount}
             setIsAnUpgradeHovered={setIsAnUpgradeHovered}
             setToolItemImage={setToolItemImage}
             setToolItemName={setToolItemName}

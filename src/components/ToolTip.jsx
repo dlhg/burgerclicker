@@ -16,7 +16,7 @@ export default function ToopTip(props) {
       {props.isAnUpgradeHovered && (
         <div>
           <section>{props.toolItemName}</section>
-          <section>{props.toolItemCost}</section>
+          <section>cost: {props.toolItemCost}</section>
           <section>{props.toolItemDescription}</section>
           <section>{props.toolItemFlavorText}</section>
         </div>
