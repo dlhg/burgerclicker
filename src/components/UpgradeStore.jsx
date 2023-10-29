@@ -5,6 +5,7 @@ import ToopTip from "./ToolTip";
 import catpic from "../assets/images/cat_small_transparent.png";
 import occultpic from "../assets/images/occult_small_transparent.png";
 import gamblerpic from "../assets/images/gamblers_hand_small_transparent.png";
+import gambler2pic from "../assets/images/gamblers_hand2_small_transparent.png";
 
 export default function UpgradeStore(props) {
   const [isAnUpgradeHovered, setIsAnUpgradeHovered] = useState(false);
@@ -72,6 +73,29 @@ export default function UpgradeStore(props) {
               Math.random() > 0.5 ? prev * 2 : prev / 2
             }
             unlockedCondition={props.totalBurgersProducedUnformatted >= 150}
+            burgerCount={props.burgerCount}
+            setBurgerCount={props.setBurgerCount}
+            setIsAnUpgradeHovered={setIsAnUpgradeHovered}
+            setToolItemImage={setToolItemImage}
+            setToolItemName={setToolItemName}
+            setToolItemCost={setToolItemCost}
+            setToolItemDescription={setToolItemDescription}
+            setToolItemFlavorText={setToolItemFlavorText}
+            purchasedUpgradeIDs={props.purchasedUpgradeIDs}
+            setPurchasedUpgradeIDs={props.setPurchasedUpgradeIDs}
+          />
+          <UpgradeItem
+            itemID={4}
+            itemPrice={0}
+            itemImage={gambler2pic}
+            itemName={"gambler's hand 2"}
+            itemDescription={
+              "75/25 chance to triple your burgers or lose everything"
+            }
+            itemFlavorText={"Take a chance?"}
+            benefitSetter={props.setBurgerCount}
+            benefitAmount={(prev) => (Math.random() > 0.25 ? prev * 3 : 0)}
+            unlockedCondition={props.totalBurgersProducedUnformatted >= 250}
             burgerCount={props.burgerCount}
             setBurgerCount={props.setBurgerCount}
             setIsAnUpgradeHovered={setIsAnUpgradeHovered}

@@ -35,6 +35,7 @@ export default function Burger(props) {
       <section>Burgers : {formatNumber(props.displayedBurgerCount)}</section>
 
       <section>Per Second : {formatNumber(props.burgersPerSecond)}</section>
+      <section>Per Click : {formatNumber(props.burgersPerClick)}</section>
 
       <br />
       <br />
