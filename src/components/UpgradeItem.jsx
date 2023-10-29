@@ -36,7 +36,7 @@ export default function UpgradeItem(props) {
 
   return (
     <>
-      {unpurchased && (
+      {unpurchased && props.unlockedCondition && (
         <img src={props.itemImage} onClick={() => buyUpgrade()}></img>
       )}
     </>

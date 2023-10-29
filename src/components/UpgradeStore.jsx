@@ -25,6 +25,7 @@ export default function UpgradeStore(props) {
             setBurgerCount={props.setBurgerCount}
             benefitSetter={props.setBurgersPerClick}
             benefitAmount={(prev) => prev + 1}
+            unlockedCondition={props.burgerCount >= 10}
           />
         </div>
 
