@@ -4,6 +4,7 @@ import ToopTip from "./ToolTip";
 
 import catpic from "../assets/images/cat_small_transparent.png";
 import occultpic from "../assets/images/occult_small_transparent.png";
+import gamblerpic from "../assets/images/gamblers_hand_small_transparent.png";
 
 export default function UpgradeStore(props) {
   const [isAnUpgradeHovered, setIsAnUpgradeHovered] = useState(false);
