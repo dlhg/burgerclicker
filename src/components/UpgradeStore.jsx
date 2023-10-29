@@ -12,12 +12,6 @@ export default function UpgradeStore(props) {
   const [toolItemCost, setToolItemCost] = useState("");
   const [toolItemDescription, setToolItemDescription] = useState("");
   const [toolItemFlavorText, setToolItemFlavorText] = useState("");
-  console.log(`props  = ${JSON.stringify(props)}`);
-  console.log(
-    `props.purchasedUpgradeIDs  = ${JSON.stringify(props.purchasedUpgradeIDs)}`
-  );
-  console.log(props.purchasedUpgradeIDs.includes(1));
-  console.log(typeof props.purchasedUpgradeIDs);
 
   return (
     <>

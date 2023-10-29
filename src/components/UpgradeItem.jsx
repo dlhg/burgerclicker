@@ -23,9 +23,6 @@ import React, { useState } from "react";
 
 export default function UpgradeItem(props) {
   const isPurchased = props.purchasedUpgradeIDs.includes(props.itemID);
-  console.log(
-    `up item component computes isPurchased = ${isPurchased} for item ID ${props.itemID}`
-  );
 
   function buyUpgrade() {
     if (props.burgerCount < props.itemPrice) {
