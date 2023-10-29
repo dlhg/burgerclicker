@@ -45,9 +45,12 @@ export default function UpgradeItem(props) {
   return (
     <>
       {unpurchased && props.unlockedCondition && (
-        <div onMouseOver={handleMouseOver} onMouseOut={handleMouseOut}>
-          <img src={props.itemImage} onClick={() => buyUpgrade()}></img>
-        </div>
+        <img
+          src={props.itemImage}
+          onClick={() => buyUpgrade()}
+          onMouseOver={handleMouseOver}
+          onMouseOut={handleMouseOut}
+        ></img>
       )}
     </>
   );
