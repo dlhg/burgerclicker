@@ -22,16 +22,20 @@ to add:
 import React, { useState } from "react";
 
 export default function UpgradeItem(props) {
-  const [unpurchased, setUnpurchased] = useState(true);
+  const isPurchased = props.purchasedUpgradeIDs.includes(props.itemID);
+  console.log(
+    `up item component computes isPurchased = ${isPurchased} for item ID ${props.itemID}`
+  );
 
   function buyUpgrade() {
     if (props.burgerCount < props.itemPrice) {
       return;
     }
-    setUnpurchased(false);
     props.setBurgerCount((prevCount) => prevCount - props.itemPrice);
     props.benefitSetter(props.benefitAmount);
     props.setIsAnUpgradeHovered(false);
+    props.setPurchasedUpgradeIDs((prev) => [...prev, props.itemID]);
+
     // should also update a list of currently owned upgrades, to be displayed in stats screen
   }
 
@@ -49,14 +53,15 @@ export default function UpgradeItem(props) {
 
   return (
     <>
-      {unpurchased && props.unlockedCondition && (
-        <img
-          src={props.itemImage}
-          onClick={() => buyUpgrade()}
-          onMouseOver={handleMouseOver}
-          onMouseOut={handleMouseOut}
-        ></img>
-      )}
+      {!props.purchasedUpgradeIDs.includes(props.itemID) &&
+        props.unlockedCondition && (
+          <img
+            src={props.itemImage}
+            onClick={() => buyUpgrade()}
+            onMouseOver={handleMouseOver}
+            onMouseOut={handleMouseOut}
+          ></img>
+        )}
     </>
   );
 }

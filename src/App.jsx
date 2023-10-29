@@ -92,6 +92,9 @@ function App() {
   const [portalCount, setPortalCount] = useState(0);
   const [portalBPS, setPortalBPS] = useState(50000);
 
+  //upgrades
+  const [purchasedUpgradeIDs, setPurchasedUpgradeIDs] = useState([]);
+
   //useEffect
 
   /* this effect is kind of brute force-y, there is probably a more elegant way to do this that doesn't involve running the effect every single time burg count is changed*/
@@ -225,6 +228,8 @@ function App() {
                 }
                 setBurgerCount={setBurgerCount}
                 setBurgersPerClick={setBurgersPerClick}
+                purchasedUpgradeIDs={purchasedUpgradeIDs}
+                setPurchasedUpgradeIDs={setPurchasedUpgradeIDs}
               />
               <Buildings
                 pointerpic={pointerpic}

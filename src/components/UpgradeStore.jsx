@@ -12,6 +12,12 @@ export default function UpgradeStore(props) {
   const [toolItemCost, setToolItemCost] = useState("");
   const [toolItemDescription, setToolItemDescription] = useState("");
   const [toolItemFlavorText, setToolItemFlavorText] = useState("");
+  console.log(`props  = ${JSON.stringify(props)}`);
+  console.log(
+    `props.purchasedUpgradeIDs  = ${JSON.stringify(props.purchasedUpgradeIDs)}`
+  );
+  console.log(props.purchasedUpgradeIDs.includes(1));
+  console.log(typeof props.purchasedUpgradeIDs);
 
   return (
     <>
@@ -19,6 +25,8 @@ export default function UpgradeStore(props) {
         <div className="upstore--left">
           <UpgradeItem
             itemID={1}
+            purchasedUpgradeIDs={props.purchasedUpgradeIDs}
+            setPurchasedUpgradeIDs={props.setPurchasedUpgradeIDs}
             itemPrice={10}
             itemImage={catpic}
             itemName={"lucky burger cat"}
@@ -40,6 +48,8 @@ export default function UpgradeStore(props) {
           />
           <UpgradeItem
             itemID={2}
+            purchasedUpgradeIDs={props.purchasedUpgradeIDs}
+            setPurchasedUpgradeIDs={props.setPurchasedUpgradeIDs}
             itemPrice={100}
             itemImage={occultpic}
             itemName={"occult ritual"}
