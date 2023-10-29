@@ -221,6 +221,7 @@ function App() {
               <UpgradeStore
                 burgerCount={burgerCount}
                 setBurgerCount={setBurgerCount}
+                setBurgersPerClick={setBurgersPerClick}
               />
               <Buildings
                 pointerpic={pointerpic}

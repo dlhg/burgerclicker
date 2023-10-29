@@ -34,6 +34,7 @@ export default function UpgradeItem(props) {
     // should provide some benefit to the player:
     // each component instance should have a benefitSetter and benefitAmount prop
     */
+    props.benefitSetter(props.benefitAmount);
   }
 
   return (
