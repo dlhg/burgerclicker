@@ -212,6 +212,18 @@ button:hover {
   overflow: hidden;
   background-color: rgb(0, 0, 0);
 }
+
+.upstore--container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+}
+.upstore--left {
+  border: solid gray 5px;
+}
+
+.upstore--right {
+  border: solid gray 5px;
+}
 #Buildings--container {
   display: flex;
   flex-direction: column;

@@ -42,6 +42,7 @@ import Legacy from "./components/Legacy";
 import UpgradeItem from "./components/UpgradeItem";
 import FallingImages from "./components/FallingImages";
 import Quips from "./components/Quips";
+import UpgradeStore from "./components/UpgradeStore";
 
 //helper function imports
 
@@ -217,6 +218,10 @@ function App() {
         <div className="div3" id="gamearea">
           {mainArea === "buildings" && (
             <>
+              <UpgradeStore
+                burgerCount={burgerCount}
+                setBurgerCount={setBurgerCount}
+              />
               <Buildings
                 pointerpic={pointerpic}
                 workerpic={workerpic}
