@@ -34,10 +34,20 @@ export default function UpgradeItem(props) {
     // should also update a list of currently owned upgrades, to be displayed in stats screen
   }
 
+  function handleMouseOver() {
+    props.setIsAnUpgradeHovered(true);
+  }
+
+  function handleMouseOut() {
+    props.setIsAnUpgradeHovered(false);
+  }
+
   return (
     <>
       {unpurchased && props.unlockedCondition && (
-        <img src={props.itemImage} onClick={() => buyUpgrade()}></img>
+        <div onMouseOver={handleMouseOver} onMouseOut={handleMouseOut}>
+          <img src={props.itemImage} onClick={() => buyUpgrade()}></img>
+        </div>
       )}
     </>
   );

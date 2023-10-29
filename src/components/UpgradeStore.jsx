@@ -11,7 +11,7 @@ import catpic from "../assets/images/cat_small_transparent.png";
 */
 
 export default function UpgradeStore(props) {
-  const [currentlyHoveredItem, setCurrentlyHoveredItem] = useState("");
+  const [isAnUpgradeHovered, setIsAnUpgradeHovered] = useState(false);
 
   return (
     <>
@@ -26,11 +26,12 @@ export default function UpgradeStore(props) {
             benefitSetter={props.setBurgersPerClick}
             benefitAmount={(prev) => prev + 1}
             unlockedCondition={props.burgerCount >= 10}
+            setIsAnUpgradeHovered={setIsAnUpgradeHovered}
           />
         </div>
 
         <div className="upstore--right">
-          <ToopTip currentlyHoveredItem="" />
+          <ToopTip isAnUpgradeHovered={isAnUpgradeHovered} />
         </div>
       </div>
     </>
