@@ -274,7 +274,8 @@ function App() {
               setBurgersMadeFromAutomation={setBurgersMadeFromAutomation}
               setPointerCount={setPointerCount}
               setPointerBPS={setPointerBPS}
-              setWorkerCount={setWorkerBPS}
+              setWorkerCount={setWorkerCount}
+              setWorkerBPS={setWorkerBPS}
               setGrillCount={setGrillCount}
               setGrillBPS={setGrillBPS}
               setTruckCount={setTruckCount}

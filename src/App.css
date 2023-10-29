@@ -216,12 +216,20 @@ button:hover {
 .upstore--container {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  min-height: 8rem;
+  min-height: 10rem;
 }
 .upstore--left {
   border-left: 1px solid gray;
   border-right: 1px solid gray;
   border-bottom: 1px solid gray;
+}
+.upstore--left img {
+  animation: wobble 1s;
+  border: solid black 1px;
+}
+.upstore--left img:hover {
+  border: solid gray 1px;
+  cursor: url(./assets/images/pointer_transparent.png), pointer;
 }
 
 .upstore--right {
