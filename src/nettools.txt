@@ -1,0 +1,2 @@
+Flixier - video edit and gif export
+ezgif.com - gif crop/loop/reverse

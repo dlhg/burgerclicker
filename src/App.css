@@ -351,6 +351,10 @@ button:hover {
 .test--console {
   display: flex;
   font-size: x-large;
+  background-image: url(./assets/images/backgrounds/loopedvector2.gif);
+  background-repeat: no-repeat;
+  background-position: top;
+  background-size: 15%;
 }
 
 .TC--left {
@@ -382,6 +386,7 @@ button:hover {
   pointer-events: none;
   transform: scaleY(-1);
   object-position: 100px;
+  align-self: ;
 }
 
 .TC--func select {

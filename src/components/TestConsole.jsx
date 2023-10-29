@@ -144,8 +144,12 @@ export default function TestConsole({
         </div>
 
         <div className="TC--center">
+          <br />
+
           <div className="TC--func">
-            <h1>Test Console</h1>
+            <h6>Console</h6>
+            <br />
+            <br />
             <label>
               Setter:
               <select value={selectedFunction} onChange={handleFunctionChange}>
