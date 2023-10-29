@@ -1,10 +1,3 @@
-/*
-add test console component
-
-- should have "custom function" function:
-    - user can choose setter function and argument, then call it
-*/
-
 import React, { useState } from "react";
 import TestConsoleButton from "./TestConsoleButton";
 import loopedvectorpic from "../assets/images/backgrounds/loopedvector.gif";
