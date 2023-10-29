@@ -216,7 +216,7 @@ button:hover {
 .upstore--container {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  min-height: 7rem;
+  min-height: 8rem;
 }
 .upstore--left {
   border-left: 1px solid gray;
@@ -332,7 +332,7 @@ button:hover {
   justify-content: space-between; /* Aligns children to each end of the container */
 }
 .store--item:hover {
-  border: solid gray 1px;
+  border: solid lightgreen 1px;
   color: white;
   cursor: url(./assets/images/pointer_transparent.png), pointer;
 }
