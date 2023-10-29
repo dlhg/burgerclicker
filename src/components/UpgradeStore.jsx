@@ -26,12 +26,20 @@ export default function UpgradeStore(props) {
             itemID={1}
             itemPrice={1}
             itemImage={catpic}
+            itemName={"lucky burger cat"}
+            itemDescription={"+1 Burger Per Click"}
+            itemFlavorText={"This is one cool cat"}
             burgerCount={props.burgerCount}
             setBurgerCount={props.setBurgerCount}
             benefitSetter={props.setBurgersPerClick}
             benefitAmount={(prev) => prev + 1}
             unlockedCondition={props.burgerCount >= 10}
             setIsAnUpgradeHovered={setIsAnUpgradeHovered}
+            setToolItemImage={setToolItemImage}
+            setToolItemName={setToolItemName}
+            setToolItemCost={setToolItemCost}
+            setToolItemDescription={setToolItemDescription}
+            setToolItemFlavorText={setToolItemFlavorText}
           />
         </div>
 

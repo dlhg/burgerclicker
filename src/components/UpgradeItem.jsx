@@ -36,6 +36,10 @@ export default function UpgradeItem(props) {
 
   function handleMouseOver() {
     props.setIsAnUpgradeHovered(true);
+    props.setToolItemName(props.itemName);
+    props.setToolItemCost(`${props.itemPrice} 🍔`);
+    props.setToolItemDescription(props.itemDescription);
+    props.setToolItemFlavorText(props.itemFlavorText);
   }
 
   function handleMouseOut() {
