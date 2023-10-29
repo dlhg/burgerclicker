@@ -2,9 +2,11 @@ import React from "react";
 
 /*
 props:
+- Upgrade image
 - Upgrade name
 - Upgrade cost
 - Upgrade descripton
+- Upgrade flavor text
 
 */
 

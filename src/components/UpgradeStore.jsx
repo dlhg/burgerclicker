@@ -24,7 +24,7 @@ export default function UpgradeStore(props) {
             burgerCount={props.burgerCount}
             setBurgerCount={props.setBurgerCount}
             benefitSetter={props.setBurgersPerClick}
-            benefitAmount={3}
+            benefitAmount={(prev) => prev + 1}
           />
         </div>
 
