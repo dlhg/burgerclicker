@@ -31,7 +31,14 @@ export default function UpgradeStore(props) {
         </div>
 
         <div className="upstore--right">
-          <ToopTip isAnUpgradeHovered={isAnUpgradeHovered} />
+          <ToopTip
+            toolItemImage=""
+            toolItemName=""
+            toolItemCost=""
+            toolItemDescription=""
+            toolItemFlavorText=""
+            isAnUpgradeHovered={isAnUpgradeHovered}
+          />
         </div>
       </div>
     </>
