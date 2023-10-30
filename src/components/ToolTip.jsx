@@ -15,12 +15,19 @@ export default function ToopTip(props) {
   return (
     <>
       {props.isAnUpgradeHovered && (
-        <div>
-          <section>{props.toolItemName}</section>
-          <section style={{ color: canAfford ? "inherit" : "red" }}>
-            cost: {props.toolItemCost}🍔
-          </section>
-          <section>{props.toolItemDescription}</section>
+        <div className="tooltip--container">
+          <section style={{ fontWeight: 'bolder' }}>{props.toolItemName}</section>
+
+
+          <ul>
+            <li> <section style={{ color: canAfford ? "inherit" : "red" }}>
+              cost: {props.toolItemCost}🍔
+            </section></li>
+            <li> <section>{props.toolItemDescription}</section></li>
+
+          </ul>
+
+
           <section>{props.toolItemFlavorText}</section>
         </div>
       )}
