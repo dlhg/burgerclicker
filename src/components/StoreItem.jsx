@@ -11,6 +11,10 @@ export default function StoreItem(props) {
       );
       return;
     }
+    if (props.storeItemName === "???") {
+      console.log("tried to buy an item which isnt unlocked");
+      return;
+    }
     props.setBurgerCount((prev) => prev - props.storeItemPrice);
     props.setBurgersPerSecond((prev) => prev + props.bpsIncrease);
     props.itemSetter((prev) => prev + 1);
