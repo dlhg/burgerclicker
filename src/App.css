@@ -139,7 +139,7 @@ button:hover {
   grid-area: 1 / 1 / 6 / 2;
   flex-direction: column;
   text-align: center;
-  font-size: x-large;
+  font-size: 1.25rem;
   font-weight: bold;
   height: 100vh;
   background-color: rgb(0, 0, 0);
@@ -344,6 +344,7 @@ button:hover {
 }
 
 .store--item {
+  height:5.25rem;
   border: solid black 1px;
   display: flex;
   flex-direction: row;
@@ -360,7 +361,7 @@ button:hover {
 
 #store--item--cost {
   font-weight: bolder;
-  font-size: larger;
+  font-size: 1rem;
 }
 
 .store--item--quantityandbps {
@@ -372,13 +373,13 @@ button:hover {
 }
 #store--item--name {
   font-weight: 900;
-  font-size: xx-large;
+  font-size: 1.5rem;
   text-shadow: 0 0 3px #7c7c7c, 0 0 5px #cacaca;
 }
 
 #store--item--quantity {
   font-weight: 900;
-  font-size: xx-large;
+  font-size: 1.5rem;
   text-shadow: 2px 2px #5a5a5a;
   text-align: end;
 }
