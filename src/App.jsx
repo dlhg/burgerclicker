@@ -224,12 +224,16 @@ function App() {
                 totalBurgersProducedUnformatted={
                   totalBurgersProducedUnformatted
                 }
+                setBurgersPerSecond={setBurgersPerSecond}
+                setBurgersPerClick={setBurgersPerClick}
                 setBurgerCount={setBurgerCount}
                 setBurgersPerClick={setBurgersPerClick}
                 purchasedUpgradeIDs={purchasedUpgradeIDs}
                 setPurchasedUpgradeIDs={setPurchasedUpgradeIDs}
                 setPointerBPS={setPointerBPS}
                 setWorkerBPS={setWorkerBPS}
+                workerCount={workerCount}
+                pointerCount={pointerCount}
               />
               <Buildings
                 pointerpic={pointerpic}
