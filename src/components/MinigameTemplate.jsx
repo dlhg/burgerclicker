@@ -22,13 +22,19 @@ export default function MinigameTemplate(props) {
   function handleWin() {
     setOutcome("you won!");
     props.setBurgerCount((prev) => prev + 1);
-    props.setMainArea("buildings");
+    // Introduce a three-second delay before changing the main area
+    setTimeout(() => {
+      props.setMainArea("buildings");
+    }, 3000);
   }
 
   function handleLose() {
     setOutcome("you lost!");
     props.setBurgerCount((prev) => prev - 1);
-    props.setMainArea("buildings");
+    // Introduce a three-second delay before changing the main area
+    setTimeout(() => {
+      props.setMainArea("buildings");
+    }, 3000);
   }
 
   return (
