@@ -17,13 +17,16 @@ import React, { useState } from "react";
 
 export default function MinigameTemplate(props) {
   const [hideMinigame, setHideMiniGame] = useState(false);
+  const [outcome, setOutcome] = useState("");
 
   function handleWin() {
+    setOutcome("you won!");
     props.setBurgerCount((prev) => prev + 1);
     props.setMainArea("buildings");
   }
 
   function handleLose() {
+    setOutcome("you lost!");
     props.setBurgerCount((prev) => prev - 1);
     props.setMainArea("buildings");
   }
