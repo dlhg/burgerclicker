@@ -14,7 +14,7 @@
 
 button {
   font-family: pixelfont;
-  font-size: 0.7rem;
+  font-size: 0.9rem;
   background-color: black;
   color: lightgreen;
   border: solid black 1px;
@@ -196,7 +196,7 @@ button:hover {
 }
 
 .quip--text {
-  margin-top: 0.5rem;
+  margin-top: 10%;
   cursor: url(./assets/images/pointer_transparent.png), pointer;
 }
 
@@ -393,7 +393,7 @@ button:hover {
 .container {
   position: relative;
   margin-top: 40%;
-  height: 60%; /* Adjust the height as needed */
+  height: 100%;
   overflow: hidden;
 }
 

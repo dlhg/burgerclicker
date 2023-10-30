@@ -13,6 +13,19 @@
         - win=Bcount++, lose=Bcount--, quit has no effect to Bcount
 */
 
+/*
+possible game ideas:
+
+- rock paper scissors (already have code for it)
+- recreate randomly generated burger layer by layer in X amount of time (time given scales down and rewards scale up)
+- burger order memory game
+- timing/assembly based game like overcooked
+- burger town 2d/isometric sim city lite
+
+
+
+*/
+
 import React, { useState } from "react";
 
 export default function MinigameTemplate(props) {
@@ -22,19 +35,19 @@ export default function MinigameTemplate(props) {
   function handleWin() {
     setOutcome("you won!");
     props.setBurgerCount((prev) => prev + 1);
-    // Introduce a three-second delay before changing the main area
+    // delay before changing the main area
     setTimeout(() => {
       props.setMainArea("buildings");
-    }, 3000);
+    }, 2000);
   }
 
   function handleLose() {
     setOutcome("you lost!");
     props.setBurgerCount((prev) => prev - 1);
-    // Introduce a three-second delay before changing the main area
+    //  delay before changing the main area
     setTimeout(() => {
       props.setMainArea("buildings");
-    }, 3000);
+    }, 2000);
   }
 
   return (
