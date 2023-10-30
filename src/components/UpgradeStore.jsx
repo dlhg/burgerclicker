@@ -16,6 +16,10 @@ export default function UpgradeStore(props) {
   const [toolItemCost, setToolItemCost] = useState("");
   const [toolItemDescription, setToolItemDescription] = useState("");
   const [toolItemFlavorText, setToolItemFlavorText] = useState("");
+  const [
+    toolItemUnlockConditionsDescription,
+    setToolItemUnlockConditionsDescription,
+  ] = useState("");
 
   return (
     <>
@@ -35,6 +39,7 @@ export default function UpgradeStore(props) {
             secondarySetterArgument={""}
             unlockedCondition={props.totalBurgersProducedUnformatted >= 10}
             secondUnlockedCondtion={true}
+            unlockConditionsDescription="Total Burgers Produced >= 10"
             //boilerplate
             burgerCount={props.burgerCount}
             setBurgerCount={props.setBurgerCount}
@@ -44,6 +49,9 @@ export default function UpgradeStore(props) {
             setToolItemCost={setToolItemCost}
             setToolItemDescription={setToolItemDescription}
             setToolItemFlavorText={setToolItemFlavorText}
+            setToolItemUnlockConditionsDescription={
+              setToolItemUnlockConditionsDescription
+            }
             purchasedUpgradeIDs={props.purchasedUpgradeIDs}
             setPurchasedUpgradeIDs={props.setPurchasedUpgradeIDs}
           />
@@ -63,6 +71,7 @@ export default function UpgradeStore(props) {
             secondarySetterArgument={""}
             unlockedCondition={props.totalBurgersProducedUnformatted >= 100}
             secondUnlockedCondtion={props.templeCount >= 1}
+            unlockConditionsDescription="Total Burgers Produced >= 100, Temple Count >= 1"
             //boilerplate
             burgerCount={props.burgerCount}
             setBurgerCount={props.setBurgerCount}
@@ -72,6 +81,9 @@ export default function UpgradeStore(props) {
             setToolItemCost={setToolItemCost}
             setToolItemDescription={setToolItemDescription}
             setToolItemFlavorText={setToolItemFlavorText}
+            setToolItemUnlockConditionsDescription={
+              setToolItemUnlockConditionsDescription
+            }
             purchasedUpgradeIDs={props.purchasedUpgradeIDs}
             setPurchasedUpgradeIDs={props.setPurchasedUpgradeIDs}
           />
@@ -91,6 +103,7 @@ export default function UpgradeStore(props) {
             secondarySetterArgument={""}
             unlockedCondition={props.totalBurgersProducedUnformatted >= 150}
             secondUnlockedCondtion={true}
+            unlockConditionsDescription="Total Burgers Produced >= 150"
             //boilerplate
             burgerCount={props.burgerCount}
             setBurgerCount={props.setBurgerCount}
@@ -100,6 +113,9 @@ export default function UpgradeStore(props) {
             setToolItemCost={setToolItemCost}
             setToolItemDescription={setToolItemDescription}
             setToolItemFlavorText={setToolItemFlavorText}
+            setToolItemUnlockConditionsDescription={
+              setToolItemUnlockConditionsDescription
+            }
             purchasedUpgradeIDs={props.purchasedUpgradeIDs}
             setPurchasedUpgradeIDs={props.setPurchasedUpgradeIDs}
           />
@@ -121,6 +137,7 @@ export default function UpgradeStore(props) {
             secondarySetterArgument={""}
             unlockedCondition={props.totalBurgersProducedUnformatted >= 250}
             secondUnlockedCondtion={true}
+            unlockConditionsDescription="Total Burgers Produced >= 250"
             //boilerplate
             burgerCount={props.burgerCount}
             setBurgerCount={props.setBurgerCount}
@@ -130,6 +147,9 @@ export default function UpgradeStore(props) {
             setToolItemCost={setToolItemCost}
             setToolItemDescription={setToolItemDescription}
             setToolItemFlavorText={setToolItemFlavorText}
+            setToolItemUnlockConditionsDescription={
+              setToolItemUnlockConditionsDescription
+            }
             purchasedUpgradeIDs={props.purchasedUpgradeIDs}
             setPurchasedUpgradeIDs={props.setPurchasedUpgradeIDs}
           />
@@ -149,6 +169,7 @@ export default function UpgradeStore(props) {
             secondarySetterArgument={""}
             unlockedCondition={props.totalBurgersProducedUnformatted >= 500}
             secondUnlockedCondtion={true}
+            unlockConditionsDescription="Total Burgers Produced >= 500"
             //boilerplate
             burgerCount={props.burgerCount}
             setBurgerCount={props.setBurgerCount}
@@ -158,6 +179,9 @@ export default function UpgradeStore(props) {
             setToolItemCost={setToolItemCost}
             setToolItemDescription={setToolItemDescription}
             setToolItemFlavorText={setToolItemFlavorText}
+            setToolItemUnlockConditionsDescription={
+              setToolItemUnlockConditionsDescription
+            }
             purchasedUpgradeIDs={props.purchasedUpgradeIDs}
             setPurchasedUpgradeIDs={props.setPurchasedUpgradeIDs}
           />
@@ -176,6 +200,7 @@ export default function UpgradeStore(props) {
             secondarySetterArgument={(prev) => prev + props.pointerCount}
             unlockedCondition={props.totalBurgersProducedUnformatted >= 1000}
             secondUnlockedCondtion={true}
+            unlockConditionsDescription="Total Burgers Produced >= 1000"
             //boilerplate
             burgerCount={props.burgerCount}
             setBurgerCount={props.setBurgerCount}
@@ -185,6 +210,9 @@ export default function UpgradeStore(props) {
             setToolItemCost={setToolItemCost}
             setToolItemDescription={setToolItemDescription}
             setToolItemFlavorText={setToolItemFlavorText}
+            setToolItemUnlockConditionsDescription={
+              setToolItemUnlockConditionsDescription
+            }
             purchasedUpgradeIDs={props.purchasedUpgradeIDs}
             setPurchasedUpgradeIDs={props.setPurchasedUpgradeIDs}
           />
@@ -203,6 +231,7 @@ export default function UpgradeStore(props) {
             secondarySetterArgument={(prev) => prev + props.workerCount}
             unlockedCondition={props.totalBurgersProducedUnformatted >= 1500}
             secondUnlockedCondtion={true}
+            unlockConditionsDescription="Total Burgers Produced >= 1500"
             //boilerplate
             burgerCount={props.burgerCount}
             setBurgerCount={props.setBurgerCount}
@@ -212,6 +241,9 @@ export default function UpgradeStore(props) {
             setToolItemCost={setToolItemCost}
             setToolItemDescription={setToolItemDescription}
             setToolItemFlavorText={setToolItemFlavorText}
+            setToolItemUnlockConditionsDescription={
+              setToolItemUnlockConditionsDescription
+            }
             purchasedUpgradeIDs={props.purchasedUpgradeIDs}
             setPurchasedUpgradeIDs={props.setPurchasedUpgradeIDs}
           />
@@ -231,6 +263,7 @@ export default function UpgradeStore(props) {
             secondarySetterArgument={(prev) => prev + props.templeCount * 10}
             unlockedCondition={props.totalBurgersProducedUnformatted >= 5000}
             secondUnlockedCondtion={props.templeCount >= 5}
+            unlockConditionsDescription="Total Burgers Produced >= 5000, Temple Count >= 5"
             //boilerplate
             burgerCount={props.burgerCount}
             setBurgerCount={props.setBurgerCount}
@@ -240,6 +273,9 @@ export default function UpgradeStore(props) {
             setToolItemCost={setToolItemCost}
             setToolItemDescription={setToolItemDescription}
             setToolItemFlavorText={setToolItemFlavorText}
+            setToolItemUnlockConditionsDescription={
+              setToolItemUnlockConditionsDescription
+            }
             purchasedUpgradeIDs={props.purchasedUpgradeIDs}
             setPurchasedUpgradeIDs={props.setPurchasedUpgradeIDs}
           />
@@ -252,6 +288,9 @@ export default function UpgradeStore(props) {
             toolItemCost={toolItemCost}
             toolItemDescription={toolItemDescription}
             toolItemFlavorText={toolItemFlavorText}
+            toolItemUnlockConditionsDescription={
+              toolItemUnlockConditionsDescription
+            }
             isAnUpgradeHovered={isAnUpgradeHovered}
             burgerCount={props.burgerCount}
           />

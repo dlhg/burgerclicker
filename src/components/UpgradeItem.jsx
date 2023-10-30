@@ -46,6 +46,9 @@ export default function UpgradeItem(props) {
     props.setToolItemCost(props.itemPrice);
     props.setToolItemDescription(props.itemDescription);
     props.setToolItemFlavorText(props.itemFlavorText);
+    props.setToolItemUnlockConditionsDescription(
+      props.unlockConditionsDescription
+    );
   }
 
   function handleMouseOut() {
