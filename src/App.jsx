@@ -209,9 +209,7 @@ function App() {
             </div>
             <div className="navbar--right">
               <button onClick={() => setMainArea("legacy")}>legacy</button>
-              <button onClick={() => setMainArea("buildings")}>
-                buildings
-              </button>
+              <button onClick={() => setMainArea("buildings")}>game</button>
               <button onClick={() => setMainArea("testconsole")}>
                 console
               </button>
