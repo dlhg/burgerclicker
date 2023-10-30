@@ -17,7 +17,7 @@ import React, { useState } from "react";
 
 export default function MinigameTemplate(props) {
   const [hideMinigame, setHideMiniGame] = useState(false);
-  const [outcome, setOutcome] = useState("");
+  const [outcome, setOutcome] = useState("game in progress");
 
   function handleWin() {
     setOutcome("you won!");
@@ -35,7 +35,7 @@ export default function MinigameTemplate(props) {
     <>
       {props.showMinigameCondition && !hideMinigame && (
         <>
-          <h1>outcome</h1>
+          <h1>outcome : {outcome}</h1>
           <button onClick={() => handleWin()}>win</button>
           <button onClick={() => handleLose()}>lose</button>
 
