@@ -225,7 +225,7 @@ export default function UpgradeStore(props) {
             itemFlavorText={
               "Elder magicians amplify burger yields, conjuring culinary abundance."
             }
-            primarySetter={props.setTempleBps}
+            primarySetter={props.setTempleBPS}
             primarySetterArgument={(prev) => prev + 10}
             secondarySetter={props.setBurgersPerSecond}
             secondarySetterArgument={(prev) => prev + props.templeCount * 10}
