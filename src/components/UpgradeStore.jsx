@@ -153,7 +153,7 @@ export default function UpgradeStore(props) {
             itemFlavorText={"clicking up a storm"}
             primarySetter={props.setPointerBPS}
             primarySetterArgument={(prev) => prev + 1}
-            {/* without this secondary setter and arg, BPS for purchased pointers would not change and this would only apply to newly purchased pointers */}
+            /* without this secondary setter and arg, BPS for purchased pointers would not change and this would only apply to newly purchased pointers */
             secondarySetter={props.setBurgersPerSecond}
             secondarySetterArgument={(prev) => prev + props.pointerCount}
             unlockedCondition={props.totalBurgersProducedUnformatted >= 1000}
