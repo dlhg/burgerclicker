@@ -48,7 +48,7 @@ export default function Stats(props) {
       <br />
       <section>
         <div>Upgrades unlocked:</div>
-        <div className="upgrade--grid">
+        <div className="stats--upgrade--grid">
           {/*this should be mapping over a list of owned upgrades*/}
           {/*if the player doesn't own the upgrade yet, represent it with a question mark pic*/}
           <div>
@@ -175,7 +175,7 @@ export default function Stats(props) {
       </section>
       <section>
         <div> Achievements unlocked:</div>
-        <div className="achievement--grid">
+        <div className="stats--achievement--grid">
           {/*this should be mapping over a list of achievements*/}
           {/*if the player have the achievement yet, represent it with a question mark pic*/}
           <div>

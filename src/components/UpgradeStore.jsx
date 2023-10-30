@@ -34,7 +34,6 @@ export default function UpgradeStore(props) {
             unlockedCondition={props.totalBurgersProducedUnformatted >= 10}
             burgerCount={props.burgerCount}
             setBurgerCount={props.setBurgerCount}
-
             setIsAnUpgradeHovered={setIsAnUpgradeHovered}
             setToolItemImage={setToolItemImage}
             setToolItemName={setToolItemName}
@@ -104,7 +103,9 @@ export default function UpgradeStore(props) {
             }
             itemFlavorText={"Take a chance?"}
             primarySetter={props.setBurgerCount}
-            primarySetterArgument={(prev) => (Math.random() > 0.25 ? prev * 3 : 0)}
+            primarySetterArgument={(prev) =>
+              Math.random() > 0.25 ? prev * 3 : 0
+            }
             secondarySetter={false}
             secondarySetterArgument={""}
             unlockedCondition={props.totalBurgersProducedUnformatted >= 250}
@@ -170,7 +171,7 @@ export default function UpgradeStore(props) {
           />
 
           <UpgradeItem
-            itemID={6}
+            itemID={7}
             itemPrice={1500}
             itemImage={scrollpic}
             itemName={"pay a bonus to workers"}

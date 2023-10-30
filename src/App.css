@@ -3,7 +3,6 @@
   src: url(./assets/font/calibration-gothic-nbp-latin-font/CalibrationGothicNbpLatin-rYmy.ttf);
 }
 
-
 #root {
   font-family: pixelfont;
 
@@ -168,7 +167,7 @@ button:hover {
 .div2 {
   /* navbar */
   grid-area: 1 / 2 / 2 / 5;
-  
+
   border-left: solid darkgreen 1px;
   border-right: solid darkgreen 1px;
   border-top: solid darkgreen 1px;
@@ -224,7 +223,6 @@ button:hover {
   min-height: 10rem;
 }
 .upstore--left {
-  
   border-right: 1px solid darkgreen;
   border-bottom: 1px solid darkgreen;
 }
@@ -239,13 +237,11 @@ button:hover {
 }
 
 .upstore--right {
-  
- 
   border-bottom: 1px solid darkgreen;
 }
 .tooltip--container {
   margin: 0.5rem;
-  font-size:0.8rem;
+  font-size: 0.8rem;
 }
 #Buildings--container {
   display: flex;
@@ -262,7 +258,7 @@ button:hover {
 
 /*stats screen*/
 
-.upgrade--grid {
+.stats--upgrade--grid {
   display: grid;
   grid-template-columns: repeat(10, 1fr);
   grid-template-rows: repeat(5, 1fr);
@@ -270,11 +266,16 @@ button:hover {
   grid-row-gap: 0px;
 }
 
-.upgrade--grid > * {
+.stats--upgrade--grid > * {
   border: solid lightgray 1px;
 }
 
-.achievement--grid {
+.stats--upgrade--grid img {
+  height: 3rem;
+  width: 3rem;
+}
+
+.stats--achievement--grid {
   display: grid;
   grid-template-columns: repeat(10, 1fr);
   grid-template-rows: repeat(5, 1fr);
@@ -282,8 +283,13 @@ button:hover {
   grid-row-gap: 0px;
 }
 
-.achievement--grid > * {
+.stats--achievement--grid > * {
   border: solid lightgray 1px;
+}
+
+.stats--achievement--grid img {
+  height: 3rem;
+  width: 3rem;
 }
 
 /*store div*/
@@ -344,7 +350,7 @@ button:hover {
 }
 
 .store--item {
-  height:5.25rem;
+  height: 5.25rem;
   border: solid black 1px;
   display: flex;
   flex-direction: row;
