@@ -20,7 +20,7 @@ export default function StoreItem(props) {
     props.itemSetter((prev) => prev + 1);
     //play();
   }
-  const textColor = props.burgerCount >= props.storeItemPrice ? "green" : "red";
+  const textColor = props.burgerCount >= props.storeItemPrice ? "lightgreen" : "red";
   return (
     <>
       <div className="store--item" onClick={() => buyItem()}>
