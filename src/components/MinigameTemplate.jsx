@@ -9,12 +9,38 @@
     - to unlock, have 3 totalBurgersProduced
     - three buttons: win, lose, quit
     - write handle functions for each of these outcomes
-        - function should use setMainArea to revert to default game view
-        - win=BPS++, lose=BPS--, quit has no effect to BPS
+        - function should use setMainArea to revert to default game view (set to buildings)
+        - win=Bcount++, lose=Bcount--, quit has no effect to Bcount
 */
 
 import React, { useState } from "react";
 
 export default function MinigameTemplate(props) {
-  return <></>;
+  const [hideMinigame, setHideMiniGame] = useState(false);
+
+  function handleWin() {
+    props.setBurgerCount((prev) => prev + 1);
+    props.setMainArea("buildings");
+  }
+
+  function handleLose() {
+    props.setBurgerCount((prev) => prev - 1);
+    props.setMainArea("buildings");
+  }
+
+  return (
+    <>
+      {props.showMinigameCondition && !hideMinigame && (
+        <>
+          <h1>outcome</h1>
+          <button onClick={() => handleWin()}>win</button>
+          <button onClick={() => handleLose()}>lose</button>
+
+          <button onClick={() => props.setMainArea("buildings")}>
+            quit game
+          </button>
+        </>
+      )}
+    </>
+  );
 }

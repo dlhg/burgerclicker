@@ -49,6 +49,7 @@ import UpgradeStore from "./components/UpgradeStore";
 import { scaleItemPrice } from "./utils/index";
 import { formatNumber } from "./utils/index";
 import ToopTip from "./components/ToolTip";
+import MinigameTemplate from "./components/MinigameTemplate";
 
 function App() {
   //state
@@ -209,6 +210,7 @@ function App() {
             </div>
             <div className="navbar--right">
               <button onClick={() => setMainArea("legacy")}>legacy</button>
+              <button onClick={() => setMainArea("minigame")}>minigames</button>
               <button onClick={() => setMainArea("buildings")}>game</button>
               <button onClick={() => setMainArea("testconsole")}>
                 console
@@ -270,6 +272,14 @@ function App() {
                 portalCount={portalCount}
               />
             </>
+          )}
+          {mainArea === "minigame" && (
+            <MinigameTemplate
+              totalBurgersProducedUnformatted={totalBurgersProducedUnformatted}
+              showMinigameCondition={totalBurgersProducedUnformatted >= 3}
+              setMainArea={setMainArea}
+              setBurgerCount={setBurgerCount}
+            />
           )}
           {mainArea === "options" && <Options />}
           {mainArea === "stats" && (
