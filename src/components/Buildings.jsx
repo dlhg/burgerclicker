@@ -79,7 +79,7 @@ export default function Buildings(props) {
             </div>
           ))}
         </div>
-        <div id="Building7">
+        <div id="Building8">
           {Array.from(
             { length: Math.min(200, props.spacecraftCount) },
             (_, index) => (
@@ -92,7 +92,7 @@ export default function Buildings(props) {
             )
           )}
         </div>
-        <div id="Building8">
+        <div id="Building9">
           {Array.from(
             { length: Math.min(200, props.portalCount) },
             (_, index) => (
