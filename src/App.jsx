@@ -7,7 +7,7 @@ import { useState, useEffect } from "react";
 
 //image import - removve bg tool @ https://www.remove.bg/
 import burgerpic from "./assets/images/transparentburger.png";
-import galaxyburgerpic from "./assets/images/galaxyburger.jpeg";
+
 import transparentburger_smallpic from "./assets/images/transparentburger_small.png";
 //store item images - buildings
 import workerpic from "./assets/images/worker_small_transparent.png";
