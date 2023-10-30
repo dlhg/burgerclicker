@@ -6,7 +6,7 @@ import catpic from "../assets/images/cat_small_transparent.png";
 import occultpic from "../assets/images/occult_small_transparent.png";
 import gamblerpic from "../assets/images/gamblers_hand_small_transparent.png";
 import gambler2pic from "../assets/images/gamblers_hand2_small_transparent.png";
-import scrollpic from "../assets/images/scroll_small_transparent.png"
+import scrollpic from "../assets/images/scroll_small_transparent.png";
 
 export default function UpgradeStore(props) {
   const [isAnUpgradeHovered, setIsAnUpgradeHovered] = useState(false);
@@ -115,13 +115,13 @@ export default function UpgradeStore(props) {
             itemPrice={0}
             itemImage={scrollpic}
             itemName={"ancient scroll"}
-            itemDescription={
-              "+5000 burgers"
+            itemDescription={"+1000 burgers"}
+            itemFlavorText={
+              "1000 burgers for free if I recite this ancient spell? What's the catch?"
             }
-            itemFlavorText={"5000 burgers for free? What's the catch?"}
             benefitSetter={props.setBurgerCount}
-            benefitAmount={(prev) => prev + 5000}
-            unlockedCondition={props.totalBurgersProducedUnformatted >= 250}
+            benefitAmount={(prev) => prev + 1000}
+            unlockedCondition={props.totalBurgersProducedUnformatted >= 500}
             burgerCount={props.burgerCount}
             setBurgerCount={props.setBurgerCount}
             setIsAnUpgradeHovered={setIsAnUpgradeHovered}
