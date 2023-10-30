@@ -27,11 +27,14 @@ export default function UpgradeStore(props) {
             itemName={"lucky burger cat"}
             itemDescription={"+1 Burger Per Click"}
             itemFlavorText={"A stray cat shows up. Adopt him as your mascot?"}
-            benefitAmount={(prev) => prev + 1}
+            primarySetter={props.setBurgersPerClick}
+            primarySetterArgument={(prev) => prev + 1}
+            secondarySetter={false}
+            secondarySetterArgument={""}
             unlockedCondition={props.totalBurgersProducedUnformatted >= 10}
             burgerCount={props.burgerCount}
             setBurgerCount={props.setBurgerCount}
-            benefitSetter={props.setBurgersPerClick}
+
             setIsAnUpgradeHovered={setIsAnUpgradeHovered}
             setToolItemImage={setToolItemImage}
             setToolItemName={setToolItemName}
@@ -50,8 +53,10 @@ export default function UpgradeStore(props) {
             itemFlavorText={
               "You've got a bad feeling about this, but more burgers per click couldn't hurt"
             }
-            benefitSetter={props.setBurgersPerClick}
-            benefitAmount={(prev) => prev + 10}
+            primarySetter={props.setBurgersPerClick}
+            primarySetterArgument={(prev) => prev + 10}
+            secondarySetter={false}
+            secondarySetterArgument={""}
             unlockedCondition={props.totalBurgersProducedUnformatted >= 100}
             burgerCount={props.burgerCount}
             setBurgerCount={props.setBurgerCount}
@@ -71,10 +76,12 @@ export default function UpgradeStore(props) {
             itemName={"gambler's hand"}
             itemDescription={"50/50 chance to double or halve your burgers"}
             itemFlavorText={"Take a chance?"}
-            benefitSetter={props.setBurgerCount}
-            benefitAmount={(prev) =>
+            primarySetter={props.setBurgerCount}
+            primarySetterArgument={(prev) =>
               Math.random() > 0.5 ? prev * 2 : prev / 2
             }
+            secondarySetter={false}
+            secondarySetterArgument={""}
             unlockedCondition={props.totalBurgersProducedUnformatted >= 150}
             burgerCount={props.burgerCount}
             setBurgerCount={props.setBurgerCount}
@@ -96,8 +103,10 @@ export default function UpgradeStore(props) {
               "75/25 chance to triple your burgers or lose everything"
             }
             itemFlavorText={"Take a chance?"}
-            benefitSetter={props.setBurgerCount}
-            benefitAmount={(prev) => (Math.random() > 0.25 ? prev * 3 : 0)}
+            primarySetter={props.setBurgerCount}
+            primarySetterArgument={(prev) => (Math.random() > 0.25 ? prev * 3 : 0)}
+            secondarySetter={false}
+            secondarySetterArgument={""}
             unlockedCondition={props.totalBurgersProducedUnformatted >= 250}
             burgerCount={props.burgerCount}
             setBurgerCount={props.setBurgerCount}
@@ -119,8 +128,10 @@ export default function UpgradeStore(props) {
             itemFlavorText={
               "1000 burgers for free if I recite this ancient spell? What's the catch?"
             }
-            benefitSetter={props.setBurgerCount}
-            benefitAmount={(prev) => prev + 1000}
+            primarySetter={props.setBurgerCount}
+            primarySetterArgument={(prev) => prev + 1000}
+            secondarySetter={false}
+            secondarySetterArgument={""}
             unlockedCondition={props.totalBurgersProducedUnformatted >= 500}
             burgerCount={props.burgerCount}
             setBurgerCount={props.setBurgerCount}
@@ -140,8 +151,10 @@ export default function UpgradeStore(props) {
             itemName={"pointer power"}
             itemDescription={"+1 to burgers/second produced by pointers"}
             itemFlavorText={"clicking up a storm"}
-            benefitSetter={props.setPointerBPS}
-            benefitAmount={(prev) => prev + 1}
+            primarySetter={props.setPointerBPS}
+            primarySetterArgument={(prev) => prev + 1}
+            secondarySetter={false}
+            secondarySetterArgument={""}
             unlockedCondition={props.totalBurgersProducedUnformatted >= 1000}
             burgerCount={props.burgerCount}
             setBurgerCount={props.setBurgerCount}
@@ -162,8 +175,10 @@ export default function UpgradeStore(props) {
             itemName={"pay a bonus to workers"}
             itemDescription={"+1 to burgers/second produced by workers"}
             itemFlavorText={"you get what you pay for"}
-            benefitSetter={props.setWorkerBPS}
-            benefitAmount={(prev) => prev + 1}
+            primarySetter={props.setWorkerBPS}
+            primarySetterArgument={(prev) => prev + 1}
+            secondarySetter={false}
+            secondarySetterArgument={""}
             unlockedCondition={props.totalBurgersProducedUnformatted >= 1500}
             burgerCount={props.burgerCount}
             setBurgerCount={props.setBurgerCount}

@@ -29,9 +29,13 @@ export default function UpgradeItem(props) {
       return;
     }
     props.setBurgerCount((prevCount) => prevCount - props.itemPrice);
-    props.benefitSetter(props.benefitAmount);
+    props.primarySetter(props.primarySetterArgument);
     props.setIsAnUpgradeHovered(false);
     props.setPurchasedUpgradeIDs((prev) => [...prev, props.itemID]);
+
+    if (props.secondarySetter !== false) {
+      props.secondarySetter(props.secondarySetterArgument)
+    }
 
     // should also update a list of currently owned upgrades, to be displayed in stats screen
   }
