@@ -14,7 +14,7 @@
 
 button {
   font-family: pixelfont;
-  font-size: medium;
+  font-size: 0.7rem;
   background-color: black;
   color: lightgreen;
   border: solid black 1px;
@@ -188,7 +188,7 @@ button:hover {
 }
 
 .navbar--center {
-  font-size: x-large;
+  font-size: 1rem;
   text-align: center;
 }
 
@@ -455,4 +455,10 @@ button:hover {
   font-family: pixelfont;
   font-size: x-large;
   cursor: url(./assets/images/pointer_transparent.png), pointer;
+}
+
+@media (max-width: 3rem) {
+  div {
+    background: rgb(169, 169, 135);
+  }
 }
