@@ -167,7 +167,10 @@ button:hover {
 .div2 {
   /* navbar */
   grid-area: 1 / 2 / 2 / 5;
-  border: solid darkgreen 1px;
+  
+  border-left: solid darkgreen 1px;
+  border-right: solid darkgreen 1px;
+  border-top: solid darkgreen 1px;
 }
 
 .navbar {
@@ -220,7 +223,7 @@ button:hover {
   min-height: 10rem;
 }
 .upstore--left {
-  border-left: 1px solid darkgreen;
+  
   border-right: 1px solid darkgreen;
   border-bottom: 1px solid darkgreen;
 }
@@ -235,8 +238,8 @@ button:hover {
 }
 
 .upstore--right {
-  border-left: 1px solid darkgreen;
-  border-right: 1px solid darkgreen;
+  
+ 
   border-bottom: 1px solid darkgreen;
 }
 #Buildings--container {
