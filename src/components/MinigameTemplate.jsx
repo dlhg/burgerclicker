@@ -12,3 +12,9 @@
         - function should use setMainArea to revert to default game view
         - win=BPS++, lose=BPS--, quit has no effect to BPS
 */
+
+import React, { useState } from "react";
+
+export default function MinigameTemplate(props) {
+  return <></>;
+}
