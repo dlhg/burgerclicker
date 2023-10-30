@@ -7,6 +7,7 @@ import occultpic from "../assets/images/occult_small_transparent.png";
 import gamblerpic from "../assets/images/gamblers_hand_small_transparent.png";
 import gambler2pic from "../assets/images/gamblers_hand2_small_transparent.png";
 import scrollpic from "../assets/images/scroll_small_transparent.png";
+import elderspic from "../assets/images/elders_small_transparent.png";
 
 export default function UpgradeStore(props) {
   const [isAnUpgradeHovered, setIsAnUpgradeHovered] = useState(false);
@@ -48,17 +49,17 @@ export default function UpgradeStore(props) {
             itemID={2}
             itemPrice={500}
             itemImage={occultpic}
-            itemName={"occult clicking ritual"}
+            itemName={"burger sacrifice ritual"}
             itemDescription={"+10 Burger Per Click"}
             itemFlavorText={
-              "You've got a bad feeling about this, but more burgers per click couldn't hurt"
+              "At the Burger Temple, burgers ascend in savory sacrifice."
             }
             primarySetter={props.setBurgersPerClick}
             primarySetterArgument={(prev) => prev + 10}
             secondarySetter={false}
             secondarySetterArgument={""}
             unlockedCondition={props.totalBurgersProducedUnformatted >= 100}
-            secondUnlockedCondtion={true}
+            secondUnlockedCondtion={props.templeCount >= 1}
             burgerCount={props.burgerCount}
             setBurgerCount={props.setBurgerCount}
             setIsAnUpgradeHovered={setIsAnUpgradeHovered}
@@ -156,7 +157,7 @@ export default function UpgradeStore(props) {
             itemImage={scrollpic}
             itemName={"pointer power"}
             itemDescription={"+1 to burgers/second produced by pointers"}
-            itemFlavorText={"clicking up a storm"}
+            itemFlavorText={"clicking up a storm!"}
             primarySetter={props.setPointerBPS}
             primarySetterArgument={(prev) => prev + 1}
             /* without this secondary setter and arg, BPS for purchased pointers would not change and this would only apply to newly purchased pointers */
@@ -189,6 +190,34 @@ export default function UpgradeStore(props) {
             secondarySetterArgument={(prev) => prev + props.workerCount}
             unlockedCondition={props.totalBurgersProducedUnformatted >= 1500}
             secondUnlockedCondtion={true}
+            burgerCount={props.burgerCount}
+            setBurgerCount={props.setBurgerCount}
+            setIsAnUpgradeHovered={setIsAnUpgradeHovered}
+            setToolItemImage={setToolItemImage}
+            setToolItemName={setToolItemName}
+            setToolItemCost={setToolItemCost}
+            setToolItemDescription={setToolItemDescription}
+            setToolItemFlavorText={setToolItemFlavorText}
+            purchasedUpgradeIDs={props.purchasedUpgradeIDs}
+            setPurchasedUpgradeIDs={props.setPurchasedUpgradeIDs}
+          />
+          <UpgradeItem
+            //unique item props
+            itemID={8}
+            itemPrice={1500}
+            itemImage={elderspic}
+            itemName={"council of the elders"}
+            itemDescription={"+10 burgers per second produced by temples"}
+            itemFlavorText={
+              "Elder magicians amplify burger yields, conjuring culinary abundance."
+            }
+            primarySetter={props.setTempleBps}
+            primarySetterArgument={(prev) => prev + 10}
+            secondarySetter={props.setBurgersPerSecond}
+            secondarySetterArgument={(prev) => prev + props.templeCount * 10}
+            unlockedCondition={props.totalBurgersProducedUnformatted >= 5000}
+            secondUnlockedCondtion={props.templeCount >= 5}
+            //boilerplate
             burgerCount={props.burgerCount}
             setBurgerCount={props.setBurgerCount}
             setIsAnUpgradeHovered={setIsAnUpgradeHovered}

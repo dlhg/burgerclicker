@@ -232,8 +232,15 @@ function App() {
                 setPurchasedUpgradeIDs={setPurchasedUpgradeIDs}
                 setPointerBPS={setPointerBPS}
                 setWorkerBPS={setWorkerBPS}
-                workerCount={workerCount}
+                setGrillBPS={setGrillBPS}
+                setTruckBPS={setTruckBPS}
+                setBankBPS={setBankBPS}
+                setTempleBPS={setTempleBPS}
+                setLabBPS={setLabBPS}
+                setSpaceCraftBPS={setSpaceCraftBPS}
+                setPortalBPS={setPortalBPS}
                 pointerCount={pointerCount}
+                workerCount={workerCount}
                 grillCount={grillCount}
                 truckCount={truckCount}
                 bankCount={bankCount}
