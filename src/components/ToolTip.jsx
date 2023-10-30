@@ -25,7 +25,7 @@ export default function ToopTip(props) {
 
           <section>{props.toolItemFlavorText}</section>
           <section>
-            unlock requirements: {props.toolItemUnlockConditionsDescription}
+            requirements: {props.toolItemUnlockConditionsDescription}
           </section>
         </div>
       )}
