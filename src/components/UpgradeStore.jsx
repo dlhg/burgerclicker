@@ -22,6 +22,7 @@ export default function UpgradeStore(props) {
       <div className="upstore--container">
         <div className="upstore--left">
           <UpgradeItem
+            //unique
             itemID={1}
             itemPrice={10}
             itemImage={catpic}
@@ -34,6 +35,7 @@ export default function UpgradeStore(props) {
             secondarySetterArgument={""}
             unlockedCondition={props.totalBurgersProducedUnformatted >= 10}
             secondUnlockedCondtion={true}
+            //boilerplate
             burgerCount={props.burgerCount}
             setBurgerCount={props.setBurgerCount}
             setIsAnUpgradeHovered={setIsAnUpgradeHovered}
@@ -46,6 +48,7 @@ export default function UpgradeStore(props) {
             setPurchasedUpgradeIDs={props.setPurchasedUpgradeIDs}
           />
           <UpgradeItem
+            //unique
             itemID={2}
             itemPrice={500}
             itemImage={occultpic}
@@ -60,6 +63,7 @@ export default function UpgradeStore(props) {
             secondarySetterArgument={""}
             unlockedCondition={props.totalBurgersProducedUnformatted >= 100}
             secondUnlockedCondtion={props.templeCount >= 1}
+            //boilerplate
             burgerCount={props.burgerCount}
             setBurgerCount={props.setBurgerCount}
             setIsAnUpgradeHovered={setIsAnUpgradeHovered}
@@ -72,6 +76,7 @@ export default function UpgradeStore(props) {
             setPurchasedUpgradeIDs={props.setPurchasedUpgradeIDs}
           />
           <UpgradeItem
+            //unique
             itemID={3}
             itemPrice={0}
             itemImage={gamblerpic}
@@ -86,6 +91,7 @@ export default function UpgradeStore(props) {
             secondarySetterArgument={""}
             unlockedCondition={props.totalBurgersProducedUnformatted >= 150}
             secondUnlockedCondtion={true}
+            //boilerplate
             burgerCount={props.burgerCount}
             setBurgerCount={props.setBurgerCount}
             setIsAnUpgradeHovered={setIsAnUpgradeHovered}
@@ -98,6 +104,7 @@ export default function UpgradeStore(props) {
             setPurchasedUpgradeIDs={props.setPurchasedUpgradeIDs}
           />
           <UpgradeItem
+            //unique
             itemID={4}
             itemPrice={0}
             itemImage={gambler2pic}
@@ -114,6 +121,7 @@ export default function UpgradeStore(props) {
             secondarySetterArgument={""}
             unlockedCondition={props.totalBurgersProducedUnformatted >= 250}
             secondUnlockedCondtion={true}
+            //boilerplate
             burgerCount={props.burgerCount}
             setBurgerCount={props.setBurgerCount}
             setIsAnUpgradeHovered={setIsAnUpgradeHovered}
@@ -126,6 +134,7 @@ export default function UpgradeStore(props) {
             setPurchasedUpgradeIDs={props.setPurchasedUpgradeIDs}
           />
           <UpgradeItem
+            //unique
             itemID={5}
             itemPrice={0}
             itemImage={scrollpic}
@@ -140,6 +149,7 @@ export default function UpgradeStore(props) {
             secondarySetterArgument={""}
             unlockedCondition={props.totalBurgersProducedUnformatted >= 500}
             secondUnlockedCondtion={true}
+            //boilerplate
             burgerCount={props.burgerCount}
             setBurgerCount={props.setBurgerCount}
             setIsAnUpgradeHovered={setIsAnUpgradeHovered}
@@ -152,6 +162,7 @@ export default function UpgradeStore(props) {
             setPurchasedUpgradeIDs={props.setPurchasedUpgradeIDs}
           />
           <UpgradeItem
+            //unique
             itemID={6}
             itemPrice={1000}
             itemImage={scrollpic}
@@ -165,6 +176,7 @@ export default function UpgradeStore(props) {
             secondarySetterArgument={(prev) => prev + props.pointerCount}
             unlockedCondition={props.totalBurgersProducedUnformatted >= 1000}
             secondUnlockedCondtion={true}
+            //boilerplate
             burgerCount={props.burgerCount}
             setBurgerCount={props.setBurgerCount}
             setIsAnUpgradeHovered={setIsAnUpgradeHovered}
@@ -178,6 +190,7 @@ export default function UpgradeStore(props) {
           />
 
           <UpgradeItem
+            //unique
             itemID={7}
             itemPrice={1500}
             itemImage={scrollpic}
@@ -190,6 +203,7 @@ export default function UpgradeStore(props) {
             secondarySetterArgument={(prev) => prev + props.workerCount}
             unlockedCondition={props.totalBurgersProducedUnformatted >= 1500}
             secondUnlockedCondtion={true}
+            //boilerplate
             burgerCount={props.burgerCount}
             setBurgerCount={props.setBurgerCount}
             setIsAnUpgradeHovered={setIsAnUpgradeHovered}
@@ -202,7 +216,7 @@ export default function UpgradeStore(props) {
             setPurchasedUpgradeIDs={props.setPurchasedUpgradeIDs}
           />
           <UpgradeItem
-            //unique item props
+            //unique
             itemID={8}
             itemPrice={1500}
             itemImage={elderspic}
