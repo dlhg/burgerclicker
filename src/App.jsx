@@ -234,6 +234,13 @@ function App() {
                 setWorkerBPS={setWorkerBPS}
                 workerCount={workerCount}
                 pointerCount={pointerCount}
+                grillCount={grillCount}
+                truckCount={truckCount}
+                bankCount={bankCount}
+                templeCount={templeCount}
+                labCount={labCount}
+                spacecraftCount={spacecraftCount}
+                portalCount={portalCount}
               />
               <Buildings
                 pointerpic={pointerpic}
