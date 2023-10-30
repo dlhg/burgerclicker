@@ -133,6 +133,49 @@ export default function UpgradeStore(props) {
             purchasedUpgradeIDs={props.purchasedUpgradeIDs}
             setPurchasedUpgradeIDs={props.setPurchasedUpgradeIDs}
           />
+          <UpgradeItem
+            itemID={6}
+            itemPrice={1000}
+            itemImage={scrollpic}
+            itemName={"pointer power"}
+            itemDescription={"+1 to burgers/second produced by pointers"}
+            itemFlavorText={"clicking up a storm"}
+            benefitSetter={props.setPointerBPS}
+            benefitAmount={(prev) => prev + 1}
+            unlockedCondition={props.totalBurgersProducedUnformatted >= 1000}
+            burgerCount={props.burgerCount}
+            setBurgerCount={props.setBurgerCount}
+            setIsAnUpgradeHovered={setIsAnUpgradeHovered}
+            setToolItemImage={setToolItemImage}
+            setToolItemName={setToolItemName}
+            setToolItemCost={setToolItemCost}
+            setToolItemDescription={setToolItemDescription}
+            setToolItemFlavorText={setToolItemFlavorText}
+            purchasedUpgradeIDs={props.purchasedUpgradeIDs}
+            setPurchasedUpgradeIDs={props.setPurchasedUpgradeIDs}
+          />
+
+          <UpgradeItem
+            itemID={6}
+            itemPrice={1500}
+            itemImage={scrollpic}
+            itemName={"pay a bonus to workers"}
+            itemDescription={"+1 to burgers/second produced by workers"}
+            itemFlavorText={"you get what you pay for"}
+            benefitSetter={props.setWorkerBPS}
+            benefitAmount={(prev) => prev + 1}
+            unlockedCondition={props.totalBurgersProducedUnformatted >= 1500}
+            burgerCount={props.burgerCount}
+            setBurgerCount={props.setBurgerCount}
+            setIsAnUpgradeHovered={setIsAnUpgradeHovered}
+            setToolItemImage={setToolItemImage}
+            setToolItemName={setToolItemName}
+            setToolItemCost={setToolItemCost}
+            setToolItemDescription={setToolItemDescription}
+            setToolItemFlavorText={setToolItemFlavorText}
+            purchasedUpgradeIDs={props.purchasedUpgradeIDs}
+            setPurchasedUpgradeIDs={props.setPurchasedUpgradeIDs}
+          />
         </div>
 
         <div className="upstore--right">

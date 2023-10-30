@@ -228,6 +228,8 @@ function App() {
                 setBurgersPerClick={setBurgersPerClick}
                 purchasedUpgradeIDs={purchasedUpgradeIDs}
                 setPurchasedUpgradeIDs={setPurchasedUpgradeIDs}
+                setPointerBPS={setPointerBPS}
+                setWorkerBPS={setWorkerBPS}
               />
               <Buildings
                 pointerpic={pointerpic}
