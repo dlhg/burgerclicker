@@ -34,7 +34,7 @@ export default function UpgradeItem(props) {
     props.setPurchasedUpgradeIDs((prev) => [...prev, props.itemID]);
 
     if (props.secondarySetter !== false) {
-      props.secondarySetter(props.secondarySetterArgument)
+      props.secondarySetter(props.secondarySetterArgument);
     }
 
     // should also update a list of currently owned upgrades, to be displayed in stats screen
@@ -55,7 +55,8 @@ export default function UpgradeItem(props) {
   return (
     <>
       {!props.purchasedUpgradeIDs.includes(props.itemID) &&
-        props.unlockedCondition && (
+        props.unlockedCondition &&
+        props.secondUnlockedCondtion && (
           <img
             src={props.itemImage}
             onClick={() => buyUpgrade()}

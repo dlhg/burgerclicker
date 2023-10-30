@@ -32,6 +32,7 @@ export default function UpgradeStore(props) {
             secondarySetter={false}
             secondarySetterArgument={""}
             unlockedCondition={props.totalBurgersProducedUnformatted >= 10}
+            secondUnlockedCondtion={true}
             burgerCount={props.burgerCount}
             setBurgerCount={props.setBurgerCount}
             setIsAnUpgradeHovered={setIsAnUpgradeHovered}
@@ -57,6 +58,7 @@ export default function UpgradeStore(props) {
             secondarySetter={false}
             secondarySetterArgument={""}
             unlockedCondition={props.totalBurgersProducedUnformatted >= 100}
+            secondUnlockedCondtion={true}
             burgerCount={props.burgerCount}
             setBurgerCount={props.setBurgerCount}
             setIsAnUpgradeHovered={setIsAnUpgradeHovered}
@@ -82,6 +84,7 @@ export default function UpgradeStore(props) {
             secondarySetter={false}
             secondarySetterArgument={""}
             unlockedCondition={props.totalBurgersProducedUnformatted >= 150}
+            secondUnlockedCondtion={true}
             burgerCount={props.burgerCount}
             setBurgerCount={props.setBurgerCount}
             setIsAnUpgradeHovered={setIsAnUpgradeHovered}
@@ -109,6 +112,7 @@ export default function UpgradeStore(props) {
             secondarySetter={false}
             secondarySetterArgument={""}
             unlockedCondition={props.totalBurgersProducedUnformatted >= 250}
+            secondUnlockedCondtion={true}
             burgerCount={props.burgerCount}
             setBurgerCount={props.setBurgerCount}
             setIsAnUpgradeHovered={setIsAnUpgradeHovered}
@@ -134,6 +138,7 @@ export default function UpgradeStore(props) {
             secondarySetter={false}
             secondarySetterArgument={""}
             unlockedCondition={props.totalBurgersProducedUnformatted >= 500}
+            secondUnlockedCondtion={true}
             burgerCount={props.burgerCount}
             setBurgerCount={props.setBurgerCount}
             setIsAnUpgradeHovered={setIsAnUpgradeHovered}
@@ -158,6 +163,7 @@ export default function UpgradeStore(props) {
             secondarySetter={props.setBurgersPerSecond}
             secondarySetterArgument={(prev) => prev + props.pointerCount}
             unlockedCondition={props.totalBurgersProducedUnformatted >= 1000}
+            secondUnlockedCondtion={true}
             burgerCount={props.burgerCount}
             setBurgerCount={props.setBurgerCount}
             setIsAnUpgradeHovered={setIsAnUpgradeHovered}
@@ -182,6 +188,7 @@ export default function UpgradeStore(props) {
             secondarySetter={props.setBurgersPerSecond}
             secondarySetterArgument={(prev) => prev + props.workerCount}
             unlockedCondition={props.totalBurgersProducedUnformatted >= 1500}
+            secondUnlockedCondtion={true}
             burgerCount={props.burgerCount}
             setBurgerCount={props.setBurgerCount}
             setIsAnUpgradeHovered={setIsAnUpgradeHovered}
