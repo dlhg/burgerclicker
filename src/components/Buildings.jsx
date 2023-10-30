@@ -4,7 +4,7 @@ export default function Buildings(props) {
   return (
     <>
       <div id="Buildings--container">
-        <div id="Building1">
+        <div id="Building1" onClick={() => console.log("jazz alert")}>
           {/*The Math here ensures max array length is 200, since I'm currently not showing players ALL their buildings when they have enough to cover the screen */}
           {Array.from(
             { length: Math.min(200, props.pointerCount) },
@@ -15,6 +15,9 @@ export default function Buildings(props) {
             )
           )}
         </div>
+        <button onClick={() => props.setMainArea("minigame")}>
+          clicker game
+        </button>
         <div id="Building2">
           {Array.from(
             { length: Math.min(200, props.workerCount) },
@@ -25,6 +28,9 @@ export default function Buildings(props) {
             )
           )}
         </div>
+        <button onClick={() => props.setMainArea("minigame")}>
+          worker game
+        </button>
         <div id="Building3">
           {Array.from(
             { length: Math.min(200, props.grillCount) },
@@ -35,6 +41,7 @@ export default function Buildings(props) {
             )
           )}
         </div>
+
         <div id="Building4">
           {Array.from(
             { length: Math.min(200, props.truckCount) },

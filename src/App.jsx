@@ -210,7 +210,7 @@ function App() {
             </div>
             <div className="navbar--right">
               <button onClick={() => setMainArea("legacy")}>legacy</button>
-              <button onClick={() => setMainArea("minigame")}>minigames</button>
+
               <button onClick={() => setMainArea("buildings")}>game</button>
               <button onClick={() => setMainArea("testconsole")}>
                 console
@@ -229,7 +229,6 @@ function App() {
                 setBurgersPerSecond={setBurgersPerSecond}
                 setBurgersPerClick={setBurgersPerClick}
                 setBurgerCount={setBurgerCount}
-                setBurgersPerClick={setBurgersPerClick}
                 purchasedUpgradeIDs={purchasedUpgradeIDs}
                 setPurchasedUpgradeIDs={setPurchasedUpgradeIDs}
                 setPointerBPS={setPointerBPS}
@@ -252,6 +251,7 @@ function App() {
                 portalCount={portalCount}
               />
               <Buildings
+                setMainArea={setMainArea}
                 pointerpic={pointerpic}
                 workerpic={workerpic}
                 grillpic={grillpic}
