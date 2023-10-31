@@ -222,6 +222,9 @@ export default function MinigameTemplate(props) {
                 >
                   send burger
                 </button>
+                <button onClick={() => setPlayerBurger(burgerOrder)}>
+                  clone order (cheat)
+                </button>
                 <button onClick={() => setPlayerBurger([])}>start over</button>
                 <button onClick={() => props.setMainArea("buildings")}>
                   quit game
