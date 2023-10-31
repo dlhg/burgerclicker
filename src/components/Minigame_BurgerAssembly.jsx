@@ -1,9 +1,20 @@
 /*
   gameplay loop:
-  - random burger is generated
-  - timer starts (10s)
-  - once timer is up, if player correctly assembled the burger, they continue to next round
-
+  - once the player presses start game, a random burger is generated
+  - timer starts (30s minus correctStreak)
+  - player assembles their burger
+  // loss handling
+  - if timer expires and areBurgersEqual is false, run handleLose
+  - if player presses send burger, and then areBurgersEqual is false, run handleLose
+  - in both cases, player is given whatever reward they have accumulated via setBurgerCount
+  // win handling
+  - if player presses send burger, and then areBurgersEqual is true:
+    - increment correctStreak by 1
+    - increment reward by 1
+    - setBurgerOrder to blank array
+    - player is given whatever reward they have accumulated via setBurgerCount
+    - setOutcome to "you won! new order coming in 3 seconds"
+    - start a new round
   */
 
 import React, { useState } from "react";
@@ -15,33 +26,27 @@ export default function MinigameTemplate(props) {
   const [burgerOrder, setBurgerOrder] = useState([]);
   const [playerBurger, setPlayerBurger] = useState([]);
   const [areBurgersEqual, setAreBurgersEqual] = useState(false);
+  const [reward, setReward] = useState(0);
+  const [correctStreak, setCorrectStreak] = useState(0);
+  const [timeRemaining, setTimeRemaining] = useState(3000 - correctStreak);
 
-  function handleWin() {
-    props.setBurgerCount((prev) => prev + 1);
-    setButtonsDisabled(true); // Disable buttons
-    let countdown = 3; // Initial countdown value
+  const [toppings, setToppings] = useState([
+    "lettuce",
+    "patty",
+    "cheese",
+    "pickles",
+    "hotpeppers",
+    "ketchup",
+    "mayo",
+    "bacon",
+    "mustard",
+    "onions",
+  ]);
 
-    setOutcome(`you won! going back to buildings area in ${countdown} seconds`);
-
-    const countdownInterval = setInterval(() => {
-      countdown -= 1;
-
-      if (countdown < 0) {
-        clearInterval(countdownInterval); // Stop the interval when countdown reaches 0
-        props.setMainArea("buildings");
-        setButtonsDisabled(false); // Enable buttons after the timeout
-      } else {
-        setOutcome(
-          `you won! going back to buildings area in ${countdown} seconds`
-        );
-      }
-    }, 1000); // Update the countdown every second
-  }
   function handleLose() {
-    props.setBurgerCount((prev) => prev - 1);
     setButtonsDisabled(true); // Disable buttons
     let countdown = 3; // Initial countdown value
-
+    props.setBurgerCount((prev) => prev + reward);
     setOutcome(`you lost! back to buildings area in ${countdown} seconds`);
 
     const countdownInterval = setInterval(() => {
@@ -56,43 +61,17 @@ export default function MinigameTemplate(props) {
       }
     }, 1000); // Update the countdown every second
   }
-  function percentChanceToWin(percentage) {
-    const random = Math.floor(Math.random() * 100);
-    if (percentage >= random) {
-      handleWin();
-    } else {
-      handleLose();
-    }
-  }
-  function percentChanceForOutcome(percentage, outcomeA, outcomeB) {
-    const random = Math.floor(Math.random() * 100);
-    if (percentage >= random) {
-      outcomeA();
-    } else {
-      outcomeB();
-    }
-  }
   function generateRandomBurger() {
-    const random = Math.floor(Math.random() * 10);
-    const random2 = Math.floor(Math.random() * 10);
-    const random3 = Math.floor(Math.random() * 10);
-    let burgArr = ["bottombun", "patty"];
-    const toppings = [
-      "lettuce",
-      "patty",
-      "cheese",
-      "pickles",
-      "hotpeppers",
-      "ketchup",
-      "mayo",
-      "bacon",
-      "mustard",
-      "onions",
-    ];
-    const layer1 = toppings[random];
-    const layer2 = toppings[random2];
-    const layer3 = toppings[random3];
-    burgArr.push(layer1, layer2, "topbun");
+    const getRandomTopping = () =>
+      toppings[Math.floor(Math.random() * toppings.length)];
+
+    const burgArr = ["bottombun", "patty"];
+    for (let i = 0; i < 3; i++) {
+      const randomTopping = getRandomTopping();
+      burgArr.push(randomTopping);
+    }
+    burgArr.push("topbun");
+    console.log(burgArr);
     setBurgerOrder(burgArr);
   }
   function burgerEqualityCheck() {
@@ -111,7 +90,10 @@ export default function MinigameTemplate(props) {
     <>
       {props.showMinigameCondition && !hideMinigame && (
         <>
+          <button>start game</button>
+
           <h1>burger assembly game</h1>
+
           <button onClick={() => generateRandomBurger()}>
             generate random burger order
           </button>
@@ -186,9 +168,14 @@ export default function MinigameTemplate(props) {
             >
               send burger
             </button>
+            <button onClick={() => props.setMainArea("buildings")}>
+              quit game
+            </button>
           </div>
           <br />
           <div>did the burgers match? {areBurgersEqual.toString()}</div>
+          <div>current reward: {reward}</div>
+          <div>game outcome: {outcome}</div>
         </>
       )}
     </>
@@ -211,7 +198,62 @@ export default function MinigameTemplate(props) {
           >
             50/50 chance
           </button>
-          <button onClick={() => props.setMainArea("buildings")}>
-            quit game
-          </button> */
+        */
 }
+
+// function handleWin() {
+//     props.setBurgerCount((prev) => prev + 1);
+//     setButtonsDisabled(true); // Disable buttons
+//     let countdown = 3; // Initial countdown value
+
+//     setOutcome(`you won! going back to buildings area in ${countdown} seconds`);
+
+//     const countdownInterval = setInterval(() => {
+//       countdown -= 1;
+
+//       if (countdown < 0) {
+//         clearInterval(countdownInterval); // Stop the interval when countdown reaches 0
+//         props.setMainArea("buildings");
+//         setButtonsDisabled(false); // Enable buttons after the timeout
+//       } else {
+//         setOutcome(
+//           `you won! going back to buildings area in ${countdown} seconds`
+//         );
+//       }
+//     }, 1000); // Update the countdown every second
+//   }
+//   function handleLose() {
+//     props.setBurgerCount((prev) => prev - 1);
+//     setButtonsDisabled(true); // Disable buttons
+//     let countdown = 3; // Initial countdown value
+
+//     setOutcome(`you lost! back to buildings area in ${countdown} seconds`);
+
+//     const countdownInterval = setInterval(() => {
+//       countdown -= 1;
+
+//       if (countdown < 0) {
+//         clearInterval(countdownInterval); // Stop the interval when countdown reaches 0
+//         props.setMainArea("buildings");
+//         setButtonsDisabled(false); // Enable buttons after the timeout
+//       } else {
+//         setOutcome(`you lost! back to buildings area in ${countdown} seconds`);
+//       }
+//     }, 1000); // Update the countdown every second
+//   }
+//   function percentChanceToWin(percentage) {
+//     const random = Math.floor(Math.random() * 100);
+//     if (percentage >= random) {
+//       handleWin();
+//     } else {
+//       handleLose();
+//     }
+//   }
+//   function percentChanceForOutcome(percentage, outcomeA, outcomeB) {
+//     const random = Math.floor(Math.random() * 100);
+//     if (percentage >= random) {
+//       outcomeA();
+//     } else {
+//       outcomeB();
+//     }
+//   }
