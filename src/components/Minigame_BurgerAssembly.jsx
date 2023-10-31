@@ -45,7 +45,6 @@ export default function MinigameTemplate(props) {
       }
     }, 1000); // Update the countdown every second
   }
-
   function percentChanceToWin(percentage) {
     const random = Math.floor(Math.random() * 100);
     if (percentage >= random) {
@@ -59,6 +58,7 @@ export default function MinigameTemplate(props) {
     <>
       {props.showMinigameCondition && !hideMinigame && (
         <>
+          <h1>burger assembly game</h1>
           <h1>outcome : {outcome}</h1>
           <button onClick={() => handleWin()} disabled={buttonsDisabled}>
             win

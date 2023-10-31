@@ -45,6 +45,7 @@ import Quips from "./components/Quips";
 import UpgradeStore from "./components/UpgradeStore";
 import ToopTip from "./components/ToolTip";
 import MinigameTemplate from "./components/MinigameTemplate";
+import Minigame_BurgerAssembly from "./components/Minigame_BurgerAssembly";
 
 //helper function imports
 
@@ -275,6 +276,14 @@ function App() {
           )}
           {mainArea === "minigame" && (
             <MinigameTemplate
+              totalBurgersProducedUnformatted={totalBurgersProducedUnformatted}
+              showMinigameCondition={totalBurgersProducedUnformatted >= 3}
+              setMainArea={setMainArea}
+              setBurgerCount={setBurgerCount}
+            />
+          )}
+          {mainArea === "minigame--burger--assembly" && (
+            <Minigame_BurgerAssembly
               totalBurgersProducedUnformatted={totalBurgersProducedUnformatted}
               showMinigameCondition={totalBurgersProducedUnformatted >= 3}
               setMainArea={setMainArea}

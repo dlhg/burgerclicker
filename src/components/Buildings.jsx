@@ -28,8 +28,10 @@ export default function Buildings(props) {
           />
         </div>
         {props.workerCount >= 2 && (
-          <button onClick={() => props.setMainArea("minigame")}>
-            worker game (unlock by having 2 workers)
+          <button
+            onClick={() => props.setMainArea("minigame--burger--assembly")}
+          >
+            burger assembly game (unlock by having 2 workers)
           </button>
         )}
 
