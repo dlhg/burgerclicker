@@ -50,6 +50,15 @@ export default function MinigameTemplate(props) {
     }, 2000);
   }
 
+  function percentChanceToWin(percentage) {
+    const random = Math.floor(Math.random() * 100);
+    if (percentage >= random) {
+      handleWin();
+    } else {
+      handleLose();
+    }
+  }
+
   return (
     <>
       {props.showMinigameCondition && !hideMinigame && (
@@ -57,7 +66,7 @@ export default function MinigameTemplate(props) {
           <h1>outcome : {outcome}</h1>
           <button onClick={() => handleWin()}>win</button>
           <button onClick={() => handleLose()}>lose</button>
-
+          <button onClick={() => percentChanceToWin(50)}>50/50 chance</button>
           <button onClick={() => props.setMainArea("buildings")}>
             quit game
           </button>
