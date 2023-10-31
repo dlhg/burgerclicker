@@ -28,7 +28,7 @@ export default function MinigameTemplate(props) {
   const [areBurgersEqual, setAreBurgersEqual] = useState("");
   const [reward, setReward] = useState(10);
   const [correctStreak, setCorrectStreak] = useState(0);
-  const [timeRemaining, setTimeRemaining] = useState(60 - correctStreak);
+  const [timeRemaining, setTimeRemaining] = useState(1000 - correctStreak);
   const [gameStarted, setGameStarted] = useState(false);
 
   const [toppings, setToppings] = useState([
@@ -123,8 +123,15 @@ export default function MinigameTemplate(props) {
       setReward((prev) => prev * 1.5);
     }
   }
+
+  function handleStartOver() {
+    let penaltyMultiplier = 0.9;
+    setPlayerBurger([]);
+    setReward((prev) => prev * penaltyMultiplier);
+  }
   return (
     <>
+      <div className="burger--assembly--wrapper"></div>
       {props.showMinigameCondition && !hideMinigame && (
         <>
           {!gameStarted && (
@@ -143,17 +150,18 @@ export default function MinigameTemplate(props) {
             </div>
           )}
           {gameStarted && (
-            <div>
+            <div className="assembly--wrapper">
               <h1>burger assembly game</h1>
 
               <div>
-                random burger:{" "}
+                customer's order:{" "}
                 {burgerOrder.map((layer) => (
                   <div>{layer}</div>
                 ))}
               </div>
               <br />
               <div>
+                create burger:
                 <button
                   onClick={() =>
                     setPlayerBurger([...playerBurger, "bottombun"])
@@ -222,11 +230,12 @@ export default function MinigameTemplate(props) {
               <br />
               <div>your burger: {playerBurger}</div>
               <div>
+                <br />
                 <button onClick={() => handleSend()}>send burger</button>
                 <button onClick={() => setPlayerBurger(burgerOrder)}>
                   clone order (cheat)
                 </button>
-                <button onClick={() => setPlayerBurger([])}>start over</button>
+                <button onClick={() => handleStartOver()}>start over</button>
                 <button onClick={() => props.setMainArea("buildings")}>
                   quit game
                 </button>

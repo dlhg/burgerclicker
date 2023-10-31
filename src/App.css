@@ -466,6 +466,10 @@ button:hover {
   cursor: url(./assets/images/pointer_transparent.png), pointer;
 }
 
+.assembly--wrapper button {
+  background-color: rgb(58, 58, 58);
+}
+
 @media (max-width: 3rem) {
   div {
     background: rgb(169, 169, 135);
