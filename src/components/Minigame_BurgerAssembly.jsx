@@ -121,6 +121,10 @@ export default function MinigameTemplate(props) {
       //if burger matches
       setCorrectStreak((prev) => prev + 1);
       setReward((prev) => prev * 1.5);
+      //gain 20 seconds time for winning (can tweak this in the future)
+      setTimeRemaining((current) => current + 20);
+      setPlayerBurger([]);
+      generateRandomBurger();
     }
   }
 
@@ -234,7 +238,12 @@ export default function MinigameTemplate(props) {
                 </button>
               </div>
               <br />
-              <div>your burger: {playerBurger}</div>
+              <div>
+                your burger:{" "}
+                {playerBurger.map((layer) => (
+                  <div>{layer}</div>
+                ))}
+              </div>
               <div>
                 <br />
                 <button onClick={() => handleSend()}>send burger</button>
