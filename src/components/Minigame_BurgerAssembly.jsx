@@ -5,6 +5,7 @@ export default function MinigameTemplate(props) {
   const [outcome, setOutcome] = useState("game in progress");
   const [buttonsDisabled, setButtonsDisabled] = useState(false);
   const [burgerOrder, setBurgerOrder] = useState([]);
+  const [playerBurger, setPlayerBurger] = useState([]);
 
   function handleWin() {
     props.setBurgerCount((prev) => prev + 1);
@@ -54,7 +55,6 @@ export default function MinigameTemplate(props) {
       handleLose();
     }
   }
-
   function percentChanceForOutcome(percentage, outcomeA, outcomeB) {
     const random = Math.floor(Math.random() * 100);
     if (percentage >= random) {
@@ -63,30 +63,37 @@ export default function MinigameTemplate(props) {
       outcomeB();
     }
   }
-
   function generateRandomBurger() {
     const random = Math.floor(Math.random() * 10);
     const random2 = Math.floor(Math.random() * 10);
-
-    let burgArr = ["bottom bun ", "patty "];
+    const random3 = Math.floor(Math.random() * 10);
+    let burgArr = ["bottombun", "patty"];
     const toppings = [
-      "lettuce ",
-      "patty ",
-      "cheese ",
-      "pickles ",
-      "hot peppers ",
-      "ketchup ",
-      "mayo ",
-      "bacon ",
-      "mustard ",
-      "onions ",
+      "lettuce",
+      "patty",
+      "cheese",
+      "pickles",
+      "hotpeppers",
+      "ketchup",
+      "mayo",
+      "bacon",
+      "mustard",
+      "onions",
     ];
     const layer1 = toppings[random];
     const layer2 = toppings[random2];
-
+    const layer3 = toppings[random3];
     burgArr.push(layer1, layer2, "top bun");
     setBurgerOrder(burgArr);
   }
+
+  /*
+  gameplay loop:
+  - random burger is generated
+  - timer starts (10s)
+  - once timer is up, if player correctly assembled the burger, they continue to next round
+
+  */
 
   return (
     <>
@@ -96,20 +103,68 @@ export default function MinigameTemplate(props) {
           <button onClick={() => generateRandomBurger()}>
             generate random burger order
           </button>
-          <div>{burgerOrder}</div>
+          <div>random burger: {burgerOrder}</div>
+          <br />
+          <div>
+            <button
+              onClick={() => setPlayerBurger([...playerBurger, "bottombun"])}
+            >
+              bottom bun
+            </button>
+            <button onClick={() => setPlayerBurger([...playerBurger, "patty"])}>
+              patty
+            </button>
+            <button
+              onClick={() => setPlayerBurger([...playerBurger, "lettuce"])}
+            >
+              lettuce
+            </button>
+            <button
+              onClick={() => setPlayerBurger([...playerBurger, "cheese"])}
+            >
+              cheese
+            </button>
+            <button
+              onClick={() => setPlayerBurger([...playerBurger, "pickles"])}
+            >
+              pickles
+            </button>
+            <button
+              onClick={() => setPlayerBurger([...playerBurger, "hot peppers"])}
+            >
+              hot peppers
+            </button>
+            <button onClick={() => setPlayerBurger([...playerBurger, "bacon"])}>
+              bacon
+            </button>
+            <button
+              onClick={() => setPlayerBurger([...playerBurger, "onions"])}
+            >
+              onions
+            </button>
+            <button onClick={() => setPlayerBurger([...playerBurger, "mayo"])}>
+              mayo
+            </button>
+            <button
+              onClick={() => setPlayerBurger([...playerBurger, "mustard"])}
+            >
+              mustard
+            </button>
+            <button
+              onClick={() => setPlayerBurger([...playerBurger, "ketchup"])}
+            >
+              ketchup
+            </button>
+            <button
+              onClick={() => setPlayerBurger([...playerBurger, "top bun"])}
+            >
+              top bun
+            </button>
+          </div>
+          <br />
+          <div>your burger: {playerBurger}</div>
 
-          <br />
-          <br />
-          <br />
-          <br />
-          <br />
-          <br />
-          <br />
-          <br />
-          <br />
-          <br />
-          <br />
-          <br />
+          {/*
           <h1>template game</h1>
           <h1>outcome : {outcome}</h1>
           <button onClick={() => handleWin()} disabled={buttonsDisabled}>
@@ -126,7 +181,7 @@ export default function MinigameTemplate(props) {
           </button>
           <button onClick={() => props.setMainArea("buildings")}>
             quit game
-          </button>
+          </button> */}
         </>
       )}
     </>
