@@ -4,7 +4,7 @@ import BuildingRow from "./BuildingRow";
 export default function Buildings(props) {
   return (
     <>
-      <div id="Buildings--container">
+      <div>
         <div id="Building1" onClick={() => console.log("jazz alert")}>
           <BuildingRow
             count={props.pointerCount}

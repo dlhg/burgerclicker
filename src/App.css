@@ -243,14 +243,6 @@ button:hover {
   margin: 0.5rem;
   font-size: 0.8rem;
 }
-#Buildings--container {
-  display: flex;
-  flex-direction: column;
-}
-#Buildings--container > * {
-  display: flex;
-  overflow: hidden;
-}
 
 #Buildings--container img {
 }
