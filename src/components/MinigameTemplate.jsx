@@ -81,10 +81,7 @@ export default function MinigameTemplate(props) {
           >
             50/50 chance
           </button>
-          <button
-            onClick={() => props.setMainArea("buildings")}
-            disabled={buttonsDisabled}
-          >
+          <button onClick={() => props.setMainArea("buildings")}>
             quit game
           </button>
         </>
