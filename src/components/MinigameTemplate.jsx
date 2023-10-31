@@ -26,7 +26,7 @@ possible game ideas:
 
 */
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
 export default function MinigameTemplate(props) {
   const [hideMinigame, setHideMiniGame] = useState(false);
@@ -34,25 +34,44 @@ export default function MinigameTemplate(props) {
   const [buttonsDisabled, setButtonsDisabled] = useState(false);
 
   function handleWin() {
-    setButtonsDisabled(true); // Disable buttons
-    setOutcome("you won!");
     props.setBurgerCount((prev) => prev + 1);
-
-    setTimeout(() => {
-      props.setMainArea("buildings");
-      setButtonsDisabled(false); // Enable buttons after the timeout
-    }, 2000);
-  }
-
-  function handleLose() {
     setButtonsDisabled(true); // Disable buttons
-    setOutcome("you lost!");
-    props.setBurgerCount((prev) => prev - 1);
+    let countdown = 3; // Initial countdown value
 
-    setTimeout(() => {
-      props.setMainArea("buildings");
-      setButtonsDisabled(false); // Enable buttons after the timeout
-    }, 2000);
+    setOutcome(`you won! going back to buildings area in ${countdown} seconds`);
+
+    const countdownInterval = setInterval(() => {
+      countdown -= 1;
+
+      if (countdown < 0) {
+        clearInterval(countdownInterval); // Stop the interval when countdown reaches 0
+        props.setMainArea("buildings");
+        setButtonsDisabled(false); // Enable buttons after the timeout
+      } else {
+        setOutcome(
+          `you won! going back to buildings area in ${countdown} seconds`
+        );
+      }
+    }, 1000); // Update the countdown every second
+  }
+  function handleLose() {
+    props.setBurgerCount((prev) => prev - 1);
+    setButtonsDisabled(true); // Disable buttons
+    let countdown = 3; // Initial countdown value
+
+    setOutcome(`you lost! back to buildings area in ${countdown} seconds`);
+
+    const countdownInterval = setInterval(() => {
+      countdown -= 1;
+
+      if (countdown < 0) {
+        clearInterval(countdownInterval); // Stop the interval when countdown reaches 0
+        props.setMainArea("buildings");
+        setButtonsDisabled(false); // Enable buttons after the timeout
+      } else {
+        setOutcome(`you lost! back to buildings area in ${countdown} seconds`);
+      }
+    }, 1000); // Update the countdown every second
   }
 
   function percentChanceToWin(percentage) {
