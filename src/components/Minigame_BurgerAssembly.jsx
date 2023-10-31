@@ -142,9 +142,15 @@ export default function MinigameTemplate(props) {
                 <ul>
                   <li>assemble the burger to match the order</li>
                   <li>
-                    send when complete, or start over if you made a mistake
+                    send when complete, or start over if you made a mistake -
+                    but watch out, there is a penalty for starting over! (10%
+                    loss to current reward level)
                   </li>
                   <li>if the timer runs out, you lose!</li>
+                  <li>
+                    in the future, i will add an option to permanently skip this
+                    section
+                  </li>
                 </ul>
               </div>
             </div>
