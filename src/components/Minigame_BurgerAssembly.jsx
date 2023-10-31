@@ -1,3 +1,11 @@
+/*
+  gameplay loop:
+  - random burger is generated
+  - timer starts (10s)
+  - once timer is up, if player correctly assembled the burger, they continue to next round
+
+  */
+
 import React, { useState } from "react";
 
 export default function MinigameTemplate(props) {
@@ -98,13 +106,6 @@ export default function MinigameTemplate(props) {
     }
     return true;
   }
-  /*
-  gameplay loop:
-  - random burger is generated
-  - timer starts (10s)
-  - once timer is up, if player correctly assembled the burger, they continue to next round
-
-  */
 
   return (
     <>
@@ -188,8 +189,14 @@ export default function MinigameTemplate(props) {
           </div>
           <br />
           <div>did the burgers match? {areBurgersEqual.toString()}</div>
+        </>
+      )}
+    </>
+  );
+}
 
-          {/*
+{
+  /*
           <h1>template game</h1>
           <h1>outcome : {outcome}</h1>
           <button onClick={() => handleWin()} disabled={buttonsDisabled}>
@@ -206,9 +213,5 @@ export default function MinigameTemplate(props) {
           </button>
           <button onClick={() => props.setMainArea("buildings")}>
             quit game
-          </button> */}
-        </>
-      )}
-    </>
-  );
+          </button> */
 }
