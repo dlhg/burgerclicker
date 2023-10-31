@@ -25,10 +25,10 @@ export default function MinigameTemplate(props) {
   const [buttonsDisabled, setButtonsDisabled] = useState(false);
   const [burgerOrder, setBurgerOrder] = useState([]);
   const [playerBurger, setPlayerBurger] = useState([]);
-  const [areBurgersEqual, setAreBurgersEqual] = useState("");
+
   const [reward, setReward] = useState(10);
   const [correctStreak, setCorrectStreak] = useState(0);
-  const [timeRemaining, setTimeRemaining] = useState(1000 - correctStreak);
+  const [timeRemaining, setTimeRemaining] = useState(30 - correctStreak);
   const [gameStarted, setGameStarted] = useState(false);
 
   const [toppings, setToppings] = useState([
@@ -57,7 +57,7 @@ export default function MinigameTemplate(props) {
     }
 
     return () => clearInterval(timer); // Cleanup on component unmount
-  }, [gameStarted, timeRemaining, areBurgersEqual]);
+  }, [gameStarted, timeRemaining]);
 
   function startGame() {
     console.log(`burger assembly game startGame fired`);
@@ -162,6 +162,7 @@ export default function MinigameTemplate(props) {
           {gameStarted && (
             <div className="assembly--wrapper">
               <h1>burger assembly game</h1>
+              <h2>time remaining: {timeRemaining}</h2>
 
               <div>
                 customer's order:{" "}
@@ -256,7 +257,7 @@ export default function MinigameTemplate(props) {
                 </button>
               </div>
               <br />
-              <div>did the burgers match? {areBurgersEqual.toString()}</div>
+
               <div>current reward: {reward}</div>
               <div>correct streak: {correctStreak}</div>
               <div>time remaining: {timeRemaining}s</div>
