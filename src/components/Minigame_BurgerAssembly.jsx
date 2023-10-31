@@ -6,6 +6,7 @@ export default function MinigameTemplate(props) {
   const [buttonsDisabled, setButtonsDisabled] = useState(false);
   const [burgerOrder, setBurgerOrder] = useState([]);
   const [playerBurger, setPlayerBurger] = useState([]);
+  const [areBurgersEqual, setAreBurgersEqual] = useState(false);
 
   function handleWin() {
     props.setBurgerCount((prev) => prev + 1);
@@ -86,7 +87,17 @@ export default function MinigameTemplate(props) {
     burgArr.push(layer1, layer2, "top bun");
     setBurgerOrder(burgArr);
   }
-
+  function burgerEqualityCheck() {
+    if (playerBurger.length !== burgerOrder.length) {
+      return false;
+    }
+    for (let i = 0; i < playerBurger.length; i++) {
+      if (playerBurger[i] !== burgerOrder[i]) {
+        return false;
+      }
+    }
+    return true;
+  }
   /*
   gameplay loop:
   - random burger is generated
@@ -130,7 +141,7 @@ export default function MinigameTemplate(props) {
               pickles
             </button>
             <button
-              onClick={() => setPlayerBurger([...playerBurger, "hot peppers"])}
+              onClick={() => setPlayerBurger([...playerBurger, "hotpeppers"])}
             >
               hot peppers
             </button>
@@ -156,13 +167,16 @@ export default function MinigameTemplate(props) {
               ketchup
             </button>
             <button
-              onClick={() => setPlayerBurger([...playerBurger, "top bun"])}
+              onClick={() => setPlayerBurger([...playerBurger, "topbun"])}
             >
               top bun
             </button>
           </div>
           <br />
           <div>your burger: {playerBurger}</div>
+          <div>
+            <button onClick={() => setPlayerBurger([])}>start over</button>
+          </div>
 
           {/*
           <h1>template game</h1>
