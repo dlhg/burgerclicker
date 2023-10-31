@@ -21,7 +21,7 @@ import React, { useState, useEffect } from "react";
 
 export default function MinigameTemplate(props) {
   const [hideMinigame, setHideMiniGame] = useState(false);
-  const [outcome, setOutcome] = useState("game in progress");
+  //   const [outcome, setOutcome] = useState("game in progress");
   const [buttonsDisabled, setButtonsDisabled] = useState(false);
   const [burgerOrder, setBurgerOrder] = useState([]);
   const [playerBurger, setPlayerBurger] = useState([]);
@@ -30,6 +30,7 @@ export default function MinigameTemplate(props) {
   const [correctStreak, setCorrectStreak] = useState(0);
   const [timeRemaining, setTimeRemaining] = useState(30 - correctStreak);
   const [gameStarted, setGameStarted] = useState(false);
+  const [tickerText, setTickerText] = useState("The first order rolls in...");
 
   const [toppings, setToppings] = useState([
     "lettuce",
@@ -62,7 +63,7 @@ export default function MinigameTemplate(props) {
   function startGame() {
     setGameStarted(true);
     generateRandomBurger();
-    setOutcome("game in progress");
+    // setOutcome("game in progress");
     setButtonsDisabled(false);
     setCorrectStreak(0);
   }
@@ -71,7 +72,7 @@ export default function MinigameTemplate(props) {
     setButtonsDisabled(true); // Disable buttons
     let countdown = 3; // Initial countdown value
     props.setBurgerCount((prev) => prev + reward);
-    setOutcome(
+    setTickerText(
       `game over! you won ${reward} burgers, going back to buildings area in ${countdown} seconds`
     );
 
@@ -83,7 +84,7 @@ export default function MinigameTemplate(props) {
         props.setMainArea("buildings");
         setButtonsDisabled(false); // Enable buttons after the timeout
       } else {
-        setOutcome(
+        setTickerText(
           `game over! you won ${reward} burgers, going back to buildings area in ${countdown} seconds`
         );
       }
@@ -128,6 +129,7 @@ export default function MinigameTemplate(props) {
       setTimeRemaining(
         (current) => current + Math.floor(Math.max(5, 20 - correctStreak * 0.5))
       );
+      setTickerText("Great job! Next burger...");
       setPlayerBurger([]);
       generateRandomBurger();
     }
@@ -173,6 +175,8 @@ export default function MinigameTemplate(props) {
             <div className="assembly--wrapper">
               <h1>burger assembly challenge</h1>
               <h2>time remaining: {timeRemaining}</h2>
+              <h2>current reward: {reward}</h2>
+              <h2>{tickerText}</h2>
 
               <div>
                 customer's order:{" "}
@@ -261,6 +265,11 @@ export default function MinigameTemplate(props) {
                 <button onClick={() => setPlayerBurger(burgerOrder)}>
                   clone order (cheat)
                 </button>
+                <button
+                  onClick={() => setTimeRemaining((prev) => prev + 10000)}
+                >
+                  +10000s to timer (cheat)
+                </button>
                 <button onClick={() => handleStartOver()}>start over</button>
                 <button onClick={() => props.setMainArea("buildings")}>
                   quit game
@@ -271,7 +280,7 @@ export default function MinigameTemplate(props) {
               <div>current reward: {reward}</div>
               <div>correct streak: {correctStreak}</div>
               <div>time remaining: {timeRemaining}s</div>
-              <div>game outcome: {outcome}</div>
+              {/* <div>game outcome: {outcome}</div> */}
             </div>
           )}
         </>
