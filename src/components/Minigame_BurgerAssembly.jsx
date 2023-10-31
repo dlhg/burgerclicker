@@ -17,7 +17,7 @@
     - start a new round
   */
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
 export default function MinigameTemplate(props) {
   const [hideMinigame, setHideMiniGame] = useState(false);
@@ -25,10 +25,11 @@ export default function MinigameTemplate(props) {
   const [buttonsDisabled, setButtonsDisabled] = useState(false);
   const [burgerOrder, setBurgerOrder] = useState([]);
   const [playerBurger, setPlayerBurger] = useState([]);
-  const [areBurgersEqual, setAreBurgersEqual] = useState(false);
+  const [areBurgersEqual, setAreBurgersEqual] = useState("");
   const [reward, setReward] = useState(0);
   const [correctStreak, setCorrectStreak] = useState(0);
-  const [timeRemaining, setTimeRemaining] = useState(3000 - correctStreak);
+  const [timeRemaining, setTimeRemaining] = useState(30 - correctStreak);
+  const [gameStarted, setGameStarted] = useState(false);
 
   const [toppings, setToppings] = useState([
     "lettuce",
@@ -42,6 +43,32 @@ export default function MinigameTemplate(props) {
     "mustard",
     "onions",
   ]);
+
+  useEffect(() => {
+    let timer;
+    if (timeRemaining === 0) {
+      handleLose();
+    }
+
+    if (gameStarted && timeRemaining > 0) {
+      timer = setInterval(() => {
+        setTimeRemaining((prev) => prev - 1);
+      }, 1000);
+    }
+
+    return () => clearInterval(timer); // Cleanup on component unmount
+  }, [gameStarted, timeRemaining, areBurgersEqual]);
+
+  function startGame() {
+    console.log(`burger assembly game startGame fired`);
+    setGameStarted(true);
+    generateRandomBurger();
+    setOutcome("game in progress");
+    setButtonsDisabled(false);
+    setCorrectStreak(0);
+    setReward(0);
+    setTimeRemaining(30 - correctStreak);
+  }
 
   function handleLose() {
     setButtonsDisabled(true); // Disable buttons
@@ -61,6 +88,7 @@ export default function MinigameTemplate(props) {
       }
     }, 1000); // Update the countdown every second
   }
+
   function generateRandomBurger() {
     const getRandomTopping = () =>
       toppings[Math.floor(Math.random() * toppings.length)];
@@ -74,6 +102,7 @@ export default function MinigameTemplate(props) {
     console.log(burgArr);
     setBurgerOrder(burgArr);
   }
+
   function burgerEqualityCheck() {
     if (playerBurger.length !== burgerOrder.length) {
       return false;
@@ -85,103 +114,131 @@ export default function MinigameTemplate(props) {
     }
     return true;
   }
-
   return (
     <>
       {props.showMinigameCondition && !hideMinigame && (
         <>
-          <button>start game</button>
+          {!gameStarted && (
+            <div>
+              <button onClick={startGame}>start game</button>
+              <div>
+                How to play:
+                <ul>
+                  <li>assemble the burger to match the order</li>
+                  <li>
+                    send when complete, or start over if you made a mistake
+                  </li>
+                  <li>if the timer runs out, you lose!</li>
+                </ul>
+              </div>
+            </div>
+          )}
+          {gameStarted && (
+            <div>
+              <h1>burger assembly game</h1>
 
-          <h1>burger assembly game</h1>
-
-          <button onClick={() => generateRandomBurger()}>
-            generate random burger order
-          </button>
-          <div>random burger: {burgerOrder}</div>
-          <br />
-          <div>
-            <button
-              onClick={() => setPlayerBurger([...playerBurger, "bottombun"])}
-            >
-              bottom bun
-            </button>
-            <button onClick={() => setPlayerBurger([...playerBurger, "patty"])}>
-              patty
-            </button>
-            <button
-              onClick={() => setPlayerBurger([...playerBurger, "lettuce"])}
-            >
-              lettuce
-            </button>
-            <button
-              onClick={() => setPlayerBurger([...playerBurger, "cheese"])}
-            >
-              cheese
-            </button>
-            <button
-              onClick={() => setPlayerBurger([...playerBurger, "pickles"])}
-            >
-              pickles
-            </button>
-            <button
-              onClick={() => setPlayerBurger([...playerBurger, "hotpeppers"])}
-            >
-              hot peppers
-            </button>
-            <button onClick={() => setPlayerBurger([...playerBurger, "bacon"])}>
-              bacon
-            </button>
-            <button
-              onClick={() => setPlayerBurger([...playerBurger, "onions"])}
-            >
-              onions
-            </button>
-            <button onClick={() => setPlayerBurger([...playerBurger, "mayo"])}>
-              mayo
-            </button>
-            <button
-              onClick={() => setPlayerBurger([...playerBurger, "mustard"])}
-            >
-              mustard
-            </button>
-            <button
-              onClick={() => setPlayerBurger([...playerBurger, "ketchup"])}
-            >
-              ketchup
-            </button>
-            <button
-              onClick={() => setPlayerBurger([...playerBurger, "topbun"])}
-            >
-              top bun
-            </button>
-          </div>
-          <br />
-          <div>your burger: {playerBurger}</div>
-          <div>
-            <button onClick={() => setPlayerBurger([])}>start over</button>
-            <button
-              onClick={() =>
-                burgerEqualityCheck()
-                  ? setAreBurgersEqual(true)
-                  : setAreBurgersEqual(false)
-              }
-            >
-              send burger
-            </button>
-            <button onClick={() => props.setMainArea("buildings")}>
-              quit game
-            </button>
-          </div>
-          <br />
-          <div>did the burgers match? {areBurgersEqual.toString()}</div>
-          <div>current reward: {reward}</div>
-          <div>game outcome: {outcome}</div>
+              <div>
+                random burger:{" "}
+                {burgerOrder.map((layer) => (
+                  <div>{layer}</div>
+                ))}
+              </div>
+              <br />
+              <div>
+                <button
+                  onClick={() =>
+                    setPlayerBurger([...playerBurger, "bottombun"])
+                  }
+                >
+                  bottom bun
+                </button>
+                <button
+                  onClick={() => setPlayerBurger([...playerBurger, "patty"])}
+                >
+                  patty
+                </button>
+                <button
+                  onClick={() => setPlayerBurger([...playerBurger, "lettuce"])}
+                >
+                  lettuce
+                </button>
+                <button
+                  onClick={() => setPlayerBurger([...playerBurger, "cheese"])}
+                >
+                  cheese
+                </button>
+                <button
+                  onClick={() => setPlayerBurger([...playerBurger, "pickles"])}
+                >
+                  pickles
+                </button>
+                <button
+                  onClick={() =>
+                    setPlayerBurger([...playerBurger, "hotpeppers"])
+                  }
+                >
+                  hot peppers
+                </button>
+                <button
+                  onClick={() => setPlayerBurger([...playerBurger, "bacon"])}
+                >
+                  bacon
+                </button>
+                <button
+                  onClick={() => setPlayerBurger([...playerBurger, "onions"])}
+                >
+                  onions
+                </button>
+                <button
+                  onClick={() => setPlayerBurger([...playerBurger, "mayo"])}
+                >
+                  mayo
+                </button>
+                <button
+                  onClick={() => setPlayerBurger([...playerBurger, "mustard"])}
+                >
+                  mustard
+                </button>
+                <button
+                  onClick={() => setPlayerBurger([...playerBurger, "ketchup"])}
+                >
+                  ketchup
+                </button>
+                <button
+                  onClick={() => setPlayerBurger([...playerBurger, "topbun"])}
+                >
+                  top bun
+                </button>
+              </div>
+              <br />
+              <div>your burger: {playerBurger}</div>
+              <div>
+                <button
+                  onClick={() =>
+                    burgerEqualityCheck()
+                      ? setAreBurgersEqual(true)
+                      : setAreBurgersEqual(false)
+                  }
+                >
+                  send burger
+                </button>
+                <button onClick={() => setPlayerBurger([])}>start over</button>
+                <button onClick={() => props.setMainArea("buildings")}>
+                  quit game
+                </button>
+              </div>
+              <br />
+              <div>did the burgers match? {areBurgersEqual.toString()}</div>
+              <div>current reward: {reward}</div>
+              <div>time remaining: {timeRemaining}s</div>
+              <div>game outcome: {outcome}</div>
+            </div>
+          )}
         </>
       )}
     </>
   );
 }
-
 {
   /*
           <h1>template game</h1>
