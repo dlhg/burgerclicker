@@ -71,7 +71,9 @@ export default function MinigameTemplate(props) {
     setButtonsDisabled(true); // Disable buttons
     let countdown = 3; // Initial countdown value
     props.setBurgerCount((prev) => prev + reward);
-    setOutcome(`you lost! back to buildings area in ${countdown} seconds`);
+    setOutcome(
+      `game over! you won ${reward} burgers, back to buildings area in ${countdown} seconds`
+    );
 
     const countdownInterval = setInterval(() => {
       countdown -= 1;
@@ -81,7 +83,9 @@ export default function MinigameTemplate(props) {
         props.setMainArea("buildings");
         setButtonsDisabled(false); // Enable buttons after the timeout
       } else {
-        setOutcome(`you lost! back to buildings area in ${countdown} seconds`);
+        setOutcome(
+          `game over! you won ${reward} burgers, back to buildings area in ${countdown} seconds`
+        );
       }
     }, 1000); // Update the countdown every second
   }
@@ -119,7 +123,7 @@ export default function MinigameTemplate(props) {
     } else {
       //if burger matches
       setCorrectStreak((prev) => prev + 1);
-      setReward((prev) => prev * 1.5);
+      setReward((prev) => Math.floor(prev * 1.5));
       //gain 20 seconds time for winning (can tweak this in the future)
       setTimeRemaining((current) => current + 20);
       setPlayerBurger([]);
@@ -139,7 +143,6 @@ export default function MinigameTemplate(props) {
         <>
           {!gameStarted && (
             <div>
-              <button onClick={startGame}>start game</button>
               <div>
                 How to play:
                 <ul>
@@ -149,18 +152,24 @@ export default function MinigameTemplate(props) {
                     but watch out, there is a penalty for starting over! (10%
                     loss to current reward level)
                   </li>
-                  <li>if the timer runs out, you lose!</li>
+                  <li>
+                    if your burger matches, your reward increases and you earn
+                    bonus time
+                  </li>
+                  <li>if the timer runs out, it's game over!</li>
+                  <li>you are paid your reward when the game ends</li>
                   <li>
                     in the future, i will add an option to permanently skip this
                     section
                   </li>
                 </ul>
+                <button onClick={startGame}>start game</button>
               </div>
             </div>
           )}
           {gameStarted && (
             <div className="assembly--wrapper">
-              <h1>burger assembly game</h1>
+              <h1>burger assembly challenge</h1>
               <h2>time remaining: {timeRemaining}</h2>
 
               <div>
