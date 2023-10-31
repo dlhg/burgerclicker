@@ -84,7 +84,7 @@ export default function MinigameTemplate(props) {
     const layer1 = toppings[random];
     const layer2 = toppings[random2];
     const layer3 = toppings[random3];
-    burgArr.push(layer1, layer2, "top bun");
+    burgArr.push(layer1, layer2, "topbun");
     setBurgerOrder(burgArr);
   }
   function burgerEqualityCheck() {
@@ -176,7 +176,18 @@ export default function MinigameTemplate(props) {
           <div>your burger: {playerBurger}</div>
           <div>
             <button onClick={() => setPlayerBurger([])}>start over</button>
+            <button
+              onClick={() =>
+                burgerEqualityCheck()
+                  ? setAreBurgersEqual(true)
+                  : setAreBurgersEqual(false)
+              }
+            >
+              send burger
+            </button>
           </div>
+          <br />
+          <div>did the burgers match? {areBurgersEqual.toString()}</div>
 
           {/*
           <h1>template game</h1>
