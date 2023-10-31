@@ -43,13 +43,13 @@ import UpgradeItem from "./components/UpgradeItem";
 import FallingImages from "./components/FallingImages";
 import Quips from "./components/Quips";
 import UpgradeStore from "./components/UpgradeStore";
+import ToopTip from "./components/ToolTip";
+import MinigameTemplate from "./components/MinigameTemplate";
 
 //helper function imports
 
 import { scaleItemPrice } from "./utils/index";
 import { formatNumber } from "./utils/index";
-import ToopTip from "./components/ToolTip";
-import MinigameTemplate from "./components/MinigameTemplate";
 
 function App() {
   //state
