@@ -4,6 +4,7 @@ export default function MinigameTemplate(props) {
   const [hideMinigame, setHideMiniGame] = useState(false);
   const [outcome, setOutcome] = useState("game in progress");
   const [buttonsDisabled, setButtonsDisabled] = useState(false);
+  const [burgerOrder, setBurgerOrder] = useState([]);
 
   function handleWin() {
     props.setBurgerCount((prev) => prev + 1);
@@ -54,11 +55,62 @@ export default function MinigameTemplate(props) {
     }
   }
 
+  function percentChanceForOutcome(percentage, outcomeA, outcomeB) {
+    const random = Math.floor(Math.random() * 100);
+    if (percentage >= random) {
+      outcomeA();
+    } else {
+      outcomeB();
+    }
+  }
+
+  function generateRandomBurger() {
+    const random = Math.floor(Math.random() * 10);
+    const random2 = Math.floor(Math.random() * 10);
+
+    let burgArr = ["bottom bun ", "patty "];
+    const toppings = [
+      "lettuce ",
+      "patty ",
+      "cheese ",
+      "pickles ",
+      "hot peppers ",
+      "ketchup ",
+      "mayo ",
+      "bacon ",
+      "mustard ",
+      "onions ",
+    ];
+    const layer1 = toppings[random];
+    const layer2 = toppings[random2];
+
+    burgArr.push(layer1, layer2, "top bun");
+    setBurgerOrder(burgArr);
+  }
+
   return (
     <>
       {props.showMinigameCondition && !hideMinigame && (
         <>
           <h1>burger assembly game</h1>
+          <button onClick={() => generateRandomBurger()}>
+            generate random burger order
+          </button>
+          <div>{burgerOrder}</div>
+
+          <br />
+          <br />
+          <br />
+          <br />
+          <br />
+          <br />
+          <br />
+          <br />
+          <br />
+          <br />
+          <br />
+          <br />
+          <h1>template game</h1>
           <h1>outcome : {outcome}</h1>
           <button onClick={() => handleWin()} disabled={buttonsDisabled}>
             win
