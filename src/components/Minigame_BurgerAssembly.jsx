@@ -21,7 +21,7 @@ import React, { useState, useEffect } from "react";
 
 export default function MinigameTemplate(props) {
   const [hideMinigame, setHideMiniGame] = useState(false);
-  //   const [outcome, setOutcome] = useState("game in progress");
+
   const [buttonsDisabled, setButtonsDisabled] = useState(false);
   const [burgerOrder, setBurgerOrder] = useState([]);
   const [playerBurger, setPlayerBurger] = useState([]);
@@ -63,7 +63,7 @@ export default function MinigameTemplate(props) {
   function startGame() {
     setGameStarted(true);
     generateRandomBurger();
-    // setOutcome("game in progress");
+
     setButtonsDisabled(false);
     setCorrectStreak(0);
   }
@@ -138,7 +138,13 @@ export default function MinigameTemplate(props) {
   function handleStartOver() {
     let penaltyMultiplier = 0.9;
     setPlayerBurger([]);
-    setReward((prev) => prev * penaltyMultiplier);
+    setTickerText(
+      `whoops! starting that burger over, reward went from ${reward} to ${Math.max(
+        1,
+        Math.floor(reward * penaltyMultiplier)
+      )}`
+    );
+    setReward((prev) => Math.max(1, Math.floor(prev * penaltyMultiplier)));
   }
   return (
     <>
@@ -262,6 +268,8 @@ export default function MinigameTemplate(props) {
               <div>
                 <br />
                 <button onClick={() => handleSend()}>send burger</button>
+                <button onClick={() => handleStartOver()}>start over</button>
+                <br />
                 <button onClick={() => setPlayerBurger(burgerOrder)}>
                   clone order (cheat)
                 </button>
@@ -270,7 +278,7 @@ export default function MinigameTemplate(props) {
                 >
                   +10000s to timer (cheat)
                 </button>
-                <button onClick={() => handleStartOver()}>start over</button>
+                <br />
                 <button onClick={() => props.setMainArea("buildings")}>
                   quit game
                 </button>
@@ -280,7 +288,6 @@ export default function MinigameTemplate(props) {
               <div>current reward: {reward}</div>
               <div>correct streak: {correctStreak}</div>
               <div>time remaining: {timeRemaining}s</div>
-              {/* <div>game outcome: {outcome}</div> */}
             </div>
           )}
         </>
