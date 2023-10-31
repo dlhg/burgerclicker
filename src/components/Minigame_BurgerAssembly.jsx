@@ -26,9 +26,9 @@ export default function MinigameTemplate(props) {
   const [burgerOrder, setBurgerOrder] = useState([]);
   const [playerBurger, setPlayerBurger] = useState([]);
   const [areBurgersEqual, setAreBurgersEqual] = useState("");
-  const [reward, setReward] = useState(0);
+  const [reward, setReward] = useState(10);
   const [correctStreak, setCorrectStreak] = useState(0);
-  const [timeRemaining, setTimeRemaining] = useState(30 - correctStreak);
+  const [timeRemaining, setTimeRemaining] = useState(60 - correctStreak);
   const [gameStarted, setGameStarted] = useState(false);
 
   const [toppings, setToppings] = useState([
@@ -66,8 +66,6 @@ export default function MinigameTemplate(props) {
     setOutcome("game in progress");
     setButtonsDisabled(false);
     setCorrectStreak(0);
-    setReward(0);
-    setTimeRemaining(30 - correctStreak);
   }
 
   function handleLose() {
@@ -113,6 +111,17 @@ export default function MinigameTemplate(props) {
       }
     }
     return true;
+  }
+
+  function handleSend() {
+    // if burger doesn't match
+    if (burgerEqualityCheck() === false) {
+      handleLose();
+    } else {
+      //if burger matches
+      setCorrectStreak((prev) => prev + 1);
+      setReward((prev) => prev * 1.5);
+    }
   }
   return (
     <>
@@ -213,15 +222,7 @@ export default function MinigameTemplate(props) {
               <br />
               <div>your burger: {playerBurger}</div>
               <div>
-                <button
-                  onClick={() =>
-                    burgerEqualityCheck()
-                      ? setAreBurgersEqual(true)
-                      : setAreBurgersEqual(false)
-                  }
-                >
-                  send burger
-                </button>
+                <button onClick={() => handleSend()}>send burger</button>
                 <button onClick={() => setPlayerBurger(burgerOrder)}>
                   clone order (cheat)
                 </button>
@@ -233,6 +234,7 @@ export default function MinigameTemplate(props) {
               <br />
               <div>did the burgers match? {areBurgersEqual.toString()}</div>
               <div>current reward: {reward}</div>
+              <div>correct streak: {correctStreak}</div>
               <div>time remaining: {timeRemaining}s</div>
               <div>game outcome: {outcome}</div>
             </div>
