@@ -129,7 +129,7 @@ export default function MinigameTemplate(props) {
       setTimeRemaining(
         (current) => current + Math.floor(Math.max(5, 20 - correctStreak * 0.5))
       );
-      setTickerText("Great job! Next burger...");
+      setTickerText("Great job! Another order comes in...");
       setPlayerBurger([]);
       generateRandomBurger();
     }
