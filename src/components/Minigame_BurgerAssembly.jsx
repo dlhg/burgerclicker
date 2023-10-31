@@ -72,7 +72,7 @@ export default function MinigameTemplate(props) {
     let countdown = 3; // Initial countdown value
     props.setBurgerCount((prev) => prev + reward);
     setOutcome(
-      `game over! you won ${reward} burgers, back to buildings area in ${countdown} seconds`
+      `game over! you won ${reward} burgers, going back to buildings area in ${countdown} seconds`
     );
 
     const countdownInterval = setInterval(() => {
@@ -84,7 +84,7 @@ export default function MinigameTemplate(props) {
         setButtonsDisabled(false); // Enable buttons after the timeout
       } else {
         setOutcome(
-          `game over! you won ${reward} burgers, back to buildings area in ${countdown} seconds`
+          `game over! you won ${reward} burgers, going back to buildings area in ${countdown} seconds`
         );
       }
     }, 1000); // Update the countdown every second
@@ -124,8 +124,10 @@ export default function MinigameTemplate(props) {
       //if burger matches
       setCorrectStreak((prev) => prev + 1);
       setReward((prev) => Math.floor(prev * 1.5));
-      //gain 20 seconds time for winning (can tweak this in the future)
-      setTimeRemaining((current) => current + 20);
+      //gain time for winning
+      setTimeRemaining(
+        (current) => current + Math.floor(Math.max(5, 20 - correctStreak * 0.5))
+      );
       setPlayerBurger([]);
       generateRandomBurger();
     }
@@ -154,7 +156,7 @@ export default function MinigameTemplate(props) {
                   </li>
                   <li>
                     if your burger matches, your reward increases and you earn
-                    bonus time
+                    bonus time (see handleSend function for logic)
                   </li>
                   <li>if the timer runs out, it's game over!</li>
                   <li>you are paid your reward when the game ends</li>
