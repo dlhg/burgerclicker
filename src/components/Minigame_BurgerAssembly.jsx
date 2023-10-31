@@ -60,7 +60,6 @@ export default function MinigameTemplate(props) {
   }, [gameStarted, timeRemaining]);
 
   function startGame() {
-    console.log(`burger assembly game startGame fired`);
     setGameStarted(true);
     generateRandomBurger();
     setOutcome("game in progress");
@@ -97,7 +96,7 @@ export default function MinigameTemplate(props) {
       burgArr.push(randomTopping);
     }
     burgArr.push("topbun");
-    console.log(burgArr);
+
     setBurgerOrder(burgArr);
   }
 
