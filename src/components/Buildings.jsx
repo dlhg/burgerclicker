@@ -1,106 +1,95 @@
 import React from "react";
+import BuildingRow from "./BuildingRow";
 
 export default function Buildings(props) {
   return (
     <>
       <div id="Buildings--container">
         <div id="Building1" onClick={() => console.log("jazz alert")}>
-          {/*The Math here ensures max array length is 200, since I'm currently not showing players ALL their buildings when they have enough to cover the screen */}
-          {Array.from(
-            { length: Math.min(200, props.pointerCount) },
-            (_, index) => (
-              <div key={index} className="pointer--image">
-                <img src={props.pointerpic} alt={`Pointer ${index + 1}`} />
-              </div>
-            )
-          )}
+          <BuildingRow
+            count={props.pointerCount}
+            pic={props.pointerpic}
+            alt="Pointer"
+            className="pointer--image"
+          />
         </div>
         <button onClick={() => props.setMainArea("minigame")}>
           clicker game
         </button>
+
         <div id="Building2">
-          {Array.from(
-            { length: Math.min(200, props.workerCount) },
-            (_, index) => (
-              <div key={index} className="worker--image">
-                <img src={props.workerpic} alt={`Worker ${index + 1}`} />
-              </div>
-            )
-          )}
+          <BuildingRow
+            count={props.workerCount}
+            pic={props.workerpic}
+            alt="Worker"
+            className="worker--image"
+          />
         </div>
         <button onClick={() => props.setMainArea("minigame")}>
           worker game
         </button>
+
         <div id="Building3">
-          {Array.from(
-            { length: Math.min(200, props.grillCount) },
-            (_, index) => (
-              <div key={index} className="grill--image">
-                <img src={props.grillpic} alt={`Grill ${index + 1}`} />
-              </div>
-            )
-          )}
+          <BuildingRow
+            count={props.grillCount}
+            pic={props.grillpic}
+            alt="Grill"
+            className="grill--image"
+          />
         </div>
 
         <div id="Building4">
-          {Array.from(
-            { length: Math.min(200, props.truckCount) },
-            (_, index) => (
-              <div key={index} className="truck--image">
-                <img src={props.truckpic} alt={`Truck ${index + 1}`} />
-              </div>
-            )
-          )}
+          <BuildingRow
+            count={props.truckCount}
+            pic={props.truckpic}
+            alt="Truck"
+            className="truck--image"
+          />
         </div>
+
         <div id="Building5">
-          {Array.from(
-            { length: Math.min(200, props.bankCount) },
-            (_, index) => (
-              <div key={index} className="bank--image">
-                <img src={props.bankpic} alt={`Bank ${index + 1}`} />
-              </div>
-            )
-          )}
+          <BuildingRow
+            count={props.bankCount}
+            pic={props.bankpic}
+            alt="Bank"
+            className="bank--image"
+          />
         </div>
+
         <div id="Building6">
-          {Array.from(
-            { length: Math.min(200, props.templeCount) },
-            (_, index) => (
-              <div key={index} className="temple--image">
-                <img src={props.templepic} alt={`Temple ${index + 1}`} />
-              </div>
-            )
-          )}
+          <BuildingRow
+            count={props.templeCount}
+            pic={props.templepic}
+            alt="Temple"
+            className="temple--image"
+          />
         </div>
+
         <div id="Building7">
-          {Array.from({ length: Math.min(200, props.labCount) }, (_, index) => (
-            <div key={index} className="lab--image">
-              <img src={props.labpic} alt={`Lab ${index + 1}`} />
-            </div>
-          ))}
+          <BuildingRow
+            count={props.labCount}
+            pic={props.labpic}
+            alt="Lab"
+            className="lab--image"
+          />
         </div>
+
         <div id="Building8">
-          {Array.from(
-            { length: Math.min(200, props.spacecraftCount) },
-            (_, index) => (
-              <div key={index} className="spacecraft--image">
-                <img
-                  src={props.spacecraftpic}
-                  alt={`Spacecraft ${index + 1}`}
-                />
-              </div>
-            )
-          )}
+          <BuildingRow
+            count={props.spacecraftCount}
+            pic={props.spacecraftpic}
+            alt="Spacecraft"
+            className="spacecraft--image"
+          />
         </div>
+
         <div id="Building9">
-          {Array.from(
-            { length: Math.min(200, props.portalCount) },
-            (_, index) => (
-              <div key={index} className="portal--image">
-                <img src={props.portalpic} alt={`Portal ${index + 1}`} />
-              </div>
-            )
-          )}
+          <BuildingRow
+            count={props.portalCount}
+            pic={props.portalpic}
+            alt="Portal"
+            className="portal--image"
+          />
         </div>
       </div>
     </>

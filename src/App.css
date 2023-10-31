@@ -249,11 +249,13 @@ button:hover {
 }
 #Buildings--container > * {
   display: flex;
-  flex-direction: row;
   overflow: hidden;
 }
 
 #Buildings--container img {
+}
+.building--row {
+  display: flex;
 }
 
 /*stats screen*/
