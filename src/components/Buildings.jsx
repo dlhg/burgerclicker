@@ -13,9 +13,11 @@ export default function Buildings(props) {
             className="pointer--image"
           />
         </div>
-        <button onClick={() => props.setMainArea("minigame")}>
-          clicker game
-        </button>
+        {props.pointerCount >= 1 && (
+          <button onClick={() => props.setMainArea("minigame")}>
+            pointer game (unlock by having 1 pointer)
+          </button>
+        )}
 
         <div id="Building2">
           <BuildingRow
@@ -25,9 +27,11 @@ export default function Buildings(props) {
             className="worker--image"
           />
         </div>
-        <button onClick={() => props.setMainArea("minigame")}>
-          worker game
-        </button>
+        {props.workerCount >= 2 && (
+          <button onClick={() => props.setMainArea("minigame")}>
+            worker game (unlock by having 2 workers)
+          </button>
+        )}
 
         <div id="Building3">
           <BuildingRow
