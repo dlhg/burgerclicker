@@ -470,6 +470,10 @@ button:hover {
   background-color: rgb(58, 58, 58);
 }
 
+.assembly--tickerText {
+  color: white;
+}
+
 @media (max-width: 3rem) {
   div {
     background: rgb(169, 169, 135);

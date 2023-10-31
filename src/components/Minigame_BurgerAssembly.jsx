@@ -182,7 +182,9 @@ export default function MinigameTemplate(props) {
               <h1>burger assembly challenge</h1>
               <h2>time remaining: {timeRemaining}</h2>
               <h2>current reward: {reward}</h2>
-              <h2>{tickerText}</h2>
+              <div className="assembly--tickerText">
+                <h2>{tickerText}</h2>
+              </div>
 
               <div>
                 customer's order:{" "}
