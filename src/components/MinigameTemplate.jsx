@@ -31,22 +31,27 @@ import React, { useState } from "react";
 export default function MinigameTemplate(props) {
   const [hideMinigame, setHideMiniGame] = useState(false);
   const [outcome, setOutcome] = useState("game in progress");
+  const [buttonsDisabled, setButtonsDisabled] = useState(false);
 
   function handleWin() {
+    setButtonsDisabled(true); // Disable buttons
     setOutcome("you won!");
     props.setBurgerCount((prev) => prev + 1);
-    // delay before changing the main area
+
     setTimeout(() => {
       props.setMainArea("buildings");
+      setButtonsDisabled(false); // Enable buttons after the timeout
     }, 2000);
   }
 
   function handleLose() {
+    setButtonsDisabled(true); // Disable buttons
     setOutcome("you lost!");
     props.setBurgerCount((prev) => prev - 1);
-    //  delay before changing the main area
+
     setTimeout(() => {
       props.setMainArea("buildings");
+      setButtonsDisabled(false); // Enable buttons after the timeout
     }, 2000);
   }
 
@@ -64,10 +69,22 @@ export default function MinigameTemplate(props) {
       {props.showMinigameCondition && !hideMinigame && (
         <>
           <h1>outcome : {outcome}</h1>
-          <button onClick={() => handleWin()}>win</button>
-          <button onClick={() => handleLose()}>lose</button>
-          <button onClick={() => percentChanceToWin(50)}>50/50 chance</button>
-          <button onClick={() => props.setMainArea("buildings")}>
+          <button onClick={() => handleWin()} disabled={buttonsDisabled}>
+            win
+          </button>
+          <button onClick={() => handleLose()} disabled={buttonsDisabled}>
+            lose
+          </button>
+          <button
+            onClick={() => percentChanceToWin(50)}
+            disabled={buttonsDisabled}
+          >
+            50/50 chance
+          </button>
+          <button
+            onClick={() => props.setMainArea("buildings")}
+            disabled={buttonsDisabled}
+          >
             quit game
           </button>
         </>
