@@ -1,5 +1,6 @@
-import React from "react";
+//should update to look more like a playing card
 
+import React from "react";
 export default function ToopTip(props) {
   const canAfford = props.burgerCount >= props.toolItemCost;
   return (

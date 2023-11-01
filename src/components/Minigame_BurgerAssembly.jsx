@@ -52,9 +52,12 @@ export default function MinigameTemplate(props) {
 
   const [reward, setReward] = useState(10);
   const [correctStreak, setCorrectStreak] = useState(0);
-  const [timeRemaining, setTimeRemaining] = useState(30 - correctStreak);
+  const [timeRemaining, setTimeRemaining] = useState(60 - correctStreak);
   const [gameStarted, setGameStarted] = useState(false);
   const [tickerText, setTickerText] = useState("The first order rolls in...");
+  const [gameDuration, setGameDuration] = useState(0);
+  const [gameDurationWhenBurgerStarted, setGameDurationWhenBurgerStarted] =
+    useState(0);
 
   const [toppings, setToppings] = useState([
     "lettuce",
@@ -69,6 +72,46 @@ export default function MinigameTemplate(props) {
     "onions",
   ]);
 
+  /*
+  update flavor text based on how fast the burger was prepared
+
+  - when generateRandomBurger is called, record the time remaining
+  - when handlesend is called, compare to the recorded time to deduce how long the player took
+  - if less than 4 seconds, update ticker text to a random fast message
+  - if more than 10 seconds, update ticker to a random slow message
+  - else, update ticker to random normal message
+
+  - problem with this approach: it works the first time it's run, but then gives nonsense values after that
+  - probably related to time increminting up?
+  
+
+
+
+
+  */
+
+  const finishedBurgerFast = [
+    "Wow that was fast! On to the next burger...",
+    "Lightning quick! Another order coming in...",
+    "Burger delivered in record time! Ready for the next one...",
+    "Speedy service! More burgers to conquer...",
+    "Fast and flawless! What's the next burger challenge?",
+  ];
+
+  const finishedBurgerNormal = [
+    "Nice work! On to the next order...",
+    "The customer loved it! Time for the next order...",
+    "Good job! Next order coming up...",
+    "Excellent! Another order coming in...",
+  ];
+
+  const finishedBurgerSlow = [
+    "Hurry up! Another order coming in...",
+    "Pick up the pace! Another order coming in...",
+    "Stay sharp! New order coming in...",
+    "Time is of the essence! Another order coming up...",
+  ];
+
   useEffect(() => {
     let timer;
     if (timeRemaining === 0) {
@@ -78,6 +121,7 @@ export default function MinigameTemplate(props) {
     if (gameStarted && timeRemaining > 0) {
       timer = setInterval(() => {
         setTimeRemaining((prev) => prev - 1);
+        setGameDuration((prev) => prev + 1);
       }, 1000);
     }
 
@@ -116,6 +160,7 @@ export default function MinigameTemplate(props) {
   }
 
   function generateRandomBurger() {
+    setGameDurationWhenBurgerStarted(gameDuration);
     const getRandomTopping = () =>
       toppings[Math.floor(Math.random() * toppings.length)];
 
@@ -126,6 +171,7 @@ export default function MinigameTemplate(props) {
     }
     burgArr.push("topbun");
 
+    console.log(`game duration = ${gameDuration.toString()}`);
     setBurgerOrder(burgArr);
   }
 
@@ -147,13 +193,42 @@ export default function MinigameTemplate(props) {
       handleLose();
     } else {
       //if burger matches
+      // determine ticker text bases on how fast it was assembled:
+      const timeToCompleteBurger = gameDuration - gameDurationWhenBurgerStarted;
+
+      console.log(`this burger was completed in ${timeToCompleteBurger}s`);
+
+      if (timeToCompleteBurger >= 10) {
+        setTickerText(
+          finishedBurgerSlow[
+            Math.floor(Math.random() * finishedBurgerSlow.length)
+          ]
+        );
+      }
+      if (timeToCompleteBurger < 10 && timeToCompleteBurger >= 5) {
+        setTickerText(
+          finishedBurgerNormal[
+            Math.floor(Math.random() * finishedBurgerNormal.length)
+          ]
+        );
+      }
+      if (timeToCompleteBurger < 5) {
+        setTickerText(
+          finishedBurgerFast[
+            Math.floor(Math.random() * finishedBurgerFast.length)
+          ]
+        );
+      }
+      //increment Correct Streak and reward
       setCorrectStreak((prev) => prev + 1);
       setReward((prev) => Math.floor(prev * 1.5));
       //gain time for winning
       setTimeRemaining(
         (current) => current + Math.floor(Math.max(5, 20 - correctStreak * 0.5))
       );
-      setTickerText("Great job! Another order comes in...");
+
+      // setTickerText("Great job! Another order comes in...");
+
       setPlayerBurger([]);
       generateRandomBurger();
     }
@@ -203,8 +278,15 @@ export default function MinigameTemplate(props) {
           )}
           {gameStarted && (
             <div className="assembly--wrapper">
-              <div className="assembly--navbar"> </div>
+              {/* <div className="assembly--navbar"> </div> */}
+              <div className="assembly--tickerText">
+                <h2>{tickerText}</h2>
+              </div>
               <Tickets />
+              <div>this is where you see your burger being assembled</div>
+              <div>
+                two column grid with order on left and your burger on right
+              </div>
               <div className="ingredient--buttons">
                 <button
                   onClick={() =>
@@ -302,15 +384,11 @@ export default function MinigameTemplate(props) {
                       : "none",
                 }}
               >
-                Time Remaining: {timeRemaining}
+                Time: {timeRemaining}s
               </h2>
               <h2>reward: {reward}</h2>
 
-              <div className="assembly--tickerText">
-                <h2>{tickerText}</h2>
-              </div>
-
-              <div>
+              <div className="customer--order">
                 customer's order:{" "}
                 {burgerOrder.map((layer) => (
                   <div>{layer}</div>

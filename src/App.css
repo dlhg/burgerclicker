@@ -478,6 +478,7 @@ button:hover {
 
 .assembly--tickerText {
   color: white;
+  text-align: center;
 }
 
 .tickets--container {
