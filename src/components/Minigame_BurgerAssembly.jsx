@@ -58,6 +58,7 @@ export default function MinigameTemplate(props) {
   const [gameDuration, setGameDuration] = useState(0);
   const [gameDurationWhenBurgerStarted, setGameDurationWhenBurgerStarted] =
     useState(0);
+  const [burgerCreationTimes, setBurgerCreationTimes] = useState([]);
 
   const [toppings, setToppings] = useState([
     "lettuce",
@@ -72,6 +73,13 @@ export default function MinigameTemplate(props) {
     "onions",
   ]);
 
+  /*
+now that we're capturing burger creation time, we can:
+  - create an array tracking each burger creation time
+  - give special rewards and sfx, animations etc for a streak of fast burgers (similar to quake - double kill, multi kill, mega kill, ultra kill, monster kill etc)
+  - display this info to the player somehow
+
+*/
   const finishedBurgerFast = [
     "Wow that was fast! On to the next burger...",
     "Lightning quick! Another order coming in...",
@@ -177,6 +185,8 @@ export default function MinigameTemplate(props) {
       //if burger matches
       // determine ticker text bases on how fast it was assembled:
       const timeToCompleteBurger = gameDuration - gameDurationWhenBurgerStarted;
+      setBurgerCreationTimes([...burgerCreationTimes, timeToCompleteBurger]);
+      console.log(burgerCreationTimes);
 
       console.log(`this burger was completed in ${timeToCompleteBurger}s`);
 
@@ -208,8 +218,6 @@ export default function MinigameTemplate(props) {
       setTimeRemaining(
         (current) => current + Math.floor(Math.max(5, 20 - correctStreak * 0.5))
       );
-
-      // setTickerText("Great job! Another order comes in...");
 
       setPlayerBurger([]);
       generateRandomBurger();
@@ -415,78 +423,3 @@ export default function MinigameTemplate(props) {
     </>
   );
 }
-{
-  /*
-          <h1>template game</h1>
-          <h1>outcome : {outcome}</h1>
-          <button onClick={() => handleWin()} disabled={buttonsDisabled}>
-            win
-          </button>
-          <button onClick={() => handleLose()} disabled={buttonsDisabled}>
-            lose
-          </button>
-          <button
-            onClick={() => percentChanceToWin(50)}
-            disabled={buttonsDisabled}
-          >
-            50/50 chance
-          </button>
-        */
-}
-
-// function handleWin() {
-//     props.setBurgerCount((prev) => prev + 1);
-//     setButtonsDisabled(true); // Disable buttons
-//     let countdown = 3; // Initial countdown value
-
-//     setOutcome(`you won! going back to buildings area in ${countdown} seconds`);
-
-//     const countdownInterval = setInterval(() => {
-//       countdown -= 1;
-
-//       if (countdown < 0) {
-//         clearInterval(countdownInterval); // Stop the interval when countdown reaches 0
-//         props.setMainArea("buildings");
-//         setButtonsDisabled(false); // Enable buttons after the timeout
-//       } else {
-//         setOutcome(
-//           `you won! going back to buildings area in ${countdown} seconds`
-//         );
-//       }
-//     }, 1000); // Update the countdown every second
-//   }
-//   function handleLose() {
-//     props.setBurgerCount((prev) => prev - 1);
-//     setButtonsDisabled(true); // Disable buttons
-//     let countdown = 3; // Initial countdown value
-
-//     setOutcome(`you lost! back to buildings area in ${countdown} seconds`);
-
-//     const countdownInterval = setInterval(() => {
-//       countdown -= 1;
-
-//       if (countdown < 0) {
-//         clearInterval(countdownInterval); // Stop the interval when countdown reaches 0
-//         props.setMainArea("buildings");
-//         setButtonsDisabled(false); // Enable buttons after the timeout
-//       } else {
-//         setOutcome(`you lost! back to buildings area in ${countdown} seconds`);
-//       }
-//     }, 1000); // Update the countdown every second
-//   }
-//   function percentChanceToWin(percentage) {
-//     const random = Math.floor(Math.random() * 100);
-//     if (percentage >= random) {
-//       handleWin();
-//     } else {
-//       handleLose();
-//     }
-//   }
-//   function percentChanceForOutcome(percentage, outcomeA, outcomeB) {
-//     const random = Math.floor(Math.random() * 100);
-//     if (percentage >= random) {
-//       outcomeA();
-//     } else {
-//       outcomeB();
-//     }
-//   }
