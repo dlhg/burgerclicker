@@ -1,6 +1,8 @@
 /*
-burger layer assets except for pickles and condiments taken from https://www.moaw.art/post/for-the-burger-looper
+burger layer assets except for bacon, peppers, pickles and condiments taken from https://www.moaw.art/post/for-the-burger-looper
 replace these later on if releasing this game
+bacon from https://webstockreview.net/pict/getfirst
+pickles is heavily modified onion from first source
 /*
   gameplay loop:
   - once the player presses start game, a random burger is generated
@@ -33,6 +35,7 @@ import meltycheesepic from "../assets/images/minigames/assembly/meltycheese.png"
 import onionpic from "../assets/images/minigames/assembly/onion.png";
 import picklespic from "../assets/images/minigames/assembly/pickles.png";
 import tomatopic from "../assets/images/minigames/assembly/tomato.png";
+import baconpic from "../assets/images/minigames/assembly/bacon.png";
 import topbunpic from "../assets/images/minigames/assembly/topbun.png";
 
 import Tickets from "./Minigames/Tickets";
@@ -55,7 +58,7 @@ export default function MinigameTemplate(props) {
     "patty",
     "cheese",
     "pickles",
-    "hotpeppers",
+    "tomato",
     "ketchup",
     "mayo",
     "bacon",
@@ -230,63 +233,85 @@ export default function MinigameTemplate(props) {
                     setPlayerBurger([...playerBurger, "bottombun"])
                   }
                 >
+                  bottom bun
+                  <br />
                   <img src={bottombunpic}></img>
                 </button>
                 <button
                   onClick={() => setPlayerBurger([...playerBurger, "patty"])}
                 >
+                  patty
+                  <br />
                   <img src={cookedpattypic}></img>
                 </button>
                 <button
                   onClick={() => setPlayerBurger([...playerBurger, "lettuce"])}
                 >
+                  lettuce
+                  <br />
                   <img src={lettucepic}></img>
+                </button>
+                <button
+                  onClick={() => setPlayerBurger([...playerBurger, "tomato"])}
+                >
+                  tomato
+                  <br />
+                  <img src={tomatopic}></img>
                 </button>
                 <button
                   onClick={() => setPlayerBurger([...playerBurger, "cheese"])}
                 >
+                  cheese
+                  <br />
                   <img src={meltycheesepic}></img>
                 </button>
                 <button
                   onClick={() => setPlayerBurger([...playerBurger, "pickles"])}
                 >
+                  pickles
+                  <br />
                   <img src={picklespic}></img>
-                </button>
-                <button
-                  onClick={() =>
-                    setPlayerBurger([...playerBurger, "hotpeppers"])
-                  }
-                >
-                  hot peppers
                 </button>
                 <button
                   onClick={() => setPlayerBurger([...playerBurger, "bacon"])}
                 >
                   bacon
+                  <br />
+                  <img src={baconpic}></img>
                 </button>
                 <button
                   onClick={() => setPlayerBurger([...playerBurger, "onions"])}
                 >
+                  onions
+                  <br />
                   <img src={onionpic}></img>
                 </button>
                 <button
                   onClick={() => setPlayerBurger([...playerBurger, "mayo"])}
                 >
+                  mayo
+                  <br />
                   <img src={mayopic}></img>
                 </button>
                 <button
                   onClick={() => setPlayerBurger([...playerBurger, "mustard"])}
                 >
+                  mustard
+                  <br />
                   <img src={mustardpic}></img>
                 </button>
                 <button
                   onClick={() => setPlayerBurger([...playerBurger, "ketchup"])}
                 >
+                  ketchup
+                  <br />
                   <img src={ketchuppic}></img>
                 </button>
                 <button
                   onClick={() => setPlayerBurger([...playerBurger, "topbun"])}
                 >
+                  top bun
+                  <br />
                   <img src={topbunpic}></img>
                 </button>
               </div>

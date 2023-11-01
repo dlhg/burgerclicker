@@ -502,4 +502,5 @@ button:hover {
 
 .ingredient--buttons img {
   max-width: 2rem;
+  min-height: 2rem;
 }
