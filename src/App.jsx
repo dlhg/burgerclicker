@@ -5,7 +5,7 @@ import "./App.css";
 import { useState, useEffect } from "react";
 //import useSound from "use-sound";
 
-//image import - removve bg tool @ https://www.remove.bg/
+//image import
 import burgerpic from "./assets/images/transparentburger.png";
 
 import transparentburger_smallpic from "./assets/images/transparentburger_small.png";
