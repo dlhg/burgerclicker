@@ -22,8 +22,8 @@ import React, { useState, useEffect } from "react";
 import ticketholderpic from "../assets/images/minigames/assembly/ticketholder.png";
 import ticket1pic from "../assets/images/minigames/assembly/ticket1.png";
 import ticket2pic from "../assets/images/minigames/assembly/ticket2.png";
-import ticket2pic from "../assets/images/minigames/assembly/ticket3.png";
-import ticket2pic from "../assets/images/minigames/assembly/ticket4.png";
+import ticket3pic from "../assets/images/minigames/assembly/ticket3.png";
+import ticket4pic from "../assets/images/minigames/assembly/ticket4.png";
 
 export default function MinigameTemplate(props) {
   const [hideMinigame, setHideMiniGame] = useState(false);
