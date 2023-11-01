@@ -494,3 +494,12 @@ button:hover {
   justify-content: center;
   align-items: center;
 }
+
+.ingredient--buttons {
+  display: flex;
+  flex-direction: row;
+}
+
+.ingredient--buttons img {
+  max-width: 2rem;
+}

@@ -199,26 +199,28 @@ function App() {
             img={transparentburger_smallpic}
           />
         </div>
-        <div className="div2">
-          <div className="navbar">
-            <div className="navbar--left">
-              <button onClick={() => setMainArea("options")}>options</button>
-              <button onClick={() => setMainArea("stats")}>stats</button>
-              <button onClick={() => setMainArea("info")}>info</button>
-            </div>
-            <div className="navbar--center">
-              <Quips currentQuipLevel={currentQuipLevel} />
-            </div>
-            <div className="navbar--right">
-              <button onClick={() => setMainArea("legacy")}>legacy</button>
+        {mainArea !== "minigame--burger--assembly" && (
+          <div className="div2">
+            <div className="navbar">
+              <div className="navbar--left">
+                <button onClick={() => setMainArea("options")}>options</button>
+                <button onClick={() => setMainArea("stats")}>stats</button>
+                <button onClick={() => setMainArea("info")}>info</button>
+              </div>
+              <div className="navbar--center">
+                <Quips currentQuipLevel={currentQuipLevel} />
+              </div>
+              <div className="navbar--right">
+                <button onClick={() => setMainArea("legacy")}>legacy</button>
 
-              <button onClick={() => setMainArea("buildings")}>game</button>
-              <button onClick={() => setMainArea("testconsole")}>
-                console
-              </button>
+                <button onClick={() => setMainArea("buildings")}>game</button>
+                <button onClick={() => setMainArea("testconsole")}>
+                  console
+                </button>
+              </div>
             </div>
           </div>
-        </div>
+        )}
         <div className="div3" id="gamearea">
           {mainArea === "buildings" && (
             <>
