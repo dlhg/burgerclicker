@@ -72,24 +72,6 @@ export default function MinigameTemplate(props) {
     "onions",
   ]);
 
-  /*
-  update flavor text based on how fast the burger was prepared
-
-  - when generateRandomBurger is called, record the time remaining
-  - when handlesend is called, compare to the recorded time to deduce how long the player took
-  - if less than 4 seconds, update ticker text to a random fast message
-  - if more than 10 seconds, update ticker to a random slow message
-  - else, update ticker to random normal message
-
-  - problem with this approach: it works the first time it's run, but then gives nonsense values after that
-  - probably related to time increminting up?
-  
-
-
-
-
-  */
-
   const finishedBurgerFast = [
     "Wow that was fast! On to the next burger...",
     "Lightning quick! Another order coming in...",
