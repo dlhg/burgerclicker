@@ -1,3 +1,8 @@
+/* @media (max-width: 3rem) {
+  div {
+    background: rgb(169, 169, 135);
+  }
+} */
 @font-face {
   font-family: pixelfont;
   src: url(./assets/font/calibration-gothic-nbp-latin-font/CalibrationGothicNbpLatin-rYmy.ttf);
@@ -466,6 +471,7 @@ button:hover {
   cursor: url(./assets/images/pointer_transparent.png), pointer;
 }
 
+/* assembly minigame */
 .assembly--wrapper button {
   background-color: rgb(58, 58, 58);
 }
@@ -474,8 +480,26 @@ button:hover {
   color: white;
 }
 
-@media (max-width: 3rem) {
-  div {
-    background: rgb(169, 169, 135);
-  }
+.tickets--container {
+  /* Add any other styles for the overall container if needed */
+}
+
+.ticket--holder--container {
+  /* Add any styles for the container holding the ticket images */
+}
+
+.ticket--holder--image {
+  position: relative;
+}
+
+.ticket--holder--image > * {
+  /* Set consistent properties for child elements */
+  max-width: 75%;
+  position: absolute;
+  top: 0;
+  right: 0;
+  margin-left: 30%;
+}
+
+.ticket--images {
 }

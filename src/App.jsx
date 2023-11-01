@@ -285,7 +285,7 @@ function App() {
           {mainArea === "minigame--burger--assembly" && (
             <Minigame_BurgerAssembly
               totalBurgersProducedUnformatted={totalBurgersProducedUnformatted}
-              showMinigameCondition={totalBurgersProducedUnformatted >= 0}
+              showMinigameCondition={totalBurgersProducedUnformatted >= }
               setMainArea={setMainArea}
               setBurgerCount={setBurgerCount}
             />

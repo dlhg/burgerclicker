@@ -25,6 +25,8 @@ import ticket2pic from "../assets/images/minigames/assembly/ticket2.png";
 import ticket3pic from "../assets/images/minigames/assembly/ticket3.png";
 import ticket4pic from "../assets/images/minigames/assembly/ticket4.png";
 
+import Tickets from "./Minigames/Tickets";
+
 export default function MinigameTemplate(props) {
   const [hideMinigame, setHideMiniGame] = useState(false);
 
@@ -185,9 +187,18 @@ export default function MinigameTemplate(props) {
           )}
           {gameStarted && (
             <div className="assembly--wrapper">
-              <h1>burger assembly challenge</h1>
-              <h2>time remaining: {timeRemaining}</h2>
+              <Tickets />
+
+              <h2 style={{ color: timeRemaining <= 5 ? "red" : "inherit" }}>
+                time: {timeRemaining}s
+              </h2>
               <h2>current reward: {reward}</h2>
+              <br />
+              <br />
+              <br />
+              <br />
+              <br />
+              <br />
               <div className="assembly--tickerText">
                 <h2>{tickerText}</h2>
               </div>
