@@ -24,6 +24,9 @@ pickles is heavily modified onion from first source
 
 import React, { useState, useEffect } from "react";
 
+//pics
+import customerpic from "../assets/images/minigames/assembly/customereating.gif";
+
 //ingredient pics
 import bottombunpic from "../assets/images/minigames/assembly/bottombun.png";
 import cookedpattypic from "../assets/images/minigames/assembly/cookedpatty.png";
@@ -200,34 +203,9 @@ export default function MinigameTemplate(props) {
           )}
           {gameStarted && (
             <div className="assembly--wrapper">
+              <div className="assembly--navbar"> </div>
               <Tickets />
-
-              <h2
-                style={{
-                  color: timeRemaining <= 5 ? "red" : "lightgreen",
-                  animation:
-                    timeRemaining <= 5 && timeRemaining !== 0
-                      ? "slightwobble 1s infinite"
-                      : "none",
-                }}
-              >
-                Time Remaining: {timeRemaining}
-              </h2>
-              <h2>reward: {reward}</h2>
-
-              <div className="assembly--tickerText">
-                <h2>{tickerText}</h2>
-              </div>
-
-              <div>
-                customer's order:{" "}
-                {burgerOrder.map((layer) => (
-                  <div>{layer}</div>
-                ))}
-              </div>
-              <br />
               <div className="ingredient--buttons">
-                create burger:
                 <button
                   onClick={() =>
                     setPlayerBurger([...playerBurger, "bottombun"])
@@ -315,6 +293,31 @@ export default function MinigameTemplate(props) {
                   <img src={topbunpic}></img>
                 </button>
               </div>
+              <h2
+                style={{
+                  color: timeRemaining <= 5 ? "red" : "lightgreen",
+                  animation:
+                    timeRemaining <= 5 && timeRemaining !== 0
+                      ? "slightwobble 1s infinite"
+                      : "none",
+                }}
+              >
+                Time Remaining: {timeRemaining}
+              </h2>
+              <h2>reward: {reward}</h2>
+
+              <div className="assembly--tickerText">
+                <h2>{tickerText}</h2>
+              </div>
+
+              <div>
+                customer's order:{" "}
+                {burgerOrder.map((layer) => (
+                  <div>{layer}</div>
+                ))}
+              </div>
+              <br />
+
               <br />
               <div>
                 your burger:{" "}

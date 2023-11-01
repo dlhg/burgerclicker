@@ -498,9 +498,19 @@ button:hover {
 .ingredient--buttons {
   display: flex;
   flex-direction: row;
+  justify-content: center; /* Horizontally center the content */
+  align-items: center; /* Vertically center the content */
+}
+
+.ingredient--buttons > * {
 }
 
 .ingredient--buttons img {
   max-width: 2rem;
   min-height: 2rem;
+}
+
+.assembly--navbar {
+}
+.assembly--navbar button {
 }
