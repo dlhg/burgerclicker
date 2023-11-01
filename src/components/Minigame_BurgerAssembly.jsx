@@ -201,12 +201,7 @@ export default function MinigameTemplate(props) {
                 Time Remaining: {timeRemaining}
               </h2>
               <h2>reward: {reward}</h2>
-              <br />
-              <br />
-              <br />
-              <br />
-              <br />
-              <br />
+
               <div className="assembly--tickerText">
                 <h2>{tickerText}</h2>
               </div>

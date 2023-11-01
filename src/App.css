@@ -490,16 +490,7 @@ button:hover {
 
 .ticket--holder--image {
   position: relative;
-}
-
-.ticket--holder--image > * {
-  /* Set consistent properties for child elements */
-  max-width: 75%;
-  position: absolute;
-  top: 0;
-  right: 0;
-  margin-left: 30%;
-}
-
-.ticket--images {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
