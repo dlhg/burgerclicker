@@ -189,10 +189,18 @@ export default function MinigameTemplate(props) {
             <div className="assembly--wrapper">
               <Tickets />
 
-              <h2 style={{ color: timeRemaining <= 5 ? "red" : "inherit" }}>
-                time: {timeRemaining}s
+              <h2
+                style={{
+                  color: timeRemaining <= 5 ? "red" : "lightgreen",
+                  animation:
+                    timeRemaining <= 5 && timeRemaining !== 0
+                      ? "slightwobble 1s infinite"
+                      : "none",
+                }}
+              >
+                Time Remaining: {timeRemaining}
               </h2>
-              <h2>current reward: {reward}</h2>
+              <h2>reward: {reward}</h2>
               <br />
               <br />
               <br />
