@@ -419,14 +419,15 @@ now that we're capturing burger creation time, we can:
                 <br />
                 assembly times: {burgerCreationTimes}
                 <br />
+                <h2>cheat/test console</h2>
                 <button onClick={() => setPlayerBurger(burgerOrder)}>
-                  cheat
+                  clone order
                 </button>
                 <button onClick={() => handleSend()}>serve</button>
                 <button
                   onClick={() => setTimeRemaining((prev) => prev + 10000)}
                 >
-                  +time
+                  +10000s to clock
                 </button>
               </div>
             </div>
