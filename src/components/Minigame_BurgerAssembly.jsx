@@ -32,12 +32,12 @@ import rushworkerpic from "../assets/images/minigames/assembly/rushworker.png";
 
 //ingredient pics
 import bottombunpic from "../assets/images/minigames/assembly/bottombun.png";
-import cookedpattypic from "../assets/images/minigames/assembly/cookedpatty.png";
+import cookedpattypic from "../assets/images/minigames/assembly/patty.png";
 import ketchuppic from "../assets/images/minigames/assembly/ketchup.png";
 import mustardpic from "../assets/images/minigames/assembly/mustard.png";
 import lettucepic from "../assets/images/minigames/assembly/lettuce.png";
 import mayopic from "../assets/images/minigames/assembly/mayo.png";
-import meltycheesepic from "../assets/images/minigames/assembly/meltycheese.png";
+import meltycheesepic from "../assets/images/minigames/assembly/cheese.png";
 import onionpic from "../assets/images/minigames/assembly/onion.png";
 import picklespic from "../assets/images/minigames/assembly/pickles.png";
 import tomatopic from "../assets/images/minigames/assembly/tomato.png";
@@ -73,7 +73,7 @@ export default function MinigameTemplate(props) {
     "mayo",
     "bacon",
     "mustard",
-    "onions",
+    "onion",
   ]);
 
   // 7s or less is fast, 14s or more is slow
@@ -336,7 +336,25 @@ now that we're capturing burger creation time, we can:
                       <div>{layer}</div>
                     ))}
                   </div>
-                  <div className="your--burger--image">BURGER IMG HERE</div>
+                  <div className="your--burger--image">
+                    <br />
+                    <br />
+                    {playerBurger.map((layer, index) => {
+                      const picname =
+                        "/src/assets/images/minigames/assembly/" +
+                        layer +
+                        ".png";
+                      console.log(picname);
+                      return (
+                        <div key={Math.random() * 100000000000}>
+                          <img
+                            src={picname}
+                            style={{ bottom: `calc(2rem + 0.5rem * ${index})` }}
+                          />
+                        </div>
+                      );
+                    })}
+                  </div>
                 </div>
               </div>
 
@@ -394,9 +412,9 @@ now that we're capturing burger creation time, we can:
                   <img src={baconpic}></img>
                 </button>
                 <button
-                  onClick={() => setPlayerBurger([...playerBurger, "onions"])}
+                  onClick={() => setPlayerBurger([...playerBurger, "onion"])}
                 >
-                  onions
+                  onion
                   <br />
                   <img src={onionpic}></img>
                 </button>

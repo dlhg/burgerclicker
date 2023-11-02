@@ -562,4 +562,12 @@ button:hover {
 }
 .your--burger--image {
   grid-area: 1 / 2 / 2 / 3;
+  position: relative;
+}
+
+.your--burger--image img {
+  position: absolute;
+  margin-top: 1rem;
+  width: 10rem;
+  height: 10rem;
 }
