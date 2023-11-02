@@ -24,7 +24,6 @@ rushing employee in How to play section is AI gen
     - set ticker text based on how fast the player assembled the burger
     - start a new round
   */
-// add a condition so that if mainArea === minigame--burger--assembly, div3 starts at row 1 of the css grid instead of row
 
 import React, { useState, useEffect } from "react";
 
@@ -224,7 +223,7 @@ now that we're capturing burger creation time, we can:
       setReward((prev) => Math.floor(prev * 1.5));
       //gain time for winning
       setTimeRemaining(
-        (current) => current + Math.floor(Math.max(5, 20 - correctStreak * 0.5))
+        (current) => current + Math.floor(Math.max(5, 10 - correctStreak * 0.5))
       );
 
       setPlayerBurger([]);
