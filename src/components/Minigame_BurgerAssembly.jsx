@@ -278,6 +278,7 @@ now that we're capturing burger creation time, we can:
                 two column grid with order on left and your burger on right
               </div>
               <div className="ingredient--buttons">
+                <button onClick={() => handleStartOver()}>start over</button>
                 <button
                   onClick={() =>
                     setPlayerBurger([...playerBurger, "bottombun"])
@@ -364,6 +365,15 @@ now that we're capturing burger creation time, we can:
                   <br />
                   <img src={topbunpic}></img>
                 </button>
+                <button onClick={() => handleSend()}>send burger</button>
+                <button onClick={() => setPlayerBurger(burgerOrder)}>
+                  cheat
+                </button>
+                <button
+                  onClick={() => setTimeRemaining((prev) => prev + 10000)}
+                >
+                  +timer
+                </button>
               </div>
               <h2
                 style={{
@@ -395,17 +405,9 @@ now that we're capturing burger creation time, we can:
               </div>
               <div>
                 <br />
-                <button onClick={() => handleSend()}>send burger</button>
-                <button onClick={() => handleStartOver()}>start over</button>
+
                 <br />
-                <button onClick={() => setPlayerBurger(burgerOrder)}>
-                  clone order (cheat)
-                </button>
-                <button
-                  onClick={() => setTimeRemaining((prev) => prev + 10000)}
-                >
-                  +10000s to timer (cheat)
-                </button>
+
                 <br />
                 <button onClick={() => props.setMainArea("buildings")}>
                   quit game
