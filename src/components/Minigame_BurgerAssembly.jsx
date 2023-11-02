@@ -259,9 +259,9 @@ now that we're capturing burger creation time, we can:
                 <ul>
                   <li>assemble the burger to match the order</li>
                   <li>
-                    send when complete, or start over if you made a mistake -
-                    but watch out, there is a penalty for starting over! (10%
-                    loss to current reward level)
+                    serve the burger when done, or start over if you made a
+                    mistake - but watch out, there is a penalty for starting
+                    over! (10% loss to current reward level)
                   </li>
                   <li>
                     if your burger matches, your reward increases and you earn
