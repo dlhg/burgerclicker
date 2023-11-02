@@ -302,7 +302,7 @@ now that we're capturing burger creation time, we can:
                 id="quit--assembly--button"
                 onClick={() => props.setMainArea("buildings")}
               >
-                quit game
+                quit minigame
               </button>
 
               {/* <Tickets /> */}
