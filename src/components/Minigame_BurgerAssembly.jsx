@@ -248,7 +248,7 @@ now that we're capturing burger creation time, we can:
         <>
           {!gameStarted && (
             <div>
-              <div>
+              <div style={{ fontSize: "2rem" }}>
                 How to play:
                 <ul>
                   <li>assemble the burger to match the order</li>
@@ -268,7 +268,12 @@ now that we're capturing burger creation time, we can:
                     section
                   </li>
                 </ul>
-                <button onClick={startGame}>start game</button>
+                <button
+                  onClick={startGame}
+                  style={{ width: "100%", fontSize: "5rem" }}
+                >
+                  start game
+                </button>
               </div>
             </div>
           )}
