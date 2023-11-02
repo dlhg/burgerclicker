@@ -99,7 +99,7 @@ function App() {
 
   //useEffect
 
-  /*determine quip level*/
+  /* this effect is kind of brute force-y, there is probably a more elegant way to do this that doesn't involve running the effect every single time burg count is changed*/
   useEffect(() => {
     if (totalBurgersProducedUnformatted === 1) {
       setCurrentQuipLevel(1);
@@ -170,19 +170,6 @@ function App() {
     );
   }, [burgersMadeFromClicking, burgersMadeFromAutomation]);
 
-  const setMainAreaGrid = () => {
-    // Update the state with the new grid-area value
-    setMainAreaGridArea("1 / 2 / 11 / 5");
-  };
-
-  useEffect(() => {
-    // Check if mainArea is "minigame--burger--assembly"
-    if (mainArea === "minigame--burger--assembly") {
-      // Update the state to trigger a re-render with the new grid-area
-      setMainAreaGrid();
-    }
-  }, [mainArea]); // Dependency array ensures this effect runs when mainArea changes
-
   //const [playBorgirSound] = useSound(borgir);
 
   return (
@@ -234,7 +221,7 @@ function App() {
             </div>
           </div>
         )}
-        <div className={mainArea === "minigame--burger--assembly" ? } id="gamearea">
+        <div className={"div3"} id="gamearea">
           {mainArea === "buildings" && (
             <>
               <UpgradeStore
