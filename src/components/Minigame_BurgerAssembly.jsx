@@ -75,7 +75,7 @@ export default function MinigameTemplate(props) {
 
   /*
 now that we're capturing burger creation time, we can:
-  - create an array tracking each burger creation time
+  - create an array tracking each burger creation time (done, state variable burgerCreationTimes)
   - give special rewards and sfx, animations etc for a streak of fast burgers (similar to quake - double kill, multi kill, mega kill, ultra kill, monster kill etc)
   - display this info to the player somehow
 
@@ -414,7 +414,7 @@ now that we're capturing burger creation time, we can:
               <br />
 
               <div>current reward: {reward}</div>
-              <div>correct streak: {correctStreak}</div>
+              <div>burgers served: {correctStreak}</div>
               <div>time remaining: {timeRemaining}s</div>
             </div>
           )}
