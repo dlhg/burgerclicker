@@ -269,6 +269,12 @@ now that we're capturing burger creation time, we can:
           {gameStarted && (
             <div className="assembly--wrapper">
               {/* <div className="assembly--navbar"> </div> */}
+              <button
+                id="quit--assembly--button"
+                onClick={() => props.setMainArea("buildings")}
+              >
+                quit game
+              </button>
               <div className="assembly--tickerText">
                 <h2>{tickerText}</h2>
               </div>
@@ -286,19 +292,21 @@ now that we're capturing burger creation time, we can:
                   Time: {timeRemaining}s
                 </h2>
               </div>
+              <div className="orders--container">
+                <div className="customer--order">
+                  customer's order:{" "}
+                  {burgerOrder.map((layer) => (
+                    <div>{layer}</div>
+                  ))}
+                </div>
+                <div className="your--burger">
+                  your burger:{" "}
+                  {playerBurger.map((layer) => (
+                    <div>{layer}</div>
+                  ))}
+                </div>
+              </div>
 
-              <div className="customer--order">
-                customer's order:{" "}
-                {burgerOrder.map((layer) => (
-                  <div>{layer}</div>
-                ))}
-              </div>
-              <div>
-                your burger:{" "}
-                {playerBurger.map((layer) => (
-                  <div>{layer}</div>
-                ))}
-              </div>
               <div className="ingredient--buttons">
                 <button onClick={() => handleStartOver()}>start over</button>
                 <button
@@ -410,15 +418,10 @@ now that we're capturing burger creation time, we can:
                 <br />
 
                 <br />
-                <button onClick={() => props.setMainArea("buildings")}>
-                  quit game
-                </button>
               </div>
               <br />
 
-              <div>current reward: {reward}</div>
               <div>burgers served: {correctStreak}</div>
-              <div>time remaining: {timeRemaining}s</div>
             </div>
           )}
         </>

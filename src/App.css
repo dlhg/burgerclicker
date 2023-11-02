@@ -519,3 +519,15 @@ button:hover {
 .time--remaining {
   text-align: center;
 }
+.orders--container {
+  display: flex;
+  justify-content: space-evenly;
+}
+.orders--container > * {
+}
+
+#quit--assembly--button {
+  position: relative;
+  top: 0;
+  right: 0;
+}
