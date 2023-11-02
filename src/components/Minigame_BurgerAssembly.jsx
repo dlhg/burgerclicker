@@ -56,7 +56,7 @@ export default function MinigameTemplate(props) {
 
   const [reward, setReward] = useState(10);
   const [correctStreak, setCorrectStreak] = useState(0);
-  const [timeRemaining, setTimeRemaining] = useState(30 - correctStreak);
+  const [timeRemaining, setTimeRemaining] = useState(30);
   const [gameStarted, setGameStarted] = useState(false);
   const [tickerText, setTickerText] = useState("The first order rolls in...");
   const [gameDuration, setGameDuration] = useState(0);
