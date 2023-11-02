@@ -525,6 +525,9 @@ button:hover {
 }
 .orders--container > * {
 }
+.assembly--stats {
+  text-align: center;
+}
 
 #quit--assembly--button {
   position: relative;

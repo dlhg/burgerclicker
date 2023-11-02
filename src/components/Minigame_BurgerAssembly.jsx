@@ -405,23 +405,10 @@ now that we're capturing burger creation time, we can:
                   +timer
                 </button>
               </div>
-
-              <h2>reward: {reward}</h2>
-
-              <br />
-
-              <br />
-
-              <div>
-                <br />
-
-                <br />
-
-                <br />
+              <div className="assembly--stats">
+                <h2>reward: {reward}</h2>
+                <div>burgers served: {correctStreak}</div>
               </div>
-              <br />
-
-              <div>burgers served: {correctStreak}</div>
             </div>
           )}
         </>
