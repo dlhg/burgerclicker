@@ -330,10 +330,13 @@ now that we're capturing burger creation time, we can:
                   ))}
                 </div>
                 <div className="your--burger">
-                  your burger:{" "}
-                  {playerBurger.map((layer) => (
-                    <div>{layer}</div>
-                  ))}
+                  <div className="your--burger--text">
+                    your burger:{" "}
+                    {playerBurger.map((layer) => (
+                      <div>{layer}</div>
+                    ))}
+                  </div>
+                  <div className="your--burger--image">BURGER IMG HERE</div>
                 </div>
               </div>
 

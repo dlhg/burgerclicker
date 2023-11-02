@@ -547,3 +547,19 @@ button:hover {
   top: 0;
   right: 0;
 }
+
+.your--burger {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  grid-template-rows: repeat(1, 1fr);
+  grid-column-gap: 0px;
+  grid-row-gap: 0px;
+}
+
+.your--burger--text {
+  grid-area: 1 / 1 / 2 / 2;
+  margin-right: 2rem;
+}
+.your--burger--image {
+  grid-area: 1 / 2 / 2 / 3;
+}
