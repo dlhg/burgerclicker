@@ -199,7 +199,7 @@ function App() {
             img={transparentburger_smallpic}
           />
         </div>
-        {mainArea !== "minigame--burger--assembly" && (
+        {
           <div className="div2">
             <div className="navbar">
               <div className="navbar--left">
@@ -220,8 +220,15 @@ function App() {
               </div>
             </div>
           </div>
-        )}
-        <div className={"div3"} id="gamearea">
+        }
+        <div
+          className={
+            mainArea === "minigame--burger--assembly"
+              ? "div3--starting--from--top--row"
+              : "div3"
+          }
+          id="gamearea"
+        >
           {mainArea === "buildings" && (
             <>
               <UpgradeStore
