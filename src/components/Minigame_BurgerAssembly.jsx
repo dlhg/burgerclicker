@@ -308,7 +308,7 @@ now that we're capturing burger creation time, we can:
               </div>
 
               <div className="ingredient--buttons">
-                <button onClick={() => handleStartOver()}>start over</button>
+                <button onClick={() => handleStartOver()}>restart</button>
                 <button
                   onClick={() =>
                     setPlayerBurger([...playerBurger, "bottombun"])
@@ -402,7 +402,7 @@ now that we're capturing burger creation time, we can:
                 <button
                   onClick={() => setTimeRemaining((prev) => prev + 10000)}
                 >
-                  +timer
+                  +time
                 </button>
               </div>
               <div className="assembly--stats">

@@ -472,6 +472,11 @@ button:hover {
 }
 
 /* assembly minigame */
+.assembly--wrapper {
+  position: absolute;
+  top: 0;
+}
+
 .assembly--wrapper button {
   background-color: rgb(58, 58, 58);
 }
