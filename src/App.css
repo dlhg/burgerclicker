@@ -260,6 +260,9 @@ button:hover {
 .building--row {
   display: flex;
 }
+.buildings-wrapper button {
+  width: 100%;
+}
 
 /*stats screen*/
 

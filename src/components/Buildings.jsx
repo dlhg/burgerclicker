@@ -4,7 +4,7 @@ import BuildingRow from "./BuildingRow";
 export default function Buildings(props) {
   return (
     <>
-      <div>
+      <div className="buildings-wrapper">
         <div id="Building1">
           <BuildingRow
             count={props.pointerCount}
@@ -15,7 +15,9 @@ export default function Buildings(props) {
         </div>
         {props.pointerCount >= 1 && (
           <button onClick={() => props.setMainArea("minigame")}>
-            pointer game (unlock by having 1 pointer) - this is a test/template game component and not something the player will see in future versions
+            pointer game (unlock by having 1 pointer) - this is a test/template
+            game component and not something the player will see in future
+            versions
           </button>
         )}
 
