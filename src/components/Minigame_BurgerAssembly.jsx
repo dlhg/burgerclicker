@@ -26,7 +26,7 @@ pickles is heavily modified onion from first source
 import React, { useState, useEffect } from "react";
 
 //pics
-import customerpic from "../assets/images/minigames/assembly/customereating.gif";
+import rushworkerpic from "../assets/images/minigames/assembly/rushworker.png";
 
 //ingredient pics
 import bottombunpic from "../assets/images/minigames/assembly/bottombun.png";
@@ -248,7 +248,12 @@ now that we're capturing burger creation time, we can:
         <>
           {!gameStarted && (
             <div>
-              <div style={{ fontSize: "2rem" }}>
+              <img
+                src={rushworkerpic}
+                style={{ float: "right", width: "50%" }}
+                alt="Description of the image"
+              />
+              <div style={{ fontSize: "1.5rem" }}>
                 How to play:
                 <ul>
                   <li>assemble the burger to match the order</li>
