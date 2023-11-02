@@ -267,7 +267,19 @@ now that we're capturing burger creation time, we can:
                     if your burger matches, your reward increases and you earn
                     bonus time (see handleSend function for logic)
                   </li>
+                  <li>
+                    bonus time gradually decreases (see handleSend for logic)
+                  </li>
                   <li>if the timer runs out, it's game over!</li>
+
+                  <li>
+                    burgers always begin with a bottom bun and patty, and always
+                    end with a top bun
+                  </li>
+                  <li>
+                    focus on the ingredients in the middle in order to work
+                    efficiently
+                  </li>
                   <li>you are paid your reward when the game ends</li>
                   <li>
                     in the future, i will add an option to permanently skip this
