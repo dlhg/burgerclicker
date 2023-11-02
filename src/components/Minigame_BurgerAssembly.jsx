@@ -73,6 +73,10 @@ export default function MinigameTemplate(props) {
     "onions",
   ]);
 
+  // 7s or less is fast, 14s or more is slow
+  const fastTime = 7;
+  const slowTime = 14;
+
   /*
 now that we're capturing burger creation time, we can:
   - create an array tracking each burger creation time (done, state variable burgerCreationTimes)
@@ -190,21 +194,21 @@ now that we're capturing burger creation time, we can:
 
       console.log(`this burger was completed in ${timeToCompleteBurger}s`);
 
-      if (timeToCompleteBurger >= 10) {
+      if (timeToCompleteBurger >= slowTime) {
         setTickerText(
           finishedBurgerSlow[
             Math.floor(Math.random() * finishedBurgerSlow.length)
           ]
         );
       }
-      if (timeToCompleteBurger < 10 && timeToCompleteBurger >= 5) {
+      if (timeToCompleteBurger < slowTime && timeToCompleteBurger > fastTime) {
         setTickerText(
           finishedBurgerNormal[
             Math.floor(Math.random() * finishedBurgerNormal.length)
           ]
         );
       }
-      if (timeToCompleteBurger < 5) {
+      if (timeToCompleteBurger <= fastTime) {
         setTickerText(
           finishedBurgerFast[
             Math.floor(Math.random() * finishedBurgerFast.length)
