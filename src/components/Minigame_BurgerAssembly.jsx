@@ -305,7 +305,7 @@ now that we're capturing burger creation time, we can:
                 quit game
               </button>
 
-              <Tickets />
+              {/* <Tickets /> */}
               <div className="assembly--tickerText">
                 <h2>{tickerText}</h2>
               </div>
