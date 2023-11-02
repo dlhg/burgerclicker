@@ -166,7 +166,6 @@ now that we're capturing burger creation time, we can:
     }
     burgArr.push("topbun");
 
-    console.log(`game duration = ${gameDuration.toString()}`);
     setBurgerOrder(burgArr);
   }
 
@@ -190,14 +189,11 @@ now that we're capturing burger creation time, we can:
       //if burger matches
       // determine ticker text bases on how fast it was assembled:
       const timeToCompleteBurger = gameDuration - gameDurationWhenBurgerStarted;
-      console.log(`this burger took ${timeToCompleteBurger}`);
-      console.log(burgerCreationTimes);
+
       setBurgerCreationTimes((prevTimes) => [
         ...prevTimes,
         timeToCompleteBurger,
       ]);
-
-      console.log(`this burger was completed in ${timeToCompleteBurger}s`);
 
       if (timeToCompleteBurger >= slowTime) {
         setTickerText(
