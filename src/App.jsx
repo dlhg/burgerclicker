@@ -1,3 +1,11 @@
+/*
+should update burgers per second logic
+
+instead of having a new building purchase add a specific amount to overall BPS, BPS should be calulated as follows:
+  - (pointerCount * pointerBPS) + (workerCount * workerBPS) + (continue pattern) = BPS
+  - track burgers created by individual building types
+*/
+
 //style imports
 import "./App.css";
 
