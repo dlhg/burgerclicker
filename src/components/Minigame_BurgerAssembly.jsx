@@ -395,7 +395,7 @@ now that we're capturing burger creation time, we can:
                   <br />
                   <img src={topbunpic}></img>
                 </button>
-                <button onClick={() => handleSend()}>send burger</button>
+                <button onClick={() => handleSend()}>serve</button>
                 <button onClick={() => setPlayerBurger(burgerOrder)}>
                   cheat
                 </button>
@@ -407,7 +407,14 @@ now that we're capturing burger creation time, we can:
               </div>
               <div className="assembly--stats">
                 <h2>reward: {reward}</h2>
-                <div>burgers served: {correctStreak}</div>
+                burgers served: {correctStreak}
+                <br />
+                assembly time:{" "}
+                {burgerCreationTimes.map((time, index) =>
+                  index === burgerCreationTimes.length - 1
+                    ? `${time}`
+                    : `${time}, `
+                )}
               </div>
             </div>
           )}
