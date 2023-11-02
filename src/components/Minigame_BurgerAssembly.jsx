@@ -1,8 +1,10 @@
 /*
+note about visual assets:
 burger layer assets except for bacon, peppers, pickles and condiments taken from https://www.moaw.art/post/for-the-burger-looper
-replace these later on if releasing this game
+replace these later on, or get permission if releasing this game
 bacon from https://webstockreview.net/pict/getfirst
 pickles is heavily modified onion from first source
+rushing employee in How to play section is AI gen
 /*
   gameplay loop:
   - once the player presses start game, a random burger is generated
@@ -15,10 +17,11 @@ pickles is heavily modified onion from first source
   // win handling
   - if player presses send burger, and then areBurgersEqual is true:
     - increment correctStreak by 1
-    - increment reward by 1
+    - increment reward by some amount
+    - give the player more time
     - setBurgerOrder to blank array
     - player is given whatever reward they have accumulated via setBurgerCount
-    - setOutcome to "you won! new order coming in 3 seconds"
+    - set ticker text based on how fast the player assembled the burger
     - start a new round
   */
 // add a condition so that if mainArea === minigame--burger--assembly, div3 starts at row 1 of the css grid instead of row
@@ -53,7 +56,7 @@ export default function MinigameTemplate(props) {
 
   const [reward, setReward] = useState(10);
   const [correctStreak, setCorrectStreak] = useState(0);
-  const [timeRemaining, setTimeRemaining] = useState(60 - correctStreak);
+  const [timeRemaining, setTimeRemaining] = useState(30 - correctStreak);
   const [gameStarted, setGameStarted] = useState(false);
   const [tickerText, setTickerText] = useState("The first order rolls in...");
   const [gameDuration, setGameDuration] = useState(0);
@@ -301,7 +304,7 @@ now that we're capturing burger creation time, we can:
                     color: timeRemaining <= 5 ? "red" : "lightgreen",
                     animation:
                       timeRemaining <= 5 && timeRemaining !== 0
-                        ? "slightwobble 1s infinite"
+                        ? "wobble 1s infinite"
                         : "none",
                   }}
                 >
