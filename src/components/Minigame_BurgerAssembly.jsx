@@ -21,6 +21,7 @@ pickles is heavily modified onion from first source
     - setOutcome to "you won! new order coming in 3 seconds"
     - start a new round
   */
+// add a condition so that if mainArea === minigame--burger--assembly, div3 starts at row 1 of the css grid instead of row
 
 import React, { useState, useEffect } from "react";
 
@@ -200,6 +201,7 @@ now that we're capturing burger creation time, we can:
             Math.floor(Math.random() * finishedBurgerSlow.length)
           ]
         );
+        setBurgerCreationTimes();
       }
       if (timeToCompleteBurger < slowTime && timeToCompleteBurger > fastTime) {
         setTickerText(
