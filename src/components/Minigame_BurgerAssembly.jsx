@@ -189,9 +189,6 @@ now that we're capturing burger creation time, we can:
       //if burger matches
       // determine ticker text bases on how fast it was assembled:
       const timeToCompleteBurger = gameDuration - gameDurationWhenBurgerStarted;
-      console.log(`handleSend called`);
-      console.log(`time to complete burger = ${timeToCompleteBurger}`);
-      console.log(`burger creation times = ${burgerCreationTimes}`);
 
       setBurgerCreationTimes((prevTimes) => [
         ...prevTimes,
