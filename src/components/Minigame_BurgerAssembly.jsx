@@ -221,9 +221,9 @@ now that we're capturing burger creation time, we can:
       //increment Correct Streak and reward
       setCorrectStreak((prev) => prev + 1);
       setReward((prev) => Math.floor(prev * 1.5));
-      //gain time for winning
+      //gain time for winning - model outcomes at https://codepen.io/dlg89/pen/GRzjMap?editors=1112
       setTimeRemaining(
-        (current) => current + Math.floor(Math.max(5, 10 - correctStreak * 0.5))
+        (current) => current + Math.floor(Math.max(5, 10 - correctStreak * 0.2))
       );
 
       setPlayerBurger([]);
