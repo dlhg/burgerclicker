@@ -396,14 +396,6 @@ now that we're capturing burger creation time, we can:
                   <img src={topbunpic}></img>
                 </button>
                 <button onClick={() => handleSend()}>serve</button>
-                <button onClick={() => setPlayerBurger(burgerOrder)}>
-                  cheat
-                </button>
-                <button
-                  onClick={() => setTimeRemaining((prev) => prev + 10000)}
-                >
-                  +time
-                </button>
               </div>
               <div className="assembly--stats">
                 <h2>reward: {reward}</h2>
@@ -415,6 +407,15 @@ now that we're capturing burger creation time, we can:
                     ? `${time}`
                     : `${time}, `
                 )}
+                <br />
+                <button onClick={() => setPlayerBurger(burgerOrder)}>
+                  cheat
+                </button>
+                <button
+                  onClick={() => setTimeRemaining((prev) => prev + 10000)}
+                >
+                  +time
+                </button>
               </div>
             </div>
           )}

@@ -473,8 +473,6 @@ button:hover {
 
 /* assembly minigame */
 .assembly--wrapper {
-  position: absolute;
-  top: 0;
 }
 
 .assembly--wrapper button {
