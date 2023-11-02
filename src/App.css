@@ -567,7 +567,6 @@ button:hover {
 
 .your--burger--image img {
   position: absolute;
-  margin-top: 1rem;
-  width: 10rem;
-  height: 10rem;
+  width: 6rem;
+  height: 6rem;
 }
