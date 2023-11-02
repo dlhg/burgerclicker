@@ -273,9 +273,31 @@ now that we're capturing burger creation time, we can:
                 <h2>{tickerText}</h2>
               </div>
               <Tickets />
-              <div>this is where you see your burger being assembled</div>
+              <div className="time--remaining">
+                <h2
+                  style={{
+                    color: timeRemaining <= 5 ? "red" : "lightgreen",
+                    animation:
+                      timeRemaining <= 5 && timeRemaining !== 0
+                        ? "slightwobble 1s infinite"
+                        : "none",
+                  }}
+                >
+                  Time: {timeRemaining}s
+                </h2>
+              </div>
+
+              <div className="customer--order">
+                customer's order:{" "}
+                {burgerOrder.map((layer) => (
+                  <div>{layer}</div>
+                ))}
+              </div>
               <div>
-                two column grid with order on left and your burger on right
+                your burger:{" "}
+                {playerBurger.map((layer) => (
+                  <div>{layer}</div>
+                ))}
               </div>
               <div className="ingredient--buttons">
                 <button onClick={() => handleStartOver()}>start over</button>
@@ -375,34 +397,13 @@ now that we're capturing burger creation time, we can:
                   +timer
                 </button>
               </div>
-              <h2
-                style={{
-                  color: timeRemaining <= 5 ? "red" : "lightgreen",
-                  animation:
-                    timeRemaining <= 5 && timeRemaining !== 0
-                      ? "slightwobble 1s infinite"
-                      : "none",
-                }}
-              >
-                Time: {timeRemaining}s
-              </h2>
+
               <h2>reward: {reward}</h2>
 
-              <div className="customer--order">
-                customer's order:{" "}
-                {burgerOrder.map((layer) => (
-                  <div>{layer}</div>
-                ))}
-              </div>
               <br />
 
               <br />
-              <div>
-                your burger:{" "}
-                {playerBurger.map((layer) => (
-                  <div>{layer}</div>
-                ))}
-              </div>
+
               <div>
                 <br />
 

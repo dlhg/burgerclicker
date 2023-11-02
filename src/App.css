@@ -515,3 +515,7 @@ button:hover {
 }
 .assembly--navbar button {
 }
+
+.time--remaining {
+  text-align: center;
+}
