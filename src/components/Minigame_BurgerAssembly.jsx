@@ -422,7 +422,7 @@ now that we're capturing burger creation time, we can:
                 <button onClick={() => setPlayerBurger(burgerOrder)}>
                   cheat
                 </button>
-                <button onClick={() => handleServe()}>serve</button>
+                <button onClick={() => handleSend()}>serve</button>
                 <button
                   onClick={() => setTimeRemaining((prev) => prev + 10000)}
                 >
