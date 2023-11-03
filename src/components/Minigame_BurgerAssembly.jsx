@@ -255,7 +255,6 @@ now that we're capturing burger creation time, we can:
                 alt="Description of the image"
               />
               <div style={{ fontSize: "1.5rem" }}>
-                How to play:
                 <ul>
                   <li>assemble the burger to match the order</li>
                   <li>
