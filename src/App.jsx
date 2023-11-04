@@ -82,6 +82,10 @@ function App() {
   const [burgersPerClick, setBurgersPerClick] = useState(1);
   const [burgersPerSecond, setBurgersPerSecond] = useState(0);
 
+  // burgers per sec and burgers per click temp boost
+  const [tempBPSBoostMultiplier, setTempBPSBoostMultiplier] = useState(1);
+  const [tempBPCBoostMultiplier, setTempBPCBoostMultiplier] = useState(1);
+
   //state for store items
   // BPS = burgers per second
   const [pointerCount, setPointerCount] = useState(0);
@@ -160,8 +164,9 @@ function App() {
   // update burgerCount every 100ms with BPS/10
   useEffect(() => {
     const interval = setInterval(() => {
+      console.log(`tempBPSBoostM = ${tempBPSBoostMultiplier}`)
       setBurgerCount(
-        (prevBurgerCount) => prevBurgerCount + burgersPerSecond / 10
+        (prevBurgerCount) => prevBurgerCount + ((burgersPerSecond * tempBPSBoostMultiplier) / 10)
       );
     }, 100);
 
@@ -327,6 +332,8 @@ function App() {
             <TestConsole
               setBurgersPerSecond={setBurgersPerSecond}
               setBurgersPerClick={setBurgersPerClick}
+              setTempBPSBoostMultiplier={setTempBPSBoostMultiplier}
+              setTempBPCBoostMultiplier={setTempBPCBoostMultiplier}
               setCurrentQuipLevel={setCurrentQuipLevel}
               setBurgerCount={setBurgerCount}
               setTotalBurgersProducedUnformatted={

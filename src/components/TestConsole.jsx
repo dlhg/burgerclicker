@@ -6,6 +6,8 @@ export default function TestConsole({
   setBurgersPerClick,
   setBurgersPerSecond,
   setCurrentQuipLevel,
+  setTempBPSBoostMultiplier,
+  setTempBPCBoostMultiplier,
   setBurgerCount,
   setTotalBurgersProducedUnformatted,
   setBurgersMadeFromClicking,
@@ -49,6 +51,13 @@ export default function TestConsole({
           break;
         case "setBurgersPerSecond":
           setBurgersPerSecond(Number(argument));
+          break;
+
+        case "setTempBPSBoostMultiplier":
+          setTempBPSBoostMultiplier(Number(argument));
+          break;
+        case "setTempBPCBoostMultiplier":
+          setTempBPCBoostMultiplier(Number(argument));
           break;
         case "setCurrentQuipLevel":
           setCurrentQuipLevel(Number(argument));
@@ -146,6 +155,8 @@ export default function TestConsole({
                 <option value="">Select...</option>
                 <option value="setBurgersPerClick">setBurgersPerClick</option>
                 <option value="setBurgersPerSecond">setBurgersPerSecond</option>
+                <option value="setTempBPSBoostMultiplier">setTempBPSBoostMultiplier</option>
+                <option value="setTempBPCBoostMultiplier">setTempBPCBoostMultiplier</option>
                 <option value="setCurrentQuipLevel">setCurrentQuipLevel</option>
 
                 <option value="setBurgerCount">setBurgerCount</option>
