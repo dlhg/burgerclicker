@@ -208,6 +208,8 @@ function App() {
               setBurgersMadeFromClicking={setBurgersMadeFromClicking}
               burgersMadeFromAutomation={burgersMadeFromAutomation}
               setBurgersMadeFromAutomation={setBurgersMadeFromAutomation}
+              tempBPSBoostMultiplier={tempBPSBoostMultiplier}
+              tempBPCBoostMultiplier={tempBPCBoostMultiplier}
               burgerpic={burgerpic}
             />
           </div>

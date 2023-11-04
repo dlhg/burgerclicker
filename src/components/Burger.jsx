@@ -15,17 +15,17 @@ export default function Burger(props) {
   useEffect(() => {
     const interval = setInterval(() => {
       props.setBurgersMadeFromAutomation(
-        (prevCount) => prevCount + props.burgersPerSecond / 10
+        (prevCount) => prevCount + (props.burgersPerSecond * props.tempBPSBoostMultiplier / 10)
       );
     }, 100);
 
     return () => clearInterval(interval);
-  }, [props.burgersPerSecond]);
+  }, [props.burgersPerSecond, props.tempBPSBoostMultiplier]);
 
   function handleBurgerClick() {
-    props.setBurgerCount((prevCount) => prevCount + props.burgersPerClick);
+    props.setBurgerCount((prevCount) => prevCount + (props.burgersPerClick * props.tempBPCBoostMultiplier));
     props.setBurgersMadeFromClicking(
-      (prevCount) => prevCount + props.burgersPerClick
+      (prevCount) => prevCount + (props.burgersPerClick * props.tempBPCBoostMultiplier)
     );
     //play();
   }
@@ -33,9 +33,15 @@ export default function Burger(props) {
   return (
     <div>
       <section>Burgers : {formatNumber(props.displayedBurgerCount)}</section>
+      {/* added placeholder conditional styles to show player if their BPS or BPC is currently boosted, update these to something better later */}
+      <section style={{ color: props.tempBPSBoostMultiplier > 1 ? 'gold' : 'lightgreen' }}>
+        Per Second : {formatNumber(props.burgersPerSecond * props.tempBPSBoostMultiplier)}
+      </section>
 
-      <section>Per Second : {formatNumber(props.burgersPerSecond)}</section>
-      <section>Per Click : {formatNumber(props.burgersPerClick)}</section>
+      <section style={{ color: props.tempBPCBoostMultiplier > 1 ? 'gold' : 'lightgreen' }}>
+        Per Click : {formatNumber(props.burgersPerClick * props.tempBPCBoostMultiplier)}
+      </section>
+      <span>gold text = boosted stat</span>
 
       <br />
       <br />
