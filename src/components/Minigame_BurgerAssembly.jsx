@@ -110,6 +110,7 @@ now that we're capturing burger creation time, we can:
     "Time is of the essence! Another order coming up...",
   ];
 
+  // useEffect to handle timer - every 1s, TimeRemaining decremented by 1, GameDuration incremented by 1
   useEffect(() => {
     let timer;
     if (timeRemaining === 0) {
