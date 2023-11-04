@@ -200,21 +200,21 @@ now that we're capturing burger creation time, we can:
       if (timeToCompleteBurger >= slowTime) {
         setTickerText(
           finishedBurgerSlow[
-            Math.floor(Math.random() * finishedBurgerSlow.length)
+          Math.floor(Math.random() * finishedBurgerSlow.length)
           ]
         );
       }
       if (timeToCompleteBurger < slowTime && timeToCompleteBurger > fastTime) {
         setTickerText(
           finishedBurgerNormal[
-            Math.floor(Math.random() * finishedBurgerNormal.length)
+          Math.floor(Math.random() * finishedBurgerNormal.length)
           ]
         );
       }
       if (timeToCompleteBurger <= fastTime) {
         setTickerText(
           finishedBurgerFast[
-            Math.floor(Math.random() * finishedBurgerFast.length)
+          Math.floor(Math.random() * finishedBurgerFast.length)
           ]
         );
       }
@@ -463,6 +463,7 @@ now that we're capturing burger creation time, we can:
                 >
                   +10000s to clock
                 </button>
+                <button onClick={() => setTimeRemaining(5)}>reduce clock to 5s left</button>
               </div>
             </div>
           )}
