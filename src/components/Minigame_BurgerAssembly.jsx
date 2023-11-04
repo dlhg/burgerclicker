@@ -58,6 +58,7 @@ export default function MinigameTemplate(props) {
   const [timeRemaining, setTimeRemaining] = useState(30);
   const [gameStarted, setGameStarted] = useState(false);
   const [tickerText, setTickerText] = useState("The first order rolls in...");
+  const [prevTickerText, setPrevTickerText] = useState("");
   const [gameDuration, setGameDuration] = useState(0);
   const [gameDurationWhenBurgerStarted, setGameDurationWhenBurgerStarted] =
     useState(0);
@@ -189,35 +190,71 @@ now that we're capturing burger creation time, we can:
       handleLose();
     } else {
       //if burger matches
-      // determine ticker text bases on how fast it was assembled:
+
+      //calculate time to complete burger and add it to a list of burger creation times
       const timeToCompleteBurger = gameDuration - gameDurationWhenBurgerStarted;
 
       setBurgerCreationTimes((prevTimes) => [
         ...prevTimes,
         timeToCompleteBurger,
       ]);
+      // determine ticker text bases on how fast it was assembled:
 
+      // if the player was slow to make the burger
       if (timeToCompleteBurger >= slowTime) {
-        setTickerText(
-          finishedBurgerSlow[
-          Math.floor(Math.random() * finishedBurgerSlow.length)
-          ]
-        );
+        let randomIndex = Math.floor(Math.random() * finishedBurgerSlow.length)
+        let newText = finishedBurgerSlow[randomIndex]
+
+        if (newText !== prevTickerText) {
+          setTickerText(newText)
+          setPrevTickerText(newText)
+        }
+        if (newText === prevTickerText) {
+          // if we land on the same ticker text as last time, pick another element and setTickerText to that
+          // check if an element exists at randomIndex - 1. If yes, use that. If no, use element at randomIndex + 1.
+          finishedBurgerSlow[randomIndex - 1] !== undefined ? newText = finishedBurgerSlow[randomIndex - 1] : newText = finishedBurgerSlow[randomIndex + 1]
+          setTickerText(newText)
+          setPrevTickerText(newText)
+        }
       }
+
+
+      // if the player was neither slow nor fast (normal time)
       if (timeToCompleteBurger < slowTime && timeToCompleteBurger > fastTime) {
-        setTickerText(
-          finishedBurgerNormal[
-          Math.floor(Math.random() * finishedBurgerNormal.length)
-          ]
-        );
+        let randomIndex = Math.floor(Math.random() * finishedBurgerNormal.length)
+        let newText = finishedBurgerNormal[randomIndex]
+
+        if (newText !== prevTickerText) {
+          setTickerText(newText)
+          setPrevTickerText(newText)
+        }
+        if (newText === prevTickerText) {
+          // if we land on the same ticker text as last time, pick another element and setTickerText to that
+          // check if an element exists at randomIndex - 1. If yes, use that. If no, use element at randomIndex + 1.
+          finishedBurgerNormal[randomIndex - 1] !== undefined ? newText = finishedBurgerNormal[randomIndex - 1] : newText = finishedBurgerNormal[randomIndex + 1]
+          setTickerText(newText)
+          setPrevTickerText(newText)
+        }
       }
+
+      // if the player was fast 
       if (timeToCompleteBurger <= fastTime) {
-        setTickerText(
-          finishedBurgerFast[
-          Math.floor(Math.random() * finishedBurgerFast.length)
-          ]
-        );
+        let randomIndex = Math.floor(Math.random() * finishedBurgerFast.length)
+        let newText = finishedBurgerFast[randomIndex]
+
+        if (newText !== prevTickerText) {
+          setTickerText(newText)
+          setPrevTickerText(newText)
+        }
+        if (newText === prevTickerText) {
+          // if we land on the same ticker text as last time, pick another element and setTickerText to that
+          // check if an element exists at randomIndex - 1. If yes, use that. If no, use element at randomIndex + 1.
+          finishedBurgerFast[randomIndex - 1] !== undefined ? newText = finishedBurgerFast[randomIndex - 1] : newText = finishedBurgerFast[randomIndex + 1]
+          setTickerText(newText)
+          setPrevTickerText(newText)
+        }
       }
+
       //increment Correct Streak and reward
       setCorrectStreak((prev) => prev + 1);
       setReward((prev) => Math.floor(prev * 1.5));
@@ -230,6 +267,7 @@ now that we're capturing burger creation time, we can:
       generateRandomBurger();
     }
   }
+
 
   function handleStartOver() {
     let penaltyMultiplier = 0.9;
