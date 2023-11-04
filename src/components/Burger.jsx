@@ -36,12 +36,33 @@ export default function Burger(props) {
       {/* added placeholder conditional styles to show player if their BPS or BPC is currently boosted, update these to something better later */}
       <section style={{ color: props.tempBPSBoostMultiplier > 1 ? 'gold' : 'lightgreen' }}>
         Per Second : {formatNumber(props.burgersPerSecond * props.tempBPSBoostMultiplier)}
+        <br />
+        BPS base : {formatNumber(props.burgersPerSecond)}
+        <br />
+        BPS multiplier : {props.tempBPSBoostMultiplier}
       </section>
 
       <section style={{ color: props.tempBPCBoostMultiplier > 1 ? 'gold' : 'lightgreen' }}>
         Per Click : {formatNumber(props.burgersPerClick * props.tempBPCBoostMultiplier)}
+        <br />
+        BPC Base : {formatNumber(props.burgersPerClick)}
+        <br />
+        BPC Multiplier : {props.tempBPCBoostMultiplier}
       </section>
-      <span>gold text = boosted stat</span>
+
+
+      {/* how should add/remove boost work?
+      boost added at the start of the interval, and then removed at the end of the interval
+      boost should not be reset back to default value of 1, as that would break multiple stacked boosts
+      ex. player starts a 100% BPS boost lasting 10 seconds, and a 200% boost lasting 30 seconds at the same time
+      BPS = base (1) + 1 (100%) + 2 (200%) = 4, or 400% total (base value of 100% plus 300% boost)
+      after 10 seconds, BPS decremented by 1
+      after 30 seconds, BPS decremented by 2
+
+      boost multiplier for both BPS and BPC should be visible to the player
+      
+      */}
+
 
       <br />
       <br />

@@ -209,6 +209,8 @@ function App() {
               burgersMadeFromAutomation={burgersMadeFromAutomation}
               setBurgersMadeFromAutomation={setBurgersMadeFromAutomation}
               tempBPSBoostMultiplier={tempBPSBoostMultiplier}
+              setTempBPSBoostMultiplier={setTempBPSBoostMultiplier}
+              setTempBPSBoostMultiplier={setTempBPSBoostMultiplier}
               tempBPCBoostMultiplier={tempBPCBoostMultiplier}
               burgerpic={burgerpic}
             />
