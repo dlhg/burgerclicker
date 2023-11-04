@@ -108,7 +108,7 @@ function App() {
 
   //useEffect
 
-  /* this effect is kind of brute force-y, there is probably a more elegant way to do this that doesn't involve running the effect every single time burg count is changed*/
+  // sets Quip Level based on totalBurgersProducedUnformatted
   useEffect(() => {
     if (totalBurgersProducedUnformatted === 1) {
       setCurrentQuipLevel(1);
@@ -157,6 +157,7 @@ function App() {
     }
   }, [totalBurgersProducedUnformatted]);
 
+  // update burgerCount every 100ms with BPS/10
   useEffect(() => {
     const interval = setInterval(() => {
       setBurgerCount(
@@ -166,10 +167,13 @@ function App() {
 
     return () => clearInterval(interval); // Cleanup the interval on component unmount
   }, [burgersPerSecond]);
+
+  // rounds the burgerCount down to nearest integer to display to the player (avoids player seeing things like 50.33 burgers)
   useEffect(() => {
     setDisplayedBurgerCount(Math.floor(burgerCount));
   }, [burgerCount]);
 
+  // updates Total Burgers Produced by summing clicked burgers count + automated burgers count
   useEffect(() => {
     setTotalBurgersProduced(
       formatNumber(burgersMadeFromClicking + burgersMadeFromAutomation)
