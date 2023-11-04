@@ -21,6 +21,43 @@ export default function UpgradeStore(props) {
     setToolItemUnlockConditionsDescription,
   ] = useState("");
 
+  // function to handle temp boosts to BPS, BPC, or both
+  // whatsboosted can be either BPS, BPC, or BPS&BPC
+  // increase is the amount the multiplier should increase (100% increase = +1 to multiplier)
+  // duration in MS is the boost duration in MS (1s = 1000ms)
+  function boost(whatsBoosted, increase, durationInMS) {
+    if (whatsBoosted === "BPS") {
+      props.setTempBPSBoostMultiplier((prev) => prev + increase)
+      setTimeout(() => {
+        props.setTempBPSBoostMultiplier((prev) => prev - 1);
+      }, durationInMS);
+    }
+    if (whatsBoosted === "BPC") {
+      props.setTempBPCBoostMultiplier((prev) => prev + increase)
+      setTimeout(() => {
+        props.setTempBPCBoostMultiplier((prev) => prev - 1);
+      }, durationInMS);
+    }
+    if (whatsBoosted === "BPS&BPC") {
+      props.setTempBPSBoostMultiplier((prev) => prev + increase)
+      props.setTempBPCBoostMultiplier((prev) => prev + increase)
+      setTimeout(() => {
+        props.setTempBPSBoostMultiplier((prev) => prev - 1);
+      }, durationInMS);
+      setTimeout(() => {
+        props.setTempBPCBoostMultiplier((prev) => prev - 1);
+      }, durationInMS);
+    }
+
+  }
+
+  const increaseBPCMult_100_5s = () => {
+    props.setTempBPCBoostMultiplier((prevMultiplier) => prevMultiplier + 1);
+
+    // Set a timeout to decrease the multiplier after 5 seconds
+
+  };
+
   return (
     <>
       <div className="upstore--container">
@@ -31,7 +68,7 @@ export default function UpgradeStore(props) {
             itemPrice={10}
             itemImage={catpic}
             itemName={"lucky burger cat"}
-            itemDescription={"+1 Burger Per Click"}
+            itemDescription={"+1 Burger Per Click, and 1000% production for 30s"}
             itemFlavorText={"A stray cat shows up. Adopt him as your mascot?"}
             primarySetter={props.setBurgersPerClick}
             primarySetterArgument={(prev) => prev + 1}

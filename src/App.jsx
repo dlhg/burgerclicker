@@ -261,6 +261,8 @@ function App() {
                 setBurgersPerSecond={setBurgersPerSecond}
                 setBurgersPerClick={setBurgersPerClick}
                 setBurgerCount={setBurgerCount}
+                setTempBPCBoostMultiplier={setTempBPCBoostMultiplier}
+                setTempBPSBoostMultiplier={setTempBPSBoostMultiplier}
                 purchasedUpgradeIDs={purchasedUpgradeIDs}
                 setPurchasedUpgradeIDs={setPurchasedUpgradeIDs}
                 setPointerBPS={setPointerBPS}
