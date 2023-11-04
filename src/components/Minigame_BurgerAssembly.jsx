@@ -200,7 +200,7 @@ now that we're capturing burger creation time, we can:
       ]);
       // determine ticker text based on how fast it was assembled:
 
-      // if the player was slow to make the burger
+      // if the player was slow to make the burger, set appropriate ticketText
       if (timeToCompleteBurger >= slowTime) {
         let randomIndex = Math.floor(Math.random() * finishedBurgerSlow.length)
         let newText = finishedBurgerSlow[randomIndex]
@@ -219,7 +219,7 @@ now that we're capturing burger creation time, we can:
       }
 
 
-      // if the player was neither slow nor fast (normal time)
+      // if the player was neither slow nor fast (normal time), set appropriate ticketText
       if (timeToCompleteBurger < slowTime && timeToCompleteBurger > fastTime) {
         let randomIndex = Math.floor(Math.random() * finishedBurgerNormal.length)
         let newText = finishedBurgerNormal[randomIndex]
@@ -237,7 +237,7 @@ now that we're capturing burger creation time, we can:
         }
       }
 
-      // if the player was fast 
+      // if the player was fast, set appropriate ticketText
       if (timeToCompleteBurger <= fastTime) {
         let randomIndex = Math.floor(Math.random() * finishedBurgerFast.length)
         let newText = finishedBurgerFast[randomIndex]
@@ -258,11 +258,13 @@ now that we're capturing burger creation time, we can:
       //increment Correct Streak and reward
       setCorrectStreak((prev) => prev + 1);
       setReward((prev) => Math.floor(prev * 1.5));
+
       //gain time for winning - model outcomes at https://codepen.io/dlg89/pen/GRzjMap?editors=1112
+      //player gains less bonus time the higher their correctStreak is
       setTimeRemaining(
         (current) => current + Math.floor(Math.max(4, 10 - correctStreak * 0.2))
       );
-
+      //start the next round by setting the player's burger back to blank and generating a new customer order
       setPlayerBurger([]);
       generateRandomBurger();
     }
