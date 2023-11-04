@@ -8,6 +8,11 @@
   src: url(./assets/font/calibration-gothic-nbp-latin-font/CalibrationGothicNbpLatin-rYmy.ttf);
 }
 
+.rainbow--text {
+  background-image: linear-gradient(to left, violet, indigo, blue, green, yellow, orange, red);   -webkit-background-clip: text;
+  color: transparent;
+}
+
 #root {
   font-family: pixelfont;
 

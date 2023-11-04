@@ -1,3 +1,4 @@
+
 import React from "react";
 import { formatNumber } from "../utils";
 
@@ -11,16 +12,12 @@ export default function StoreItem(props) {
       );
       return;
     }
-    if (props.storeItemName === "???") {
-      console.log("tried to buy an item which isnt unlocked");
-      return;
-    }
     props.setBurgerCount((prev) => prev - props.storeItemPrice);
     props.setBurgersPerSecond((prev) => prev + props.bpsIncrease);
     props.itemSetter((prev) => prev + 1);
     //play();
   }
-  const textColor = props.burgerCount >= props.storeItemPrice ? "lightgreen" : "red";
+  const textColor = props.burgerCount >= props.storeItemPrice ? "green" : "red";
   return (
     <>
       <div className="store--item" onClick={() => buyItem()}>
