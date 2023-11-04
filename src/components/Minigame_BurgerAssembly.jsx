@@ -198,7 +198,7 @@ now that we're capturing burger creation time, we can:
         ...prevTimes,
         timeToCompleteBurger,
       ]);
-      // determine ticker text bases on how fast it was assembled:
+      // determine ticker text based on how fast it was assembled:
 
       // if the player was slow to make the burger
       if (timeToCompleteBurger >= slowTime) {
