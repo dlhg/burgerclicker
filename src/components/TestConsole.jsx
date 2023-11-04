@@ -35,6 +35,17 @@ export default function TestConsole({
   const [argument, setArgument] = useState("");
   const [showInfo, setShowInfo] = useState(false);
 
+  // increase BPS multiplier by 100% for 5 seconds
+  const increaseBPSMult_100_5s = () => {
+    setTempBPSBoostMultiplier((prevMultiplier) => prevMultiplier + 1);
+
+    // Set a timeout to decrease the multiplier after 5 seconds
+    setTimeout(() => {
+      setTempBPSBoostMultiplier((prevMultiplier) => prevMultiplier - 1);
+    }, 5000);
+  };
+
+
   const handleFunctionChange = (event) => {
     setSelectedFunction(event.target.value);
   };
@@ -202,6 +213,30 @@ export default function TestConsole({
             <br />
             <button onClick={handleExecute}>Execute</button>
             <br />
+            <button onClick={() => increaseBPSMult_100_5s()}>boost BPS by 100% for 5 seconds</button>
+
+
+            {/* <button>boost BPC by 100% for 5 seconds</button>
+            <button>boost BPS by 1000% for 10 seconds</button>
+            <button>boost BPC by 1000% for 10 seconds</button> */}
+
+            {/* 
+      how should add/remove boost work?
+      boost added at the start of the interval, and then removed at the end of the interval
+      boost should not be reset back to default value of 1, as that would break multiple stacked boosts
+      ex. player starts a 100% BPS boost lasting 10 seconds, and a 200% boost lasting 30 seconds at the same time
+      BPS = base (1) + 1 (100%) + 2 (200%) = 4, or 400% total (base value of 100% plus 300% boost)
+      after 10 seconds, BPS decremented by 1
+      after 30 seconds, BPS decremented by 2
+
+      boost multiplier for both BPS and BPC should be visible to the player
+
+      props.setTempBPSBoostMultiplier
+      props.setTempBPCBoostMultiplier
+      
+      */}
+
+
             <button onClick={() => setShowInfo((prev) => !prev)}>
               {showInfo ? "Hide Info" : "Show Info"}
             </button>
