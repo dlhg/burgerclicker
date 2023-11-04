@@ -34,7 +34,7 @@ export default function Burger(props) {
     <div>
       <section>Burgers : {formatNumber(props.displayedBurgerCount)}</section>
       {/* added placeholder conditional styles to show player if their BPS or BPC is currently boosted, update these to something better later */}
-      <section style={{ color: props.tempBPSBoostMultiplier > 1 ? 'gold' : 'lightgreen' }}>
+      <section className={props.tempBPSBoostMultiplier > 1 ? 'rainbow--text' : ''}>
         Per Second : {formatNumber(props.burgersPerSecond * props.tempBPSBoostMultiplier)}
         <br />
         BPS base : {formatNumber(props.burgersPerSecond)}
@@ -42,13 +42,14 @@ export default function Burger(props) {
         BPS multiplier : {props.tempBPSBoostMultiplier}
       </section>
 
-      <section style={{ color: props.tempBPCBoostMultiplier > 1 ? 'gold' : 'lightgreen' }}>
+      <section className={props.tempBPCBoostMultiplier > 1 ? 'rainbow--text' : ''}>
         Per Click : {formatNumber(props.burgersPerClick * props.tempBPCBoostMultiplier)}
         <br />
         BPC Base : {formatNumber(props.burgersPerClick)}
         <br />
         BPC Multiplier : {props.tempBPCBoostMultiplier}
       </section>
+
 
 
       {/* how should add/remove boost work?
