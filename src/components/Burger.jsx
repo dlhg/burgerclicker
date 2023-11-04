@@ -36,10 +36,9 @@ export default function Burger(props) {
       {/* added placeholder conditional styles to show player if their BPS or BPC is currently boosted, update these to something better later */}
       <section className={props.tempBPSBoostMultiplier > 1 ? 'rainbow--text' : ''}>
         Per Second : {formatNumber(props.burgersPerSecond * props.tempBPSBoostMultiplier)}
-        <br />
-        BPS base : {formatNumber(props.burgersPerSecond)}
-        <br />
-        BPS multiplier : {props.tempBPSBoostMultiplier}
+        {props.tempBPSBoostMultiplier > 1 ? `(x${props.tempBPSBoostMultiplier})` : ""}
+
+
       </section>
 
       <section className={props.tempBPCBoostMultiplier > 1 ? 'rainbow--text' : ''}>
