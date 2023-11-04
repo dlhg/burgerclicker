@@ -164,7 +164,7 @@ function App() {
   // update burgerCount every 100ms with BPS/10
   useEffect(() => {
     const interval = setInterval(() => {
-      console.log(`tempBPSBoostM = ${tempBPSBoostMultiplier}`)
+
       setBurgerCount(
         (prevBurgerCount) => prevBurgerCount + ((burgersPerSecond * tempBPSBoostMultiplier) / 10)
       );
@@ -263,6 +263,8 @@ function App() {
                 setBurgerCount={setBurgerCount}
                 setTempBPCBoostMultiplier={setTempBPCBoostMultiplier}
                 setTempBPSBoostMultiplier={setTempBPSBoostMultiplier}
+                tempBPCBoostMultiplier={tempBPCBoostMultiplier}
+                tempBPSBoostMultiplier={tempBPSBoostMultiplier}
                 purchasedUpgradeIDs={purchasedUpgradeIDs}
                 setPurchasedUpgradeIDs={setPurchasedUpgradeIDs}
                 setPointerBPS={setPointerBPS}
