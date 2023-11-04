@@ -45,6 +45,16 @@ export default function TestConsole({
     }, 5000);
   };
 
+  // increase BPC multiplier by 100% for 5 seconds
+  const increaseBPCMult_100_5s = () => {
+    setTempBPCBoostMultiplier((prevMultiplier) => prevMultiplier + 1);
+
+    // Set a timeout to decrease the multiplier after 5 seconds
+    setTimeout(() => {
+      setTempBPCBoostMultiplier((prevMultiplier) => prevMultiplier - 1);
+    }, 5000);
+  };
+
 
   const handleFunctionChange = (event) => {
     setSelectedFunction(event.target.value);
@@ -214,6 +224,7 @@ export default function TestConsole({
             <button onClick={handleExecute}>Execute</button>
             <br />
             <button onClick={() => increaseBPSMult_100_5s()}>boost BPS by 100% for 5 seconds</button>
+            <button onClick={() => increaseBPCMult_100_5s()}>boost BPC by 100% for 5 seconds</button>
 
 
             {/* <button>boost BPC by 100% for 5 seconds</button>

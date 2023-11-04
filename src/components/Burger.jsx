@@ -43,10 +43,7 @@ export default function Burger(props) {
 
       <section className={props.tempBPCBoostMultiplier > 1 ? 'rainbow--text' : ''}>
         Per Click : {formatNumber(props.burgersPerClick * props.tempBPCBoostMultiplier)}
-        <br />
-        BPC Base : {formatNumber(props.burgersPerClick)}
-        <br />
-        BPC Multiplier : {props.tempBPCBoostMultiplier}
+        {props.tempBPCBoostMultiplier > 1 ? `(x${props.tempBPCBoostMultiplier})` : ""}
       </section>
 
 
