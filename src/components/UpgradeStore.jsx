@@ -26,8 +26,7 @@ export default function UpgradeStore(props) {
   // increase is the amount the multiplier should increase (100% increase = +1 to multiplier)
   // duration in MS is the boost duration in MS (1s = 1000ms)
   function boost(whatsBoosted, increase, durationInMS) {
-    console.log(`boost function called`)
-    console.log(`boost args (whatsBoosted, increase, durationInMS) = ${[...arguments]}`)
+
     if (whatsBoosted === "BPS") {
       props.setTempBPSBoostMultiplier((prev) => prev + increase)
       setTimeout(() => {
@@ -35,8 +34,7 @@ export default function UpgradeStore(props) {
       }, durationInMS);
     }
     if (whatsBoosted === "BPC") {
-      console.log(`boost function determined BPC was passed as whatsBoosted arg`)
-      console.log(``)
+
       props.setTempBPCBoostMultiplier((prev) => prev + increase)
       setTimeout(() => {
         props.setTempBPCBoostMultiplier((prev) => prev - increase);
