@@ -34,7 +34,11 @@ export default function UpgradeItem(props) {
     props.setPurchasedUpgradeIDs((prev) => [...prev, props.itemID]);
 
     if (props.secondarySetter !== false) {
-      props.secondarySetter(props.secondarySetterArgument);
+      // if just receiving a single as a secondary setter arg, use that (typeof will be function), but if receiving multiple args as an array (ex.boost function), destructure to use array elements as args   
+      if (typeof props.secondarySetterArgument !== "object") {
+        props.secondarySetter(props.secondarySetterArgument)
+      } else
+        props.secondarySetter(...props.secondarySetterArgument);
     }
 
     // should also update a list of currently owned upgrades, to be displayed in stats screen

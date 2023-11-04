@@ -26,6 +26,8 @@ export default function UpgradeStore(props) {
   // increase is the amount the multiplier should increase (100% increase = +1 to multiplier)
   // duration in MS is the boost duration in MS (1s = 1000ms)
   function boost(whatsBoosted, increase, durationInMS) {
+    console.log(`boost function called`)
+    console.log(`boost args (whatsBoosted, increase, durationInMS) = ${whatsBoosted}`)
     if (whatsBoosted === "BPS") {
       props.setTempBPSBoostMultiplier((prev) => prev + increase)
       setTimeout(() => {
@@ -68,12 +70,12 @@ export default function UpgradeStore(props) {
             itemPrice={10}
             itemImage={catpic}
             itemName={"lucky burger cat"}
-            itemDescription={"+1 Burger Per Click, and 1000% production for 30s"}
+            itemDescription={"+1 Burger Per Click, and 1000% to production for 30s"}
             itemFlavorText={"A stray cat shows up. Adopt him as your mascot?"}
             primarySetter={props.setBurgersPerClick}
             primarySetterArgument={(prev) => prev + 1}
-            secondarySetter={false}
-            secondarySetterArgument={""}
+            secondarySetter={boost}
+            secondarySetterArgument={["BPS", "10", "30000"]}
             unlockedCondition={props.totalBurgersProducedUnformatted >= 10}
             secondUnlockedCondtion={true}
             unlockConditionsDescription="Total Burgers Produced >= 10"
@@ -92,6 +94,7 @@ export default function UpgradeStore(props) {
             purchasedUpgradeIDs={props.purchasedUpgradeIDs}
             setPurchasedUpgradeIDs={props.setPurchasedUpgradeIDs}
           />
+
           <UpgradeItem
             //unique
             itemID={2}
