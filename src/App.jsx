@@ -171,7 +171,7 @@ function App() {
     }, 100);
 
     return () => clearInterval(interval); // Cleanup the interval on component unmount
-  }, [burgersPerSecond]);
+  }, [burgersPerSecond, tempBPSBoostMultiplier]);
 
   // rounds the burgerCount down to nearest integer to display to the player (avoids player seeing things like 50.33 burgers)
   useEffect(() => {
