@@ -11,6 +11,7 @@
 .rainbow--text {
   background-image: linear-gradient(to left, violet, indigo, blue, green, yellow, orange, red);   -webkit-background-clip: text;
   color: transparent;
+  animation: pulsate 1s infinite;
 }
 
 #root {
@@ -128,6 +129,21 @@ button:hover {
 @keyframes fallAnimation {
   to {
     top: 100%;
+  }
+}
+
+@keyframes pulsate {
+  0% {
+    transform: scale(1);
+   
+  }
+  50% {
+    transform: scale(1.05);
+    
+  }
+  100% {
+    transform: scale(1);
+    
   }
 }
 
