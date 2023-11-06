@@ -380,7 +380,7 @@ function App() {
             />
           )}
         </div>
-        <div className="div4">
+        <div className={isBoostActive ? "div4--boost--active" : "div4"}>
           <section className="section2" id="buildings">
             <StoreItem
               storeItemImage={

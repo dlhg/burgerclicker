@@ -4,7 +4,7 @@ import BuildingRow from "./BuildingRow";
 export default function Buildings(props) {
   return (
     <>
-      <div className="buildings-wrapper">
+      <div>
         <div id="Building1">
           <BuildingRow
             count={props.pointerCount}
