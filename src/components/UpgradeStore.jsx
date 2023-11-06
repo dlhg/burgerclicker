@@ -77,7 +77,7 @@ export default function UpgradeStore(props) {
             itemImage={catpic}
             itemName={"lucky burger cat"}
             itemDescription={
-              "+1 Burger Per Click, and 1000% to burgers/click for 5s"
+              "+1 Burger Per Click, and 1000% to burgers/click for 10s"
             }
             itemFlavorText={"A stray cat shows up. Adopt him as your mascot?"}
             primarySetter={props.setBurgersPerClick}
