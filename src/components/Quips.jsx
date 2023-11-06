@@ -396,8 +396,13 @@ export default function Quips(props) {
   }
   return (
     <>
-      <div className="quip--text" onClick={() => handleClick()}>
-        {currentQuip}
+      <div
+        className={
+          props.isBoostActive ? "quip--text--boost--active" : "quip--text"
+        }
+        onClick={() => handleClick()}
+      >
+        {props.isBoostActive ? "BOOST ACTIVATED" : currentQuip}
       </div>
       <br />
     </>

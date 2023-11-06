@@ -236,7 +236,10 @@ function App() {
                 <button onClick={() => setMainArea("info")}>info</button>
               </div>
               <div className="navbar--center">
-                <Quips currentQuipLevel={currentQuipLevel} />
+                <Quips
+                  currentQuipLevel={currentQuipLevel}
+                  isBoostActive={isBoostActive}
+                />
               </div>
               <div className="navbar--right">
                 <button onClick={() => setMainArea("legacy")}>legacy</button>

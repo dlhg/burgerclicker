@@ -56,15 +56,15 @@ export default function UpgradeStore(props) {
     }
   }
 
-  // increase BPC multiplier by 100% for 5 seconds
-  const increaseBPCMult_100_5s = () => {
-    props.setTempBPCBoostMultiplier((prevMultiplier) => prevMultiplier + 1);
+  // // increase BPC multiplier by 100% for 5 seconds
+  // const increaseBPCMult_100_5s = () => {
+  //   props.setTempBPCBoostMultiplier((prevMultiplier) => prevMultiplier + 1);
 
-    // Set a timeout to decrease the multiplier after 5 seconds
-    setTimeout(() => {
-      props.setTempBPCBoostMultiplier((prevMultiplier) => prevMultiplier - 1);
-    }, 5000);
-  };
+  //   // Set a timeout to decrease the multiplier after 5 seconds
+  //   setTimeout(() => {
+  //     props.setTempBPCBoostMultiplier((prevMultiplier) => prevMultiplier - 1);
+  //   }, 5000);
+  // };
 
   return (
     <>
@@ -83,7 +83,8 @@ export default function UpgradeStore(props) {
             primarySetter={props.setBurgersPerClick}
             primarySetterArgument={(prev) => prev + 1}
             secondarySetter={boost}
-            secondarySetterArgument={["BPC", 9, 5000]}
+            // boost type (BPC,BPS,or BPSBPC), multiplier add (base value 1), duration in ms
+            secondarySetterArgument={["BPC", 9, 10000]}
             unlockedCondition={props.totalBurgersProducedUnformatted >= 1}
             secondUnlockedCondtion={true}
             unlockConditionsDescription="Total Burgers Produced >= 1"

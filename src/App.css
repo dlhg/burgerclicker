@@ -244,6 +244,25 @@ button:hover {
 }
 
 .quip--text--boost--active {
+  font-size: 2rem;
+  margin: 1rem;
+  cursor: url(./assets/images/pointer_transparent.png), pointer;
+  background-image: linear-gradient(
+    to left,
+    violet,
+    indigo,
+    blue,
+    green,
+    yellow,
+    orange,
+    red
+  );
+  -webkit-background-clip: text;
+  color: transparent;
+  animation: pulsate 1s infinite;
+}
+
+.quip--text--boost--active {
 }
 
 /* Optional: Add some margin between the items */
