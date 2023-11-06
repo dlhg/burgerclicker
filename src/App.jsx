@@ -18,6 +18,7 @@ import { useState, useEffect } from "react";
 import burgerpic from "./assets/images/transparentburger.png";
 
 import transparentburger_smallpic from "./assets/images/transparentburger_small.png";
+
 //store item images - buildings
 import workerpic from "./assets/images/worker_small_transparent.png";
 import pointerpic from "./assets/images/pointer.png";
@@ -68,6 +69,8 @@ function App() {
   const [currentQuipLevel, setCurrentQuipLevel] = useState(0);
   //state for main area (game, options, stats, info, legacy)
   const [mainArea, setMainArea] = useState("buildings");
+  //isBoostActive used to control what class is assigned to div1, which determines is bg anim is present
+  const [isBoostActive, setIsBoostActive] = useState(false);
 
   //reflects player's current amount of burgers (burgers in bank)
   const [burgerCount, setBurgerCount] = useState(0);
@@ -164,9 +167,9 @@ function App() {
   // update burgerCount every 100ms with BPS/10
   useEffect(() => {
     const interval = setInterval(() => {
-
       setBurgerCount(
-        (prevBurgerCount) => prevBurgerCount + ((burgersPerSecond * tempBPSBoostMultiplier) / 10)
+        (prevBurgerCount) =>
+          prevBurgerCount + (burgersPerSecond * tempBPSBoostMultiplier) / 10
       );
     }, 100);
 
@@ -193,7 +196,10 @@ function App() {
   return (
     <>
       <div className="parent">
-        <div className="div1" id="burger">
+        <div
+          className={isBoostActive ? "div1--boost--active" : "div1"}
+          id="burger"
+        >
           <div className="big--burger--container">
             <Burger
               totalBurgersProduced={totalBurgersProduced}
@@ -265,6 +271,8 @@ function App() {
                 setTempBPSBoostMultiplier={setTempBPSBoostMultiplier}
                 tempBPCBoostMultiplier={tempBPCBoostMultiplier}
                 tempBPSBoostMultiplier={tempBPSBoostMultiplier}
+                isBoostActive={isBoostActive}
+                setIsBoostActive={setIsBoostActive}
                 purchasedUpgradeIDs={purchasedUpgradeIDs}
                 setPurchasedUpgradeIDs={setPurchasedUpgradeIDs}
                 setPointerBPS={setPointerBPS}
@@ -367,6 +375,8 @@ function App() {
               setSpaceCraftBPS={setSpaceCraftBPS}
               setPortalCount={setPortalCount}
               setPortalBPS={setPortalBPS}
+              isBoostActive={isBoostActive}
+              setIsBoostActive={setIsBoostActive}
             />
           )}
         </div>

@@ -26,31 +26,34 @@ export default function UpgradeStore(props) {
   // increase is the amount the multiplier should increase (100% increase = +1 to multiplier)
   // duration in MS is the boost duration in MS (1s = 1000ms)
   function boost(whatsBoosted, increase, durationInMS) {
-
     if (whatsBoosted === "BPS") {
-      props.setTempBPSBoostMultiplier((prev) => prev + increase)
+      props.setIsBoostActive(true);
+      props.setTempBPSBoostMultiplier((prev) => prev + increase);
       setTimeout(() => {
+        props.setIsBoostActive(false);
         props.setTempBPSBoostMultiplier((prev) => prev - increase);
       }, durationInMS);
     }
     if (whatsBoosted === "BPC") {
-
-      props.setTempBPCBoostMultiplier((prev) => prev + increase)
+      props.setIsBoostActive(true);
+      props.setTempBPCBoostMultiplier((prev) => prev + increase);
       setTimeout(() => {
+        props.setIsBoostActive(false);
         props.setTempBPCBoostMultiplier((prev) => prev - increase);
       }, durationInMS);
     }
     if (whatsBoosted === "BPSBPC") {
-      props.setTempBPSBoostMultiplier((prev) => prev + increase)
-      props.setTempBPCBoostMultiplier((prev) => prev + increase)
+      props.setIsBoostActive(true);
+      props.setTempBPSBoostMultiplier((prev) => prev + increase);
+      props.setTempBPCBoostMultiplier((prev) => prev + increase);
       setTimeout(() => {
         props.setTempBPSBoostMultiplier((prev) => prev - increase);
       }, durationInMS);
       setTimeout(() => {
+        props.setIsBoostActive(false);
         props.setTempBPCBoostMultiplier((prev) => prev - increase);
       }, durationInMS);
     }
-
   }
 
   // increase BPC multiplier by 100% for 5 seconds
@@ -63,7 +66,6 @@ export default function UpgradeStore(props) {
     }, 5000);
   };
 
-
   return (
     <>
       <div className="upstore--container">
@@ -74,7 +76,9 @@ export default function UpgradeStore(props) {
             itemPrice={1}
             itemImage={catpic}
             itemName={"lucky burger cat"}
-            itemDescription={"+1 Burger Per Click, and 1000% to burgers/click for 5s"}
+            itemDescription={
+              "+1 Burger Per Click, and 1000% to burgers/click for 5s"
+            }
             itemFlavorText={"A stray cat shows up. Adopt him as your mascot?"}
             primarySetter={props.setBurgersPerClick}
             primarySetterArgument={(prev) => prev + 1}
@@ -98,7 +102,6 @@ export default function UpgradeStore(props) {
             purchasedUpgradeIDs={props.purchasedUpgradeIDs}
             setPurchasedUpgradeIDs={props.setPurchasedUpgradeIDs}
           />
-
         </div>
 
         <div className="upstore--right">
@@ -119,6 +122,3 @@ export default function UpgradeStore(props) {
     </>
   );
 }
-
-
-

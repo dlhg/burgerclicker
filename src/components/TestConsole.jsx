@@ -30,6 +30,8 @@ export default function TestConsole({
   setSpaceCraftBPS,
   setPortalCount,
   setPortalBPS,
+  isBoostActive,
+  setIsBoostActive,
 }) {
   const [selectedFunction, setSelectedFunction] = useState("");
   const [argument, setArgument] = useState("");
@@ -54,7 +56,6 @@ export default function TestConsole({
       setTempBPCBoostMultiplier((prevMultiplier) => prevMultiplier - 1);
     }, 5000);
   };
-
 
   const handleFunctionChange = (event) => {
     setSelectedFunction(event.target.value);
@@ -176,8 +177,12 @@ export default function TestConsole({
                 <option value="">Select...</option>
                 <option value="setBurgersPerClick">setBurgersPerClick</option>
                 <option value="setBurgersPerSecond">setBurgersPerSecond</option>
-                <option value="setTempBPSBoostMultiplier">setTempBPSBoostMultiplier</option>
-                <option value="setTempBPCBoostMultiplier">setTempBPCBoostMultiplier</option>
+                <option value="setTempBPSBoostMultiplier">
+                  setTempBPSBoostMultiplier
+                </option>
+                <option value="setTempBPCBoostMultiplier">
+                  setTempBPCBoostMultiplier
+                </option>
                 <option value="setCurrentQuipLevel">setCurrentQuipLevel</option>
 
                 <option value="setBurgerCount">setBurgerCount</option>
@@ -223,9 +228,12 @@ export default function TestConsole({
             <br />
             <button onClick={handleExecute}>Execute</button>
             <br />
-            <button onClick={() => increaseBPSMult_100_5s()}>boost BPS by 100% for 5 seconds</button>
-            <button onClick={() => increaseBPCMult_100_5s()}>boost BPC by 100% for 5 seconds</button>
-
+            <button onClick={() => increaseBPSMult_100_5s()}>
+              boost BPS by 100% for 5 seconds
+            </button>
+            <button onClick={() => increaseBPCMult_100_5s()}>
+              boost BPC by 100% for 5 seconds
+            </button>
 
             {/* <button>boost BPC by 100% for 5 seconds</button>
             <button>boost BPS by 1000% for 10 seconds</button>
@@ -246,7 +254,6 @@ export default function TestConsole({
       props.setTempBPCBoostMultiplier
       
       */}
-
 
             <button onClick={() => setShowInfo((prev) => !prev)}>
               {showInfo ? "Hide Info" : "Show Info"}

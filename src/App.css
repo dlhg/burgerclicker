@@ -9,7 +9,17 @@
 }
 
 .rainbow--text {
-  background-image: linear-gradient(to left, violet, indigo, blue, green, yellow, orange, red);   -webkit-background-clip: text;
+  background-image: linear-gradient(
+    to left,
+    violet,
+    indigo,
+    blue,
+    green,
+    yellow,
+    orange,
+    red
+  );
+  -webkit-background-clip: text;
   color: transparent;
   animation: pulsate 1s infinite;
 }
@@ -135,15 +145,12 @@ button:hover {
 @keyframes pulsate {
   0% {
     transform: scale(1);
-   
   }
   50% {
     transform: scale(1.05);
-    
   }
   100% {
     transform: scale(1);
-    
   }
 }
 
@@ -168,6 +175,16 @@ button:hover {
   font-weight: bold;
   height: 100vh;
   background-color: rgb(0, 0, 0);
+}
+.div1--boost--active {
+  grid-area: 1 / 1 / 6 / 2;
+  flex-direction: column;
+  text-align: center;
+  font-size: 1.25rem;
+  font-weight: bold;
+  height: 100vh;
+  background-color: rgb(0, 0, 0);
+  background: url(./assets/images/backgrounds/twinklingbg_anim.gif);
 }
 
 .big--burger--container {
