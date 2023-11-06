@@ -228,7 +228,7 @@ function App() {
           />
         </div>
         {
-          <div className="div2">
+          <div className={isBoostActive ? "div2--boost--active" : "div2"}>
             <div className="navbar">
               <div className="navbar--left">
                 <button onClick={() => setMainArea("options")}>options</button>

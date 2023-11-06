@@ -85,9 +85,9 @@ export default function UpgradeStore(props) {
             secondarySetter={boost}
             // boost type (BPC,BPS,or BPSBPC), multiplier add (base value 1), duration in ms
             secondarySetterArgument={["BPC", 9, 10000]}
-            unlockedCondition={props.totalBurgersProducedUnformatted >= 10}
+            unlockedCondition={props.totalBurgersProducedUnformatted >= 1}
             secondUnlockedCondtion={true}
-            unlockConditionsDescription="Total Burgers Produced >= 10"
+            unlockConditionsDescription="Total Burgers Produced >= 1"
             //boilerplate
             burgerCount={props.burgerCount}
             setBurgerCount={props.setBurgerCount}

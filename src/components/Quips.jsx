@@ -402,7 +402,7 @@ export default function Quips(props) {
         }
         onClick={() => handleClick()}
       >
-        {props.isBoostActive ? "BOOST ACTIVATED" : currentQuip}
+        {props.isBoostActive ? "B O O S T" : currentQuip}
       </div>
       <br />
     </>

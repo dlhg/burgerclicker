@@ -211,10 +211,23 @@ button:hover {
 .div2 {
   /* navbar */
   grid-area: 1 / 2 / 2 / 5;
+  background-image: url(./assets/images/backgrounds/blackrectangle.png);
+  background-size: cover;
+  border-left: solid darkgreen 1px;
+  border-right: solid darkgreen 1px;
+  border-top: solid darkgreen 1px;
+  transition: background-image 1s linear;
+}
+.div2--boost--active {
+  grid-area: 1 / 2 / 2 / 5;
 
   border-left: solid darkgreen 1px;
   border-right: solid darkgreen 1px;
   border-top: solid darkgreen 1px;
+  background-size: 25%;
+  background-image: url(https://tinyurl.com/2au647dn);
+  background-position: top;
+  transition: background-image 1s linear;
 }
 
 .navbar {
@@ -245,9 +258,10 @@ button:hover {
 }
 
 .quip--text--boost--active {
-  font-size: 2rem;
+  font-size: 3rem;
+  font-weight: 900;
   margin: 1rem;
-  cursor: url(./assets/images/pointer_transparent.png), pointer;
+  cursor: url(./assets/images/cursor_transparent.png), pointer;
   background-image: linear-gradient(
     to left,
     violet,
