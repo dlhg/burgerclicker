@@ -75,19 +75,19 @@ export default function UpgradeStore(props) {
             itemID={1}
             itemPrice={1}
             itemImage={catpic}
-            itemName={"lucky burger cat"}
+            itemName={"meredith"}
             itemDescription={
               "+1 Burger Per Click, and 1000% to burgers/click for 10s"
             }
-            itemFlavorText={"A stray cat shows up. Adopt him as your mascot?"}
+            itemFlavorText={"A hungry stray cat shows up. Feed her a burger?"}
             primarySetter={props.setBurgersPerClick}
             primarySetterArgument={(prev) => prev + 1}
             secondarySetter={boost}
             // boost type (BPC,BPS,or BPSBPC), multiplier add (base value 1), duration in ms
             secondarySetterArgument={["BPC", 9, 10000]}
-            unlockedCondition={props.totalBurgersProducedUnformatted >= 1}
+            unlockedCondition={props.totalBurgersProducedUnformatted >= 10}
             secondUnlockedCondtion={true}
-            unlockConditionsDescription="Total Burgers Produced >= 1"
+            unlockConditionsDescription="Total Burgers Produced >= 10"
             //boilerplate
             burgerCount={props.burgerCount}
             setBurgerCount={props.setBurgerCount}
