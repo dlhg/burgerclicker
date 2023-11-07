@@ -53,7 +53,7 @@ export default function MinigameTemplate(props) {
   const [burgerOrder, setBurgerOrder] = useState([]);
   const [playerBurger, setPlayerBurger] = useState([]);
 
-  const [reward, setReward] = useState(10);
+  const [reward, setReward] = useState(props.burgersPerSecond);
   const [correctStreak, setCorrectStreak] = useState(0);
   const [timeRemaining, setTimeRemaining] = useState(30);
   const [gameStarted, setGameStarted] = useState(false);
@@ -135,6 +135,12 @@ now that we're capturing burger creation time, we can:
     setCorrectStreak(0);
   }
 
+  function handleQuit() {
+    console.log(`handleQuit called`);
+    props.setBurgerCount((prev) => prev + reward);
+    props.setMainArea("buildings");
+  }
+
   function handleLose() {
     setButtonsDisabled(true); // Disable buttons
     let countdown = 3; // Initial countdown value
@@ -203,56 +209,63 @@ now that we're capturing burger creation time, we can:
 
       // if the player was slow to make the burger, set appropriate ticketText
       if (timeToCompleteBurger >= slowTime) {
-        let randomIndex = Math.floor(Math.random() * finishedBurgerSlow.length)
-        let newText = finishedBurgerSlow[randomIndex]
+        let randomIndex = Math.floor(Math.random() * finishedBurgerSlow.length);
+        let newText = finishedBurgerSlow[randomIndex];
 
         if (newText !== prevTickerText) {
-          setTickerText(newText)
-          setPrevTickerText(newText)
+          setTickerText(newText);
+          setPrevTickerText(newText);
         }
         if (newText === prevTickerText) {
           // if we land on the same ticker text as last time, pick another element and setTickerText to that
           // check if an element exists at randomIndex - 1. If yes, use that. If no, use element at randomIndex + 1.
-          finishedBurgerSlow[randomIndex - 1] !== undefined ? newText = finishedBurgerSlow[randomIndex - 1] : newText = finishedBurgerSlow[randomIndex + 1]
-          setTickerText(newText)
-          setPrevTickerText(newText)
+          finishedBurgerSlow[randomIndex - 1] !== undefined
+            ? (newText = finishedBurgerSlow[randomIndex - 1])
+            : (newText = finishedBurgerSlow[randomIndex + 1]);
+          setTickerText(newText);
+          setPrevTickerText(newText);
         }
       }
 
-
       // if the player was neither slow nor fast (normal time), set appropriate ticketText
       if (timeToCompleteBurger < slowTime && timeToCompleteBurger > fastTime) {
-        let randomIndex = Math.floor(Math.random() * finishedBurgerNormal.length)
-        let newText = finishedBurgerNormal[randomIndex]
+        let randomIndex = Math.floor(
+          Math.random() * finishedBurgerNormal.length
+        );
+        let newText = finishedBurgerNormal[randomIndex];
 
         if (newText !== prevTickerText) {
-          setTickerText(newText)
-          setPrevTickerText(newText)
+          setTickerText(newText);
+          setPrevTickerText(newText);
         }
         if (newText === prevTickerText) {
           // if we land on the same ticker text as last time, pick another element and setTickerText to that
           // check if an element exists at randomIndex - 1. If yes, use that. If no, use element at randomIndex + 1.
-          finishedBurgerNormal[randomIndex - 1] !== undefined ? newText = finishedBurgerNormal[randomIndex - 1] : newText = finishedBurgerNormal[randomIndex + 1]
-          setTickerText(newText)
-          setPrevTickerText(newText)
+          finishedBurgerNormal[randomIndex - 1] !== undefined
+            ? (newText = finishedBurgerNormal[randomIndex - 1])
+            : (newText = finishedBurgerNormal[randomIndex + 1]);
+          setTickerText(newText);
+          setPrevTickerText(newText);
         }
       }
 
       // if the player was fast, set appropriate ticketText
       if (timeToCompleteBurger <= fastTime) {
-        let randomIndex = Math.floor(Math.random() * finishedBurgerFast.length)
-        let newText = finishedBurgerFast[randomIndex]
+        let randomIndex = Math.floor(Math.random() * finishedBurgerFast.length);
+        let newText = finishedBurgerFast[randomIndex];
 
         if (newText !== prevTickerText) {
-          setTickerText(newText)
-          setPrevTickerText(newText)
+          setTickerText(newText);
+          setPrevTickerText(newText);
         }
         if (newText === prevTickerText) {
           // if we land on the same ticker text as last time, pick another element and setTickerText to that
           // check if an element exists at randomIndex - 1. If yes, use that. If no, use element at randomIndex + 1.
-          finishedBurgerFast[randomIndex - 1] !== undefined ? newText = finishedBurgerFast[randomIndex - 1] : newText = finishedBurgerFast[randomIndex + 1]
-          setTickerText(newText)
-          setPrevTickerText(newText)
+          finishedBurgerFast[randomIndex - 1] !== undefined
+            ? (newText = finishedBurgerFast[randomIndex - 1])
+            : (newText = finishedBurgerFast[randomIndex + 1]);
+          setTickerText(newText);
+          setPrevTickerText(newText);
         }
       }
 
@@ -270,7 +283,6 @@ now that we're capturing burger creation time, we can:
       generateRandomBurger();
     }
   }
-
 
   function handleStartOver() {
     let penaltyMultiplier = 0.9;
@@ -338,10 +350,7 @@ now that we're capturing burger creation time, we can:
           {gameStarted && (
             <div className="assembly--wrapper">
               {/* <div className="assembly--navbar"> </div> */}
-              <button
-                id="quit--assembly--button"
-                onClick={() => props.setMainArea("buildings")}
-              >
+              <button id="quit--assembly--button" onClick={() => handleQuit()}>
                 quit minigame
               </button>
 
@@ -504,7 +513,9 @@ now that we're capturing burger creation time, we can:
                 >
                   +10000s to clock
                 </button>
-                <button onClick={() => setTimeRemaining(5)}>reduce clock to 5s left</button>
+                <button onClick={() => setTimeRemaining(5)}>
+                  reduce clock to 5s left
+                </button>
               </div>
             </div>
           )}

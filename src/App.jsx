@@ -335,6 +335,7 @@ function App() {
               showMinigameCondition={totalBurgersProducedUnformatted >= 3}
               setMainArea={setMainArea}
               setBurgerCount={setBurgerCount}
+              burgersPerSecond={burgersPerSecond}
             />
           )}
           {mainArea === "options" && <Options />}
