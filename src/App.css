@@ -8,6 +8,10 @@
   src: url(./assets/font/calibration-gothic-nbp-latin-font/CalibrationGothicNbpLatin-rYmy.ttf);
 }
 
+body {
+  overflow: hidden;
+}
+
 .rainbow--text {
   background-image: linear-gradient(
     to left,

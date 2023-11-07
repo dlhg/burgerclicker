@@ -103,6 +103,39 @@ export default function UpgradeStore(props) {
             purchasedUpgradeIDs={props.purchasedUpgradeIDs}
             setPurchasedUpgradeIDs={props.setPurchasedUpgradeIDs}
           />
+          <UpgradeItem
+            //unique
+            itemID={2}
+            itemPrice={1}
+            itemImage={scrollpic}
+            itemName={"ancient scroll"}
+            itemDescription={
+              "+10 Burger Per Click, and 1000% to burgers/click for 10s"
+            }
+            itemFlavorText={"Jazz?"}
+            primarySetter={props.setBurgersPerClick}
+            primarySetterArgument={(prev) => prev + 10}
+            secondarySetter={boost}
+            // boost type (BPC,BPS,or BPSBPC), multiplier add (base value 1), duration in ms
+            secondarySetterArgument={["BPSBPC", 9, 10000]}
+            unlockedCondition={props.totalBurgersProducedUnformatted >= 1}
+            secondUnlockedCondtion={true}
+            unlockConditionsDescription="Total Burgers Produced >= 1"
+            //boilerplate
+            burgerCount={props.burgerCount}
+            setBurgerCount={props.setBurgerCount}
+            setIsAnUpgradeHovered={setIsAnUpgradeHovered}
+            setToolItemImage={setToolItemImage}
+            setToolItemName={setToolItemName}
+            setToolItemCost={setToolItemCost}
+            setToolItemDescription={setToolItemDescription}
+            setToolItemFlavorText={setToolItemFlavorText}
+            setToolItemUnlockConditionsDescription={
+              setToolItemUnlockConditionsDescription
+            }
+            purchasedUpgradeIDs={props.purchasedUpgradeIDs}
+            setPurchasedUpgradeIDs={props.setPurchasedUpgradeIDs}
+          />
         </div>
 
         <div className="upstore--right">
