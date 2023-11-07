@@ -158,6 +158,17 @@ button:hover {
   }
 }
 
+@keyframes floatAndFade {
+  from {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  to {
+    transform: translateY(-50px);
+    opacity: 0;
+  }
+}
+
 .parent {
   display: grid;
   grid-template-columns: repeat(5, 1fr);
@@ -211,6 +222,16 @@ button:hover {
 .big--burger:active {
   height: 49%;
   width: 49%;
+}
+
+.floating-number {
+  position: absolute;
+  animation: floatAndFade 1.5s forwards;
+  /* Additional styling for the floating number */
+  background-color: #ffffff;
+  padding: 8px;
+  border-radius: 4px;
+  /* Add any other styles as needed */
 }
 .div2 {
   /* navbar */
