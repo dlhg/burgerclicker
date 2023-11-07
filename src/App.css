@@ -16,8 +16,8 @@ body {
   background-image: linear-gradient(
     to left,
     violet,
-    indigo,
-    blue,
+    rgb(96, 53, 127),
+    rgb(95, 95, 255),
     green,
     yellow,
     orange,
@@ -26,6 +26,21 @@ body {
   -webkit-background-clip: text;
   color: transparent;
   animation: pulsate 1s infinite;
+}
+
+.rainbow--text--noanim {
+  background-image: linear-gradient(
+    to left,
+    violet,
+    rgb(96, 53, 127),
+    rgb(95, 95, 255),
+    green,
+    yellow,
+    orange,
+    red
+  );
+  color: transparent;
+  -webkit-background-clip: text;
 }
 
 #root {
@@ -243,8 +258,8 @@ button:hover {
   background-image: linear-gradient(
     to left,
     violet,
-    indigo,
-    blue,
+    rgb(96, 53, 127),
+    rgb(95, 95, 255),
     green,
     yellow,
     orange,
@@ -310,8 +325,8 @@ button:hover {
   background-image: linear-gradient(
     to left,
     violet,
-    indigo,
-    blue,
+    rgb(96, 53, 127),
+    rgb(95, 95, 255),
     green,
     yellow,
     orange,

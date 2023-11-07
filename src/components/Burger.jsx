@@ -53,7 +53,9 @@ export default function Burger(props) {
 
   return (
     <div>
-      <section>Burgers : {formatNumber(props.displayedBurgerCount)}</section>
+      <section className={props.isBoostActive ? "rainbow--text--noanim" : ""}>
+        Burgers : {formatNumber(props.displayedBurgerCount)}
+      </section>
       {/* added placeholder conditional styles to show player if their BPS or BPC is currently boosted, update these to something better later */}
       <section
         className={props.tempBPSBoostMultiplier > 1 ? "rainbow--text" : ""}
