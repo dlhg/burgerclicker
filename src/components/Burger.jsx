@@ -43,7 +43,7 @@ export default function Burger(props) {
         prevCount + props.burgersPerClick * props.tempBPCBoostMultiplier
     );
 
-    // Set a timeout to remove the added element after 1.4 seconds
+    // Set a timeout to remove the added element after 1.4 seconds, slightly shorter than anim length (if changing anim length later, this needs to be changed too)
     setTimeout(() => {
       setFloatingNumbers((prevNumbers) =>
         prevNumbers.filter((number) => number.key !== key)
