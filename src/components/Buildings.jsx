@@ -1,10 +1,12 @@
+// this component shows rows containing each building you own
+
 import React from "react";
 import BuildingRow from "./BuildingRow";
 
 export default function Buildings(props) {
   return (
     <>
-      <div>
+      <div className="buildings--wrapper">
         <div id="Building1">
           <BuildingRow
             count={props.pointerCount}
