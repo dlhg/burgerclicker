@@ -43,12 +43,12 @@ export default function Burger(props) {
         prevCount + props.burgersPerClick * props.tempBPCBoostMultiplier
     );
 
-    // Set a timeout to remove the added element after 1.5 seconds
+    // Set a timeout to remove the added element after 1.4 seconds
     setTimeout(() => {
       setFloatingNumbers((prevNumbers) =>
         prevNumbers.filter((number) => number.key !== key)
       );
-    }, 1500);
+    }, 1400);
   }
 
   return (
