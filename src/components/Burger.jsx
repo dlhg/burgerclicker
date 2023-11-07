@@ -83,6 +83,7 @@ export default function Burger(props) {
       <section>
         <img
           src={props.burgerpic}
+          draggable="false"
           onClick={handleBurgerClick}
           alt="Burger"
           className="big--burger"
