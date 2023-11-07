@@ -33,6 +33,28 @@ export function formatNumber(number) {
     return (number / 1e27).toFixed(3) + " octillion";
   } else if (number < 1e33) {
     return (number / 1e30).toFixed(3) + " nonillion";
+  } else if (number < 1e36) {
+    return (number / 1e33).toFixed(3) + " decillion";
+  } else if (number < 1e39) {
+    return (number / 1e36).toFixed(3) + " undecillion";
+  } else if (number < 1e42) {
+    return (number / 1e39).toFixed(3) + " duodecillion";
+  } else if (number < 1e45) {
+    return (number / 1e42).toFixed(3) + " tredecillion";
+  } else if (number < 1e48) {
+    return (number / 1e45).toFixed(3) + " quattuordecillion";
+  } else if (number < 1e51) {
+    return (number / 1e48).toFixed(3) + " quindecillion";
+  } else if (number < 1e54) {
+    return (number / 1e51).toFixed(3) + " sexdecillion";
+  } else if (number < 1e57) {
+    return (number / 1e54).toFixed(3) + " septendecillion";
+  } else if (number < 1e60) {
+    return (number / 1e57).toFixed(3) + " octodecillion";
+  } else if (number < 1e63) {
+    return (number / 1e60).toFixed(3) + " novemdecillion";
+  } else if (number < 1e66) {
+    return (number / 1e63).toFixed(3) + " vigintillion";
   } else {
     return "An extremely large number";
   }
