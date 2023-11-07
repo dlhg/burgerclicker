@@ -285,7 +285,7 @@ button:hover {
   border-right: solid darkgreen 1px;
   border-top: solid darkgreen 1px;
   background-size: 25%;
-  background-image: url(https://tinyurl.com/2au647dn);
+  background-image: url(./assets/images/backgrounds/firework_abmz.gif);
   background-position: top;
   transition: background-image 1s linear;
 }
