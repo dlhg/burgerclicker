@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { formatNumber } from "../utils";
+import { formatNumber, formatNumberTruncated } from "../utils";
 
 export default function Burger(props) {
   const [clickPosition, setClickPosition] = useState({ x: 0, y: 0 });
@@ -26,7 +26,7 @@ export default function Burger(props) {
       ...prevNumbers,
       {
         key,
-        value: formatNumber(
+        value: formatNumberTruncated(
           props.burgersPerClick * props.tempBPCBoostMultiplier
         ),
         x: e.clientX,
