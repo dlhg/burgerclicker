@@ -1,17 +1,9 @@
 import React, { useEffect, useState } from "react";
 import { formatNumber } from "../utils";
-//import useSound from "use-sound";
-//import click1 from "../assets/sfx/click1.wav";
-//import click2 from "../assets/sfx/click2.wav";
-//import click3 from "../assets/sfx/click3.wav";
-//import click4 from "../assets/sfx/click4.wav";
-//import { getRandomIndex } from "../Utils";
-//import { getRandomNumber } from "../Utils";
-//const clicksounds = [click1, click2, click3, click4];
 
 export default function Burger(props) {
-  //const [play] = useSound(clicksounds[getRandomIndex(clicksounds)]);
   const [clickPosition, setClickPosition] = useState({ x: 0, y: 0 });
+  const [floatingNumbers, setFloatingNumbers] = useState([]);
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -27,9 +19,19 @@ export default function Burger(props) {
 
   function handleBurgerClick(e) {
     setClickPosition({ x: e.clientX, y: e.clientY });
-    console.log(
-      `burger clicked at X/Y ${e.nativeEvent.clientX},${e.nativeEvent.clientY}`
-    );
+
+    const key = Date.now().toString();
+
+    setFloatingNumbers((prevNumbers) => [
+      ...prevNumbers,
+      {
+        key,
+        value: props.burgersPerClick * props.tempBPCBoostMultiplier,
+        x: e.clientX,
+        y: e.clientY,
+      },
+    ]);
+
     props.setBurgerCount(
       (prevCount) =>
         prevCount + props.burgersPerClick * props.tempBPCBoostMultiplier
@@ -38,7 +40,13 @@ export default function Burger(props) {
       (prevCount) =>
         prevCount + props.burgersPerClick * props.tempBPCBoostMultiplier
     );
-    //play();
+
+    // Set a timeout to remove the added element after 1.5 seconds
+    setTimeout(() => {
+      setFloatingNumbers((prevNumbers) =>
+        prevNumbers.filter((number) => number.key !== key)
+      );
+    }, 1500);
   }
 
   return (
@@ -75,10 +83,15 @@ export default function Burger(props) {
           alt="Burger"
           className="big--burger"
         />
-        <div
-          className="floating-number"
-          style={{ left: clickPosition.x, top: clickPosition.y }}
-        ></div>
+        {floatingNumbers.map((number) => (
+          <div
+            key={number.key}
+            className="floating--number"
+            style={{ left: number.x, top: number.y }}
+          >
+            {number.value}
+          </div>
+        ))}
         <br />
         <br />
         <br />
