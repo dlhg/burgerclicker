@@ -26,7 +26,9 @@ export default function Burger(props) {
       ...prevNumbers,
       {
         key,
-        value: props.burgersPerClick * props.tempBPCBoostMultiplier,
+        value: formatNumber(
+          props.burgersPerClick * props.tempBPCBoostMultiplier
+        ),
         x: e.clientX,
         y: e.clientY,
       },

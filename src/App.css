@@ -226,7 +226,7 @@ button:hover {
 
 .floating--number {
   position: absolute;
-  font-size: 2rem;
+  font-size: 3rem;
   animation: floatAndFade 1.5s infinite;
   z-index: 2;
   /* Additional styling for the floating number */
