@@ -88,7 +88,11 @@ export default function Burger(props) {
         {floatingNumbers.map((number) => (
           <div
             key={number.key}
-            className="floating--number"
+            className={
+              props.isBoostActive
+                ? "floating--number--boost--active"
+                : "floating--number"
+            }
             style={{ left: number.x, top: number.y }}
           >
             {number.value}

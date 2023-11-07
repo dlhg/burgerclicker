@@ -219,6 +219,7 @@ function App() {
               setTempBPSBoostMultiplier={setTempBPSBoostMultiplier}
               tempBPCBoostMultiplier={tempBPCBoostMultiplier}
               burgerpic={burgerpic}
+              isBoostActive={isBoostActive}
             />
           </div>
           <div></div>

@@ -230,10 +230,28 @@ button:hover {
   color: white;
   animation: floatAndFade 1.5s infinite;
   z-index: 2;
-  /* Additional styling for the floating number */
-
   pointer-events: none;
-  /* Add any other styles as needed */
+}
+
+.floating--number--boost--active {
+  position: absolute;
+  font-size: 4rem;
+  color: white;
+  animation: floatAndFade 1.5s infinite;
+  z-index: 2;
+  pointer-events: none;
+  background-image: linear-gradient(
+    to left,
+    violet,
+    indigo,
+    blue,
+    green,
+    yellow,
+    orange,
+    red
+  );
+  -webkit-background-clip: text;
+  color: transparent;
 }
 .div2 {
   /* navbar */
