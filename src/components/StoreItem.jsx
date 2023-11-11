@@ -13,7 +13,7 @@ export default function StoreItem(props) {
       return;
     }
     props.setBurgerCount((prev) => prev - props.storeItemPrice);
-    props.setBurgersPerSecond((prev) => prev + props.bpsIncrease);
+    props.setTotalBuildingBPS((prev) => prev + props.bpsIncrease);
     props.itemSetter((prev) => prev + 1);
     //play();
   }

@@ -4,7 +4,7 @@ import loopedvectorpic from "../assets/images/backgrounds/loopedvector.gif";
 
 export default function TestConsole({
   setBurgersPerClick,
-  setBurgersPerSecond,
+  setTotalBuildingBPS,
   setCurrentQuipLevel,
   setTempBPSBoostMultiplier,
   setTempBPCBoostMultiplier,
@@ -71,8 +71,8 @@ export default function TestConsole({
         case "setBurgersPerClick":
           setBurgersPerClick(Number(argument));
           break;
-        case "setBurgersPerSecond":
-          setBurgersPerSecond(Number(argument));
+        case "setTotalBuildingBPS":
+          setTotalBuildingBPS(Number(argument));
           break;
 
         case "setTempBPSBoostMultiplier":
@@ -176,7 +176,7 @@ export default function TestConsole({
               <select value={selectedFunction} onChange={handleFunctionChange}>
                 <option value="">Select...</option>
                 <option value="setBurgersPerClick">setBurgersPerClick</option>
-                <option value="setBurgersPerSecond">setBurgersPerSecond</option>
+                <option value="setTotalBuildingBPS">setTotalBuildingBPS</option>
                 <option value="setTempBPSBoostMultiplier">
                   setTempBPSBoostMultiplier
                 </option>

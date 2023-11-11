@@ -10,12 +10,12 @@ export default function Burger(props) {
       props.setBurgersMadeFromAutomation(
         (prevCount) =>
           prevCount +
-          (props.burgersPerSecond * props.tempBPSBoostMultiplier) / 10
+          (props.totalBuildingBPS * props.tempBPSBoostMultiplier) / 10
       );
     }, 100);
 
     return () => clearInterval(interval);
-  }, [props.burgersPerSecond, props.tempBPSBoostMultiplier]);
+  }, [props.totalBuildingBPS, props.tempBPSBoostMultiplier]);
 
   function handleBurgerClick(e) {
     setClickPosition({ x: e.clientX, y: e.clientY });
@@ -61,7 +61,7 @@ export default function Burger(props) {
         className={props.tempBPSBoostMultiplier > 1 ? "rainbow--text" : ""}
       >
         Per Second :{" "}
-        {formatNumber(props.burgersPerSecond * props.tempBPSBoostMultiplier)}
+        {formatNumber(props.totalBuildingBPS * props.tempBPSBoostMultiplier)}
         {props.tempBPSBoostMultiplier > 1
           ? `  (${props.tempBPSBoostMultiplier}x multiplier)`
           : ""}

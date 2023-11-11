@@ -53,7 +53,7 @@ export default function MinigameTemplate(props) {
   const [burgerOrder, setBurgerOrder] = useState([]);
   const [playerBurger, setPlayerBurger] = useState([]);
 
-  const [reward, setReward] = useState(props.burgersPerSecond);
+  const [reward, setReward] = useState(props.totalBuildingBPS);
   const [correctStreak, setCorrectStreak] = useState(0);
   const [timeRemaining, setTimeRemaining] = useState(30);
   const [gameStarted, setGameStarted] = useState(false);

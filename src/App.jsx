@@ -85,7 +85,8 @@ function App() {
   const [burgersMadeFromClicking, setBurgersMadeFromClicking] = useState(0);
   const [burgersMadeFromAutomation, setBurgersMadeFromAutomation] = useState(0);
   const [burgersPerClick, setBurgersPerClick] = useState(1);
-  const [burgersPerSecond, setBurgersPerSecond] = useState(0);
+  // const [burgersPerSecond, setBurgersPerSecond] = useState(0);  deprecated this in favor of totalBuildingsBPS
+  const [totalBuildingBPS, setTotalBuildingBPS] = useState(0);
 
   // burgers per sec and burgers per click temp boost
   const [tempBPSBoostMultiplier, setTempBPSBoostMultiplier] = useState(1);
@@ -166,21 +167,39 @@ function App() {
     }
   }, [totalBurgersProducedUnformatted]);
 
-  // update burgerCount every 100ms with BPS/10
+  // update burgerCount every 100ms with TBBPS/10
   useEffect(() => {
     const interval = setInterval(() => {
       setBurgerCount(
         (prevBurgerCount) =>
-          prevBurgerCount + (burgersPerSecond * tempBPSBoostMultiplier) / 10
+          prevBurgerCount + (totalBuildingBPS * tempBPSBoostMultiplier) / 10
       );
     }, 100);
 
     return () => clearInterval(interval); // Cleanup the interval on component unmount
-  }, [burgersPerSecond, tempBPSBoostMultiplier]);
+  }, [totalBuildingBPS, tempBPSBoostMultiplier]);
+
+  // update totalBuildingBPS whenever the count or BPS changes for any building - this is my new way of calculating burgers per second so that it can respond to changes in building count and BPS with less fuss
+
+  useEffect(() => {
+
+    const TBBPS = ((pointerCount * pointerBPS) +
+      (workerCount * workerBPS) +
+      (grillCount * grillBPS) +
+      (truckCount * truckBPS) +
+      (bankCount * bankBPS) +
+      (templeCount * templeBPS) +
+      (labCount * labBPS) +
+      (spacecraftCount * spacecraftBPS) +
+      (portalCount * portalBPS))
+    console.log(`one of your buildings' count or BPS changed - changed totalBuildingBPS from ${totalBuildingBPS} to ${TBBPS}`)
+    setTotalBuildingBPS(TBBPS)
+  }, [pointerCount, pointerBPS, workerCount, workerBPS, grillCount, grillBPS, truckCount, truckBPS, bankCount, bankBPS, templeCount, templeBPS, labCount, labBPS, spacecraftCount, spacecraftBPS, portalCount, portalBPS])
 
   // rounds the burgerCount down to nearest integer to display to the player (avoids player seeing things like 50.33 burgers)
   useEffect(() => {
     setDisplayedBurgerCount(Math.floor(burgerCount));
+
   }, [burgerCount]);
 
   // updates Total Burgers Produced by summing clicked burgers count + automated burgers count
@@ -210,8 +229,7 @@ function App() {
               setBurgerCount={setBurgerCount}
               burgersPerClick={burgersPerClick}
               setBurgersPerClick={setBurgersPerClick}
-              burgersPerSecond={burgersPerSecond}
-              setBurgersPerSecond={setBurgersPerSecond}
+              totalBuildingBPS={totalBuildingBPS}
               burgersMadeFromClicking={burgersMadeFromClicking}
               setBurgersMadeFromClicking={setBurgersMadeFromClicking}
               burgersMadeFromAutomation={burgersMadeFromAutomation}
@@ -270,7 +288,6 @@ function App() {
                 totalBurgersProducedUnformatted={
                   totalBurgersProducedUnformatted
                 }
-                setBurgersPerSecond={setBurgersPerSecond}
                 setBurgersPerClick={setBurgersPerClick}
                 setBurgerCount={setBurgerCount}
                 setTempBPCBoostMultiplier={setTempBPCBoostMultiplier}
@@ -337,7 +354,7 @@ function App() {
               showMinigameCondition={totalBurgersProducedUnformatted >= 3}
               setMainArea={setMainArea}
               setBurgerCount={setBurgerCount}
-              burgersPerSecond={burgersPerSecond}
+              totalBuildingBPS={totalBuildingBPS}
             />
           )}
           {mainArea === "options" && <Options />}
@@ -353,7 +370,7 @@ function App() {
           {mainArea === "legacy" && <Legacy />}
           {mainArea === "testconsole" && (
             <TestConsole
-              setBurgersPerSecond={setBurgersPerSecond}
+              setTotalBuildingBPS={setTotalBuildingBPS}
               setBurgersPerClick={setBurgersPerClick}
               setTempBPSBoostMultiplier={setTempBPSBoostMultiplier}
               setTempBPCBoostMultiplier={setTempBPCBoostMultiplier}
@@ -401,7 +418,7 @@ function App() {
               storeItemPrice={scaleItemPrice(10, pointerCount)}
               burgerCount={burgerCount}
               setBurgerCount={setBurgerCount}
-              setBurgersPerSecond={setBurgersPerSecond}
+              setTotalBuildingBPS={setTotalBuildingBPS}
               itemCount={pointerCount}
               itemSetter={setPointerCount}
               bpsIncrease={pointerBPS}
@@ -418,7 +435,7 @@ function App() {
               storeItemPrice={scaleItemPrice(50, workerCount)}
               burgerCount={burgerCount}
               setBurgerCount={setBurgerCount}
-              setBurgersPerSecond={setBurgersPerSecond}
+              setTotalBuildingBPS={setTotalBuildingBPS}
               itemCount={workerCount}
               itemSetter={setWorkerCount}
               bpsIncrease={workerBPS}
@@ -436,7 +453,7 @@ function App() {
                 storeItemPrice={scaleItemPrice(150, grillCount)}
                 burgerCount={burgerCount}
                 setBurgerCount={setBurgerCount}
-                setBurgersPerSecond={setBurgersPerSecond}
+                setTotalBuildingBPS={setTotalBuildingBPS}
                 itemCount={grillCount}
                 itemSetter={setGrillCount}
                 bpsIncrease={grillBPS}
@@ -455,7 +472,7 @@ function App() {
                 storeItemPrice={scaleItemPrice(225, truckCount)}
                 burgerCount={burgerCount}
                 setBurgerCount={setBurgerCount}
-                setBurgersPerSecond={setBurgersPerSecond}
+                setTotalBuildingBPS={setTotalBuildingBPS}
                 itemCount={truckCount}
                 itemSetter={setTruckCount}
                 bpsIncrease={truckBPS}
@@ -474,7 +491,7 @@ function App() {
                 storeItemPrice={scaleItemPrice(450, bankCount)}
                 burgerCount={burgerCount}
                 setBurgerCount={setBurgerCount}
-                setBurgersPerSecond={setBurgersPerSecond}
+                setTotalBuildingBPS={setTotalBuildingBPS}
                 itemCount={bankCount}
                 itemSetter={setBankCount}
                 bpsIncrease={bankBPS}
@@ -493,7 +510,7 @@ function App() {
                 storeItemPrice={scaleItemPrice(900, templeCount)}
                 burgerCount={burgerCount}
                 setBurgerCount={setBurgerCount}
-                setBurgersPerSecond={setBurgersPerSecond}
+                setTotalBuildingBPS={setTotalBuildingBPS}
                 itemCount={templeCount}
                 itemSetter={setTempleCount}
                 bpsIncrease={templeBPS}
@@ -512,7 +529,7 @@ function App() {
                 storeItemPrice={scaleItemPrice(4500, labCount)}
                 burgerCount={burgerCount}
                 setBurgerCount={setBurgerCount}
-                setBurgersPerSecond={setBurgersPerSecond}
+                setTotalBuildingBPS={setTotalBuildingBPS}
                 itemCount={labCount}
                 itemSetter={setLabCount}
                 bpsIncrease={labBPS}
@@ -533,7 +550,7 @@ function App() {
                 storeItemPrice={scaleItemPrice(45000, spacecraftCount)}
                 burgerCount={burgerCount}
                 setBurgerCount={setBurgerCount}
-                setBurgersPerSecond={setBurgersPerSecond}
+                setTotalBuildingBPS={setTotalBuildingBPS}
                 itemCount={spacecraftCount}
                 itemSetter={setSpacecraftCount}
                 bpsIncrease={spacecraftBPS}
@@ -552,7 +569,7 @@ function App() {
                 storeItemPrice={scaleItemPrice(450000, portalCount)}
                 burgerCount={burgerCount}
                 setBurgerCount={setBurgerCount}
-                setBurgersPerSecond={setBurgersPerSecond}
+                setTotalBuildingBPS={setTotalBuildingBPS}
                 itemCount={portalCount}
                 itemSetter={setPortalCount}
                 bpsIncrease={portalBPS}
