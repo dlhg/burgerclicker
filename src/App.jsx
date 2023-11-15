@@ -1,13 +1,3 @@
-/* test comment to see if auto-deploy is working - delete later!
-
-/*
-should update burgers per second logic
-
-instead of having a new building purchase add a specific amount to overall BPS, BPS should be calulated as follows:
-  - (pointerCount * pointerBPS) + (workerCount * workerBPS) + (continue pattern) = BPS
-  - track burgers created by individual building types
-  - you should be able to setWorkerCount to a higher or lower number and have BPS update automatically
-*/
 
 //style imports
 import "./App.css";

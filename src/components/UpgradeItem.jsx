@@ -63,7 +63,8 @@ export default function UpgradeItem(props) {
     <>
       {!props.purchasedUpgradeIDs.includes(props.itemID) &&
         props.unlockedCondition &&
-        props.secondUnlockedCondtion && (
+        props.secondUnlockedCondtion &&
+        (
           <img
             src={props.itemImage}
             onClick={() => buyUpgrade()}

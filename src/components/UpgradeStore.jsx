@@ -86,7 +86,7 @@ export default function UpgradeStore(props) {
             // boost type (BPC,BPS,or BPSBPC), multiplier add (base value 1), duration in ms
             secondarySetterArgument={["BPC", 9, 10000]}
             unlockedCondition={props.totalBurgersProducedUnformatted >= 1}
-            secondUnlockedCondtion={true}
+            secondUnlockedCondtion={1 + 1 === 2} //since conditional rendering in UpgradeItem requires both primary and second unlock condition to eval to true to render, putting something obviously true as secondary condition in situations where i don't want to add a second condition
             unlockConditionsDescription="Total Burgers Produced >= 1"
             //boilerplate
             burgerCount={props.burgerCount}
@@ -121,7 +121,7 @@ export default function UpgradeStore(props) {
             // boost type (BPC,BPS,or BPSBPC), multiplier add (base value 1), duration in ms
             secondarySetterArgument={["BPSBPC", 9, 10000]}
             unlockedCondition={props.totalBurgersProducedUnformatted >= 1000}
-            secondUnlockedCondtion={true}
+            secondUnlockedCondtion={1 + 1 === 2}
             unlockConditionsDescription="Total Burgers Produced >= 1000"
             //boilerplate
             burgerCount={props.burgerCount}
@@ -138,6 +138,80 @@ export default function UpgradeStore(props) {
             purchasedUpgradeIDs={props.purchasedUpgradeIDs}
             setPurchasedUpgradeIDs={props.setPurchasedUpgradeIDs}
           />
+
+          <UpgradeItem
+            //unique
+            itemID={3}
+            itemPrice={100}
+            itemImage={scrollpic}
+            itemName={"pointer power 1"}
+            itemDescription={
+              "x2 burgers per second produced by pointers"
+            }
+            itemFlavorText={
+              "flavor text for pp1"
+            }
+            primarySetter={props.setPointerBPS}
+            primarySetterArgument={(prev) => prev * 2}
+            secondarySetter={false}
+            // boost type (BPC,BPS,or BPSBPC), multiplier add (base value 1), duration in ms
+            secondarySetterArgument={""}
+            unlockedCondition={props.pointerCount >= 5}
+            secondUnlockedCondtion={1 + 1 === 2}
+            unlockConditionsDescription="Total Pointers >= 5"
+            //boilerplate
+            burgerCount={props.burgerCount}
+            setBurgerCount={props.setBurgerCount}
+            setIsAnUpgradeHovered={setIsAnUpgradeHovered}
+            setToolItemImage={setToolItemImage}
+            setToolItemName={setToolItemName}
+            setToolItemCost={setToolItemCost}
+            setToolItemDescription={setToolItemDescription}
+            setToolItemFlavorText={setToolItemFlavorText}
+            setToolItemUnlockConditionsDescription={
+              setToolItemUnlockConditionsDescription
+            }
+            purchasedUpgradeIDs={props.purchasedUpgradeIDs}
+            setPurchasedUpgradeIDs={props.setPurchasedUpgradeIDs}
+          />
+
+          <UpgradeItem
+            //unique
+            itemID={3}
+            itemPrice={1000}
+            itemImage={scrollpic}
+            itemName={"pointer power 2"}
+            itemDescription={
+              "x2 burgers per second produced by pointers"
+            }
+            itemFlavorText={
+              "flavor text for pp1"
+            }
+            primarySetter={props.setPointerBPS}
+            primarySetterArgument={(prev) => prev * 2}
+            secondarySetter={false}
+            // boost type (BPC,BPS,or BPSBPC), multiplier add (base value 1), duration in ms
+            secondarySetterArgument={""}
+            unlockedCondition={props.pointerCount >= 5}
+            secondUnlockedCondtion={1 + 1 === 2}
+            unlockConditionsDescription="Total Pointers >= 5"
+            //boilerplate
+            burgerCount={props.burgerCount}
+            setBurgerCount={props.setBurgerCount}
+            setIsAnUpgradeHovered={setIsAnUpgradeHovered}
+            setToolItemImage={setToolItemImage}
+            setToolItemName={setToolItemName}
+            setToolItemCost={setToolItemCost}
+            setToolItemDescription={setToolItemDescription}
+            setToolItemFlavorText={setToolItemFlavorText}
+            setToolItemUnlockConditionsDescription={
+              setToolItemUnlockConditionsDescription
+            }
+            purchasedUpgradeIDs={props.purchasedUpgradeIDs}
+            setPurchasedUpgradeIDs={props.setPurchasedUpgradeIDs}
+          />
+
+
         </div>
 
         <div className="upstore--right">
