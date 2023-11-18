@@ -297,6 +297,7 @@ button:hover {
 
 .navbar button {
   width: 100px;
+  font-size: 0.7rem;
 }
 
 .navbar--left,
