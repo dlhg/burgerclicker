@@ -402,6 +402,10 @@ button:hover {
 
 /*stats screen*/
 
+.stats--component {
+  
+}
+
 .stats--upgrade--grid {
   display: grid;
   grid-template-columns: repeat(10, 1fr);

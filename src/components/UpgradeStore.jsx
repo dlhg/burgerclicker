@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import UpgradeItem from "./UpgradeItem";
 import ToopTip from "./ToolTip";
 
-import catpic from "../assets/images/cat_small_transparent.png";
+import catpic from "../assets/images/meredith_small_transparent.png";
 import occultpic from "../assets/images/occult_small_transparent.png";
 import gamblerpic from "../assets/images/gamblers_hand_small_transparent.png";
 import gambler2pic from "../assets/images/gamblers_hand2_small_transparent.png";

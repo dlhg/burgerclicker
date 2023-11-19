@@ -1,4 +1,0 @@
-planet evolution idle clicker has a bar that shows your score relative to world rank:
-world rank : num (num until top 90%)
-https://www.crazygames.com/game/planet-evolution-idle-clicker
-

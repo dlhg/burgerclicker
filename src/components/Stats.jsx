@@ -34,7 +34,7 @@ const allUpgrades = [
 export default function Stats(props) {
   return (
     <>
-      <section>
+      <section className="stats--component">
         <div>Total burgers produced: {props.totalBurgersProduced}</div>
         <div>
           Burgers from clicking: {formatNumber(props.burgersMadeFromClicking)}
