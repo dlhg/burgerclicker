@@ -185,7 +185,7 @@ export default function UpgradeStore(props) {
               "x2 burgers per second produced by pointers"
             }
             itemFlavorText={
-              "flavor text for pp1"
+              "flavor text"
             }
             primarySetter={props.setPointerBPS}
             primarySetterArgument={(prev) => prev * 2}
@@ -195,6 +195,77 @@ export default function UpgradeStore(props) {
             unlockedCondition={props.pointerCount >= 10}
             secondUnlockedCondtion={1 + 1 === 2}
             unlockConditionsDescription="Total Pointers >= 10"
+            //boilerplate
+            burgerCount={props.burgerCount}
+            setBurgerCount={props.setBurgerCount}
+            setIsAnUpgradeHovered={setIsAnUpgradeHovered}
+            setToolItemImage={setToolItemImage}
+            setToolItemName={setToolItemName}
+            setToolItemCost={setToolItemCost}
+            setToolItemDescription={setToolItemDescription}
+            setToolItemFlavorText={setToolItemFlavorText}
+            setToolItemUnlockConditionsDescription={
+              setToolItemUnlockConditionsDescription
+            }
+            purchasedUpgradeIDs={props.purchasedUpgradeIDs}
+            setPurchasedUpgradeIDs={props.setPurchasedUpgradeIDs}
+          />
+          <UpgradeItem
+            //unique
+            itemID={4}
+            itemPrice={10000}
+            itemImage={scrollpic}
+            itemName={"pointer power 3"}
+            itemDescription={
+              "x2 burgers per second produced by pointers"
+            }
+            itemFlavorText={
+              "flavor text"
+            }
+            primarySetter={props.setPointerBPS}
+            primarySetterArgument={(prev) => prev * 2}
+            secondarySetter={false}
+            // boost type (BPC,BPS,or BPSBPC), multiplier add (base value 1), duration in ms
+            secondarySetterArgument={""}
+            unlockedCondition={props.pointerCount >= 25}
+            secondUnlockedCondtion={1 + 1 === 2}
+            unlockConditionsDescription="Total Pointers >= 25"
+            //boilerplate
+            burgerCount={props.burgerCount}
+            setBurgerCount={props.setBurgerCount}
+            setIsAnUpgradeHovered={setIsAnUpgradeHovered}
+            setToolItemImage={setToolItemImage}
+            setToolItemName={setToolItemName}
+            setToolItemCost={setToolItemCost}
+            setToolItemDescription={setToolItemDescription}
+            setToolItemFlavorText={setToolItemFlavorText}
+            setToolItemUnlockConditionsDescription={
+              setToolItemUnlockConditionsDescription
+            }
+            purchasedUpgradeIDs={props.purchasedUpgradeIDs}
+            setPurchasedUpgradeIDs={props.setPurchasedUpgradeIDs}
+          />
+
+          <UpgradeItem
+            //unique
+            itemID={5}
+            itemPrice={100000}
+            itemImage={scrollpic}
+            itemName={"pointer power 4"}
+            itemDescription={
+              "x2 burgers per second produced by pointers"
+            }
+            itemFlavorText={
+              "flavor text"
+            }
+            primarySetter={props.setPointerBPS}
+            primarySetterArgument={(prev) => prev * 2}
+            secondarySetter={false}
+            // boost type (BPC,BPS,or BPSBPC), multiplier add (base value 1), duration in ms
+            secondarySetterArgument={""}
+            unlockedCondition={props.pointerCount >= 50}
+            secondUnlockedCondtion={1 + 1 === 2}
+            unlockConditionsDescription="Total Pointers >= 50"
             //boilerplate
             burgerCount={props.burgerCount}
             setBurgerCount={props.setBurgerCount}
