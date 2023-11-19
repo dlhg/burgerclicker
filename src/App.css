@@ -321,7 +321,6 @@ button:hover {
 .quip--text--boost--active {
   font-size: 3rem;
   font-weight: 900;
-  margin: 1rem;
   cursor: url(./assets/images/cursor_transparent.png), pointer;
   background-image: linear-gradient(
     to left,
