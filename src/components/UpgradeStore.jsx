@@ -75,7 +75,7 @@ export default function UpgradeStore(props) {
             itemID={1}
             itemPrice={1}
             itemImage={catpic}
-            itemName={"meredith"}
+            itemName={"Meredith"}
             itemDescription={
               "+1 Burger Per Click, and 1000% to burgers/click for 10s"
             }

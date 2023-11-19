@@ -15,7 +15,7 @@ export default function ToopTip(props) {
             <li>
               {" "}
               <section style={{ color: canAfford ? "inherit" : "red" }}>
-                cost: {props.toolItemCost}🍔
+                Cost: {props.toolItemCost}🍔
               </section>
             </li>
             <li>
@@ -26,7 +26,7 @@ export default function ToopTip(props) {
 
           <section>{props.toolItemFlavorText}</section>
           <section>
-            requirements: {props.toolItemUnlockConditionsDescription}
+            Requirements: {props.toolItemUnlockConditionsDescription}
           </section>
         </div>
       )}
