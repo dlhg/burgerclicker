@@ -192,9 +192,9 @@ export default function UpgradeStore(props) {
             secondarySetter={false}
             // boost type (BPC,BPS,or BPSBPC), multiplier add (base value 1), duration in ms
             secondarySetterArgument={""}
-            unlockedCondition={props.pointerCount >= 5}
+            unlockedCondition={props.pointerCount >= 10}
             secondUnlockedCondtion={1 + 1 === 2}
-            unlockConditionsDescription="Total Pointers >= 5"
+            unlockConditionsDescription="Total Pointers >= 10"
             //boilerplate
             burgerCount={props.burgerCount}
             setBurgerCount={props.setBurgerCount}
