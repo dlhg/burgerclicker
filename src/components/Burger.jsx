@@ -80,7 +80,7 @@ export default function Burger(props) {
       <br />
       <br />
 
-      <section>
+      <section className="clickable--burger">
         <img
           src={props.burgerpic}
           draggable="false"
@@ -88,6 +88,8 @@ export default function Burger(props) {
           alt="Burger"
           className="big--burger"
         />
+      </section>
+      <section>
         {floatingNumbers.map((number) => (
           <div
             key={number.key}

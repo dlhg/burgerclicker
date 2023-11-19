@@ -218,6 +218,10 @@ button:hover {
   transition: background-image 0.6s ease-in-out;
 }
 
+.clickable--burger {
+  z-index: 1;
+}
+
 .big--burger--container {
   height: 25%;
 }
@@ -546,11 +550,12 @@ button:hover {
   text-align: end;
 }
 
-.container {
+.falling--images--container {
   position: relative;
   margin-top: 40%;
   height: 100%;
   overflow: hidden;
+  z-index: 0;
 }
 
 .falling-image {

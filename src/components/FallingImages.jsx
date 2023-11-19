@@ -70,7 +70,7 @@ const FallingImage = (props) => {
   }, [fallingImages, props.currentQuipLevel]); // Re-run effect when fallingImages or props.currentQuipLevel changes
 
   return (
-    <div className="container">
+    <div className="falling--images--container">
       {fallingImages.map((image) => (
         <img
           key={image.id}
@@ -81,9 +81,8 @@ const FallingImage = (props) => {
           style={{
             top: `${image.top}%`,
             left: `${image.left}%`,
-            animation: `fallAnimation ${
-              animationDuration / 1000
-            }s linear forwards`,
+            animation: `fallAnimation ${animationDuration / 1000
+              }s linear forwards`,
           }}
         />
       ))}
