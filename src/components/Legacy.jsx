@@ -12,8 +12,8 @@ export default function Legacy(props) {
     props.setPrestigeTokenCount(props.burgerCount)
     // set burger count to 0 (done)
     props.setBurgerCount(0);
-    // set burgers per click to 0
-    props.setBurgersPerClick(0);
+    // set burgers per click to 1
+    props.setBurgersPerClick(1);
     // set all building counts to 0 (done)
     props.setPointerCount(0);
     props.setWorkerCount(0);
@@ -39,7 +39,7 @@ export default function Legacy(props) {
       <button onClick={() => handlePrestige()}>Click Here to Prestige</button>
       <br />
       <section>
-        You have {props.setPrestigeTokenCount} prestige tokens
+        You have {props.prestigeTokenCount} prestige tokens
       </section>
     </div>
   );
