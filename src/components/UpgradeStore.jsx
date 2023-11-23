@@ -31,7 +31,9 @@ export default function UpgradeStore(props) {
       props.setTempBPSBoostMultiplier((prev) => prev + increase);
       setTimeout(() => {
         props.setIsBoostActive(false);
-        props.setTempBPSBoostMultiplier((prev) => prev - increase);
+        props.setTempBPSBoostMultiplier((prev) =>
+          prev - increase >= 0 ? prev - increase : 0
+        );
       }, durationInMS);
     }
     if (whatsBoosted === "BPC") {
@@ -39,7 +41,9 @@ export default function UpgradeStore(props) {
       props.setTempBPCBoostMultiplier((prev) => prev + increase);
       setTimeout(() => {
         props.setIsBoostActive(false);
-        props.setTempBPCBoostMultiplier((prev) => prev - increase);
+        props.setTempBPCBoostMultiplier((prev) =>
+          prev - increase >= 0 ? prev - increase : 1
+        );
       }, durationInMS);
     }
     if (whatsBoosted === "BPSBPC") {
@@ -47,11 +51,15 @@ export default function UpgradeStore(props) {
       props.setTempBPSBoostMultiplier((prev) => prev + increase);
       props.setTempBPCBoostMultiplier((prev) => prev + increase);
       setTimeout(() => {
-        props.setTempBPSBoostMultiplier((prev) => prev - increase);
+        props.setTempBPSBoostMultiplier((prev) =>
+          prev - increase >= 0 ? prev - increase : 0
+        );
       }, durationInMS);
       setTimeout(() => {
         props.setIsBoostActive(false);
-        props.setTempBPCBoostMultiplier((prev) => prev - increase);
+        props.setTempBPCBoostMultiplier((prev) =>
+          prev - increase >= 0 ? prev - increase : 1
+        );
       }, durationInMS);
     }
   }
@@ -145,12 +153,8 @@ export default function UpgradeStore(props) {
             itemPrice={100}
             itemImage={scrollpic}
             itemName={"pointer power 1"}
-            itemDescription={
-              "x2 burgers per second produced by pointers"
-            }
-            itemFlavorText={
-              "flavor text for pp1"
-            }
+            itemDescription={"x2 burgers per second produced by pointers"}
+            itemFlavorText={"flavor text for pp1"}
             primarySetter={props.setPointerBPS}
             primarySetterArgument={(prev) => prev * 2}
             secondarySetter={false}
@@ -181,12 +185,8 @@ export default function UpgradeStore(props) {
             itemPrice={1000}
             itemImage={scrollpic}
             itemName={"pointer power 2"}
-            itemDescription={
-              "x2 burgers per second produced by pointers"
-            }
-            itemFlavorText={
-              "flavor text"
-            }
+            itemDescription={"x2 burgers per second produced by pointers"}
+            itemFlavorText={"flavor text"}
             primarySetter={props.setPointerBPS}
             primarySetterArgument={(prev) => prev * 2}
             secondarySetter={false}
@@ -216,12 +216,8 @@ export default function UpgradeStore(props) {
             itemPrice={10000}
             itemImage={scrollpic}
             itemName={"pointer power 3"}
-            itemDescription={
-              "x2 burgers per second produced by pointers"
-            }
-            itemFlavorText={
-              "flavor text"
-            }
+            itemDescription={"x2 burgers per second produced by pointers"}
+            itemFlavorText={"flavor text"}
             primarySetter={props.setPointerBPS}
             primarySetterArgument={(prev) => prev * 2}
             secondarySetter={false}
@@ -252,12 +248,8 @@ export default function UpgradeStore(props) {
             itemPrice={100000}
             itemImage={scrollpic}
             itemName={"pointer power 4"}
-            itemDescription={
-              "x2 burgers per second produced by pointers"
-            }
-            itemFlavorText={
-              "flavor text"
-            }
+            itemDescription={"x2 burgers per second produced by pointers"}
+            itemFlavorText={"flavor text"}
             primarySetter={props.setPointerBPS}
             primarySetterArgument={(prev) => prev * 2}
             secondarySetter={false}
@@ -287,12 +279,8 @@ export default function UpgradeStore(props) {
             itemPrice={1000000}
             itemImage={scrollpic}
             itemName={"pointer power 5"}
-            itemDescription={
-              "x2 burgers per second produced by pointers"
-            }
-            itemFlavorText={
-              "flavor text"
-            }
+            itemDescription={"x2 burgers per second produced by pointers"}
+            itemFlavorText={"flavor text"}
             primarySetter={props.setPointerBPS}
             primarySetterArgument={(prev) => prev * 2}
             secondarySetter={false}
@@ -322,12 +310,8 @@ export default function UpgradeStore(props) {
             itemPrice={10000000}
             itemImage={scrollpic}
             itemName={"pointer power 6"}
-            itemDescription={
-              "x2 burgers per second produced by pointers"
-            }
-            itemFlavorText={
-              "flavor text"
-            }
+            itemDescription={"x2 burgers per second produced by pointers"}
+            itemFlavorText={"flavor text"}
             primarySetter={props.setPointerBPS}
             primarySetterArgument={(prev) => prev * 2}
             secondarySetter={false}
@@ -357,12 +341,8 @@ export default function UpgradeStore(props) {
             itemPrice={100000000}
             itemImage={scrollpic}
             itemName={"pointer power 7"}
-            itemDescription={
-              "x2 burgers per second produced by pointers"
-            }
-            itemFlavorText={
-              "flavor text"
-            }
+            itemDescription={"x2 burgers per second produced by pointers"}
+            itemFlavorText={"flavor text"}
             primarySetter={props.setPointerBPS}
             primarySetterArgument={(prev) => prev * 2}
             secondarySetter={false}
@@ -392,12 +372,8 @@ export default function UpgradeStore(props) {
             itemPrice={1000000000}
             itemImage={scrollpic}
             itemName={"pointer power 8"}
-            itemDescription={
-              "x2 burgers per second produced by pointers"
-            }
-            itemFlavorText={
-              "flavor text"
-            }
+            itemDescription={"x2 burgers per second produced by pointers"}
+            itemFlavorText={"flavor text"}
             primarySetter={props.setPointerBPS}
             primarySetterArgument={(prev) => prev * 2}
             secondarySetter={false}
@@ -427,12 +403,8 @@ export default function UpgradeStore(props) {
             itemPrice={10000000000}
             itemImage={scrollpic}
             itemName={"pointer power 9"}
-            itemDescription={
-              "x2 burgers per second produced by pointers"
-            }
-            itemFlavorText={
-              "flavor text"
-            }
+            itemDescription={"x2 burgers per second produced by pointers"}
+            itemFlavorText={"flavor text"}
             primarySetter={props.setPointerBPS}
             primarySetterArgument={(prev) => prev * 2}
             secondarySetter={false}
@@ -456,8 +428,6 @@ export default function UpgradeStore(props) {
             purchasedUpgradeIDs={props.purchasedUpgradeIDs}
             setPurchasedUpgradeIDs={props.setPurchasedUpgradeIDs}
           />
-
-
         </div>
 
         <div className="upstore--right">
