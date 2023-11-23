@@ -5,7 +5,7 @@ export default function Legacy(props) {
     // show pop-up explaining prestige to player and ask them to confirm
     // if no, go back to game area
     // if yes, proceed
-    // end any boosts in progress
+    // end any boosts in progress(done)
     props.setIsBoostActive(false);
     props.setTempBPCBoostMultiplier(false);
     props.setTempBPSBoostMultiplier(false);
