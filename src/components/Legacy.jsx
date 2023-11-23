@@ -8,7 +8,8 @@ export default function Legacy(props) {
     // show perspective shift animation for a few seconds
     // set quip level to 0 (done)
     props.setCurrentQuipLevel(0);
-    // convert player's current burgs to prestige token currency
+    // convert player's current burgs to prestige token currency (done)
+    props.setPrestigeTokenCount(props.burgerCount)
     // set burger count to 0 (done)
     props.setBurgerCount(0);
     // set burgers per click to 0
@@ -36,6 +37,10 @@ export default function Legacy(props) {
   return (
     <div>
       <button onClick={() => handlePrestige()}>Click Here to Prestige</button>
+      <br />
+      <section>
+        You have {props.setPrestigeTokenCount} prestige tokens
+      </section>
     </div>
   );
 }

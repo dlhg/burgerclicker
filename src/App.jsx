@@ -66,6 +66,7 @@ function App() {
 
   //reflects player's current amount of burgers (burgers in bank)
   const [burgerCount, setBurgerCount] = useState(0);
+  const [prestigeTokenCount, setPrestigeTokenCount] = (null);
   //displayed count is burger count rounded down to the nearest int
   const [displayedBurgerCount, setDisplayedBurgerCount] = useState(0);
   //
@@ -372,6 +373,8 @@ function App() {
               setSpacecraftCount={setSpacecraftCount}
               setCurrentQuipLevel={setCurrentQuipLevel}
               setMainArea={setMainArea}
+              setPrestigeTokenCount={setPrestigeTokenCount}
+              burgerCount={burgerCount}
 
             />}
           {mainArea === "testconsole" && (
