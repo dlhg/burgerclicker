@@ -7,14 +7,14 @@ export default function Buildings(props) {
   return (
     <>
       <div className="buildings--wrapper">
-        <div id="Building1">
+        {/* <div id="Building1">
           <BuildingRow
             count={props.pointerCount}
             pic={props.pointerpic}
             alt="Pointer"
             className="pointer--image"
           />
-        </div>
+        </div> */}
         {props.pointerCount >= 1 && (
           <button onClick={() => props.setMainArea("minigame")}>
             pointer game (unlock by having 1 pointer) - this is a test/template
@@ -23,14 +23,14 @@ export default function Buildings(props) {
           </button>
         )}
 
-        <div id="Building2">
+        {/* <div id="Building2">
           <BuildingRow
             count={props.workerCount}
             pic={props.workerpic}
             alt="Worker"
             className="worker--image"
           />
-        </div>
+        </div> */}
         {props.workerCount >= 2 && (
           <button
             onClick={() => props.setMainArea("minigame--burger--assembly")}
@@ -39,7 +39,7 @@ export default function Buildings(props) {
           </button>
         )}
 
-        <div id="Building3">
+        {/* <div id="Building3">
           <BuildingRow
             count={props.grillCount}
             pic={props.grillpic}
@@ -100,7 +100,7 @@ export default function Buildings(props) {
             alt="Portal"
             className="portal--image"
           />
-        </div>
+        </div> */}
       </div>
     </>
   );

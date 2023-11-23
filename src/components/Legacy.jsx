@@ -1,9 +1,41 @@
 import React from "react";
 
 export default function Legacy(props) {
+  function handlePrestige() {
+    // show pop-up explaining prestige to player and ask them to confirm
+    // if no, go back to game area
+    // if yes, proceed
+    // show perspective shift animation for a few seconds
+    // set quip level to 0 (done)
+    props.setCurrentQuipLevel(0);
+    // convert player's current burgs to prestige token currency
+    // set burger count to 0 (done)
+    props.setBurgerCount(0);
+    // set burgers per click to 0
+    props.setBurgersPerClick(0);
+    // set all building counts to 0 (done)
+    props.setPointerCount(0);
+    props.setWorkerCount(0);
+    props.setGrillCount(0);
+    props.setTruckCount(0);
+    props.setBankCount(0);
+    props.setTempleCount(0);
+    props.setLabCount(0);
+    props.setSpacecraftCount(0);
+
+    // display a store with prestige items and let player shop, as well as a button to start NG+
+    // autosave
+    // start NG+
+    // setTimeout(() => {
+
+    // }, 1400);
+    props.setMainArea("buildings")
+  }
+
+
   return (
     <div>
-      This will be made into an area where the player can prestige/newgame+
+      <button onClick={() => handlePrestige()}>Click Here to Prestige</button>
     </div>
   );
 }

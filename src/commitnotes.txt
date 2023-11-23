@@ -1,0 +1,11 @@
+ Commit Notes
+
+Wed Nov 22
+- added more pointer power upgrades to upgrade store
+- removed rows of buildings from main game area
+- updated storeitem component to use formatNumberTruncated as long strings were taking up too much space and pushing burger emoji to new line
+- removed word "multiplier" when boost active to avoid text taking up a new line
+- updated handleClick function burger component so the player can only click the burger once every 50ms. This prevents autoclicker from breaking the game, but is somewhat of a bandaid fix.
+    - ideally the game should be able to handle really fast autoclicking and would smoothly update burgercount
+    - right now it seems the async nature of state updates is causing the count to get updated in irregular chunks whenever fast autoclicking is active
+- started working on legacy/prestige

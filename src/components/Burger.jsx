@@ -4,6 +4,7 @@ import { formatNumber, formatNumberTruncated } from "../utils";
 export default function Burger(props) {
   const [clickPosition, setClickPosition] = useState({ x: 0, y: 0 });
   const [floatingNumbers, setFloatingNumbers] = useState([]);
+  const [canPlayerClick, setCanPlayerClick] = useState(true);
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -18,6 +19,14 @@ export default function Burger(props) {
   }, [props.totalBuildingBPS, props.tempBPSBoostMultiplier]);
 
   function handleBurgerClick(e) {
+
+    if (canPlayerClick === false) {
+      console.log('fast clicking detected!')
+      return;
+    }
+
+
+
     setClickPosition({ x: e.clientX, y: e.clientY });
 
     const key = Date.now().toString();
@@ -49,6 +58,13 @@ export default function Burger(props) {
         prevNumbers.filter((number) => number.key !== key)
       );
     }, 1400);
+
+    // Make it so that player can only click the burger once every 100ms. This is somewhat of a bandaid fix for auto-clicker breaking the game.
+    setCanPlayerClick(false);
+    setTimeout(() => {
+      setCanPlayerClick(true)
+        ;
+    }, 50);
   }
 
   return (
@@ -63,7 +79,7 @@ export default function Burger(props) {
         Per Second :{" "}
         {formatNumber(props.totalBuildingBPS * props.tempBPSBoostMultiplier)}
         {props.tempBPSBoostMultiplier > 1
-          ? `  (${props.tempBPSBoostMultiplier}x multiplier)`
+          ? `  (${props.tempBPSBoostMultiplier}x)`
           : ""}
       </section>
 
@@ -73,7 +89,7 @@ export default function Burger(props) {
         Per Click :{" "}
         {formatNumber(props.burgersPerClick * props.tempBPCBoostMultiplier)}
         {props.tempBPCBoostMultiplier > 1
-          ? `  (${props.tempBPCBoostMultiplier}x multiplier)`
+          ? `  (${props.tempBPCBoostMultiplier}x)`
           : ""}
       </section>
 

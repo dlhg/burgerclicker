@@ -357,7 +357,23 @@ function App() {
             />
           )}
           {mainArea === "info" && <Info />}
-          {mainArea === "legacy" && <Legacy />}
+          {mainArea === "legacy" &&
+            <Legacy
+              setBurgerCount={setBurgerCount}
+              setBurgersPerClick={setBurgersPerClick}
+              setCurrentQuipLevel={setCurrentQuipLevel}
+              setPointerCount={setPointerCount}
+              setWorkerCount={setWorkerCount}
+              setGrillCount={setGrillCount}
+              setTruckCount={setTruckCount}
+              setBankCount={setBankCount}
+              setTempleCount={setTempleCount}
+              setLabCount={setLabCount}
+              setSpacecraftCount={setSpacecraftCount}
+              setCurrentQuipLevel={setCurrentQuipLevel}
+              setMainArea={setMainArea}
+
+            />}
           {mainArea === "testconsole" && (
             <TestConsole
               setTotalBuildingBPS={setTotalBuildingBPS}
