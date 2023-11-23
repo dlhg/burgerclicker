@@ -376,6 +376,10 @@ function App() {
               setPrestigeTokenCount={setPrestigeTokenCount}
               burgerCount={burgerCount}
               prestigeTokenCount={prestigeTokenCount}
+              setIsBoostActive={setIsBoostActive}
+              setTempBPSBoostMultiplier={setTempBPSBoostMultiplier}
+              setTempBPCBoostMultiplier={setTempBPCBoostMultiplier}
+
 
             />}
           {mainArea === "testconsole" && (

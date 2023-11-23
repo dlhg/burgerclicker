@@ -5,6 +5,10 @@ export default function Legacy(props) {
     // show pop-up explaining prestige to player and ask them to confirm
     // if no, go back to game area
     // if yes, proceed
+    // end any boosts in progress
+    props.setIsBoostActive(false);
+    props.setTempBPCBoostMultiplier(false);
+    props.setTempBPSBoostMultiplier(false);
     // show perspective shift animation for a few seconds
     // set quip level to 0 (done)
     props.setCurrentQuipLevel(0);
