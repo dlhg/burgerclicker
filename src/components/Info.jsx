@@ -5,7 +5,7 @@ export default function Info(props) {
     <>
       <div>
         Burger Clicker is a project developed by Drew Gragg using React JS,
-        Vite, and Howler.
+        Vite, and ToneJS.
       </div>
       <br />
       <ul style={{ fontSize: "x-large" }}>
