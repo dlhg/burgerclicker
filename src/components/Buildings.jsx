@@ -1,7 +1,9 @@
 // this component shows rows containing each building you own
 
 import React from "react";
+import * as Tone from "tone";
 import BuildingRow from "./BuildingRow";
+import ToneJSButton from "./ToneJSButton";
 
 export default function Buildings(props) {
   return (
@@ -38,6 +40,7 @@ export default function Buildings(props) {
             burger assembly game (unlock by having 2 workers)
           </button>
         )}
+        <ToneJSButton />
 
         {/* <div id="Building3">
           <BuildingRow
