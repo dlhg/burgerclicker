@@ -4,7 +4,7 @@ import * as Tone from "tone";
 import popsound from "../assets/sfx/pop.mp3";
 
 export default function Burger(props) {
-  const [gongPlayer, setGongPlayer] = useState(null);
+  const [sfxPlayer, setSFXPlayer] = useState(null);
   const [clickPosition, setClickPosition] = useState({ x: 0, y: 0 });
   const [floatingNumbers, setFloatingNumbers] = useState([]);
   const [canPlayerClick, setCanPlayerClick] = useState(true);
@@ -12,7 +12,7 @@ export default function Burger(props) {
   useEffect(() => {
     // Create the Tone.js player when the component mounts
     const player = new Tone.Player(popsound).toDestination();
-    setGongPlayer(player);
+    setSFXPlayer(player);
 
     // Preload the audio buffer
     player.load().then(() => {
@@ -41,9 +41,9 @@ export default function Burger(props) {
 
   function handleBurgerClick(e) {
     // Check if the player and its buffer are loaded
-    if (gongPlayer && gongPlayer.loaded) {
+    if (sfxPlayer && sfxPlayer.loaded) {
       // Start playing the gong sound
-      gongPlayer.start();
+      sfxPlayer.start();
     } else {
       console.error("Audio buffer not loaded");
     }
