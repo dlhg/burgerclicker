@@ -192,10 +192,6 @@ button:hover {
   grid-row-gap: 0px;
 }
 
-.parent > * {
-  /* border: solid darkgray 1px; */
-}
-
 /* burgers, bps, bpc, and burger pic*/
 .div1 {
   grid-area: 1 / 1 / 6 / 2;
@@ -406,7 +402,6 @@ button:hover {
 /*stats screen*/
 
 .stats--component {
-  
 }
 
 .stats--upgrade--grid {
