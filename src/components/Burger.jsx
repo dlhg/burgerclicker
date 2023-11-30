@@ -1,10 +1,32 @@
 import React, { useEffect, useState } from "react";
 import { formatNumber, formatNumberTruncated } from "../utils";
+import * as Tone from "tone";
 
 export default function Burger(props) {
+  const [gongPlayer, setGongPlayer] = useState(null);
   const [clickPosition, setClickPosition] = useState({ x: 0, y: 0 });
   const [floatingNumbers, setFloatingNumbers] = useState([]);
   const [canPlayerClick, setCanPlayerClick] = useState(true);
+
+  useEffect(() => {
+    // Create the Tone.js player when the component mounts
+    const player = new Tone.Player(
+      "https://tonejs.github.io/audio/berklee/gong_1.mp3"
+    ).toDestination();
+    setGongPlayer(player);
+
+    // Preload the audio buffer
+    player.load().then(() => {
+      console.log("Audio buffer loaded");
+    });
+
+    // Cleanup when the component unmounts
+    return () => {
+      if (player) {
+        player.dispose();
+      }
+    };
+  }, []); // Empty dependency array ensures this effect runs only once on mount
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -19,13 +41,18 @@ export default function Burger(props) {
   }, [props.totalBuildingBPS, props.tempBPSBoostMultiplier]);
 
   function handleBurgerClick(e) {
-
-    if (canPlayerClick === false) {
-      console.log('fast clicking detected!')
-      return;
+    // Check if the player and its buffer are loaded
+    if (gongPlayer && gongPlayer.loaded) {
+      // Start playing the gong sound
+      gongPlayer.start();
+    } else {
+      console.error("Audio buffer not loaded");
     }
 
-
+    if (canPlayerClick === false) {
+      console.log("fast clicking detected!");
+      return;
+    }
 
     setClickPosition({ x: e.clientX, y: e.clientY });
 
@@ -52,19 +79,18 @@ export default function Burger(props) {
         prevCount + props.burgersPerClick * props.tempBPCBoostMultiplier
     );
 
-    // Set a timeout to remove the added element after 1.4 seconds, slightly shorter than anim length (if changing anim length later, this needs to be changed too)
+    // Set a timeout to remove the added element after 1.4 seconds, slightly shorter than anim length
     setTimeout(() => {
       setFloatingNumbers((prevNumbers) =>
         prevNumbers.filter((number) => number.key !== key)
       );
     }, 1400);
 
-    // Make it so that player can only click the burger once every 100ms. This is somewhat of a bandaid fix for auto-clicker breaking the game.
+    // Make it so that the player can only click the burger once every 100ms.
     setCanPlayerClick(false);
     setTimeout(() => {
-      setCanPlayerClick(true)
-        ;
-    }, 50);
+      setCanPlayerClick(true);
+    }, 100);
   }
 
   return (
