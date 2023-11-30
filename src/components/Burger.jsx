@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { formatNumber, formatNumberTruncated } from "../utils";
 import * as Tone from "tone";
+import popsound from "../assets/sfx/pop.mp3";
 
 export default function Burger(props) {
   const [gongPlayer, setGongPlayer] = useState(null);
@@ -10,9 +11,7 @@ export default function Burger(props) {
 
   useEffect(() => {
     // Create the Tone.js player when the component mounts
-    const player = new Tone.Player(
-      "https://tonejs.github.io/audio/berklee/gong_1.mp3"
-    ).toDestination();
+    const player = new Tone.Player(popsound).toDestination();
     setGongPlayer(player);
 
     // Preload the audio buffer
