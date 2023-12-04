@@ -44,8 +44,6 @@ import tomatopic from "../assets/images/minigames/assembly/tomato.png";
 import baconpic from "../assets/images/minigames/assembly/bacon.png";
 import topbunpic from "../assets/images/minigames/assembly/topbun.png";
 
-import Tickets from "./Minigames/Tickets";
-
 export default function MinigameTemplate(props) {
   const [hideMinigame, setHideMiniGame] = useState(false);
 
@@ -323,7 +321,6 @@ now that we're capturing burger creation time, we can:
                     bonus time gradually decreases (see handleSend for logic)
                   </li>
                   <li>if the timer runs out, it's game over!</li>
-
                 </ul>
                 <button
                   onClick={startGame}
