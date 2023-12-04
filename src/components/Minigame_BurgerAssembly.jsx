@@ -175,7 +175,7 @@ now that we're capturing burger creation time, we can:
     let countdown = 3; // Initial countdown value
     props.setBurgerCount((prev) => prev + reward);
 
-    // Play a random incorrect burger sound
+    // Choose a random incorrect burger sound
     const randomIncorrectSound =
       incorrectburgersounds[
         Math.floor(Math.random() * incorrectburgersounds.length)
@@ -240,6 +240,19 @@ now that we're capturing burger creation time, we can:
       handleLose();
     } else {
       //if burger matches
+
+      // Choose a random correct burger sound
+      const randomCorrectSound =
+        correctburgersounds[
+          Math.floor(Math.random() * correctburgersounds.length)
+        ];
+
+      // Load the buffer explicitly
+      const buffer = new Tone.Buffer(randomCorrectSound, () => {
+        // Once the buffer is loaded, create a player and play the sound
+        const correctSound = new Tone.Player(buffer).toDestination();
+        correctSound.start();
+      });
 
       //calculate time to complete burger and add it to a list of burger creation times
       const timeToCompleteBurger = gameDuration - gameDurationWhenBurgerStarted;
