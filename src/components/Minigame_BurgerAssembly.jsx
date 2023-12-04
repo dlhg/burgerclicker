@@ -30,17 +30,17 @@ import * as Tone from "tone";
 
 //sfx
 import popsound from "../assets/sfx/pop.mp3";
-import incorrectburgersound from "../assets/sfx/voice/assembly_minigame/ewwhatsthat.wav";
-import ew_sound from "../assets/sfx/voice/assembly_minigame/";
-import ew_sound from "../assets/sfx/voice/assembly_minigame/";
-import ew_sound from "../assets/sfx/voice/assembly_minigame/";
-import ew_sound from "../assets/sfx/voice/assembly_minigame/";
-import ew_sound from "../assets/sfx/voice/assembly_minigame/";
-import ew_sound from "../assets/sfx/voice/assembly_minigame/";
-import ew_sound from "../assets/sfx/voice/assembly_minigame/";
-import ew_sound from "../assets/sfx/voice/assembly_minigame/";
-import ew_sound from "../assets/sfx/voice/assembly_minigame/";
-import ew_sound from "../assets/sfx/voice/assembly_minigame/";
+import incorrectburgersound from "../assets/sfx/voice/assembly_minigame/ewwhatsthat.mp3";
+import incorrectburgersound2 from "../assets/sfx/voice/assembly_minigame/idontwantthis.mp3";
+import incorrectburgersound3 from "../assets/sfx/voice/assembly_minigame/imdisappointed.mp3";
+import incorrectburgersound4 from "../assets/sfx/voice/assembly_minigame/thatsnotwhatiordered.mp3";
+import incorrectburgersound5 from "../assets/sfx/voice/assembly_minigame/thisiswrong.mp3";
+import incorrectburgersound6 from "../assets/sfx/voice/assembly_minigame/ughno.mp3";
+import incorrectburgersound7 from "../assets/sfx/voice/assembly_minigame/umno.mp3";
+import correctburgersound from "../assets/sfx/voice/assembly_minigame/perfectthanks.mp3";
+import correctburgersound2 from "../assets/sfx/voice/assembly_minigame/thatsitthanks.mp3";
+import correctburgersound3 from "../assets/sfx/voice/assembly_minigame/welldone.mp3";
+import ecorrectburgersound4 from "../assets/sfx/voice/assembly_minigame/wow.mp3";
 
 //pics
 import rushworkerpic from "../assets/images/minigames/assembly/rushworker.png";
