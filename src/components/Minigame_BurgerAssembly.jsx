@@ -30,17 +30,17 @@ import * as Tone from "tone";
 
 //sfx
 import popsound from "../assets/sfx/pop.mp3";
-import incorrectburgersound from "../assets/sfx/voice/assembly_minigame/ewwhatsthat.mp3";
+import incorrectburgersound1 from "../assets/sfx/voice/assembly_minigame/ewwhatsthat.mp3";
 import incorrectburgersound2 from "../assets/sfx/voice/assembly_minigame/idontwantthis.mp3";
 import incorrectburgersound3 from "../assets/sfx/voice/assembly_minigame/imdisappointed.mp3";
 import incorrectburgersound4 from "../assets/sfx/voice/assembly_minigame/thatsnotwhatiordered.mp3";
 import incorrectburgersound5 from "../assets/sfx/voice/assembly_minigame/thisiswrong.mp3";
 import incorrectburgersound6 from "../assets/sfx/voice/assembly_minigame/ughno.mp3";
 import incorrectburgersound7 from "../assets/sfx/voice/assembly_minigame/umno.mp3";
-import correctburgersound from "../assets/sfx/voice/assembly_minigame/perfectthanks.mp3";
+import correctburgersound1 from "../assets/sfx/voice/assembly_minigame/perfectthanks.mp3";
 import correctburgersound2 from "../assets/sfx/voice/assembly_minigame/thatsitthanks.mp3";
 import correctburgersound3 from "../assets/sfx/voice/assembly_minigame/welldone.mp3";
-import ecorrectburgersound4 from "../assets/sfx/voice/assembly_minigame/wow.mp3";
+import correctburgersound4 from "../assets/sfx/voice/assembly_minigame/wow.mp3";
 
 //pics
 import rushworkerpic from "../assets/images/minigames/assembly/rushworker.png";
@@ -89,6 +89,22 @@ export default function MinigameTemplate(props) {
     "mustard",
     "onion",
   ]);
+
+  const correctburgersounds = [
+    correctburgersound1,
+    correctburgersound2,
+    correctburgersound3,
+    correctburgersound4,
+  ];
+  const incorrectburgersounds = [
+    incorrectburgersound1,
+    incorrectburgersound2,
+    incorrectburgersound3,
+    incorrectburgersound4,
+    incorrectburgersound5,
+    incorrectburgersound6,
+    incorrectburgersound7,
+  ];
 
   // 7s or less is fast, 14s or more is slow
   const fastTime = 7;
