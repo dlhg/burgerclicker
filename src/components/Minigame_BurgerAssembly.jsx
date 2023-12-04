@@ -41,6 +41,7 @@ import correctburgersound1 from "../assets/sfx/voice/assembly_minigame/perfectth
 import correctburgersound2 from "../assets/sfx/voice/assembly_minigame/thatsitthanks.mp3";
 import correctburgersound3 from "../assets/sfx/voice/assembly_minigame/welldone.mp3";
 import correctburgersound4 from "../assets/sfx/voice/assembly_minigame/wow.mp3";
+import correctburgersound5 from "../assets/sfx/voice/assembly_minigame/delicious.mp3";
 
 //pics
 import rushworkerpic from "../assets/images/minigames/assembly/rushworker.png";
@@ -95,6 +96,7 @@ export default function MinigameTemplate(props) {
     correctburgersound2,
     correctburgersound3,
     correctburgersound4,
+    correctburgersound5,
   ];
   const incorrectburgersounds = [
     incorrectburgersound1,
