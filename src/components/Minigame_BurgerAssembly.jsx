@@ -174,6 +174,20 @@ now that we're capturing burger creation time, we can:
     setButtonsDisabled(true); // Disable buttons
     let countdown = 3; // Initial countdown value
     props.setBurgerCount((prev) => prev + reward);
+
+    // Play a random incorrect burger sound
+    const randomIncorrectSound =
+      incorrectburgersounds[
+        Math.floor(Math.random() * incorrectburgersounds.length)
+      ];
+
+    // Load the buffer explicitly
+    const buffer = new Tone.Buffer(randomIncorrectSound, () => {
+      // Once the buffer is loaded, create a player and play the sound
+      const incorrectSound = new Tone.Player(buffer).toDestination();
+      incorrectSound.start();
+    });
+
     setTickerText(
       `game over! you won ${reward} burgers, going back to buildings area in ${countdown} seconds`
     );
@@ -408,7 +422,7 @@ now that we're capturing burger creation time, we can:
                         "/src/assets/images/minigames/assembly/" +
                         layer +
                         ".png";
-                      console.log(picname);
+                      // console.log(picname);
                       return (
                         <div key={Math.random() * 100000000000}>
                           <img
