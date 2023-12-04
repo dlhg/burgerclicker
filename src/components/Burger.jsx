@@ -125,7 +125,7 @@ export default function Burger(props) {
         <img
           src={props.burgerpic}
           draggable="false"
-          onClick={handleBurgerClick}
+          onMouseDown={handleBurgerClick}
           alt="Burger"
           className="big--burger"
         />
