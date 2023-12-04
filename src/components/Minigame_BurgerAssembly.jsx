@@ -26,6 +26,21 @@ rushing employee in How to play section is AI gen
   */
 
 import React, { useState, useEffect } from "react";
+import * as Tone from "tone";
+
+//sfx
+import popsound from "../assets/sfx/pop.mp3";
+import incorrectburgersound from "../assets/sfx/voice/assembly_minigame/ewwhatsthat.wav";
+import ew_sound from "../assets/sfx/voice/assembly_minigame/";
+import ew_sound from "../assets/sfx/voice/assembly_minigame/";
+import ew_sound from "../assets/sfx/voice/assembly_minigame/";
+import ew_sound from "../assets/sfx/voice/assembly_minigame/";
+import ew_sound from "../assets/sfx/voice/assembly_minigame/";
+import ew_sound from "../assets/sfx/voice/assembly_minigame/";
+import ew_sound from "../assets/sfx/voice/assembly_minigame/";
+import ew_sound from "../assets/sfx/voice/assembly_minigame/";
+import ew_sound from "../assets/sfx/voice/assembly_minigame/";
+import ew_sound from "../assets/sfx/voice/assembly_minigame/";
 
 //pics
 import rushworkerpic from "../assets/images/minigames/assembly/rushworker.png";
