@@ -38,7 +38,7 @@ import incorrectburgersound5 from "../assets/sfx/voice/assembly_minigame/thisisw
 import incorrectburgersound6 from "../assets/sfx/voice/assembly_minigame/ughno.mp3";
 import incorrectburgersound7 from "../assets/sfx/voice/assembly_minigame/umno.mp3";
 import correctburgersound1 from "../assets/sfx/voice/assembly_minigame/perfectthanks.mp3";
-import correctburgersound2 from "../assets/sfx/voice/assembly_minigame/thatsitthanks.mp3";
+import correctburgersound2 from "../assets/sfx/voice/assembly_minigame/thanks.mp3";
 import correctburgersound3 from "../assets/sfx/voice/assembly_minigame/welldone.mp3";
 import correctburgersound4 from "../assets/sfx/voice/assembly_minigame/wow.mp3";
 import correctburgersound5 from "../assets/sfx/voice/assembly_minigame/delicious.mp3";
