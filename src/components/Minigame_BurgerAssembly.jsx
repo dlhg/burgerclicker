@@ -180,7 +180,7 @@ now that we're capturing burger creation time, we can:
     // Choose a random incorrect burger sound
     const randomIncorrectSound =
       incorrectburgersounds[
-      Math.floor(Math.random() * incorrectburgersounds.length)
+        Math.floor(Math.random() * incorrectburgersounds.length)
       ];
 
     // Load the buffer explicitly
@@ -246,7 +246,7 @@ now that we're capturing burger creation time, we can:
       // Choose a random correct burger sound
       const randomCorrectSound =
         correctburgersounds[
-        Math.floor(Math.random() * correctburgersounds.length)
+          Math.floor(Math.random() * correctburgersounds.length)
         ];
 
       // Load the buffer explicitly
@@ -452,11 +452,17 @@ now that we're capturing burger creation time, we can:
               </div>
 
               <div className="ingredient--buttons">
-                <button onClick={() => handleStartOver()} disabled={buttonsDisabled}>restart</button>
+                <button
+                  onClick={() => handleStartOver()}
+                  disabled={buttonsDisabled}
+                >
+                  restart
+                </button>
                 <button
                   onClick={() =>
                     setPlayerBurger([...playerBurger, "bottombun"])
                   }
+                  disabled={buttonsDisabled}
                 >
                   bottom bun
                   <br />
@@ -464,6 +470,7 @@ now that we're capturing burger creation time, we can:
                 </button>
                 <button
                   onClick={() => setPlayerBurger([...playerBurger, "patty"])}
+                  disabled={buttonsDisabled}
                 >
                   patty
                   <br />
@@ -471,6 +478,7 @@ now that we're capturing burger creation time, we can:
                 </button>
                 <button
                   onClick={() => setPlayerBurger([...playerBurger, "lettuce"])}
+                  disabled={buttonsDisabled}
                 >
                   lettuce
                   <br />
@@ -478,6 +486,7 @@ now that we're capturing burger creation time, we can:
                 </button>
                 <button
                   onClick={() => setPlayerBurger([...playerBurger, "tomato"])}
+                  disabled={buttonsDisabled}
                 >
                   tomato
                   <br />
@@ -485,6 +494,7 @@ now that we're capturing burger creation time, we can:
                 </button>
                 <button
                   onClick={() => setPlayerBurger([...playerBurger, "cheese"])}
+                  disabled={buttonsDisabled}
                 >
                   cheese
                   <br />
@@ -492,6 +502,7 @@ now that we're capturing burger creation time, we can:
                 </button>
                 <button
                   onClick={() => setPlayerBurger([...playerBurger, "pickles"])}
+                  disabled={buttonsDisabled}
                 >
                   pickles
                   <br />
@@ -499,6 +510,7 @@ now that we're capturing burger creation time, we can:
                 </button>
                 <button
                   onClick={() => setPlayerBurger([...playerBurger, "bacon"])}
+                  disabled={buttonsDisabled}
                 >
                   bacon
                   <br />
@@ -506,6 +518,7 @@ now that we're capturing burger creation time, we can:
                 </button>
                 <button
                   onClick={() => setPlayerBurger([...playerBurger, "onion"])}
+                  disabled={buttonsDisabled}
                 >
                   onion
                   <br />
@@ -513,6 +526,7 @@ now that we're capturing burger creation time, we can:
                 </button>
                 <button
                   onClick={() => setPlayerBurger([...playerBurger, "mayo"])}
+                  disabled={buttonsDisabled}
                 >
                   mayo
                   <br />
@@ -520,6 +534,7 @@ now that we're capturing burger creation time, we can:
                 </button>
                 <button
                   onClick={() => setPlayerBurger([...playerBurger, "mustard"])}
+                  disabled={buttonsDisabled}
                 >
                   mustard
                   <br />
@@ -527,6 +542,7 @@ now that we're capturing burger creation time, we can:
                 </button>
                 <button
                   onClick={() => setPlayerBurger([...playerBurger, "ketchup"])}
+                  disabled={buttonsDisabled}
                 >
                   ketchup
                   <br />
@@ -534,12 +550,15 @@ now that we're capturing burger creation time, we can:
                 </button>
                 <button
                   onClick={() => setPlayerBurger([...playerBurger, "topbun"])}
+                  disabled={buttonsDisabled}
                 >
                   top bun
                   <br />
                   <img src={topbunpic}></img>
                 </button>
-                <button onClick={() => handleSend()} disabled={buttonsDisabled}>serve</button>
+                <button onClick={() => handleSend()} disabled={buttonsDisabled}>
+                  serve
+                </button>
               </div>
               <div className="assembly--stats">
                 <h2>reward: {reward}</h2>
@@ -551,7 +570,9 @@ now that we're capturing burger creation time, we can:
                 <button onClick={() => setPlayerBurger(burgerOrder)}>
                   clone order
                 </button>
-                <button onClick={() => handleSend()} disabled={buttonsDisabled}>serve</button>
+                <button onClick={() => handleSend()} disabled={buttonsDisabled}>
+                  serve
+                </button>
                 <button
                   onClick={() => setTimeRemaining((prev) => prev + 10000)}
                 >
