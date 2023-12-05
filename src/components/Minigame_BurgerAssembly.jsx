@@ -180,7 +180,7 @@ now that we're capturing burger creation time, we can:
     // Choose a random incorrect burger sound
     const randomIncorrectSound =
       incorrectburgersounds[
-        Math.floor(Math.random() * incorrectburgersounds.length)
+      Math.floor(Math.random() * incorrectburgersounds.length)
       ];
 
     // Load the buffer explicitly
@@ -246,7 +246,7 @@ now that we're capturing burger creation time, we can:
       // Choose a random correct burger sound
       const randomCorrectSound =
         correctburgersounds[
-          Math.floor(Math.random() * correctburgersounds.length)
+        Math.floor(Math.random() * correctburgersounds.length)
         ];
 
       // Load the buffer explicitly
@@ -452,7 +452,7 @@ now that we're capturing burger creation time, we can:
               </div>
 
               <div className="ingredient--buttons">
-                <button onClick={() => handleStartOver()}>restart</button>
+                <button onClick={() => handleStartOver()} disabled={buttonsDisabled}>restart</button>
                 <button
                   onClick={() =>
                     setPlayerBurger([...playerBurger, "bottombun"])
@@ -539,7 +539,7 @@ now that we're capturing burger creation time, we can:
                   <br />
                   <img src={topbunpic}></img>
                 </button>
-                <button onClick={() => handleSend()}>serve</button>
+                <button onClick={() => handleSend()} disabled={buttonsDisabled}>serve</button>
               </div>
               <div className="assembly--stats">
                 <h2>reward: {reward}</h2>
@@ -551,7 +551,7 @@ now that we're capturing burger creation time, we can:
                 <button onClick={() => setPlayerBurger(burgerOrder)}>
                   clone order
                 </button>
-                <button onClick={() => handleSend()}>serve</button>
+                <button onClick={() => handleSend()} disabled={buttonsDisabled}>serve</button>
                 <button
                   onClick={() => setTimeRemaining((prev) => prev + 10000)}
                 >
