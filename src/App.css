@@ -337,9 +337,6 @@ button:hover {
   animation: pulsate 1s infinite;
 }
 
-.quip--text--boost--active {
-}
-
 /* Optional: Add some margin between the items */
 .navbar--left button,
 .navbar--center * {
