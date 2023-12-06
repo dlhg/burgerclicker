@@ -394,7 +394,11 @@ now that we're capturing burger creation time, we can:
           {gameStarted && (
             <div className="assembly--wrapper">
               {/* <div className="assembly--navbar"> </div> */}
-              <button id="quit--assembly--button" onClick={() => handleQuit()}>
+              <button
+                id="quit--assembly--button"
+                onClick={() => handleQuit()}
+                disabled={buttonsDisabled}
+              >
                 quit minigame
               </button>
 
