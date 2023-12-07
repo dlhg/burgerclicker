@@ -578,7 +578,7 @@ now that we're capturing burger creation time, we can:
                 <h2>reward: {reward}</h2>
                 burgers served: {correctStreak}
                 <br />
-                assembly times: {burgerCreationTimes}
+                assembly times: {burgerCreationTimes.join(",")}
                 <br />
                 average time: {averageBurgerCreationTime}
                 <h2>cheat/test console</h2>
