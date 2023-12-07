@@ -17,7 +17,8 @@ export function findAverageArrayValue(arr) {
   let sum = arr.reduce(
     (accumulator, currentValue) => accumulator + currentValue
   );
-  return sum / arrLength;
+  //only shows the first two decimal values
+  return (sum / arrLength).toFixed(2);
 }
 
 export function formatNumber(number) {
