@@ -12,6 +12,14 @@ export function getRandomNumber(length) {
   return randomNumber;
 }
 
+function findAverageArrayValue(arr) {
+  const arrLength = arr.length;
+  let sum = arr.reduce(
+    (accumulator, currentValue) => accumulator + currentValue
+  );
+  return sum / arrLength;
+}
+
 export function formatNumber(number) {
   if (number < 1e6) {
     return number.toFixed(0);
