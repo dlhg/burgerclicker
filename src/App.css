@@ -495,6 +495,10 @@ button:hover {
   height: 100%;
 }
 
+.sell--buy--container {
+  display: flex;
+}
+
 .section1:hover {
   /* in cookie clicker, the amount that the store expands is
     dependent on the number of rows of available store items, maybe add

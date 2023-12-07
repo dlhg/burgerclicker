@@ -420,6 +420,22 @@ function App() {
         </div>
         <div className={isBoostActive ? "div4--boost--active" : "div4"}>
           <section className="section2" id="buildings">
+            <section className="sell--buy--container">
+              <div className="sell--buy">
+                <button>buy</button>
+
+                <br />
+                <button>sell</button>
+              </div>
+              <br />
+              <div className="sell--buy--options">
+                <button>1</button>
+                <button>10</button>
+                <button>100</button>
+
+              </div>
+
+            </section>
             <StoreItem
               storeItemImage={
                 totalBurgersProducedUnformatted >= 20
