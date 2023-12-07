@@ -353,7 +353,14 @@ now that we're capturing burger creation time, we can:
   }
 
   function handleStartOver() {
-    let penaltyMultiplier = 0.9;
+    // if player's burger has no ingredients in their burger, return (safegaurd against double clicking unfairly lowering player's reward)
+    if (playerBurger.length < 1) {
+      setTickerText(
+        "you cannot start over since your burger has no ingredients yet"
+      );
+      return;
+    }
+    const penaltyMultiplier = 0.9;
     setPlayerBurger([]);
     setTickerText(
       `whoops! starting that burger over, reward went from ${reward} to ${Math.max(
