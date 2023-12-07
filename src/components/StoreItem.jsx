@@ -57,7 +57,7 @@ export default function StoreItem(props) {
           <div id="store--item--name">{props.storeItemName}</div>
           <br />
           <div id="store--item--cost" style={{ color: textColor }}>
-            {props.buyOrSell === "buy" ? formatNumberTruncated(props.storeItemPrice) : formatNumberTruncated(props.storeItemPrice * 0.5)}🍔
+            {props.buyOrSell === "buy" ? formatNumberTruncated(props.storeItemPrice * props.buyOrSellQuantity) : formatNumberTruncated(props.storeItemPrice * 0.5 * props.buyOrSellQuantity)}🍔
           </div>
         </div>
         <div id="store--item--quantityandbps">
