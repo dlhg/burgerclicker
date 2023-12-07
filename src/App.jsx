@@ -426,16 +426,16 @@ function App() {
           <section className="section2" id="buildings">
             <section className="sell--buy--container">
               <div className="sell--buy">
-                <button onClick={() => setBuyOrSell("buy")}>buy</button>
+                <button className={buyOrSell === "buy" ? "button--inverted" : ""} onClick={() => setBuyOrSell("buy")}>buy</button>
 
                 <br />
-                <button onClick={() => setBuyOrSell("sell")}>sell</button>
+                <button className={buyOrSell === "sell" ? "button--inverted" : ""} onClick={() => setBuyOrSell("sell")}>sell</button>
               </div>
               <br />
               <div className="sell--buy--options">
-                <button onClick={() => setBuyOrSellQuantity(1)}>1</button>
-                <button onClick={() => setBuyOrSellQuantity(10)}>10</button>
-                <button onClick={() => setBuyOrSellQuantity(100)}>100</button>
+                <button className={buyOrSellQuantity === 1 ? "button--inverted" : ""} onClick={() => setBuyOrSellQuantity(1)}>1</button>
+                <button className={buyOrSellQuantity === 10 ? "button--inverted" : ""} onClick={() => setBuyOrSellQuantity(10)}>10</button>
+                <button className={buyOrSellQuantity === 100 ? "button--inverted" : ""} onClick={() => setBuyOrSellQuantity(100)}>100</button>
 
               </div>
 

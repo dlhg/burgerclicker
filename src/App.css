@@ -499,6 +499,11 @@ button:hover {
   display: flex;
 }
 
+.button--inverted {
+  background-color: green;
+  color: black;
+}
+
 .section1:hover {
   /* in cookie clicker, the amount that the store expands is
     dependent on the number of rows of available store items, maybe add
