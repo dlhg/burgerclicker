@@ -40,7 +40,7 @@ export default function Buildings(props) {
             burger assembly game (unlock by having 2 workers)
           </button>
         )}
-        <ToneJSButton />
+        {/* <ToneJSButton /> */}
 
         {/* <div id="Building3">
           <BuildingRow
