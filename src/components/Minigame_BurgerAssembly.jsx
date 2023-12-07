@@ -588,6 +588,8 @@ now that we're capturing burger creation time, we can:
                 assembly times: {burgerCreationTimes.join(",")}
                 <br />
                 average time: {averageBurgerCreationTime}
+                <br />
+                elapsed time: {gameDuration}
                 <h2>cheat/test console</h2>
                 <button onClick={() => setPlayerBurger(burgerOrder)}>
                   clone order
