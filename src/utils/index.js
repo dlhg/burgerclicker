@@ -12,7 +12,7 @@ export function getRandomNumber(length) {
   return randomNumber;
 }
 
-function findAverageArrayValue(arr) {
+export function findAverageArrayValue(arr) {
   const arrLength = arr.length;
   let sum = arr.reduce(
     (accumulator, currentValue) => accumulator + currentValue

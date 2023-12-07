@@ -27,6 +27,7 @@ rushing employee in How to play section is AI gen
 
 import React, { useState, useEffect } from "react";
 import * as Tone from "tone";
+import { findAverageArrayValue } from "../utils";
 
 //sfx
 import popsound from "../assets/sfx/pop.mp3";
@@ -77,6 +78,8 @@ export default function MinigameTemplate(props) {
   const [gameDurationWhenBurgerStarted, setGameDurationWhenBurgerStarted] =
     useState(0);
   const [burgerCreationTimes, setBurgerCreationTimes] = useState([]);
+  const [averageBurgerCreationTime, setAverageBurgerCreationTime] =
+    useState(undefined);
 
   const [toppings, setToppings] = useState([
     "lettuce",
@@ -263,6 +266,13 @@ now that we're capturing burger creation time, we can:
         ...prevTimes,
         timeToCompleteBurger,
       ]);
+
+      //calculate average creation time and update state value averageBurgerCreationTime
+
+      setAverageBurgerCreationTime(
+        findAverageArrayValue([...burgerCreationTimes, timeToCompleteBurger])
+      );
+
       // determine ticker text based on how fast it was assembled:
 
       // if the player was slow to make the burger, set appropriate ticketText
@@ -570,6 +580,7 @@ now that we're capturing burger creation time, we can:
                 <br />
                 assembly times: {burgerCreationTimes}
                 <br />
+                average time: {averageBurgerCreationTime}
                 <h2>cheat/test console</h2>
                 <button onClick={() => setPlayerBurger(burgerOrder)}>
                   clone order
