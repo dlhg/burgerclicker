@@ -433,9 +433,9 @@ function App() {
               </div>
               <br />
               <div className="sell--buy--options">
-                <button>1</button>
-                <button>10</button>
-                <button>100</button>
+                <button onClick={() => setBuyOrSellQuantity(1)}>1</button>
+                <button onClick={() => setBuyOrSellQuantity(10)}>10</button>
+                <button onClick={() => setBuyOrSellQuantity(100)}>100</button>
 
               </div>
 
