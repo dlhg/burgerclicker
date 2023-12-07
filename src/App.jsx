@@ -83,6 +83,9 @@ function App() {
   const [tempBPSBoostMultiplier, setTempBPSBoostMultiplier] = useState(1);
   const [tempBPCBoostMultiplier, setTempBPCBoostMultiplier] = useState(1);
 
+  //state to keep track of whether player is buying or selling buildings, as well as buy/sell quantity
+  const [buyOrSell, setBuyOrSell] = useState("buy");
+  const [buyOrSellQuantity, setBuyOrSellQuantity] = useState(1);
   //state for store items
   // BPS = burgers per second
   const [pointerCount, setPointerCount] = useState(0);
@@ -174,7 +177,8 @@ function App() {
 
   useEffect(() => {
 
-    const TBBPS = ((pointerCount * pointerBPS) +
+    const TBBPS = (
+      (pointerCount * pointerBPS) +
       (workerCount * workerBPS) +
       (grillCount * grillBPS) +
       (truckCount * truckBPS) +
@@ -422,10 +426,10 @@ function App() {
           <section className="section2" id="buildings">
             <section className="sell--buy--container">
               <div className="sell--buy">
-                <button>buy</button>
+                <button onClick={() => setBuyOrSell("buy")}>buy</button>
 
                 <br />
-                <button>sell</button>
+                <button onClick={() => setBuyOrSell("sell")}>sell</button>
               </div>
               <br />
               <div className="sell--buy--options">
@@ -452,6 +456,8 @@ function App() {
               itemCount={pointerCount}
               itemSetter={setPointerCount}
               bpsIncrease={pointerBPS}
+              buyOrSell={buyOrSell}
+              buyOrSellQuantity={buyOrSellQuantity}
             />
             <StoreItem
               storeItemImage={
@@ -469,6 +475,8 @@ function App() {
               itemCount={workerCount}
               itemSetter={setWorkerCount}
               bpsIncrease={workerBPS}
+              buyOrSell={buyOrSell}
+              buyOrSellQuantity={buyOrSellQuantity}
             />
             {totalBurgersProducedUnformatted >= 100 && (
               <StoreItem
@@ -487,6 +495,8 @@ function App() {
                 itemCount={grillCount}
                 itemSetter={setGrillCount}
                 bpsIncrease={grillBPS}
+                buyOrSell={buyOrSell}
+                buyOrSellQuantity={buyOrSellQuantity}
               />
             )}
             {totalBurgersProducedUnformatted >= 300 && (
@@ -506,6 +516,8 @@ function App() {
                 itemCount={truckCount}
                 itemSetter={setTruckCount}
                 bpsIncrease={truckBPS}
+                buyOrSell={buyOrSell}
+                buyOrSellQuantity={buyOrSellQuantity}
               />
             )}
             {totalBurgersProducedUnformatted >= 450 && (
@@ -525,6 +537,8 @@ function App() {
                 itemCount={bankCount}
                 itemSetter={setBankCount}
                 bpsIncrease={bankBPS}
+                buyOrSell={buyOrSell}
+                buyOrSellQuantity={buyOrSellQuantity}
               />
             )}
             {totalBurgersProducedUnformatted >= 900 && (
@@ -544,6 +558,8 @@ function App() {
                 itemCount={templeCount}
                 itemSetter={setTempleCount}
                 bpsIncrease={templeBPS}
+                buyOrSell={buyOrSell}
+                buyOrSellQuantity={buyOrSellQuantity}
               />
             )}
             {totalBurgersProducedUnformatted >= 1800 && (
@@ -563,6 +579,8 @@ function App() {
                 itemCount={labCount}
                 itemSetter={setLabCount}
                 bpsIncrease={labBPS}
+                buyOrSell={buyOrSell}
+                buyOrSellQuantity={buyOrSellQuantity}
               />
             )}
             {totalBurgersProducedUnformatted >= 9000 && (
@@ -584,6 +602,8 @@ function App() {
                 itemCount={spacecraftCount}
                 itemSetter={setSpacecraftCount}
                 bpsIncrease={spacecraftBPS}
+                buyOrSell={buyOrSell}
+                buyOrSellQuantity={buyOrSellQuantity}
               />
             )}
             {totalBurgersProducedUnformatted >= 90000 && (
@@ -603,6 +623,8 @@ function App() {
                 itemCount={portalCount}
                 itemSetter={setPortalCount}
                 bpsIncrease={portalBPS}
+                buyOrSell={buyOrSell}
+                buyOrSellQuantity={buyOrSellQuantity}
               />
             )}
           </section>
