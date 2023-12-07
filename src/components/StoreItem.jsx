@@ -23,7 +23,6 @@ export default function StoreItem(props) {
       );
       return;
     }
-    // based on amount, run this code
     props.setBurgerCount((prev) => prev - (props.storeItemPrice * amount));
     props.setTotalBuildingBPS((prev) => prev + (props.bpsIncrease * amount));
     props.itemSetter((prev) => prev + amount);
@@ -58,7 +57,7 @@ export default function StoreItem(props) {
           <div id="store--item--name">{props.storeItemName}</div>
           <br />
           <div id="store--item--cost" style={{ color: textColor }}>
-            {formatNumberTruncated(props.storeItemPrice)}🍔
+            {props.buyOrSell === "buy" ? formatNumberTruncated(props.storeItemPrice) : formatNumberTruncated(props.storeItemPrice * 0.5)}🍔
           </div>
         </div>
         <div id="store--item--quantityandbps">
