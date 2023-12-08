@@ -32,8 +32,8 @@ const BurgerGraph = ({ burgerCount }) => {
         label: 'Burger Count',
         data: dataPoints,
         fill: false,
-        backgroundColor: 'rgb(255, 99, 132)',
-        borderColor: 'rgba(255, 99, 132, 0.2)',
+        backgroundColor: 'rgb(75, 192, 192)', // Green color
+        borderColor: 'rgba(75, 192, 192, 0.2)', // Green color with transparency
       },
     ],
   };
