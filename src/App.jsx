@@ -348,6 +348,7 @@ function App() {
                 labCount={labCount}
                 spacecraftCount={spacecraftCount}
                 portalCount={portalCount}
+                burgerCount={burgerCount}
               />
             </>
           )}

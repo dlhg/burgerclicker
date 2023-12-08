@@ -4,6 +4,7 @@ import React from "react";
 import * as Tone from "tone";
 import BuildingRow from "./BuildingRow";
 import ToneJSButton from "./ToneJSButton";
+import Graphs from "./Graphs"
 
 export default function Buildings(props) {
   return (
@@ -104,6 +105,8 @@ export default function Buildings(props) {
             className="portal--image"
           />
         </div> */}
+        <Graphs
+          burgerCount={props.burgerCount} />
       </div>
     </>
   );

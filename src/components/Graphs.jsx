@@ -10,12 +10,35 @@ graph component:
     - run an interval to gather whatever data i want to graph every defined interval (30s?)
     - this snapshot function could probably eventually help with creating save files
 */
-import React, { useState } from "react";
+import React, { useState, useEffect } from 'react';
+import { Line } from 'react-chartjs-2';
+import 'chart.js/auto';
 
-export default function Graph(props) {
-  return (
-    <>
-      <div>graph component</div>
-    </>
-  );
-}
+const BurgerGraph = ({ burgerCount }) => {
+  const [dataPoints, setDataPoints] = useState([]);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setDataPoints(currentDataPoints => [...currentDataPoints, burgerCount]);
+    }, 1000);
+
+    return () => clearInterval(interval);
+  }, [burgerCount]);
+
+  const data = {
+    labels: dataPoints.map((_, index) => index + 1),
+    datasets: [
+      {
+        label: 'Burger Count',
+        data: dataPoints,
+        fill: false,
+        backgroundColor: 'rgb(255, 99, 132)',
+        borderColor: 'rgba(255, 99, 132, 0.2)',
+      },
+    ],
+  };
+
+  return <Line data={data} />;
+};
+
+export default BurgerGraph;
