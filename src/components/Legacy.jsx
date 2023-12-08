@@ -7,17 +7,17 @@ export default function Legacy(props) {
     // if yes, proceed
     // end any boosts in progress(done)
     props.setIsBoostActive(false);
-    props.setTempBPCBoostMultiplier(false);
-    props.setTempBPSBoostMultiplier(false);
+    props.setTempBPCBoostMultiplier(1);
+    props.setTempBPSBoostMultiplier(1);
     // show perspective shift animation for a few seconds
     // set quip level to 0 (done)
     props.setCurrentQuipLevel(0);
     // convert player's current burgs to prestige token currency (done)
-    props.setPrestigeTokenCount(props.burgerCount)
+    props.setPrestigeTokenCount(props.burgerCount);
     // set burger count to 0 (done)
     props.setBurgerCount(0);
     // set burgers per click to 1
-    props.setBurgersPerClick(1);
+
     // set all building counts to 0 (done)
     props.setPointerCount(0);
     props.setWorkerCount(0);
@@ -34,17 +34,15 @@ export default function Legacy(props) {
     // setTimeout(() => {
 
     // }, 1400);
-    props.setMainArea("buildings")
+    props.setMainArea("buildings");
+    props.setBurgersPerClick(1);
   }
-
 
   return (
     <div>
       <button onClick={() => handlePrestige()}>Click Here to Prestige</button>
       <br />
-      <section>
-        You have {props.prestigeTokenCount} prestige tokens
-      </section>
+      <section>You have {props.prestigeTokenCount} prestige tokens</section>
     </div>
   );
 }
