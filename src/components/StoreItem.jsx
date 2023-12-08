@@ -3,7 +3,7 @@ import { formatNumber, formatNumberTruncated } from "../utils";
 import { scaleItemPrice } from "../utils";
 
 //to fix:
-//- when sell is selected, price color should be determined by whether amount of buildings you own is greater or equal to buyOrSellQuantity selected
+//-
 //- price scaling should apply for buying and selling
 
 export default function StoreItem(props) {
@@ -46,10 +46,15 @@ export default function StoreItem(props) {
     }
   }
 
+  // this is used for buying
   const textColor =
     props.burgerCount >= props.storeItemPrice * props.buyOrSellQuantity
       ? "green"
       : "red";
+  // this is used for selling - if the number of buildings you want to sell is equal or greater than the sell amount, should be green. if not, red.
+  const sellTextColor =
+    props.itemCount >= props.buyOrSellQuantity ? "green" : "red";
+
   return (
     <>
       <div className="store--item" onClick={() => handleClick()}>
@@ -59,7 +64,12 @@ export default function StoreItem(props) {
         <div id="store--item--nameandprice">
           <div id="store--item--name">{props.storeItemName}</div>
           <br />
-          <div id="store--item--cost" style={{ color: textColor }}>
+          <div
+            id="store--item--cost"
+            style={{
+              color: props.buyOrSell === "buy" ? textColor : sellTextColor,
+            }}
+          >
             {props.buyOrSell === "buy"
               ? formatNumberTruncated(
                   props.storeItemPrice * props.buyOrSellQuantity
