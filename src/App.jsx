@@ -185,9 +185,7 @@ function App() {
       labCount * labBPS +
       spacecraftCount * spacecraftBPS +
       portalCount * portalBPS;
-    console.log(
-      `one of your buildings' count or BPS changed - changed totalBuildingBPS from ${totalBuildingBPS} to ${TBBPS}`
-    );
+
     setTotalBuildingBPS(TBBPS);
   }, [
     pointerCount,
