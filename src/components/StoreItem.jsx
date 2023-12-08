@@ -1,6 +1,6 @@
 import React from "react";
 import { formatNumber, formatNumberTruncated } from "../utils";
-import { scaleItemPrice } from "../utils";
+import { scaleItemPrice, calculateTotalPrice } from "../utils";
 
 //to fix:
 //- price scaling should apply for buying and selling
@@ -19,23 +19,28 @@ export default function StoreItem(props) {
       console.log("you tried to sell more buildings than what you have");
       return;
     }
-    //you get 50% of the original price back if selling, maybe i can make this dynamic in the future
-    props.setBurgerCount((prev) => prev + props.storeItemPrice * amount * 0.5); //need to change this line to introduce scaling
+
+    props.setBurgerCount(
+      (prev) =>
+        prev +
+        calculateTotalPrice(props.storeItemPrice, props.buyOrSellQuantity) * 0.5
+    );
     props.setTotalBuildingBPS((prev) => prev - props.bpsIncrease * amount);
     props.itemSetter((prev) => prev - amount);
   }
 
   function buyItem(amount) {
-    if (props.storeItemPrice * amount > props.burgerCount) {
+    const price = calculateTotalPrice(props.storeItemPrice, amount);
+    if (price > props.burgerCount) {
       console.log(
         "you tried to buy something that costs more burgs than what you have"
       );
       return;
     }
-    props.setBurgerCount((prev) => prev - props.storeItemPrice * amount); ///need to change this line to introduce scaling
+
+    props.setBurgerCount((prev) => prev - price);
     props.setTotalBuildingBPS((prev) => prev + props.bpsIncrease * amount);
     props.itemSetter((prev) => prev + amount);
-    //play();
   }
 
   function handleClick() {
@@ -44,18 +49,16 @@ export default function StoreItem(props) {
     }
     if (props.buyOrSell === "sell") {
       sellItem(props.buyOrSellQuantity);
-    } else {
-      console.log(
-        `error - buyOrSell is ${props.buyOrSell} which is not valid, it is expected to be a string "buy or string "sell"`
-      );
     }
   }
-
+  // need to change buyTextColor and sellTextColor to deal with scaling
   const buyTextColor =
-    props.burgerCount >= props.storeItemPrice * props.buyOrSellQuantity
+    props.burgerCount >=
+    calculateTotalPrice(props.storeItemPrice, props.buyOrSellQuantity)
       ? "green"
       : "red";
   // this is used for selling - if the number of buildings you want to sell is equal or greater than the sell amount, should be green. if not, red.
+
   const sellTextColor =
     props.itemCount >= props.buyOrSellQuantity ? "green" : "red";
 
@@ -74,12 +77,19 @@ export default function StoreItem(props) {
               color: props.buyOrSell === "buy" ? buyTextColor : sellTextColor,
             }}
           >
+            {/* this field displays the price to the user, but actual pricing is handled in buyItem and sellItem */}
             {props.buyOrSell === "buy"
               ? formatNumberTruncated(
-                  props.storeItemPrice * props.buyOrSellQuantity
+                  calculateTotalPrice(
+                    props.storeItemPrice,
+                    props.buyOrSellQuantity
+                  )
                 )
               : formatNumberTruncated(
-                  props.storeItemPrice * 0.5 * props.buyOrSellQuantity
+                  calculateTotalPrice(
+                    props.storeItemPrice,
+                    props.buyOrSellQuantity
+                  ) * 0.5
                 )}
             🍔
           </div>
