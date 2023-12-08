@@ -54,6 +54,12 @@ const BurgerGraph = ({ burgerCount }) => {
       delay: 0, // delay before the animation starts
       loop: false, // whether the animation should loop
     },
+
+    plugins: {
+      legend: {
+        position: 'bottom',
+      },
+    },
     // Other chart options can go here
   };
 
