@@ -3,7 +3,6 @@ import { formatNumber, formatNumberTruncated } from "../utils";
 import { scaleItemPrice } from "../utils";
 
 //to fix:
-//-
 //- price scaling should apply for buying and selling
 
 export default function StoreItem(props) {

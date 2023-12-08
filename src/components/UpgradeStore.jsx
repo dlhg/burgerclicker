@@ -181,7 +181,7 @@ export default function UpgradeStore(props) {
 
           <UpgradeItem
             //unique
-            itemID={3}
+            itemID={30000}
             itemPrice={1000}
             itemImage={scrollpic}
             itemName={"pointer power 2"}
