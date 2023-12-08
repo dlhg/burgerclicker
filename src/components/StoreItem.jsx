@@ -4,6 +4,10 @@ import { scaleItemPrice } from "../utils";
 
 //to fix:
 //- price scaling should apply for buying and selling
+// https://cookieclicker.fandom.com/wiki/Building
+// buy 10 = 20.303718238 * base price
+// buy 100 = 7828749.671335256 * base price
+// same should go for sell, but just divide by 2
 
 export default function StoreItem(props) {
   //const [play] = useSound(clicksounds[getRandomIndex(clicksounds)]);
