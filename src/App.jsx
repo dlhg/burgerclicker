@@ -1,4 +1,3 @@
-
 //style imports
 import "./App.css";
 
@@ -176,25 +175,44 @@ function App() {
   // update totalBuildingBPS whenever the count or BPS changes for any building - this is my new way of calculating burgers per second so that it can respond to changes in building count and BPS with less fuss
 
   useEffect(() => {
-
-    const TBBPS = (
-      (pointerCount * pointerBPS) +
-      (workerCount * workerBPS) +
-      (grillCount * grillBPS) +
-      (truckCount * truckBPS) +
-      (bankCount * bankBPS) +
-      (templeCount * templeBPS) +
-      (labCount * labBPS) +
-      (spacecraftCount * spacecraftBPS) +
-      (portalCount * portalBPS))
-    console.log(`one of your buildings' count or BPS changed - changed totalBuildingBPS from ${totalBuildingBPS} to ${TBBPS}`)
-    setTotalBuildingBPS(TBBPS)
-  }, [pointerCount, pointerBPS, workerCount, workerBPS, grillCount, grillBPS, truckCount, truckBPS, bankCount, bankBPS, templeCount, templeBPS, labCount, labBPS, spacecraftCount, spacecraftBPS, portalCount, portalBPS])
+    const TBBPS =
+      pointerCount * pointerBPS +
+      workerCount * workerBPS +
+      grillCount * grillBPS +
+      truckCount * truckBPS +
+      bankCount * bankBPS +
+      templeCount * templeBPS +
+      labCount * labBPS +
+      spacecraftCount * spacecraftBPS +
+      portalCount * portalBPS;
+    console.log(
+      `one of your buildings' count or BPS changed - changed totalBuildingBPS from ${totalBuildingBPS} to ${TBBPS}`
+    );
+    setTotalBuildingBPS(TBBPS);
+  }, [
+    pointerCount,
+    pointerBPS,
+    workerCount,
+    workerBPS,
+    grillCount,
+    grillBPS,
+    truckCount,
+    truckBPS,
+    bankCount,
+    bankBPS,
+    templeCount,
+    templeBPS,
+    labCount,
+    labBPS,
+    spacecraftCount,
+    spacecraftBPS,
+    portalCount,
+    portalBPS,
+  ]);
 
   // rounds the burgerCount down to nearest integer to display to the player (avoids player seeing things like 50.33 burgers)
   useEffect(() => {
     setDisplayedBurgerCount(Math.floor(burgerCount));
-
   }, [burgerCount]);
 
   // updates Total Burgers Produced by summing clicked burgers count + automated burgers count
@@ -362,7 +380,7 @@ function App() {
             />
           )}
           {mainArea === "info" && <Info />}
-          {mainArea === "legacy" &&
+          {mainArea === "legacy" && (
             <Legacy
               setBurgerCount={setBurgerCount}
               setBurgersPerClick={setBurgersPerClick}
@@ -383,9 +401,8 @@ function App() {
               setIsBoostActive={setIsBoostActive}
               setTempBPSBoostMultiplier={setTempBPSBoostMultiplier}
               setTempBPCBoostMultiplier={setTempBPCBoostMultiplier}
-
-
-            />}
+            />
+          )}
           {mainArea === "testconsole" && (
             <TestConsole
               setTotalBuildingBPS={setTotalBuildingBPS}
@@ -426,19 +443,43 @@ function App() {
           <section className="section2" id="buildings">
             <section className="sell--buy--container">
               <div className="sell--buy">
-                <button className={buyOrSell === "buy" ? "button--inverted" : ""} onClick={() => setBuyOrSell("buy")}>buy</button>
+                <button
+                  className={buyOrSell === "buy" ? "button--inverted" : ""}
+                  onClick={() => setBuyOrSell("buy")}
+                >
+                  buy
+                </button>
 
-                <br />
-                <button className={buyOrSell === "sell" ? "button--inverted" : ""} onClick={() => setBuyOrSell("sell")}>sell</button>
+                <button
+                  className={buyOrSell === "sell" ? "button--inverted" : ""}
+                  onClick={() => setBuyOrSell("sell")}
+                >
+                  sell
+                </button>
               </div>
               <br />
               <div className="sell--buy--options">
-                <button className={buyOrSellQuantity === 1 ? "button--inverted" : ""} onClick={() => setBuyOrSellQuantity(1)}>1</button>
-                <button className={buyOrSellQuantity === 10 ? "button--inverted" : ""} onClick={() => setBuyOrSellQuantity(10)}>10</button>
-                <button className={buyOrSellQuantity === 100 ? "button--inverted" : ""} onClick={() => setBuyOrSellQuantity(100)}>100</button>
-
+                <button
+                  className={buyOrSellQuantity === 1 ? "button--inverted" : ""}
+                  onClick={() => setBuyOrSellQuantity(1)}
+                >
+                  1
+                </button>
+                <button
+                  className={buyOrSellQuantity === 10 ? "button--inverted" : ""}
+                  onClick={() => setBuyOrSellQuantity(10)}
+                >
+                  10
+                </button>
+                <button
+                  className={
+                    buyOrSellQuantity === 100 ? "button--inverted" : ""
+                  }
+                  onClick={() => setBuyOrSellQuantity(100)}
+                >
+                  100
+                </button>
               </div>
-
             </section>
             <StoreItem
               storeItemImage={
