@@ -1,5 +1,6 @@
 import React from "react";
 import { formatNumber, formatNumberTruncated } from "../utils";
+import { scaleItemPrice } from "../utils";
 
 //to fix:
 //- when sell is selected, price color should be determined by whether amount of buildings you own is greater or equal to buyOrSellQuantity selected

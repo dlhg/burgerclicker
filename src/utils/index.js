@@ -1,5 +1,9 @@
+// export function scaleItemPrice(basePrice, itemCount) {
+//   return Math.round(basePrice + basePrice ** (1 + itemCount / 6));
+// }
+
 export function scaleItemPrice(basePrice, itemCount) {
-  return Math.round(basePrice + basePrice ** (1 + itemCount / 6));
+  return Math.round(basePrice * 1.15 ** itemCount);
 }
 
 export function getRandomIndex(array) {
