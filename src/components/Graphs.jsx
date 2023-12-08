@@ -39,13 +39,60 @@ const BurgerGraph = ({ burgerCount }) => {
         label: 'Burger Count',
         data: dataPoints,
         fill: false,
-        backgroundColor: 'rgb(75, 192, 192)',
-        borderColor: 'rgba(75, 192, 192, 0.2)',
+        backgroundColor: 'green',
+        borderColor: 'green',
       },
     ],
   };
 
-  return <Line data={data} />;
+  const options = {
+    animation: {
+      duration: 1000
+      , // duration of the animation (in milliseconds)
+      easing: 'easeOutQuad', // easing function to use
+      onComplete: () => console.log('Animation completed!'),
+      delay: 0, // delay before the animation starts
+      loop: false, // whether the animation should loop
+    },
+    // Other chart options can go here
+  };
+
+  return <Line data={data} options={options} />;
 };
 
 export default BurgerGraph;
+
+
+// Available options are:
+
+// 'linear'
+// 'easeInQuad'
+// 'easeOutQuad'
+// 'easeInOutQuad'
+// 'easeInCubic'
+// 'easeOutCubic'
+// 'easeInOutCubic'
+// 'easeInQuart'
+// 'easeOutQuart'
+// 'easeInOutQuart'
+// 'easeInQuint'
+// 'easeOutQuint'
+// 'easeInOutQuint'
+// 'easeInSine'
+// 'easeOutSine'
+// 'easeInOutSine'
+// 'easeInExpo'
+// 'easeOutExpo'
+// 'easeInOutExpo'
+// 'easeInCirc'
+// 'easeOutCirc'
+// 'easeInOutCirc'
+// 'easeInElastic'
+// 'easeOutElastic'
+// 'easeInOutElastic'
+// 'easeInBack'
+// 'easeOutBack'
+// 'easeInOutBack'
+// 'easeInBounce'
+// 'easeOutBounce'
+// 'easeInOutBounce'
