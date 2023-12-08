@@ -5,9 +5,11 @@ import { scaleItemPrice } from "../utils";
 //to fix:
 //- price scaling should apply for buying and selling
 // https://cookieclicker.fandom.com/wiki/Building
-// buy 10 = 20.303718238 * base price
+// buy 10 = 20.303718238 * base price * amount
 // buy 100 = 7828749.671335256 * base price
 // same should go for sell, but just divide by 2
+
+// buying 1 at a time,
 
 export default function StoreItem(props) {
   //const [play] = useSound(clicksounds[getRandomIndex(clicksounds)]);
@@ -18,7 +20,7 @@ export default function StoreItem(props) {
       return;
     }
     //you get 50% of the original price back if selling, maybe i can make this dynamic in the future
-    props.setBurgerCount((prev) => prev + props.storeItemPrice * amount * 0.5);
+    props.setBurgerCount((prev) => prev + props.storeItemPrice * amount * 0.5); //need to change this line to introduce scaling
     props.setTotalBuildingBPS((prev) => prev - props.bpsIncrease * amount);
     props.itemSetter((prev) => prev - amount);
   }
@@ -30,7 +32,7 @@ export default function StoreItem(props) {
       );
       return;
     }
-    props.setBurgerCount((prev) => prev - props.storeItemPrice * amount);
+    props.setBurgerCount((prev) => prev - props.storeItemPrice * amount); ///need to change this line to introduce scaling
     props.setTotalBuildingBPS((prev) => prev + props.bpsIncrease * amount);
     props.itemSetter((prev) => prev + amount);
     //play();
@@ -49,8 +51,7 @@ export default function StoreItem(props) {
     }
   }
 
-  // this is used for buying
-  const textColor =
+  const buyTextColor =
     props.burgerCount >= props.storeItemPrice * props.buyOrSellQuantity
       ? "green"
       : "red";
@@ -70,7 +71,7 @@ export default function StoreItem(props) {
           <div
             id="store--item--cost"
             style={{
-              color: props.buyOrSell === "buy" ? textColor : sellTextColor,
+              color: props.buyOrSell === "buy" ? buyTextColor : sellTextColor,
             }}
           >
             {props.buyOrSell === "buy"
