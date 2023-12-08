@@ -17,7 +17,7 @@ export default function StoreItem(props) {
   }
 
   function buyItem(amount) {
-    if (props.storeItemPrice > props.burgerCount) {
+    if (props.storeItemPrice * amount > props.burgerCount) {
       console.log(
         "you tried to buy something that costs more burgs than what you have"
       );
