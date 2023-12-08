@@ -46,7 +46,10 @@ export default function StoreItem(props) {
     }
   }
 
-  const textColor = props.burgerCount >= props.storeItemPrice ? "green" : "red";
+  const textColor =
+    props.burgerCount >= props.storeItemPrice * props.buyOrSellQuantity
+      ? "green"
+      : "red";
   return (
     <>
       <div className="store--item" onClick={() => handleClick()}>
