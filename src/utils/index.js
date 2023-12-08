@@ -6,6 +6,14 @@ export function scaleItemPrice(basePrice, itemCount) {
   return Math.round(basePrice * 1.15 ** itemCount);
 }
 
+export function calculateTotalPrice(basePrice, totalItems) {
+  const scalingFactor = 1.15;
+  return Math.round(
+    (basePrice * (1 - Math.pow(scalingFactor, totalItems))) /
+      (1 - scalingFactor)
+  );
+}
+
 export function getRandomIndex(array) {
   const length = array.length;
   return getRandomNumber(length);
