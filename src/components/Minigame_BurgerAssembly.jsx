@@ -27,7 +27,7 @@ rushing employee in How to play section is AI gen
 
 import React, { useState, useEffect } from "react";
 import * as Tone from "tone";
-import { findAverageArrayValue } from "../utils";
+import { findAverageArrayValue, formatNumber } from "../utils";
 
 //sfx
 import popsound from "../assets/sfx/pop.mp3";
@@ -194,7 +194,9 @@ now that we're capturing burger creation time, we can:
     });
 
     setTickerText(
-      `game over! you won ${reward} burgers, going back to buildings area in ${countdown} seconds`
+      `game over! you won ${formatNumber(
+        reward
+      )} burgers, going back to buildings area in ${countdown} seconds`
     );
 
     const countdownInterval = setInterval(() => {
@@ -206,7 +208,9 @@ now that we're capturing burger creation time, we can:
         setButtonsDisabled(false); // Enable buttons after the timeout
       } else {
         setTickerText(
-          `game over! you won ${reward} burgers, going back to buildings area in ${countdown} seconds`
+          `game over! you won ${formatNumber(
+            reward
+          )} burgers, going back to buildings area in ${countdown} seconds`
         );
       }
     }, 1000); // Update the countdown every second
@@ -363,9 +367,10 @@ now that we're capturing burger creation time, we can:
     const penaltyMultiplier = 0.9;
     setPlayerBurger([]);
     setTickerText(
-      `whoops! starting that burger over, reward went from ${reward} to ${Math.max(
-        1,
-        Math.floor(reward * penaltyMultiplier)
+      `whoops! starting that burger over, reward went from ${formatNumber(
+        reward
+      )} to ${formatNumber(
+        Math.max(1, Math.floor(reward * penaltyMultiplier))
       )}`
     );
     setReward((prev) => Math.max(1, Math.floor(prev * penaltyMultiplier)));
@@ -582,7 +587,7 @@ now that we're capturing burger creation time, we can:
                 </button>
               </div>
               <div className="assembly--stats">
-                <h2>reward: {reward}</h2>
+                <h2>reward: {formatNumber(reward)}</h2>
                 burgers served: {correctStreak}
                 <br />
                 assembly times: {burgerCreationTimes.join(",")}
