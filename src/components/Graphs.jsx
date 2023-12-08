@@ -10,20 +10,27 @@ graph component:
     - run an interval to gather whatever data i want to graph every defined interval (30s?)
     - this snapshot function could probably eventually help with creating save files
 */
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { Line } from 'react-chartjs-2';
 import 'chart.js/auto';
 
 const BurgerGraph = ({ burgerCount }) => {
   const [dataPoints, setDataPoints] = useState([]);
+  const burgerCountRef = useRef(burgerCount);
+
+  useEffect(() => {
+    // Update the ref to the latest value without triggering re-render
+    burgerCountRef.current = burgerCount;
+  }, [burgerCount]);
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setDataPoints(currentDataPoints => [...currentDataPoints, burgerCount]);
+      // Use the current value of the ref
+      setDataPoints(currentDataPoints => [...currentDataPoints, burgerCountRef.current]);
     }, 1000);
 
     return () => clearInterval(interval);
-  }, [burgerCount]);
+  }, []); // Empty dependency array to ensure this effect runs only once
 
   const data = {
     labels: dataPoints.map((_, index) => index + 1),
@@ -32,8 +39,8 @@ const BurgerGraph = ({ burgerCount }) => {
         label: 'Burger Count',
         data: dataPoints,
         fill: false,
-        backgroundColor: 'rgb(75, 192, 192)', // Green color
-        borderColor: 'rgba(75, 192, 192, 0.2)', // Green color with transparency
+        backgroundColor: 'rgb(75, 192, 192)',
+        borderColor: 'rgba(75, 192, 192, 0.2)',
       },
     ],
   };
