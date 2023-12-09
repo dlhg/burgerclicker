@@ -23,7 +23,7 @@ const styles = {
     height: "100%",
   },
   chart: {
-    width: "90%",
+    width: "100%",
     maxWidth: "600px",
     height: "15rem",
     margin: "1.5rem",
@@ -32,6 +32,7 @@ const styles = {
   buttonContainer: {
     display: "flex",
     width: "100%",
+    marginTop: "2rem",
   },
   button: {
     width: "25%",
@@ -42,7 +43,7 @@ const styles = {
   },
   activeButton: {
     backgroundColor: "green",
-    color: "black",
+    color: "white",
   },
 };
 
@@ -77,18 +78,32 @@ const BurgerGraph = ({ burgerCount, totalBuildingBPS }) => {
     return dataPoints;
   };
 
-  const createChartData = (dataPoints, label, color) => ({
-    labels: dataPoints.map((_, index) => index + 1),
-    datasets: [
-      {
-        label: label,
-        data: dataPoints,
-        fill: false,
-        backgroundColor: color,
-        borderColor: color,
-      },
-    ],
-  });
+  const createChartData = () => {
+    const displayedBurgerDataPoints = getDisplayedDataPoints(burgerDataPoints);
+    const displayedBpsDataPoints = getDisplayedDataPoints(bpsDataPoints);
+
+    return {
+      labels: displayedBurgerDataPoints.map((_, index) => index + 1),
+      datasets: [
+        {
+          label: "Burgers Held",
+          data: displayedBurgerDataPoints,
+          fill: false,
+          backgroundColor: "green",
+          borderColor: "green",
+          yAxisID: "y1",
+        },
+        {
+          label: "Burgers Per Second",
+          data: displayedBpsDataPoints,
+          fill: false,
+          backgroundColor: "blue",
+          borderColor: "blue",
+          yAxisID: "y2",
+        },
+      ],
+    };
+  };
 
   const options = {
     animation: isAnimationOn
@@ -102,19 +117,22 @@ const BurgerGraph = ({ burgerCount, totalBuildingBPS }) => {
         position: "bottom",
       },
     },
+    scales: {
+      y1: {
+        type: "linear",
+        display: true,
+        position: "left",
+      },
+      y2: {
+        type: "linear",
+        display: true,
+        position: "right",
+        grid: {
+          drawOnChartArea: false,
+        },
+      },
+    },
   };
-
-  const burgerChartData = createChartData(
-    getDisplayedDataPoints(burgerDataPoints),
-    "Burgers Held",
-    "green"
-  );
-
-  const bpsChartData = createChartData(
-    getDisplayedDataPoints(bpsDataPoints),
-    "Burgers Per Second",
-    "blue"
-  );
 
   const getButtonStyle = (mode) => {
     return xAxisMode === mode
@@ -126,10 +144,7 @@ const BurgerGraph = ({ burgerCount, totalBuildingBPS }) => {
     <>
       <div style={styles.graphContainer}>
         <div style={styles.chart}>
-          <Line data={burgerChartData} options={options} />
-        </div>
-        <div style={styles.chart}>
-          <Line data={bpsChartData} options={options} />
+          <Line data={createChartData()} options={options} />
         </div>
       </div>
       <div style={styles.buttonContainer}>
@@ -143,7 +158,7 @@ const BurgerGraph = ({ burgerCount, totalBuildingBPS }) => {
           style={getButtonStyle("last300")}
           onClick={() => setXAxisMode("last300")}
         >
-          Show Last 300 Seconds
+          Show Last 5 minutes
         </button>
         <button
           style={getButtonStyle("last60")}
