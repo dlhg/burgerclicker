@@ -22,10 +22,10 @@ const styles = {
     width: "100%",
   },
   chart: {
-    flex: "1 1 45%", // Slightly less than 50% to account for padding/margins
-    maxWidth: "500px", // Set a max width for each chart
+    flex: "1 1 45%",
+    maxWidth: "500px",
     padding: "10px",
-    boxSizing: "border-box", // Include padding in the width calculation
+    boxSizing: "border-box",
   },
 };
 
@@ -33,6 +33,7 @@ const BurgerGraph = ({ burgerCount, totalBuildingBPS }) => {
   const [burgerDataPoints, setBurgerDataPoints] = useState([]);
   const [bpsDataPoints, setBpsDataPoints] = useState([]);
   const [xAxisMode, setXAxisMode] = useState("all");
+  const [isAnimationOn, setIsAnimationOn] = useState(true); // New state for animation toggle
   const burgerCountRef = useRef(burgerCount);
   const totalBuildingBPSRef = useRef(totalBuildingBPS);
 
@@ -73,10 +74,12 @@ const BurgerGraph = ({ burgerCount, totalBuildingBPS }) => {
   });
 
   const options = {
-    animation: {
-      duration: 500,
-      easing: "easeOutQuad",
-    },
+    animation: isAnimationOn
+      ? {
+          duration: 500,
+          easing: "easeOutQuad",
+        }
+      : false, // Disable animation if isAnimationOn is false
     plugins: {
       legend: {
         position: "bottom",
@@ -113,6 +116,9 @@ const BurgerGraph = ({ burgerCount, totalBuildingBPS }) => {
         </button>
         <button onClick={() => setXAxisMode("last60")}>
           Show Last 60 Seconds
+        </button>
+        <button onClick={() => setIsAnimationOn(!isAnimationOn)}>
+          Toggle Animation {isAnimationOn ? "Off" : "On"}
         </button>
       </div>
     </>
