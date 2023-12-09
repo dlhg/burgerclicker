@@ -266,7 +266,7 @@ function App() {
         >
           <div className="big--burger--container">
             <button onClick={toggleMute}>
-              {isMuted ? "Unmute Music" : "Mute Music"}
+              {isMuted ? "🔇 Music 🔇 " : "🔈 Music 🔈"}
             </button>
             <Burger
               totalBurgersProduced={totalBurgersProduced}

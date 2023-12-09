@@ -172,7 +172,7 @@ const BurgerGraph = ({ burgerCount, totalBuildingBPS }) => {
         >
           Show All
           <br />
-          (slow performance when over ~1000s)
+          (slower performance)
         </button>
         <button
           style={getButtonStyle("last300")}
