@@ -193,6 +193,13 @@ button:hover {
 }
 
 /* burgers, bps, bpc, and burger pic*/
+.mute--button {
+  position: fixed;
+  top: 0;
+  left: 0;
+  font-size: 10rem;
+}
+
 .div1 {
   grid-area: 1 / 1 / 6 / 2;
   flex-direction: column;

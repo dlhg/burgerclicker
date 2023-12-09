@@ -259,15 +259,16 @@ function App() {
 
   return (
     <>
+      <button onClick={toggleMute}>
+        {isMuted ? "🔇 Music 🔇 " : "🔈 Music 🔈"}
+      </button>
       <div className="parent">
         <div
           className={isBoostActive ? "div1--boost--active" : "div1"}
           id="burger"
         >
           <div className="big--burger--container">
-            <button onClick={toggleMute}>
-              {isMuted ? "🔇 Music 🔇 " : "🔈 Music 🔈"}
-            </button>
+            <div className="mute--button"></div>
             <Burger
               totalBurgersProduced={totalBurgersProduced}
               burgerCount={burgerCount}
