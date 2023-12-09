@@ -2,8 +2,9 @@
 import "./App.css";
 
 //hook imports
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 //import useSound from "use-sound";
+import * as Tone from "tone";
 
 //image import
 import burgerpic from "./assets/images/transparentburger.png";
@@ -28,7 +29,7 @@ import cat from "./assets/images/cat_small_transparent.png";
 //import borgir from "./assets/sfx/borgir.mp3";
 
 //music imports
-
+import unatco_music from "./assets/music/unatco.mp3";
 //component imports
 import Burger from "./components/Burger";
 import TestConsoleButton from "./components/TestConsoleButton";
@@ -105,6 +106,10 @@ function App() {
   const [spacecraftBPS, setSpaceCraftBPS] = useState(5000);
   const [portalCount, setPortalCount] = useState(0);
   const [portalBPS, setPortalBPS] = useState(50000);
+
+  //music
+  const [isMuted, setIsMuted] = useState(false);
+  const player = useRef(null);
 
   //upgrades
   const [purchasedUpgradeIDs, setPurchasedUpgradeIDs] = useState([]);
@@ -225,6 +230,33 @@ function App() {
 
   //const [playBorgirSound] = useSound(borgir);
 
+  useEffect(() => {
+    if (!player.current) {
+      player.current = new Tone.Player({
+        url: unatco_music,
+        loop: true,
+        autostart: true,
+      }).toDestination();
+    }
+
+    // Only control the mute state within useEffect
+    player.current.mute = isMuted;
+
+    // Cleanup function
+    return () => {
+      if (player.current) {
+        player.current.stop();
+        player.current.dispose(); // Dispose the player to prevent memory leaks
+        player.current = null;
+      }
+    };
+  }, [isMuted]);
+
+  // Toggle mute state
+  const toggleMute = () => {
+    setIsMuted(!isMuted);
+  };
+
   return (
     <>
       <div className="parent">
@@ -233,6 +265,9 @@ function App() {
           id="burger"
         >
           <div className="big--burger--container">
+            <button onClick={toggleMute}>
+              {isMuted ? "Unmute Music" : "Mute Music"}
+            </button>
             <Burger
               totalBurgersProduced={totalBurgersProduced}
               burgerCount={burgerCount}
