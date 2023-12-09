@@ -10,12 +10,13 @@ graph component:
     - run an interval to gather whatever data i want to graph every defined interval (30s?)
     - this snapshot function could probably eventually help with creating save files
 */
-import React, { useState, useEffect, useRef } from 'react';
-import { Line } from 'react-chartjs-2';
-import 'chart.js/auto';
+import React, { useState, useEffect, useRef } from "react";
+import { Line } from "react-chartjs-2";
+import "chart.js/auto";
 
 const BurgerGraph = ({ burgerCount }) => {
   const [dataPoints, setDataPoints] = useState([]);
+  const [xAxisMode, setXAxisMode] = useState("all"); // State to track the X-axis mode
   const burgerCountRef = useRef(burgerCount);
 
   useEffect(() => {
@@ -26,48 +27,71 @@ const BurgerGraph = ({ burgerCount }) => {
   useEffect(() => {
     const interval = setInterval(() => {
       // Use the current value of the ref
-      setDataPoints(currentDataPoints => [...currentDataPoints, burgerCountRef.current]);
+      setDataPoints((currentDataPoints) => [
+        ...currentDataPoints,
+        burgerCountRef.current,
+      ]);
     }, 1000);
 
     return () => clearInterval(interval);
   }, []); // Empty dependency array to ensure this effect runs only once
 
+  // Determine which data points to display based on the selected mode
+  let displayedDataPoints;
+  if (xAxisMode === "last300") {
+    displayedDataPoints = dataPoints.slice(-300);
+  } else if (xAxisMode === "last60") {
+    displayedDataPoints = dataPoints.slice(-60);
+  } else {
+    displayedDataPoints = dataPoints;
+  }
+
   const data = {
-    labels: dataPoints.map((_, index) => index + 1),
+    labels: displayedDataPoints.map((_, index) => index + 1),
     datasets: [
       {
-        label: 'Burger Count',
-        data: dataPoints,
+        label: "Burger Count",
+        data: displayedDataPoints,
         fill: false,
-        backgroundColor: 'green',
-        borderColor: 'green',
+        backgroundColor: "green",
+        borderColor: "green",
       },
     ],
   };
 
   const options = {
     animation: {
-      duration: 1000
-      , // duration of the animation (in milliseconds)
-      easing: 'easeOutQuad', // easing function to use
-      onComplete: () => console.log('Animation completed!'),
-      delay: 0, // delay before the animation starts
-      loop: false, // whether the animation should loop
+      duration: 1000,
+      easing: "easeOutQuad",
+      onComplete: () => console.log("Animation completed!"),
+      delay: 0,
+      loop: false,
     },
-
     plugins: {
       legend: {
-        position: 'bottom',
+        position: "bottom",
       },
     },
     // Other chart options can go here
   };
 
-  return <Line data={data} options={options} />;
+  return (
+    <>
+      <Line data={data} options={options} />
+      <div>
+        <button onClick={() => setXAxisMode("all")}>Show All</button>
+        <button onClick={() => setXAxisMode("last300")}>
+          Show Last 300 Seconds
+        </button>
+        <button onClick={() => setXAxisMode("last60")}>
+          Show Last 60 Seconds
+        </button>
+      </div>
+    </>
+  );
 };
 
 export default BurgerGraph;
-
 
 // Available options are:
 
