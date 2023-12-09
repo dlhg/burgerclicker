@@ -122,6 +122,15 @@ const BurgerGraph = ({ burgerCount, totalBuildingBPS }) => {
         type: "linear",
         display: true,
         position: "left",
+        title: {
+          display: true,
+          text: "Burgers Held", // Label for the left Y axis
+          color: "#666",
+          font: {
+            size: 14,
+            weight: "bold",
+          },
+        },
       },
       y2: {
         type: "linear",
@@ -129,6 +138,15 @@ const BurgerGraph = ({ burgerCount, totalBuildingBPS }) => {
         position: "right",
         grid: {
           drawOnChartArea: false,
+        },
+        title: {
+          display: true,
+          text: "Burgers Per Second", // Label for the right Y axis
+          color: "#666",
+          font: {
+            size: 14,
+            weight: "bold",
+          },
         },
       },
     },
