@@ -102,7 +102,7 @@ class NPCBattle extends Component {
         <button onClick={() => this.buyNPC("Green", 0, "green")}>
           test - free green NPC
         </button>
-        <canvas ref="canvas" width={400} height={400}></canvas>
+        <canvas ref="canvas" width={800} height={800}></canvas>
         <div id="npcCount">NPC Count: {npcs.length}</div>
         <div id="battleLog">{/* Battle Log goes here */}</div>
       </div>
