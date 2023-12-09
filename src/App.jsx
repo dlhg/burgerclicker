@@ -519,12 +519,12 @@ function App() {
             </section>
             <StoreItem
               storeItemImage={
-                totalBurgersProducedUnformatted >= 20
+                totalBurgersProducedUnformatted >= 10
                   ? pointerpic
                   : questionmarkpic
               }
               storeItemName={
-                totalBurgersProducedUnformatted >= 20 ? "pointer" : "???"
+                totalBurgersProducedUnformatted >= 10 ? "pointer" : "???"
               }
               storeItemPrice={scaleItemPrice(10, pointerCount)}
               burgerCount={burgerCount}
@@ -538,12 +538,12 @@ function App() {
             />
             <StoreItem
               storeItemImage={
-                totalBurgersProducedUnformatted >= 100
+                totalBurgersProducedUnformatted >= 50
                   ? workerpic
                   : questionmarkpic
               }
               storeItemName={
-                totalBurgersProducedUnformatted >= 100 ? "worker" : "???"
+                totalBurgersProducedUnformatted >= 50 ? "worker" : "???"
               }
               storeItemPrice={scaleItemPrice(50, workerCount)}
               burgerCount={burgerCount}
@@ -558,12 +558,12 @@ function App() {
             {totalBurgersProducedUnformatted >= 100 && (
               <StoreItem
                 storeItemImage={
-                  totalBurgersProducedUnformatted >= 300
+                  totalBurgersProducedUnformatted >= 150
                     ? grillpic
                     : questionmarkpic
                 }
                 storeItemName={
-                  totalBurgersProducedUnformatted >= 300 ? "grill" : "???"
+                  totalBurgersProducedUnformatted >= 150 ? "grill" : "???"
                 }
                 storeItemPrice={scaleItemPrice(150, grillCount)}
                 burgerCount={burgerCount}
@@ -579,12 +579,12 @@ function App() {
             {totalBurgersProducedUnformatted >= 300 && (
               <StoreItem
                 storeItemImage={
-                  totalBurgersProducedUnformatted >= 450
+                  totalBurgersProducedUnformatted >= 225
                     ? truckpic
                     : questionmarkpic
                 }
                 storeItemName={
-                  totalBurgersProducedUnformatted >= 450 ? "truck" : "???"
+                  totalBurgersProducedUnformatted >= 225 ? "truck" : "???"
                 }
                 storeItemPrice={scaleItemPrice(225, truckCount)}
                 burgerCount={burgerCount}
@@ -600,12 +600,12 @@ function App() {
             {totalBurgersProducedUnformatted >= 450 && (
               <StoreItem
                 storeItemImage={
-                  totalBurgersProducedUnformatted >= 900
+                  totalBurgersProducedUnformatted >= 450
                     ? bankpic
                     : questionmarkpic
                 }
                 storeItemName={
-                  totalBurgersProducedUnformatted >= 900 ? "bank" : "???"
+                  totalBurgersProducedUnformatted >= 450 ? "bank" : "???"
                 }
                 storeItemPrice={scaleItemPrice(450, bankCount)}
                 burgerCount={burgerCount}
@@ -621,12 +621,12 @@ function App() {
             {totalBurgersProducedUnformatted >= 900 && (
               <StoreItem
                 storeItemImage={
-                  totalBurgersProducedUnformatted >= 1800
+                  totalBurgersProducedUnformatted >= 900
                     ? templepic
                     : questionmarkpic
                 }
                 storeItemName={
-                  totalBurgersProducedUnformatted >= 1800 ? "temple" : "???"
+                  totalBurgersProducedUnformatted >= 900 ? "temple" : "???"
                 }
                 storeItemPrice={scaleItemPrice(900, templeCount)}
                 burgerCount={burgerCount}
@@ -642,12 +642,12 @@ function App() {
             {totalBurgersProducedUnformatted >= 1800 && (
               <StoreItem
                 storeItemImage={
-                  totalBurgersProducedUnformatted >= 9000
+                  totalBurgersProducedUnformatted >= 4500
                     ? labpic
                     : questionmarkpic
                 }
                 storeItemName={
-                  totalBurgersProducedUnformatted >= 9000 ? "lab" : "???"
+                  totalBurgersProducedUnformatted >= 4500 ? "lab" : "???"
                 }
                 storeItemPrice={scaleItemPrice(4500, labCount)}
                 burgerCount={burgerCount}
@@ -663,12 +663,12 @@ function App() {
             {totalBurgersProducedUnformatted >= 9000 && (
               <StoreItem
                 storeItemImage={
-                  totalBurgersProducedUnformatted >= 90000
+                  totalBurgersProducedUnformatted >= 45000
                     ? spacecraftpic
                     : questionmarkpic
                 }
                 storeItemName={
-                  totalBurgersProducedUnformatted >= 90000
+                  totalBurgersProducedUnformatted >= 45000
                     ? "spacecraft"
                     : "???"
                 }
@@ -686,12 +686,12 @@ function App() {
             {totalBurgersProducedUnformatted >= 90000 && (
               <StoreItem
                 storeItemImage={
-                  totalBurgersProducedUnformatted >= 900000
+                  totalBurgersProducedUnformatted >= 450000
                     ? portalpic
                     : questionmarkpic
                 }
                 storeItemName={
-                  totalBurgersProducedUnformatted >= 900000 ? "portal" : "???"
+                  totalBurgersProducedUnformatted >= 450000 ? "portal" : "???"
                 }
                 storeItemPrice={scaleItemPrice(450000, portalCount)}
                 burgerCount={burgerCount}
