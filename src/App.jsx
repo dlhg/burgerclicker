@@ -53,6 +53,7 @@ import Minigame_BurgerAssembly from "./components/Minigame_BurgerAssembly";
 
 import { scaleItemPrice } from "./utils/index";
 import { formatNumber } from "./utils/index";
+import NPCBattle from "./components/NPCBattle";
 
 function App() {
   //state
@@ -328,6 +329,14 @@ function App() {
           }
           id="gamearea"
         >
+          <div
+            className={
+              mainArea === "minigame--NPC--battle"
+                ? "div3--starting--from--top--row"
+                : "div3"
+            }
+            id="gamearea"
+          ></div>
           {mainArea === "buildings" && (
             <>
               <UpgradeStore
@@ -406,6 +415,7 @@ function App() {
               totalBuildingBPS={totalBuildingBPS}
             />
           )}
+          {mainArea === "minigame--NPC--battle" && <NPCBattle />}
           {mainArea === "options" && <Options />}
           {mainArea === "stats" && (
             <Stats

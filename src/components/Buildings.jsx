@@ -41,6 +41,11 @@ export default function Buildings(props) {
             burger assembly game (unlock by having 2 workers)
           </button>
         )}
+        {props.workerCount >= 2 && (
+          <button onClick={() => props.setMainArea("minigame--NPC--battle")}>
+            NPC battle game (unlock by having 2 workers)
+          </button>
+        )}
         {/* <ToneJSButton /> */}
 
         {/* <div id="Building3">
