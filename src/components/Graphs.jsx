@@ -97,8 +97,8 @@ const BurgerGraph = ({ burgerCount, totalBuildingBPS }) => {
           label: "Burgers Per Second (click here to hide)",
           data: displayedBpsDataPoints,
           fill: false,
-          backgroundColor: "blue",
-          borderColor: "blue",
+          backgroundColor: "grey",
+          borderColor: "grey",
           yAxisID: "y2",
         },
       ],
@@ -153,6 +153,8 @@ const BurgerGraph = ({ burgerCount, totalBuildingBPS }) => {
           onClick={() => setXAxisMode("all")}
         >
           Show All
+          <br />
+          (slow performance when over ~1000s)
         </button>
         <button
           style={getButtonStyle("last300")}
