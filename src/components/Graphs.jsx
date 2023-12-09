@@ -25,7 +25,7 @@ const styles = {
   chart: {
     width: "100%",
     maxWidth: "600px",
-    height: "15rem",
+    height: "20rem",
     margin: "1.5rem",
     boxSizing: "border-box",
   },
