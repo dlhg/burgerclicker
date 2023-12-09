@@ -17,17 +17,32 @@ import "chart.js/auto";
 const styles = {
   graphContainer: {
     display: "flex",
-    flexDirection: "column", // Change to column to stack graphs vertically
+    flexDirection: "column",
     alignItems: "center",
     width: "100%",
-    height: "100%", // Adjust height as needed
+    height: "100%",
   },
   chart: {
-    width: "90%", // Adjust width as needed
-    maxWidth: "600px", // Set a max width for each chart
-    height: "15rem", // Adjust height for each chart
-    margin: "1.5rem", // Add margin for spacing
+    width: "90%",
+    maxWidth: "600px",
+    height: "15rem",
+    margin: "1.5rem",
     boxSizing: "border-box",
+  },
+  buttonContainer: {
+    display: "flex",
+    width: "100%",
+  },
+  button: {
+    width: "25%",
+    padding: "10px",
+    margin: "5px",
+    boxSizing: "border-box",
+    fontSize: "1.2rem",
+  },
+  activeButton: {
+    backgroundColor: "green",
+    color: "black",
   },
 };
 
@@ -35,7 +50,7 @@ const BurgerGraph = ({ burgerCount, totalBuildingBPS }) => {
   const [burgerDataPoints, setBurgerDataPoints] = useState([]);
   const [bpsDataPoints, setBpsDataPoints] = useState([]);
   const [xAxisMode, setXAxisMode] = useState("all");
-  const [isAnimationOn, setIsAnimationOn] = useState(true); // New state for animation toggle
+  const [isAnimationOn, setIsAnimationOn] = useState(true);
   const burgerCountRef = useRef(burgerCount);
   const totalBuildingBPSRef = useRef(totalBuildingBPS);
 
@@ -81,7 +96,7 @@ const BurgerGraph = ({ burgerCount, totalBuildingBPS }) => {
           duration: 500,
           easing: "easeOutQuad",
         }
-      : false, // Disable animation if isAnimationOn is false
+      : false,
     plugins: {
       legend: {
         position: "bottom",
@@ -101,6 +116,12 @@ const BurgerGraph = ({ burgerCount, totalBuildingBPS }) => {
     "blue"
   );
 
+  const getButtonStyle = (mode) => {
+    return xAxisMode === mode
+      ? { ...styles.button, ...styles.activeButton }
+      : styles.button;
+  };
+
   return (
     <>
       <div style={styles.graphContainer}>
@@ -111,16 +132,29 @@ const BurgerGraph = ({ burgerCount, totalBuildingBPS }) => {
           <Line data={bpsChartData} options={options} />
         </div>
       </div>
-      <div>
-        <br />
-        <button onClick={() => setXAxisMode("all")}>Show All</button>
-        <button onClick={() => setXAxisMode("last300")}>
+      <div style={styles.buttonContainer}>
+        <button
+          style={getButtonStyle("all")}
+          onClick={() => setXAxisMode("all")}
+        >
+          Show All
+        </button>
+        <button
+          style={getButtonStyle("last300")}
+          onClick={() => setXAxisMode("last300")}
+        >
           Show Last 300 Seconds
         </button>
-        <button onClick={() => setXAxisMode("last60")}>
+        <button
+          style={getButtonStyle("last60")}
+          onClick={() => setXAxisMode("last60")}
+        >
           Show Last 60 Seconds
         </button>
-        <button onClick={() => setIsAnimationOn(!isAnimationOn)}>
+        <button
+          style={styles.button}
+          onClick={() => setIsAnimationOn(!isAnimationOn)}
+        >
           Toggle Animation {isAnimationOn ? "Off" : "On"}
         </button>
       </div>
