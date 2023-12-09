@@ -74,14 +74,23 @@ class NPCBattle extends Component {
     return (
       <div>
         <p>Credits: {credits}</p>
-        <button onClick={() => this.buyNPC("Blue", 100, "blue")}>
-          Buy Blue NPC
+        <button onClick={() => this.buyNPC("Blue", 1000, "blue")}>
+          Buy Blue NPC (1000)
         </button>
-        <button onClick={() => this.buyNPC("Red", 1000, "red")}>
-          Buy Red NPC
+        <button onClick={() => this.buyNPC("Red", 10000, "red")}>
+          Buy Red NPC (10,000)
         </button>
-        <button onClick={() => this.buyNPC("Green", 10000, "green")}>
-          Buy Green NPC
+        <button onClick={() => this.buyNPC("Green", 100000, "green")}>
+          Buy Green NPC (100,000)
+        </button>
+        <button onClick={() => this.buyNPC("Blue", 0, "blue")}>
+          test - free blue NPC
+        </button>
+        <button onClick={() => this.buyNPC("Red", 0, "red")}>
+          test - free red NPC
+        </button>
+        <button onClick={() => this.buyNPC("Green", 0, "green")}>
+          test - free green NPC
         </button>
         <canvas ref="canvas" width={400} height={400}></canvas>
         <div id="npcCount">NPC Count: {npcs.length}</div>
