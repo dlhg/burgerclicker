@@ -230,26 +230,26 @@ function App() {
 
   //const [playBorgirSound] = useSound(borgir);
 
+  // Initialize the player once when the component mounts
   useEffect(() => {
-    if (!player.current) {
-      player.current = new Tone.Player({
-        url: unatco_music,
-        loop: true,
-        autostart: true,
-      }).toDestination();
-    }
+    player.current = new Tone.Player({
+      url: unatco_music,
+      loop: true,
+      autostart: true,
+    }).toDestination();
 
-    // Only control the mute state within useEffect
-    player.current.mute = isMuted;
-
-    // Cleanup function
     return () => {
       if (player.current) {
-        player.current.stop();
-        player.current.dispose(); // Dispose the player to prevent memory leaks
-        player.current = null;
+        player.current.dispose();
       }
     };
+  }, []);
+
+  // Control the volume based on mute state
+  useEffect(() => {
+    if (player.current) {
+      player.current.volume.value = isMuted ? -Infinity : 0;
+    }
   }, [isMuted]);
 
   // Toggle mute state
