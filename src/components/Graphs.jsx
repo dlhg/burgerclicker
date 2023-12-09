@@ -61,7 +61,7 @@ const BurgerGraph = ({ burgerCount }) => {
 
   const options = {
     animation: {
-      duration: 1000,
+      duration: 500,
       easing: "easeOutQuad",
       onComplete: () => console.log("Animation completed!"),
       delay: 0,
