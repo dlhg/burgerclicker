@@ -49,7 +49,7 @@ const styles = {
 const BurgerGraph = ({ burgerCount, totalBuildingBPS }) => {
   const [burgerDataPoints, setBurgerDataPoints] = useState([]);
   const [bpsDataPoints, setBpsDataPoints] = useState([]);
-  const [xAxisMode, setXAxisMode] = useState("all");
+  const [xAxisMode, setXAxisMode] = useState("last60");
   const [isAnimationOn, setIsAnimationOn] = useState(true);
   const burgerCountRef = useRef(burgerCount);
   const totalBuildingBPSRef = useRef(totalBuildingBPS);
@@ -166,25 +166,26 @@ const BurgerGraph = ({ burgerCount, totalBuildingBPS }) => {
       </div>
       <div style={styles.buttonContainer}>
         <button
-          style={getButtonStyle("all")}
-          onClick={() => setXAxisMode("all")}
-        >
-          Show All
-          <br />
-          (slower performance)
-        </button>
-        <button
-          style={getButtonStyle("last300")}
-          onClick={() => setXAxisMode("last300")}
-        >
-          Show Last 5 minutes
-        </button>
-        <button
           style={getButtonStyle("last60")}
           onClick={() => setXAxisMode("last60")}
         >
           Show Last 60 Seconds
         </button>
+
+        <button
+          style={getButtonStyle("last300")}
+          onClick={() => setXAxisMode("last300")}
+        >
+          Show Last 5 Minutes
+        </button>
+
+        <button
+          style={getButtonStyle("all")}
+          onClick={() => setXAxisMode("all")}
+        >
+          Show All
+        </button>
+
         <button
           style={styles.button}
           onClick={() => setIsAnimationOn(!isAnimationOn)}
