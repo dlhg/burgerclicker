@@ -14,70 +14,98 @@ import React, { useState, useEffect, useRef } from "react";
 import { Line } from "react-chartjs-2";
 import "chart.js/auto";
 
-const BurgerGraph = ({ burgerCount }) => {
-  const [dataPoints, setDataPoints] = useState([]);
-  const [xAxisMode, setXAxisMode] = useState("all"); // State to track the X-axis mode
+const styles = {
+  graphContainer: {
+    display: "flex",
+    justifyContent: "space-around",
+    alignItems: "center",
+    width: "100%",
+  },
+  chart: {
+    flex: "1 1 45%", // Slightly less than 50% to account for padding/margins
+    maxWidth: "500px", // Set a max width for each chart
+    padding: "10px",
+    boxSizing: "border-box", // Include padding in the width calculation
+  },
+};
+
+const BurgerGraph = ({ burgerCount, totalBuildingBPS }) => {
+  const [burgerDataPoints, setBurgerDataPoints] = useState([]);
+  const [bpsDataPoints, setBpsDataPoints] = useState([]);
+  const [xAxisMode, setXAxisMode] = useState("all");
   const burgerCountRef = useRef(burgerCount);
+  const totalBuildingBPSRef = useRef(totalBuildingBPS);
 
   useEffect(() => {
-    // Update the ref to the latest value without triggering re-render
     burgerCountRef.current = burgerCount;
-  }, [burgerCount]);
+    totalBuildingBPSRef.current = totalBuildingBPS;
+  }, [burgerCount, totalBuildingBPS]);
 
   useEffect(() => {
     const interval = setInterval(() => {
-      // Use the current value of the ref
-      setDataPoints((currentDataPoints) => [
-        ...currentDataPoints,
-        burgerCountRef.current,
-      ]);
+      setBurgerDataPoints((current) => [...current, burgerCountRef.current]);
+      setBpsDataPoints((current) => [...current, totalBuildingBPSRef.current]);
     }, 1000);
 
     return () => clearInterval(interval);
-  }, []); // Empty dependency array to ensure this effect runs only once
+  }, []);
 
-  // Determine which data points to display based on the selected mode
-  let displayedDataPoints;
-  if (xAxisMode === "last300") {
-    displayedDataPoints = dataPoints.slice(-300);
-  } else if (xAxisMode === "last60") {
-    displayedDataPoints = dataPoints.slice(-60);
-  } else {
-    displayedDataPoints = dataPoints;
-  }
+  const getDisplayedDataPoints = (dataPoints) => {
+    if (xAxisMode === "last300") {
+      return dataPoints.slice(-300);
+    } else if (xAxisMode === "last60") {
+      return dataPoints.slice(-60);
+    }
+    return dataPoints;
+  };
 
-  const data = {
-    labels: displayedDataPoints.map((_, index) => index + 1),
+  const createChartData = (dataPoints, label, color) => ({
+    labels: dataPoints.map((_, index) => index + 1),
     datasets: [
       {
-        label: "Burger Count",
-        data: displayedDataPoints,
+        label: label,
+        data: dataPoints,
         fill: false,
-        backgroundColor: "green",
-        borderColor: "green",
+        backgroundColor: color,
+        borderColor: color,
       },
     ],
-  };
+  });
 
   const options = {
     animation: {
       duration: 500,
       easing: "easeOutQuad",
-      onComplete: () => console.log("Animation completed!"),
-      delay: 0,
-      loop: false,
     },
     plugins: {
       legend: {
         position: "bottom",
       },
     },
-    // Other chart options can go here
   };
+
+  const burgerChartData = createChartData(
+    getDisplayedDataPoints(burgerDataPoints),
+    "Burgers Held",
+    "green"
+  );
+
+  const bpsChartData = createChartData(
+    getDisplayedDataPoints(bpsDataPoints),
+    "Burgers Per Second",
+    "blue"
+  );
 
   return (
     <>
-      <Line data={data} options={options} />
+      <div style={styles.graphContainer}>
+        <div style={styles.chart}>
+          <Line data={burgerChartData} options={options} />
+        </div>
+        <div style={styles.chart}>
+          <Line data={bpsChartData} options={options} />
+        </div>
+      </div>
       <div>
         <button onClick={() => setXAxisMode("all")}>Show All</button>
         <button onClick={() => setXAxisMode("last300")}>
