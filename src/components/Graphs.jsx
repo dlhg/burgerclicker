@@ -94,7 +94,7 @@ const BurgerGraph = ({ burgerCount, totalBuildingBPS }) => {
           yAxisID: "y1",
         },
         {
-          label: "Burgers Per Second",
+          label: "Burgers Per Second (click here to hide)",
           data: displayedBpsDataPoints,
           fill: false,
           backgroundColor: "blue",
