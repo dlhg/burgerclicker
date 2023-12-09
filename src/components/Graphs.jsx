@@ -16,9 +16,8 @@ import "chart.js/auto";
 
 const styles = {
   graphContainer: {
-    display: "flex",
-    flexDirection: "column",
-    alignItems: "center",
+    display: "grid",
+    placeItems: "center",
     width: "100%",
     height: "100%",
   },
