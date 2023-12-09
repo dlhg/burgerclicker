@@ -14,9 +14,13 @@ class NPCBattle extends Component {
   componentDidMount() {
     this.canvas = this.refs.canvas;
     this.ctx = this.canvas.getContext("2d");
-    this.gameLoopInterval = setInterval(this.gameLoop, 1000 / 60);
-  }
 
+    if (this.canvas && this.ctx) {
+      this.gameLoopInterval = setInterval(this.gameLoop, 1000 / 60);
+    } else {
+      console.error("Canvas or 2D context is undefined.");
+    }
+  }
   updateCredits = () => {
     this.setState((prevState) => ({ credits: prevState.credits + 1 }));
   };
@@ -52,8 +56,14 @@ class NPCBattle extends Component {
       npc.x += npc.dx;
       npc.y += npc.dy;
 
-      if (npc.x < 0 || npc.x > canvas.width) npc.dx = -npc.dx;
-      if (npc.y < 0 || npc.y > canvas.height) npc.dy = -npc.dy;
+      if (npc.x < 0 || npc.x > canvas.width) {
+        console.log("side wall bounce");
+        npc.dx = -npc.dx;
+      }
+      if (npc.y < 0 || npc.y > canvas.height) {
+        console.log("top wall bounce");
+        npc.dy = -npc.dy;
+      }
 
       ctx.beginPath();
       ctx.arc(npc.x, npc.y, 10, 0, 2 * Math.PI);
