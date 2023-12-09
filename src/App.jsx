@@ -349,6 +349,7 @@ function App() {
                 spacecraftCount={spacecraftCount}
                 portalCount={portalCount}
                 burgerCount={burgerCount}
+                totalBuildingBPS={totalBuildingBPS}
               />
             </>
           )}
