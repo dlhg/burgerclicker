@@ -114,6 +114,12 @@ const BurgerGraph = ({ burgerCount, totalBuildingBPS }) => {
     plugins: {
       legend: {
         position: "bottom",
+        onHover: function (event, legendItem, legend) {
+          event.native.target.style.cursor = "pointer";
+        },
+        onLeave: function (event, legendItem, legend) {
+          event.native.target.style.cursor = "default";
+        },
       },
     },
     scales: {
