@@ -8,8 +8,16 @@ const NPCBattle = () => {
   const canvasRef = useRef(null);
 
   useEffect(() => {
-    const gameLoopInterval = setInterval(gameLoop, 1000 / 60);
-    return () => clearInterval(gameLoopInterval);
+    let animationFrameId;
+
+    const loop = () => {
+      gameLoop();
+      animationFrameId = requestAnimationFrame(loop);
+    };
+
+    loop();
+
+    return () => cancelAnimationFrame(animationFrameId);
   }, [npcs, enemies]);
 
   const updateCredits = () => {
@@ -47,8 +55,8 @@ const NPCBattle = () => {
       const newNPC = {
         x: Math.random() * canvas.width,
         y: Math.random() * canvas.height,
-        dx: (Math.random() - 0.5) * 0.01,
-        dy: (Math.random() - 0.5) * 0.01,
+        dx: Math.random() - 0.5,
+        dy: Math.random() - 0.5,
         color: color,
         id: generateID(),
         damage: assignDamageStat(color),
@@ -151,7 +159,6 @@ const NPCBattle = () => {
     });
 
     // Request animation frame for the next frame of the game loop
-    requestAnimationFrame(gameLoop);
   };
 
   return (
