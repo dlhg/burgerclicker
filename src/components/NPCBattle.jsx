@@ -60,26 +60,19 @@ const NPCBattle = () => {
       alert("Not enough credits!");
     }
   };
+  const drawNPC = (npc, ctx, canvas) => {
+    npc.x += npc.dx;
+    npc.y += npc.dy;
 
-  const drawNPCs = () => {
-    const canvas = canvasRef.current;
-    const ctx = canvas.getContext("2d");
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    // Collision detection and response
+    if (npc.x < 0 || npc.x > canvas.width) npc.dx = -npc.dx;
+    if (npc.y < 0 || npc.y > canvas.height) npc.dy = -npc.dy;
 
-    npcs.forEach((npc) => {
-      npc.x += npc.dx;
-      npc.y += npc.dy;
-
-      // Collision detection and response
-      if (npc.x < 0 || npc.x > canvas.width) npc.dx = -npc.dx;
-      if (npc.y < 0 || npc.y > canvas.height) npc.dy = -npc.dy;
-
-      ctx.beginPath();
-      ctx.arc(npc.x, npc.y, 10, 0, 2 * Math.PI);
-      ctx.fillStyle = npc.color;
-      ctx.fill();
-      ctx.stroke();
-    });
+    ctx.beginPath();
+    ctx.arc(npc.x, npc.y, 10, 0, 2 * Math.PI);
+    ctx.fillStyle = npc.color;
+    ctx.fill();
+    ctx.stroke();
   };
 
   const spawnEnemy = () => {
@@ -123,22 +116,44 @@ const NPCBattle = () => {
     console.log("clearEnemies called");
   };
 
-  const drawEnemies = (ctx) => {
-    enemies.forEach((enemy) => {
-      ctx.fillStyle = enemy.color;
-      ctx.fillRect(enemy.x, enemy.y, 100, 100);
-      ctx.fillStyle = "black";
-      ctx.fillText(`HP: ${enemy.hp}`, enemy.x + 50, enemy.y + 50);
-    });
+  const drawEnemy = (enemy, ctx, canvas) => {
+    ctx.fillStyle = enemy.color;
+    ctx.fillRect(enemy.x, enemy.y, 100, 100);
+    ctx.fillStyle = "black";
+    ctx.fillText(`HP: ${enemy.hp}`, enemy.x + 50, enemy.y + 50);
   };
 
+  const checkCollision = (npc, enemy) => {
+    const distance = Math.sqrt(
+      Math.pow(npc.x - enemy.x, 2) + Math.pow(npc.y - enemy.y, 2)
+    );
+    return distance < 10 + 50; // Assuming NPC and enemy have radii of 10 and 50
+  };
   const gameLoop = () => {
+    // Update credits and clear the canvas
+    console.log("gameloop called");
     updateCredits();
     const canvas = canvasRef.current;
-    const ctx = canvas.getContext("2d"); // Get the canvas context here
-    drawNPCs();
-    drawEnemies(ctx); // Pass the context to the drawEnemies function
+    const ctx = canvas.getContext("2d");
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+    // Iterate through NPCs and enemies, drawing and checking for collisions
+    npcs.forEach((npc) => {
+      drawNPC(npc, ctx, canvas);
+      enemies.forEach((enemy) => {
+        drawEnemy(enemy, ctx, canvas);
+        if (checkCollision(npc, enemy)) {
+          console.log(
+            `Collision happened between NPC with ID ${npc.id} (damage: ${npc.damage}) and Enemy with ID ${enemy.id} (HP: ${enemy.hp})`
+          );
+        }
+      });
+    });
+
+    // Request animation frame for the next frame of the game loop
+    requestAnimationFrame(gameLoop);
   };
+
   return (
     <div>
       <p>Credits: {credits}</p>
