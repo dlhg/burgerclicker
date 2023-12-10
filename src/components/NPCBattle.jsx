@@ -28,6 +28,18 @@ const NPCBattle = () => {
     setNPCs(npcs.filter((npc) => npc.color !== color));
   };
 
+  const assignDamageStat = (color) => {
+    if (color === "green") {
+      return 100;
+    }
+    if (color === "red") {
+      return 50;
+    }
+    if (color === "blue") {
+      return 25;
+    }
+  };
+
   const buyNPC = (type, cost, color) => {
     const canvas = canvasRef.current;
     if (credits >= cost) {
@@ -38,6 +50,7 @@ const NPCBattle = () => {
         dy: (Math.random() - 0.5) * 2,
         color: color,
         id: generateID(),
+        damage: assignDamageStat(color),
       };
       setNPCs((currentNPCs) => [...currentNPCs, newNPC]);
       setCredits((currentCredits) => currentCredits - cost);
