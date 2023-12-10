@@ -132,10 +132,17 @@ const NPCBattle = () => {
   };
 
   const checkCollision = (npc, enemy) => {
-    const distance = Math.sqrt(
-      Math.pow(npc.x - enemy.x, 2) + Math.pow(npc.y - enemy.y, 2)
-    );
-    return distance < 10 + 50; // Assuming NPC and enemy have radii of 10 and 50
+    // Find the closest point to the circle within the rectangle
+    const closestX = Math.max(enemy.x, Math.min(npc.x, enemy.x + 100)); // Assuming enemy width is 100
+    const closestY = Math.max(enemy.y, Math.min(npc.y, enemy.y + 100)); // Assuming enemy height is 100
+
+    // Calculate the distance between the circle's center and this closest point
+    const distanceX = npc.x - closestX;
+    const distanceY = npc.y - closestY;
+
+    // If the distance is less than the circle's radius, collision detected
+    const distance = Math.sqrt(distanceX * distanceX + distanceY * distanceY);
+    return distance < 10; // Assuming NPC radius is 10
   };
   const gameLoop = () => {
     // Update credits and clear the canvas
