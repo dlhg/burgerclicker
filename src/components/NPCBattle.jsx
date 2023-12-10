@@ -24,6 +24,10 @@ const NPCBattle = () => {
     setNPCs([]);
   };
 
+  const clearNPCsByColor = (color) => {
+    setNPCs(npcs.filter((npc) => npc.color !== color));
+  };
+
   const buyNPC = (type, cost, color) => {
     const canvas = canvasRef.current;
     if (credits >= cost) {
@@ -89,6 +93,11 @@ const NPCBattle = () => {
       </button>
       <button onClick={() => buyNPC("Green", 0, "green")}>
         test - free green NPC
+      </button>
+      <button onClick={() => clearNPCsByColor("blue")}>Clear Blue NPCs</button>
+      <button onClick={() => clearNPCsByColor("red")}>Clear Red NPCs</button>
+      <button onClick={() => clearNPCsByColor("green")}>
+        Clear Green NPCs
       </button>
       <button onClick={clearNPCs}>Clear All NPCs</button>
 
