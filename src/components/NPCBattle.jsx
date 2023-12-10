@@ -107,6 +107,10 @@ const NPCBattle = () => {
       }
     });
 
+    if (isOverlapping) {
+      spawnEnemy();
+    }
+
     if (!isOverlapping) {
       console.log("new enemy not overlapping!");
       setEnemies([...enemies, newEnemy]);
