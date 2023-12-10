@@ -203,8 +203,6 @@ const NPCBattle = () => {
         return newNPCs;
       });
     });
-
-    // Request animation frame for the next frame of the game loop
   };
 
   return (
