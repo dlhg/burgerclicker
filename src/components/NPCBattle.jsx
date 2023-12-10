@@ -1,69 +1,48 @@
-import React, { Component } from "react";
+import React, { useState, useEffect, useRef } from "react";
 
-class NPCBattle extends Component {
-  constructor() {
-    super();
-    this.state = {
-      credits: 0,
-      npcs: [],
-    };
-    this.canvas = null;
-    this.ctx = null;
-  }
+const NPCBattle = () => {
+  const [credits, setCredits] = useState(0);
+  const [npcs, setNPCs] = useState([]);
+  const canvasRef = useRef(null);
 
-  componentDidMount() {
-    this.canvas = this.refs.canvas;
-    this.ctx = this.canvas.getContext("2d");
+  useEffect(() => {
+    const gameLoopInterval = setInterval(gameLoop, 1000 / 60);
+    return () => clearInterval(gameLoopInterval);
+  }, []);
 
-    if (this.canvas && this.ctx) {
-      this.gameLoopInterval = setInterval(this.gameLoop, 1000 / 60);
-    } else {
-      console.error("Canvas or 2D context is undefined.");
-    }
-  }
-  updateCredits = () => {
-    this.setState((prevState) => ({ credits: prevState.credits + 1 }));
+  const updateCredits = () => {
+    setCredits((credits) => credits + 1);
   };
 
-  buyNPC = (type, cost, color) => {
-    const { credits, npcs } = this.state;
-
+  const buyNPC = (type, cost, color) => {
+    const canvas = canvasRef.current;
     if (credits >= cost) {
-      this.setState((prevState) => ({
-        credits: prevState.credits - cost,
-        npcs: [
-          ...prevState.npcs,
-          {
-            x: Math.random() * this.canvas.width,
-            y: Math.random() * this.canvas.height,
-            dx: (Math.random() - 0.5) * 2,
-            dy: (Math.random() - 0.5) * 2,
-            color: color,
-          },
-        ],
-      }));
+      const newNPC = {
+        x: Math.random() * canvas.width,
+        y: Math.random() * canvas.height,
+        dx: (Math.random() - 0.5) * 2,
+        dy: (Math.random() - 0.5) * 2,
+        color: color,
+      };
+      setNPCs((currentNPCs) => [...currentNPCs, newNPC]);
+      setCredits((currentCredits) => currentCredits - cost);
     } else {
       alert("Not enough credits!");
     }
   };
 
-  drawNPCs = () => {
-    const { npcs } = this.state;
-    const { ctx, canvas } = this;
-
+  const drawNPCs = () => {
+    const canvas = canvasRef.current;
+    const ctx = canvas.getContext("2d");
     ctx.clearRect(0, 0, canvas.width, canvas.height);
+
     npcs.forEach((npc) => {
       npc.x += npc.dx;
       npc.y += npc.dy;
 
-      if (npc.x < 0 || npc.x > canvas.width) {
-        console.log("side wall bounce");
-        npc.dx = -npc.dx;
-      }
-      if (npc.y < 0 || npc.y > canvas.height) {
-        console.log("top wall bounce");
-        npc.dy = -npc.dy;
-      }
+      // Collision detection and response
+      if (npc.x < 0 || npc.x > canvas.width) npc.dx = -npc.dx;
+      if (npc.y < 0 || npc.y > canvas.height) npc.dy = -npc.dy;
 
       ctx.beginPath();
       ctx.arc(npc.x, npc.y, 10, 0, 2 * Math.PI);
@@ -73,41 +52,37 @@ class NPCBattle extends Component {
     });
   };
 
-  gameLoop = () => {
-    this.updateCredits();
-    this.drawNPCs();
+  const gameLoop = () => {
+    updateCredits();
+    drawNPCs();
   };
 
-  render() {
-    const { credits, npcs } = this.state;
-
-    return (
-      <div>
-        <p>Credits: {credits}</p>
-        <button onClick={() => this.buyNPC("Blue", 1000, "blue")}>
-          Buy Blue NPC (1000)
-        </button>
-        <button onClick={() => this.buyNPC("Red", 10000, "red")}>
-          Buy Red NPC (10,000)
-        </button>
-        <button onClick={() => this.buyNPC("Green", 100000, "green")}>
-          Buy Green NPC (100,000)
-        </button>
-        <button onClick={() => this.buyNPC("Blue", 0, "blue")}>
-          test - free blue NPC
-        </button>
-        <button onClick={() => this.buyNPC("Red", 0, "red")}>
-          test - free red NPC
-        </button>
-        <button onClick={() => this.buyNPC("Green", 0, "green")}>
-          test - free green NPC
-        </button>
-        <canvas ref="canvas" width={800} height={800}></canvas>
-        <div id="npcCount">NPC Count: {npcs.length}</div>
-        <div id="battleLog">{/* Battle Log goes here */}</div>
-      </div>
-    );
-  }
-}
+  return (
+    <div>
+      <p>Credits: {credits}</p>
+      <button onClick={() => this.buyNPC("Blue", 1000, "blue")}>
+        Buy Blue NPC (1000)
+      </button>
+      <button onClick={() => this.buyNPC("Red", 10000, "red")}>
+        Buy Red NPC (10,000)
+      </button>
+      <button onClick={() => this.buyNPC("Green", 100000, "green")}>
+        Buy Green NPC (100,000)
+      </button>
+      <button onClick={() => this.buyNPC("Blue", 0, "blue")}>
+        test - free blue NPC
+      </button>
+      <button onClick={() => this.buyNPC("Red", 0, "red")}>
+        test - free red NPC
+      </button>
+      <button onClick={() => this.buyNPC("Green", 0, "green")}>
+        test - free green NPC
+      </button>
+      <canvas ref={canvasRef} width={800} height={800}></canvas>
+      <div id="npcCount">NPC Count: {npcs.length}</div>
+      <div id="battleLog">{/* Battle Log goes here */}</div>
+    </div>
+  );
+};
 
 export default NPCBattle;
