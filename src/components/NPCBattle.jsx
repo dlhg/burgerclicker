@@ -146,7 +146,7 @@ const NPCBattle = () => {
   };
   const gameLoop = () => {
     // Update credits and clear the canvas
-    console.log("gameloop called");
+
     updateCredits();
     const canvas = canvasRef.current;
     const ctx = canvas.getContext("2d");
