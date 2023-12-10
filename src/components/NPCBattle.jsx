@@ -14,6 +14,10 @@ const NPCBattle = () => {
     setCredits((credits) => credits + 1);
   };
 
+  const clearNPCs = () => {
+    setNPCs([]);
+  };
+
   const buyNPC = (type, cost, color) => {
     const canvas = canvasRef.current;
     if (credits >= cost) {
@@ -32,7 +36,6 @@ const NPCBattle = () => {
   };
 
   const drawNPCs = () => {
-    console.log("drawing npc");
     const canvas = canvasRef.current;
     const ctx = canvas.getContext("2d");
     ctx.clearRect(0, 0, canvas.width, canvas.height);
@@ -79,6 +82,8 @@ const NPCBattle = () => {
       <button onClick={() => buyNPC("Green", 0, "green")}>
         test - free green NPC
       </button>
+      <button onClick={clearNPCs}>Clear All NPCs</button>
+
       <canvas ref={canvasRef} width={800} height={800}></canvas>
       <div id="npcCount">NPC Count: {npcs.length}</div>
       <div id="battleLog">{/* Battle Log goes here */}</div>
