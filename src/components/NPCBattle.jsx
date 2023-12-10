@@ -3,6 +3,7 @@ import React, { useState, useEffect, useRef } from "react";
 const NPCBattle = () => {
   const [credits, setCredits] = useState(0);
   const [npcs, setNPCs] = useState([]);
+  const [currentID, setCurrentID] = useState(0);
   const canvasRef = useRef(null);
 
   useEffect(() => {
@@ -13,6 +14,11 @@ const NPCBattle = () => {
   const updateCredits = () => {
     setCredits((credits) => credits + 1);
   };
+
+  function generateID() {
+    setCurrentID((id) => id + 1);
+    return currentID + 1;
+  }
 
   const clearNPCs = () => {
     setNPCs([]);
@@ -27,9 +33,11 @@ const NPCBattle = () => {
         dx: (Math.random() - 0.5) * 2,
         dy: (Math.random() - 0.5) * 2,
         color: color,
+        id: generateID(),
       };
       setNPCs((currentNPCs) => [...currentNPCs, newNPC]);
       setCredits((currentCredits) => currentCredits - cost);
+      console.log(npcs);
     } else {
       alert("Not enough credits!");
     }
