@@ -8,7 +8,7 @@ const NPCBattle = () => {
   useEffect(() => {
     const gameLoopInterval = setInterval(gameLoop, 1000 / 60);
     return () => clearInterval(gameLoopInterval);
-  }, []);
+  }, [npcs]);
 
   const updateCredits = () => {
     setCredits((credits) => credits + 1);
@@ -32,6 +32,7 @@ const NPCBattle = () => {
   };
 
   const drawNPCs = () => {
+    console.log("drawing npc");
     const canvas = canvasRef.current;
     const ctx = canvas.getContext("2d");
     ctx.clearRect(0, 0, canvas.width, canvas.height);
@@ -60,22 +61,22 @@ const NPCBattle = () => {
   return (
     <div>
       <p>Credits: {credits}</p>
-      <button onClick={() => this.buyNPC("Blue", 1000, "blue")}>
+      <button onClick={() => buyNPC("Blue", 1000, "blue")}>
         Buy Blue NPC (1000)
       </button>
-      <button onClick={() => this.buyNPC("Red", 10000, "red")}>
+      <button onClick={() => buyNPC("Red", 10000, "red")}>
         Buy Red NPC (10,000)
       </button>
-      <button onClick={() => this.buyNPC("Green", 100000, "green")}>
+      <button onClick={() => buyNPC("Green", 100000, "green")}>
         Buy Green NPC (100,000)
       </button>
-      <button onClick={() => this.buyNPC("Blue", 0, "blue")}>
+      <button onClick={() => buyNPC("Blue", 0, "blue")}>
         test - free blue NPC
       </button>
-      <button onClick={() => this.buyNPC("Red", 0, "red")}>
+      <button onClick={() => buyNPC("Red", 0, "red")}>
         test - free red NPC
       </button>
-      <button onClick={() => this.buyNPC("Green", 0, "green")}>
+      <button onClick={() => buyNPC("Green", 0, "green")}>
         test - free green NPC
       </button>
       <canvas ref={canvasRef} width={800} height={800}></canvas>
