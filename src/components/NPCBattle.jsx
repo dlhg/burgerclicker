@@ -10,7 +10,7 @@ const NPCBattle = () => {
   useEffect(() => {
     const gameLoopInterval = setInterval(gameLoop, 1000 / 60);
     return () => clearInterval(gameLoopInterval);
-  }, [npcs]);
+  }, [npcs, enemies]);
 
   const updateCredits = () => {
     setCredits((credits) => credits + 1);
@@ -83,10 +83,11 @@ const NPCBattle = () => {
   };
 
   const spawnEnemy = () => {
+    const canvas = canvasRef.current;
     console.log("trying to spawn enemy");
     console.log(`enemies = ${JSON.stringify(enemies)}`);
     const newEnemy = {
-      id: currentID * 10000,
+      id: generateID(),
       x: Math.random() * (canvasRef.current.width - 100), // Ensuring the enemy is within canvas bounds
       y: Math.random() * (canvasRef.current.height - 100),
       color: `rgb(${Math.random() * 255}, ${Math.random() * 255}, ${
@@ -107,6 +108,7 @@ const NPCBattle = () => {
     });
 
     if (!isOverlapping) {
+      console.log("new enemy not overlapping!");
       setEnemies([...enemies, newEnemy]);
       setCurrentID(currentID + 1);
     }
