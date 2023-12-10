@@ -3,6 +3,7 @@ import React, { useState, useEffect, useRef } from "react";
 const NPCBattle = () => {
   const [credits, setCredits] = useState(0);
   const [npcs, setNPCs] = useState([]);
+  const [enemies, setEnemies] = useState([]);
   const [currentID, setCurrentID] = useState(0);
   const canvasRef = useRef(null);
 
@@ -81,14 +82,61 @@ const NPCBattle = () => {
     });
   };
 
-  const gameLoop = () => {
-    updateCredits();
-    drawNPCs();
+  const spawnEnemy = () => {
+    console.log("trying to spawn enemy");
+    console.log(`enemies = ${JSON.stringify(enemies)}`);
+    const newEnemy = {
+      id: currentID * Math.random() * 10,
+      x: Math.random() * (canvasRef.current.width - 200), // Ensuring the enemy is within canvas bounds
+      y: Math.random() * (canvasRef.current.height - 200),
+      color: `rgb(${Math.random() * 255}, ${Math.random() * 255}, ${
+        Math.random() * 255
+      })`,
+      hp: Math.floor(Math.random() * (10000 - 100 + 1)) + 100,
+    };
+
+    // Check for overlap with existing enemies
+    let isOverlapping = false;
+    enemies.forEach((enemy) => {
+      if (
+        Math.abs(enemy.x - newEnemy.x) < 200 &&
+        Math.abs(enemy.y - newEnemy.y) < 200
+      ) {
+        isOverlapping = true;
+      }
+    });
+
+    if (!isOverlapping) {
+      setEnemies([...enemies, newEnemy]);
+      setCurrentID(currentID + 1);
+    }
   };
 
+  const clearEnemies = () => {
+    setEnemies([]);
+  };
+
+  const drawEnemies = (ctx) => {
+    enemies.forEach((enemy) => {
+      ctx.fillStyle = enemy.color;
+      ctx.fillRect(enemy.x, enemy.y, 200, 200);
+      ctx.fillStyle = "black";
+      ctx.fillText(`HP: ${enemy.hp}`, enemy.x + 100, enemy.y + 100);
+    });
+  };
+
+  const gameLoop = () => {
+    updateCredits();
+    const canvas = canvasRef.current;
+    const ctx = canvas.getContext("2d"); // Get the canvas context here
+    drawNPCs();
+    drawEnemies(ctx); // Pass the context to the drawEnemies function
+  };
   return (
     <div>
       <p>Credits: {credits}</p>
+      <button onClick={spawnEnemy}>Spawn Enemy</button>
+      <button onClick={clearEnemies}>Clear Enemies</button>
       <button onClick={() => buyNPC("Blue", 1000, "blue")}>
         Buy Blue NPC (1000)
       </button>
