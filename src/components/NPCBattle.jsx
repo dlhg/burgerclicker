@@ -148,12 +148,28 @@ const NPCBattle = () => {
     // Iterate through NPCs and enemies, drawing and checking for collisions
     npcs.forEach((npc) => {
       drawNPC(npc, ctx, canvas);
-      enemies.forEach((enemy) => {
+      enemies.forEach((enemy, index) => {
         drawEnemy(enemy, ctx, canvas);
         if (checkCollision(npc, enemy)) {
           console.log(
             `Collision happened between NPC with ID ${npc.id} (damage: ${npc.damage}) and Enemy with ID ${enemy.id} (HP: ${enemy.hp})`
           );
+
+          // Reduce enemy HP by the damage of the NPC
+          const newHp = enemy.hp - npc.damage;
+          if (newHp > 0) {
+            // Update enemy HP if it's still above 0
+            setEnemies((prevEnemies) => {
+              const newEnemies = [...prevEnemies];
+              newEnemies[index] = { ...enemy, hp: newHp };
+              return newEnemies;
+            });
+          } else {
+            // Remove enemy if HP is 0 or below
+            setEnemies((prevEnemies) =>
+              prevEnemies.filter((e, i) => i !== index)
+            );
+          }
         }
       });
     });
