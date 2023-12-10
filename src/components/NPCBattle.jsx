@@ -86,9 +86,9 @@ const NPCBattle = () => {
     console.log("trying to spawn enemy");
     console.log(`enemies = ${JSON.stringify(enemies)}`);
     const newEnemy = {
-      id: currentID * Math.random() * 10,
-      x: Math.random() * (canvasRef.current.width - 200), // Ensuring the enemy is within canvas bounds
-      y: Math.random() * (canvasRef.current.height - 200),
+      id: currentID * 10000,
+      x: Math.random() * (canvasRef.current.width - 100), // Ensuring the enemy is within canvas bounds
+      y: Math.random() * (canvasRef.current.height - 100),
       color: `rgb(${Math.random() * 255}, ${Math.random() * 255}, ${
         Math.random() * 255
       })`,
@@ -99,8 +99,8 @@ const NPCBattle = () => {
     let isOverlapping = false;
     enemies.forEach((enemy) => {
       if (
-        Math.abs(enemy.x - newEnemy.x) < 200 &&
-        Math.abs(enemy.y - newEnemy.y) < 200
+        Math.abs(enemy.x - newEnemy.x) < 100 &&
+        Math.abs(enemy.y - newEnemy.y) < 100
       ) {
         isOverlapping = true;
       }
@@ -114,14 +114,15 @@ const NPCBattle = () => {
 
   const clearEnemies = () => {
     setEnemies([]);
+    console.log("clearEnemies called");
   };
 
   const drawEnemies = (ctx) => {
     enemies.forEach((enemy) => {
       ctx.fillStyle = enemy.color;
-      ctx.fillRect(enemy.x, enemy.y, 200, 200);
+      ctx.fillRect(enemy.x, enemy.y, 100, 100);
       ctx.fillStyle = "black";
-      ctx.fillText(`HP: ${enemy.hp}`, enemy.x + 100, enemy.y + 100);
+      ctx.fillText(`HP: ${enemy.hp}`, enemy.x + 50, enemy.y + 50);
     });
   };
 
