@@ -125,10 +125,22 @@ const NPCBattle = () => {
   };
 
   const drawEnemy = (enemy, ctx, canvas) => {
+    const enemySize = 100; // Assuming enemy box is 100x100
     ctx.fillStyle = enemy.color;
-    ctx.fillRect(enemy.x, enemy.y, 100, 100);
+    ctx.fillRect(enemy.x, enemy.y, enemySize, enemySize);
+
+    // Set the font size and style for the HP text
+    const fontSize = 20; // Example: setting font size to 20px
+    ctx.font = `${fontSize}px Arial`; // Setting font family to Arial
+
+    // Calculate the position to center the text
+    const text = `${enemy.hp}`;
+    const textWidth = ctx.measureText(text).width;
+    const textX = enemy.x + (enemySize - textWidth) / 2; // Center horizontally
+    const textY = enemy.y + enemySize / 2 + fontSize / 2; // Center vertically (approximation)
+
     ctx.fillStyle = "black";
-    ctx.fillText(`${enemy.hp}`, enemy.x + 50, enemy.y + 50);
+    ctx.fillText(text, textX, textY);
   };
 
   const checkCollision = (npc, enemy) => {
