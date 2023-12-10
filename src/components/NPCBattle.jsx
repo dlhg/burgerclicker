@@ -146,14 +146,18 @@ const NPCBattle = () => {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
 
     // Iterate through NPCs and enemies, drawing and checking for collisions
-    npcs.forEach((npc) => {
+    npcs.forEach((npc, npcIndex) => {
       drawNPC(npc, ctx, canvas);
-      enemies.forEach((enemy, index) => {
+      enemies.forEach((enemy, enemyIndex) => {
         drawEnemy(enemy, ctx, canvas);
         if (checkCollision(npc, enemy)) {
           console.log(
             `Collision happened between NPC with ID ${npc.id} (damage: ${npc.damage}) and Enemy with ID ${enemy.id} (HP: ${enemy.hp})`
           );
+
+          // Bounce the NPC off the enemy
+          npc.dx = -npc.dx;
+          npc.dy = -npc.dy;
 
           // Reduce enemy HP by the damage of the NPC
           const newHp = enemy.hp - npc.damage;
@@ -161,16 +165,23 @@ const NPCBattle = () => {
             // Update enemy HP if it's still above 0
             setEnemies((prevEnemies) => {
               const newEnemies = [...prevEnemies];
-              newEnemies[index] = { ...enemy, hp: newHp };
+              newEnemies[enemyIndex] = { ...enemy, hp: newHp };
               return newEnemies;
             });
           } else {
             // Remove enemy if HP is 0 or below
             setEnemies((prevEnemies) =>
-              prevEnemies.filter((e, i) => i !== index)
+              prevEnemies.filter((e, i) => i !== enemyIndex)
             );
           }
         }
+      });
+
+      // Update the direction and position of the NPC
+      setNPCs((prevNPCs) => {
+        const newNPCs = [...prevNPCs];
+        newNPCs[npcIndex] = { ...npc };
+        return newNPCs;
       });
     });
 
