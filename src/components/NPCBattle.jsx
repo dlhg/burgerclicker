@@ -47,8 +47,8 @@ const NPCBattle = () => {
       const newNPC = {
         x: Math.random() * canvas.width,
         y: Math.random() * canvas.height,
-        dx: (Math.random() - 0.5) * 2,
-        dy: (Math.random() - 0.5) * 2,
+        dx: (Math.random() - 0.5) * 0.01,
+        dy: (Math.random() - 0.5) * 0.01,
         color: color,
         id: generateID(),
         damage: assignDamageStat(color),
