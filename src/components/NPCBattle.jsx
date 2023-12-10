@@ -128,7 +128,7 @@ const NPCBattle = () => {
     ctx.fillStyle = enemy.color;
     ctx.fillRect(enemy.x, enemy.y, 100, 100);
     ctx.fillStyle = "black";
-    ctx.fillText(`HP: ${enemy.hp}`, enemy.x + 50, enemy.y + 50);
+    ctx.fillText(`${enemy.hp}`, enemy.x + 50, enemy.y + 50);
   };
 
   const checkCollision = (npc, enemy) => {
