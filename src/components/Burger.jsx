@@ -42,7 +42,7 @@ export default function Burger(props) {
   function handleBurgerClick(e) {
     // Check if the player and its buffer are loaded
     if (sfxPlayer && sfxPlayer.loaded) {
-      // Start playing the gong sound
+      // Start playing the burger click sound
       sfxPlayer.start();
     } else {
       console.error("Audio buffer not loaded");
