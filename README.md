@@ -1,7 +1,7 @@
 # Burger Clicker
 
 ## Description
-Burger Clicker is an idle/incremental game made with React, Tone JS, and Chart JS. It is currently incomplete but still playable. 
+Burger Clicker is an idle/incremental game inspired by the classic Cookie Clicker and was made with React, Tone JS, and Chart JS. It is currently incomplete but still playable. If I come back to this project in the future, I'll add more store items and upgrades, a working achievement system, more minigames, better UI etc.
 
 ## How to play
 - Click the big burger to earn burger currency
