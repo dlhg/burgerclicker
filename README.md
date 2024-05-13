@@ -1,17 +1,12 @@
-# React + Vite
+# Burger Clicker
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Description
+Burger Clicker is an idle/incremental game made with React, Tone JS, and Chart JS. It is currently incomplete but still playable. 
 
-Currently, two official plugins are available:
+## How to play
+- Click the big burger to earn burger currency
+- Use this currency to purchase upgrades (workers, factories etc)
+- Once you have two or more workers, you can play a burger assembly minigame to earn burger currency even faster, or you can just idle and let the burgers roll in
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
-
-
-How to push in command line:
-- git add .
-    - this stages your changes
-- git commit -m "commit message here"
-    - this commits your staged changes
-- git push origin
-    - push your changes to github
+## Youtube Demo
+[![Demo Video](https://img.youtube.com/vi/aMyThwH6s/0.jpg)](https://www.youtube.com/watch?v=T_aMyThwH6s)
