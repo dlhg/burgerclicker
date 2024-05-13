@@ -9,4 +9,4 @@ Burger Clicker is an idle/incremental game made with React, Tone JS, and Chart J
 - Once you have two or more workers, you can play a burger assembly minigame to earn burger currency even faster, or you can just idle and let the burgers roll in
 
 ## Youtube Demo
-[![Demo Video](https://img.youtube.com/vi/aMyThwH6s/0.jpg)](https://www.youtube.com/watch?v=T_aMyThwH6s)
+[![Demo Video]](https://www.youtube.com/watch?v=T_aMyThwH6s)
